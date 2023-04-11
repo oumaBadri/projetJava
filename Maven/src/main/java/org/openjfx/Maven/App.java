@@ -48,7 +48,7 @@ public class App extends Application {
         UtilisateurDAO.ajouterUtilisateur(u);*/
       /*  Producteur p =new Producteur(20, "heelloo", "baadroo", "badri@gmail", "12345678",date);
         ProducteurDAO.ajouterProducteur(p);*/
-        //hello
+        //hello world
     	//test
     }
 
