@@ -51,7 +51,7 @@ public class UserLoginController {
     	}
     	if (ChampValid==true) {
     		UtilisateurService.login(email.getText(),mdp.getText());
-    		 App.setRoot("Inscription");
+    		 App.setRoot("Homepage");
     }
 		
     }

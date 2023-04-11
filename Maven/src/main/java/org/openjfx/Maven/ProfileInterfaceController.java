@@ -12,7 +12,7 @@ public class ProfileInterfaceController {
 	
 	@FXML
     private void switchToProfileSettings() throws IOException {
-        App.setRoot("ProfileSettings");
+        App.setRoot("ProfilSettings");
     }
 
 	
