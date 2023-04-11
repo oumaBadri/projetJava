@@ -30,10 +30,13 @@ public class ControlSaisie {
 	public static boolean validEmailutilisateur(String email) {
 		return email.contains("@")&& !(UtilisateurService.exitUtilisateurWithEmail(email));
 	}
-	public static boolean Existe(String champ) {
+	public static boolean ExisteEmail(String champ) {
 		return UtilisateurService.exitUtilisateurWithEmail(champ);
 	}
 	
+	public static boolean ExisteMdp(String champ) {
+		return UtilisateurService.exitUtilisateurWithMdp(champ);
+	}
 	
 	
 	public static boolean validMdp(String mdp) {

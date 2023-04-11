@@ -40,12 +40,12 @@ public class UserLoginController {
     	Utilisateur p;
     	Boolean ChampValid=true;
     	
-        if (ControlSaisie.Existe(email.getText())==false){
+        if (ControlSaisie.ExisteEmail(email.getText())==false){
     		emailcor.setText("Email introuvable");
     		ChampValid=false;
     	}	
     	
-    	if (ControlSaisie.Existe(mdp.getText())==false) {
+    	if (ControlSaisie.ExisteMdp(mdp.getText())==false) {
     		mdpcor.setText("wrong Password");
     		ChampValid=false;
     	}
@@ -53,6 +53,7 @@ public class UserLoginController {
     		UtilisateurService.login(email.getText(),mdp.getText());
     		 App.setRoot("Inscription");
     }
+		
     }
 	
     	@FXML

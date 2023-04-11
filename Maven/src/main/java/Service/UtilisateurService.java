@@ -27,6 +27,17 @@ public class UtilisateurService {
 	                .anyMatch(str -> str.getEmail_user().equals(email));
 			return result;
 		}
+		public static boolean exitUtilisateurWithMdp(String email) {
+			List<Utilisateur> User=null;
+			try {
+				User=UtilisateurDAO.findAll();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			boolean result = User.stream()
+	                .anyMatch(str -> str.getMdp_user().equals(email));
+			return result;
+		}
 		
 		
 		public static boolean login(String email, String mdp) {
