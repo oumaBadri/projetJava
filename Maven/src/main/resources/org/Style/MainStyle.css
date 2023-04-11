@@ -15,3 +15,34 @@
 .right1{
 	-fx-background-color:#D4B5B0;
 }
+.background{
+	-fx-background-color:#d4b5b0;
+}
+.left-side-background{
+	-fx-background-color:#d4b5b0;
+}
+
+.right-side-background{
+	-fx-background-color:#eedad1;
+}
+
+
+.button-background{
+-fx-background-color:#d4b5b0;     
+}
+.border{
+
+-fx-border-color:#d4b5b0;
+
+-fx-border-width:2;
+
+}
+.transparent{
+
+-fx-background-color:rgba(0,0,0,0);
+
+}
+
+.Erreur{
+	-fx-color:#ef0808;
+}
