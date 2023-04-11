@@ -1,5 +1,8 @@
 package Controller;
 
+import java.sql.SQLException;
+
+import Service.ActeurService;
 import Service.ProducteurService;
 import Service.UtilisateurService;
 
@@ -43,5 +46,11 @@ public class ControlSaisie {
 		return !(mdp==null) && mdp.length()>=8;
 	}
 
-
+	public static boolean validId(int id) throws SQLException {
+		return (Service.ActeurService.verifId(id));
+	}
+	
+	public static boolean validAncienMdp(int id,String mdp) {
+		return  ActeurService.verifAncienMDP(id,mdp);
+	}
 }
