@@ -1,0 +1,17 @@
+.left{
+	-fx-background-color:#EEDAD1;
+}
+.transparent{
+	-fx-background-color:rgba(0,0,0,0);
+}
+.border{
+	-fx-border-color:#F69E7B;
+	-fx-border-width:2; 
+}
+ .right{
+	-fx-border-color:#F69E7B;
+	-fx-border-width:0 2 0 0; 
+}
+.right1{
+	-fx-background-color:#D4B5B0;
+}
