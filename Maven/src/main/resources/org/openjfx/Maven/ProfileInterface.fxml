@@ -10,18 +10,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="342.0" styleClass="right-side-background" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fsb2.moviemaven.ProfileInterfaceController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="342.0" styleClass="right-side-background" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.ProfileInterfaceController">
    <children>
-      <Pane prefHeight="148.0" prefWidth="256.0">
+      <Pane prefHeight="148.0" prefWidth="256.0" styleClass="right-side-background" stylesheets="@../../Style/MainStyle.css">
          <children>
             <ImageView fitHeight="133.0" fitWidth="116.0" layoutX="124.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/user.png" />
+                  <Image url="@images/user.png" />
                </image>
             </ImageView>
-            <Pane layoutX="-1.0" layoutY="131.0" prefHeight="47.0" prefWidth="342.0">
+            <Pane layoutX="-1.0" layoutY="119.0" prefHeight="47.0" prefWidth="342.0">
                <children>
-                  <Label layoutX="107.0" layoutY="4.0" text="Foulen Ben Foulen">
+                  <Label layoutX="107.0" layoutY="4.0" prefHeight="9.0" prefWidth="155.0" text="Foulen Ben Foulen">
                      <font>
                         <Font name="Calisto MT" size="19.0" />
                      </font>
@@ -30,11 +30,11 @@
             </Pane>
          </children>
       </Pane>
-      <Pane prefHeight="222.0" prefWidth="342.0">
+      <Pane prefHeight="226.0" prefWidth="342.0" styleClass="right-side-background" stylesheets="@../../Style/MainStyle.css">
          <children>
             <ImageView fitHeight="47.0" fitWidth="53.0" layoutX="19.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/settingslogo.png" />
+                  <Image url="@images/settingslogo.png" />
                </image>
             </ImageView>
             <Button fx:id="editerProfilBtn" layoutX="88.0" layoutY="65.0" mnemonicParsing="false" onAction="#switchToProfileSettings" prefHeight="33.0" prefWidth="211.0" stylesheets="@css/styles.css" text="Editer votre profil" textAlignment="CENTER">
@@ -50,7 +50,7 @@
                <children>
                   <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="13.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/addlogo.png" />
+                        <Image url="@images/addlogo.png" />
                      </image>
                   </ImageView>
                </children>
@@ -64,10 +64,10 @@
                   <String fx:value="border" />
                </styleClass>
             </Button>
-            <Separator layoutX="-4.0" layoutY="247.0" prefHeight="17.0" prefWidth="342.0" />
+            <Separator layoutY="26.0" prefHeight="17.0" prefWidth="342.0" />
          </children>
       </Pane>
-      <Pane prefHeight="124.0" prefWidth="342.0">
+      <Pane prefHeight="124.0" prefWidth="342.0" styleClass="right-side-background" stylesheets="@../../Style/MainStyle.css">
          <children>
             <Button fx:id="deconnexionBtn" layoutX="14.0" layoutY="62.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="149.0" stylesheets="@css/styles.css" text="Supprimer Compte">
                <font>
@@ -87,6 +87,7 @@
                   <String fx:value="border" />
                </styleClass>
             </Button>
+            <Separator layoutY="22.0" prefHeight="17.0" prefWidth="342.0" />
          </children>
       </Pane>
    </children>
