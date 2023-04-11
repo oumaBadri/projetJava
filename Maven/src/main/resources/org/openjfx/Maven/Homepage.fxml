@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1000.0" style="-fx-background-color: 383E56;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.java_maven_archetype.thirdController">
+   <children>
+      <Pane layoutY="-3.0" prefHeight="91.0" prefWidth="1000.0" styleClass="left" stylesheets="@../../../Style/MainStyle.css">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="175.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/336721789_916246296322521_3193178127915645001_n-removebg-preview.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </ImageView>
+            <Button layoutX="197.0" layoutY="27.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="81.0" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css" text="Movies" textFill="#1572a1">
+               <font>
+                  <Font name="Cooper Black" size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="285.0" layoutY="26.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="103.0" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css" text="TV Shows" textFill="#1572a1">
+               <font>
+                  <Font name="Cooper Black" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="376.0" layoutY="25.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="103.0" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css" text="MyList" textFill="#1572a1">
+               <font>
+                  <Font name="Cooper Black" size="15.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="2.0" specularConstant="0.0" specularExponent="14.86">
+                     <bumpInput>
+                        <Shadow height="111.1" radius="53.595" width="105.28" />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
+            <ComboBox layoutX="748.0" layoutY="33.0" prefWidth="150.0" promptText="         Recherche" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css" />
+            <ImageView fitHeight="26.0" fitWidth="20.0" layoutX="857.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/recherche-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="898.0" layoutY="31.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/bell.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="935.0" layoutY="16.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="59.0" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/face%20login.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <AnchorPane layoutX="35.0" layoutY="122.0" prefHeight="278.0" prefWidth="189.0" style="-fx-background-color: #1572a1;">
+         <children>
+            <ImageView fitHeight="210.0" fitWidth="170.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/oster.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="play" layoutX="20.0" layoutY="235.0" mnemonicParsing="false" onAction="#switchToFourth" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="77.0" layoutY="236.0" mnemonicParsing="false" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/heart-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="132.0" layoutY="235.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="37.0" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/play2-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="257.0" layoutY="122.0" prefHeight="278.0" prefWidth="189.0" style="-fx-background-color: #1572a1;">
+         <children>
+            <ImageView fitHeight="210.0" fitWidth="170.0" layoutX="29.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/poster%201.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="20.0" layoutY="235.0" mnemonicParsing="false" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="77.0" layoutY="236.0" mnemonicParsing="false" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/heart-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="133.0" layoutY="235.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="51.0" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/play2-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="500.0" layoutY="122.0" prefHeight="278.0" prefWidth="189.0" style="-fx-background-color: #1572a1;">
+         <children>
+            <ImageView fitHeight="201.0" fitWidth="170.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/Wednesday-2.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="20.0" layoutY="235.0" mnemonicParsing="false" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="77.0" layoutY="236.0" mnemonicParsing="false" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/heart-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="133.0" layoutY="236.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="51.0" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css" />
+            <ImageView fitHeight="30.0" fitWidth="42.0" layoutX="138.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/play2-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="722.0" layoutY="122.0" prefHeight="278.0" prefWidth="189.0" style="-fx-background-color: #1572a1;">
+         <children>
+            <ImageView fitHeight="210.0" fitWidth="170.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/téléchargement.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="20.0" layoutY="235.0" mnemonicParsing="false" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="77.0" layoutY="236.0" mnemonicParsing="false" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/heart-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="130.0" layoutY="235.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="51.0" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css" />
+            <ImageView fitHeight="30.0" fitWidth="42.0" layoutX="135.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/play2-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="35.0" layoutY="440.0" prefHeight="278.0" prefWidth="189.0" style="-fx-background-color: #1572a1;">
+         <children>
+            <ImageView fitHeight="210.0" fitWidth="150.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/MV5BODQ0NDhjYWItYTMxZi00NTk2LWIzNDEtOWZiYWYxZjc2MTgxXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1000_.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="20.0" layoutY="235.0" mnemonicParsing="false" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="77.0" layoutY="236.0" mnemonicParsing="false" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/heart-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="130.0" layoutY="235.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="51.0" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css" />
+            <ImageView fitHeight="30.0" fitWidth="42.0" layoutX="135.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/play2-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="257.0" layoutY="440.0" prefHeight="278.0" prefWidth="189.0" style="-fx-background-color: #1572a1;">
+         <children>
+            <ImageView fitHeight="210.0" fitWidth="170.0" layoutX="28.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/MV5BNmVmMmM5ZmItZDg0OC00NTFiLWIxNzctZjNmYTY5OTU3ZWU3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="20.0" layoutY="235.0" mnemonicParsing="false" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="77.0" layoutY="236.0" mnemonicParsing="false" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/heart-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="130.0" layoutY="235.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="51.0" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css" />
+            <ImageView fitHeight="30.0" fitWidth="42.0" layoutX="135.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/play2-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="500.0" layoutY="440.0" prefHeight="278.0" prefWidth="189.0" style="-fx-background-color: #1572a1;">
+         <children>
+            <ImageView fitHeight="210.0" fitWidth="170.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/MV5BZjYzZDgzMmYtYjY5Zi00YTk1LThhMDYtNjFlNzM4MTZhYzgyXkEyXkFqcGdeQXVyMTE5NDQ1MzQ3._V1_.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="20.0" layoutY="235.0" mnemonicParsing="false" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="77.0" layoutY="236.0" mnemonicParsing="false" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/heart-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="128.0" layoutY="235.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="51.0" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css" />
+            <ImageView fitHeight="30.0" fitWidth="42.0" layoutX="133.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/play2-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="722.0" layoutY="440.0" prefHeight="278.0" prefWidth="189.0" style="-fx-background-color: #1572a1;">
+         <children>
+            <ImageView fitHeight="210.0" fitWidth="170.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/MV5BYWE3MDVkN2EtNjQ5MS00ZDQ4LTliNzYtMjc2YWMzMDEwMTA3XkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_FMjpg_UX1000_.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="20.0" layoutY="235.0" mnemonicParsing="false" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="77.0" layoutY="236.0" mnemonicParsing="false" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/heart-removebg-preview%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="130.0" layoutY="235.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="51.0" style="-fx-background-color: F0EEED;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css" />
+            <ImageView fitHeight="30.0" fitWidth="42.0" layoutX="135.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/play2-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
