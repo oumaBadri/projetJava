@@ -51,7 +51,7 @@ public class ConsultationSerieAdministrateur {
     private Label title;
 
     @FXML
-    void SwithtoInterfaceProfil(S event) {
+    void SwithtoInterfaceProfil(ActionEvent event) {
 
     }
 
