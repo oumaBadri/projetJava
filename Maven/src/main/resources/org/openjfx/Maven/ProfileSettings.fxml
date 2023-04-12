@@ -49,7 +49,7 @@
                   <Font name="Calisto MT" size="30.0" />
                </font>
             </Button>
-            <Button fx:id="mdpAc" layoutX="192.0" layoutY="584.0" mnemonicParsing="false" styleClass="transparent" stylesheets="@css/styles.css" text="Mot de passe">
+            <Button fx:id="mdpAc" layoutX="192.0" layoutY="584.0" mnemonicParsing="false" onAction="#switchToMdp" styleClass="transparent" stylesheets="@css/styles.css" text="Mot de passe">
                <font>
                   <Font name="Calisto MT" size="33.0" />
                </font>
