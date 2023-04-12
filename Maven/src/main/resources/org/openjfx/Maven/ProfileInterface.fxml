@@ -55,7 +55,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button fx:id="ajouterCmptBtn" layoutX="85.0" layoutY="163.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="217.0" stylesheets="@css/styles.css" text="Ajouter un autre compte">
+            <Button fx:id="ajouterCmptBtn" layoutX="85.0" layoutY="163.0" mnemonicParsing="false" onAction="#switchToInscription" prefHeight="39.0" prefWidth="217.0" stylesheets="@css/styles.css" text="Ajouter un autre compte">
                <font>
                   <Font name="Cooper Black" size="15.0" />
                </font>
@@ -78,7 +78,7 @@
                   <String fx:value="border" />
                </styleClass>
             </Button>
-            <Button fx:id="deconnexionBtn1" layoutX="178.0" layoutY="62.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="149.0" stylesheets="@css/styles.css" text="Déconnexion">
+            <Button fx:id="deconnexionBtn1" layoutX="178.0" layoutY="62.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="33.0" prefWidth="149.0" stylesheets="@css/styles.css" text="Déconnexion">
                <font>
                   <Font name="Cooper Black" size="14.0" />
                </font>

@@ -1,6 +1,7 @@
 package org.openjfx.Maven;
 
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import Controller.ControlSaisie;
@@ -83,4 +84,10 @@ public class ChangerMdpController {
 
     }
 
+    
+    @FXML
+    private void switchToProfl() throws IOException {
+        App.setRoot("ProfileSettings");
+    }
+    
 }

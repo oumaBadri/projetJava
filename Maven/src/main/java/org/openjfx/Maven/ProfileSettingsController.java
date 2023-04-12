@@ -1,6 +1,7 @@
 package org.openjfx.Maven;
 
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import Controller.ControlSaisie;
@@ -75,6 +76,13 @@ Boolean ChampValid=true;
 	if (ChampValid==true)
 		update.setText("modifications enregistrées");
 		
+    }
+    
+    
+    
+    @FXML
+    private void switchToMdp() throws IOException {
+        App.setRoot("PasswordSettings");
     }
 
 }

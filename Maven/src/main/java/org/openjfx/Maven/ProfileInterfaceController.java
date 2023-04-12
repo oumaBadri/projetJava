@@ -12,8 +12,20 @@ public class ProfileInterfaceController {
 	
 	@FXML
     private void switchToProfileSettings() throws IOException {
-        App.setRoot("ProfilSettings");
+        App.setRoot("ProfileSettings");
     }
+	
+	@FXML
+    private void switchToInscription() throws IOException {
+        App.setRoot("Inscription");
+    }
+	
+	
+	@FXML
+    private void switchToLogin() throws IOException {
+        App.setRoot("login");
+    }
+	
 
 	
 
