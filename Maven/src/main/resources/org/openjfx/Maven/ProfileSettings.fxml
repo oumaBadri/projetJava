@@ -55,6 +55,11 @@
                </font>
             </Button>
             <Separator layoutX="192.0" layoutY="380.0" orientation="VERTICAL" prefHeight="105.0" prefWidth="24.0" />
+            <ImageView fx:id="back" fitHeight="77.0" fitWidth="80.0" layoutY="8.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/back.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Pane layoutX="463.0" layoutY="-11.0" prefHeight="826.0" prefWidth="539.0" styleClass="right-side-background" stylesheets="@../../Style/MainStyle.css">
