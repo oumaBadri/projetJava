@@ -21,7 +21,7 @@
    <top>
       <AnchorPane prefHeight="69.0" prefWidth="930.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="TOP_LEFT" layoutX="826.0" layoutY="6.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+            <Button alignment="TOP_LEFT" layoutX="768.0" layoutY="5.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
                   <ImageView fitHeight="62.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -69,9 +69,9 @@
       </AnchorPane>
    </left>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="47.0" prefWidth="252.0" text="Add Show ">
+            <Label alignment="CENTER" prefHeight="47.0" prefWidth="252.0" text="Add Show " textFill="#1a1a81">
                <font>
                   <Font name="Cooper Black" size="26.0" />
                </font>
@@ -141,7 +141,7 @@
                   </Button>
                </children>
             </AnchorPane>
-            <TableView prefHeight="482.0" prefWidth="729.0">
+            <TableView prefHeight="419.0" prefWidth="724.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="Id_show" />
                 <TableColumn prefWidth="75.0" text="Titre" />

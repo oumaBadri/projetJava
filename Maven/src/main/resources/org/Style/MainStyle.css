@@ -42,6 +42,7 @@
 .Erreur{
 	-fx-color:#ef0808;
 }
+
 .side_ankerpane{
 	-fx-bacjground-color:383E56;
 	-fx-border-color:383E56;
@@ -62,3 +63,9 @@
 	
 	
 	}
+
+
+.Consultation{
+	-fx-background-color:#F69E7B
+}
+
