@@ -59,6 +59,10 @@ public class ConfirmSupprController {
 	    		mdpcor.setText("password invalide : champ obligatoire doit contenir au moins 8 symbols");
 	    		ChampValid=false;
 	    	}
+	    	if (ControlSaisie.validAncienMdp(Integer.parseInt(idac.getText()),mdpac.getText())==false) {
+	    		mdpcor.setText("password invalide : mdp incorrecte");
+	    		ChampValid=false;
+	    	}
 		
 		if (ChampValid==true)
 			ActeurDAO.supprimerActeur(Integer.parseInt(idac.getText()));
