@@ -37,7 +37,7 @@ public class ConfirmSupprController {
 	    
 	    
 	    @FXML
-	    void confirmer(ActionEvent event) throws NumberFormatException, SQLException {
+	    void confirmer(ActionEvent event) throws NumberFormatException, SQLException, IOException {
 	    	
 	Boolean ChampValid=true;
 	    
@@ -62,6 +62,7 @@ public class ConfirmSupprController {
 		
 		if (ChampValid==true)
 			ActeurDAO.supprimerActeur(Integer.parseInt(idac.getText()));
+			App.setRoot("Inscription");
 			
 	    }
 	    
