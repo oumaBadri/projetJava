@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class ActeurControl {
 	
 	
-//hhh	
+//hhh	ghghhjhg
 	public static boolean verifierMdp(String mdp) throws SQLException{
 		if (mdp.length()>=8) {
 			return true;
