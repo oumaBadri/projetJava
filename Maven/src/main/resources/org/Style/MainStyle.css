@@ -37,12 +37,28 @@
 -fx-border-width:2;
 
 }
-.transparent{
 
--fx-background-color:rgba(0,0,0,0);
-
-}
 
 .Erreur{
 	-fx-color:#ef0808;
 }
+.side_ankerpane{
+	-fx-bacjground-color:383E56;
+	-fx-border-color:383E56;
+	-fx-border-width:2px 2px 2px 2px ;
+	-fx-border-radius:20px;
+	-fx-background-radius:20px;
+	-fx-border-style:solid;
+	
+	
+	}
+	.side_recherche__ankerpane{
+	-fx-bacjground-color:#EEDAD1;
+	-fx-border-color:#EEDAD1;
+	-fx-border-width:2px 2px 2px 2px ;
+	-fx-border-radius:20px;
+	-fx-background-radius:20px;
+	-fx-border-style:solid;
+	
+	
+	}

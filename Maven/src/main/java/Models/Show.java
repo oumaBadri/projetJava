@@ -2,6 +2,8 @@ package Models;
 
 import java.time.LocalDate;
 
+import javafx.scene.image.Image;
+
 public class Show {
 	
 	private int id_show;
@@ -11,6 +13,7 @@ public class Show {
     private String langue;
     private String genre_show;
     private int is_a_film;
+    private String affiche;
 	
 
 	public Show(int id_show, String titre_show, LocalDate Date_difussion_show, String pays, String langue,String genre_show,int is_a_film) {
@@ -24,11 +27,21 @@ public class Show {
 		this.is_a_film = is_a_film;
 	}
 
+	public Show(String titre_show, String affiche) {
+		super();
+		this.titre_show = titre_show;
+		this.affiche = affiche;
+	}
 
 
 
 
 
+
+
+	public Show() {
+		
+	}
 
 	public String getTitre_show() {
 		return titre_show;
@@ -77,17 +90,32 @@ public class Show {
 	public void setIs_a_film(int is_a_film) {
 		this.is_a_film = is_a_film;
 	}
-	
-
 	public int getId_show() {
 		return id_show;
 	}
-
-
-
 	public void setId_show(int id_show) {
 		this.id_show = id_show;
 	}
+
+	public String getAffiche() {
+		return affiche;
+	}
+	public void setAffiche(String affiche) {
+		this.affiche = affiche;
+	}
+
+
+
+
+
+
+	public int getIs_a_film() {
+		return is_a_film;
+	}
+
+
+
+
 
 
 

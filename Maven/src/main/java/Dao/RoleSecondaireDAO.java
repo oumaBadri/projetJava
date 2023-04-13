@@ -36,7 +36,7 @@ private static Connection conn = conxBD.getInstance();
 
 	            if (rs.next()) {
 	                code = rs.getInt(1);
-	            }
+	            } 
 
 	        } catch (SQLException ex) {
 	            System.out.println(ex.getMessage());

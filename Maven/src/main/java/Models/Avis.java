@@ -20,7 +20,7 @@ public class Avis {
 		super();
 		this.id_user = id_user;
 		this.id_show = id_show;
-		this.note = note;
+		this.note = note; 
 		this.commantaire = commantaire;
 		this.num_ep = num_ep;
 		this.num_saison = num_saison;

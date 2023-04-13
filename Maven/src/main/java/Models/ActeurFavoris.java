@@ -17,7 +17,7 @@ public class ActeurFavoris {
 		this.id_acteur = id_acteur;
 	}
 
-
+ 
 	public int getId_user() {
 		return id_user;
 	}

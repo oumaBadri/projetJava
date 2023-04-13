@@ -52,7 +52,7 @@ public class ActeurDAO {
 				System.out.println("-------connexion is "+conn);
 				PreparedStatement pstmt = null;
 			    ResultSet rs = null;
-		        
+		         
 		        try {
 		        	String sql = "INSERT INTO ACTEUR VALUES (?,?,?,?,?,?)";
 	        		pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);

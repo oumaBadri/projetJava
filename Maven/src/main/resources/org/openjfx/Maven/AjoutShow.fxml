@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="930.0" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="69.0" prefWidth="930.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button alignment="TOP_LEFT" layoutX="826.0" layoutY="6.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="62.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/producteur.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="740.0" layoutY="15.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="66.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+            <Button layoutX="14.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="140.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="80.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/336721789_916246296322521_3193178127915645001_n-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <styleClass>
+            <String fx:value="left" />
+            <String fx:value="side_ankerpane" />
+         </styleClass>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="648.0" prefWidth="108.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="34.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Capture_d_écran_2023-04-13_165943-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="53.0" layoutY="172.0" prefHeight="35.0" prefWidth="125.0" text="Add Show" textFill="#c95c3b">
+               <font>
+                  <Font name="Cooper Black" size="17.0" />
+               </font>
+            </Label>
+            <ComboBox layoutX="35.0" layoutY="167.0" prefHeight="46.0" prefWidth="162.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+         </children>
+         <styleClass>
+            <String fx:value="left" />
+            <String fx:value="side_ankerpane" />
+         </styleClass>
+      </AnchorPane>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="47.0" prefWidth="252.0" text="Add Show ">
+               <font>
+                  <Font name="Cooper Black" size="26.0" />
+               </font>
+            </Label>
+            <AnchorPane prefHeight="202.0" prefWidth="710.0">
+               <children>
+                  <TextField layoutX="37.0" layoutY="20.0" prefHeight="26.0" prefWidth="134.0" promptText="Id_Show " styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+                  <TextField layoutX="37.0" layoutY="63.0" prefHeight="26.0" prefWidth="131.0" promptText="Titre" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+                  <TextField layoutX="189.0" layoutY="63.0" prefHeight="26.0" prefWidth="140.0" promptText="Date-diffusion" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+                  <TextField layoutX="361.0" layoutY="63.0" prefHeight="26.0" prefWidth="130.0" promptText="Pays" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+                  <TextField layoutX="37.0" layoutY="112.0" prefHeight="26.0" prefWidth="130.0" promptText="Langue" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+                  <TextField layoutX="192.0" layoutY="112.0" prefHeight="26.0" prefWidth="134.0" promptText="Genre" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+                  <TextField layoutX="361.0" layoutY="112.0" prefHeight="26.0" prefWidth="128.0" promptText="Is_a_film" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+                  <Button layoutX="50.0" layoutY="152.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="64.0" stylesheets="@../../Style/MainStyle.css" text="ADD" textFill="#2d1b86">
+                     <styleClass>
+                        <String fx:value="transparent" />
+                        <String fx:value="side_ankerpane" />
+                        <String fx:value="side_recherche__ankerpane" />
+                     </styleClass>
+                     <font>
+                        <Font name="Cooper Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="154.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/recherche-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Separator layoutX="36.0" layoutY="45.0" prefHeight="5.0" prefWidth="156.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" />
+                  <Line endX="100.0" layoutX="58.0" layoutY="88.0" startX="-21.60003662109375" />
+                  <Line endX="46.20001220703125" layoutX="259.0" layoutY="90.0" startX="-70.0" startY="-0.600006103515625" />
+                  <Line endX="42.39996337890625" layoutX="414.0" layoutY="91.0" startX="-59.20001220703125" />
+                  <Line endX="89.20001220703125" layoutX="72.0" layoutY="134.0" startX="-29.20001220703125" />
+                  <Line endX="96.5999755859375" layoutX="211.0" layoutY="134.0" startX="-17.0" />
+                  <Line endX="67.5999755859375" layoutX="388.0" layoutY="134.0" startX="-29.20001220703125" />
+                  <TextField layoutX="491.0" layoutY="112.0" prefHeight="26.0" prefWidth="131.0" promptText="Nombre_Saison" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+                  <Line endX="42.39996337890625" layoutX="551.0" layoutY="134.0" startX="-59.20001220703125" />
+                  <Button layoutX="152.0" layoutY="152.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="83.0" stylesheets="@../../Style/MainStyle.css" text="Update " textFill="#2d1b86">
+                     <styleClass>
+                        <String fx:value="transparent" />
+                        <String fx:value="side_ankerpane" />
+                        <String fx:value="side_recherche__ankerpane" />
+                     </styleClass>
+                     <font>
+                        <Font name="Cooper Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="266.0" layoutY="152.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="83.0" stylesheets="@../../Style/MainStyle.css" text="Delete" textFill="#2d1b86">
+                     <styleClass>
+                        <String fx:value="transparent" />
+                        <String fx:value="side_ankerpane" />
+                        <String fx:value="side_recherche__ankerpane" />
+                     </styleClass>
+                     <font>
+                        <Font name="Cooper Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="622.0" layoutY="152.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="83.0" stylesheets="@../../Style/MainStyle.css" text="Next" textFill="#2d1b86">
+                     <styleClass>
+                        <String fx:value="transparent" />
+                        <String fx:value="side_ankerpane" />
+                        <String fx:value="side_recherche__ankerpane" />
+                     </styleClass>
+                     <font>
+                        <Font name="Cooper Black" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <TableView prefHeight="482.0" prefWidth="729.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Id_show" />
+                <TableColumn prefWidth="75.0" text="Titre" />
+                  <TableColumn prefWidth="111.99996948242188" text="Date_diffusion " />
+                  <TableColumn prefWidth="113.60006713867188" text="Pays" />
+                  <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Langue" />
+                  <TableColumn prefWidth="86.4000244140625" text="Genre" />
+                  <TableColumn prefWidth="79.199951171875" text="Is_a_Film" />
+                  <TableColumn prefWidth="92.0" text="Affiche" />
+              </columns>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TableView>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>
