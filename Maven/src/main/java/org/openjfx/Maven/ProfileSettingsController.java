@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import Controller.ControlSaisie;
+import Models.Acteur;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -45,6 +46,7 @@ public class ProfileSettingsController {
     private ImageView back;
     
     
+    static Acteur a= new Acteur();
     
     @FXML
     private void back() throws IOException {
