@@ -35,7 +35,7 @@ public class ShowDAO {
 		        	pstmt.setString(5, Show.getLangue());
 		        	pstmt.setInt(6,Show.isIs_a_film());
 		            pstmt.setString(7, Show.getGenre_show());
-		            
+		             
 		        
 		        	pstmt.executeUpdate();
 		        	

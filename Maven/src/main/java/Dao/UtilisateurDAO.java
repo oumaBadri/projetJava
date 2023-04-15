@@ -41,7 +41,7 @@ public class UtilisateurDAO {
 	        System.out.println(ex.getMessage());
 	        return false;
 	    }
-	}	
+	}	 
 //************************Ajouter Utilisateur*****************************************
 	public static int ajouterUtilisateur(Utilisateur Utilisateur) {
 				int UtilisateurId = 0;
@@ -50,7 +50,7 @@ public class UtilisateurDAO {
 			    ResultSet rs = null;
 		        
 		        try {
-		        	String sql = "INSERT INTO Utilisateur VALUES (?,?,?,?,?,?)";
+		        	String sql = "INSERT INTO Utilisateur1 VALUES (?,?,?,?,?,?)";
 	        		pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		        	System.out.println("coonexion is---------------------- "+conn);
 		        	pstmt.setInt(1, Utilisateur.getId_user());
@@ -67,7 +67,7 @@ public class UtilisateurDAO {
 		            if(rs.next())
 		            	UtilisateurId = rs.getInt(1);
 		            
-		        }catch (SQLException ex) {
+		        }catch (SQLException ex) { 
 		            System.out.println(ex.getMessage());
 		        }
 				return UtilisateurId;

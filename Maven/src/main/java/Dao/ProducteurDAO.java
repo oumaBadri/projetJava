@@ -40,7 +40,7 @@ public class ProducteurDAO {
 				        System.out.println(ex.getMessage());
 				        return false;
 				    } 
-				}
+				} 
 				
 				///login
 				

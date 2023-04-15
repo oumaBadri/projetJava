@@ -23,7 +23,7 @@ public class Producteur {
 
 		public Producteur() {
 			super();
-		}
+		} 
 
 		public Producteur(int id_p, String nom_p, String prenom_p, String email, String mdp, LocalDate date_naissance_ac) {
 			super();

@@ -24,7 +24,7 @@ private static Connection conn = conxBD.getInstance();
 	   public static int ajouterAvis(Avis Avis) {
 			int AvisId = 0;
 			System.out.println("-------connexion is "+conn);
-			PreparedStatement pstmt = null;
+			PreparedStatement pstmt = null; 
 		    ResultSet rs = null;
 	        
 	        try {

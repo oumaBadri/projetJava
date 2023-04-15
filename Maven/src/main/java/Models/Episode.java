@@ -21,7 +21,7 @@ public class Episode {
 		this.titre_ep = titre_ep;
 		this.num_ep = num_ep;
 		this.desc_ep = desc_ep;
-		this.date_diff = date_diff;
+		this.date_diff = date_diff; 
 	}
 	public int getId_show() {
 		return id_show;
