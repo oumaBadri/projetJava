@@ -48,7 +48,7 @@ public class App extends Application {
 
         //launch();
 
-        launch();
+        //launch();
     	
 
     	/*Connection cnx = utile.conxBD.getInstance();
