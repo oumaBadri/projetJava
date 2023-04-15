@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -61,32 +62,32 @@
          <children>
             <Text fontSmoothingType="LCD" layoutX="46.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paramétres de profile" wrappingWidth="402.3428649902344">
                <font>
-                  <Font name="Arial Black" size="25.0" />
+                  <Font name="Cooper Black" size="25.0" />
                </font>
             </Text>
             <Pane layoutX="18.0" layoutY="89.0" prefHeight="524.0" prefWidth="438.0">
                <children>
-                  <Text layoutX="41.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" wrappingWidth="51.7366943359375">
+                  <Text layoutX="40.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" wrappingWidth="66.93670654296875">
                      <font>
-                        <Font size="23.0" />
+                        <Font name="Cooper Black" size="23.0" />
                      </font>
                   </Text>
                   <TextField fx:id="nomAc" layoutX="156.0" layoutY="173.0" prefHeight="48.0" prefWidth="258.0" promptText="Foulen" styleClass="border" stylesheets="@css/styles.css" />
-                  <Text layoutX="12.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date de naissance" wrappingWidth="143.9999389648438">
+                  <Text layoutX="1.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date de naissance" wrappingWidth="163.9999389648438">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Cooper Black" size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="41.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom" wrappingWidth="86.93670654296875">
+                  <Text layoutX="40.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom" wrappingWidth="86.93670654296875">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="Cooper Black" size="20.0" />
                      </font>
                   </Text>
                   <TextField fx:id="prenomAc" layoutX="156.0" layoutY="279.0" prefHeight="48.0" prefWidth="258.0" promptText="Ben Foulen" styleClass="border" stylesheets="@css/styles.css" />
                   <DatePicker layoutX="166.0" layoutY="393.0" prefHeight="48.0" prefWidth="258.0" promptText="19/11/2002" styleClass="border" stylesheets="@css/styles.css" />
                   <Text layoutX="48.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="51.7366943359375">
                      <font>
-                        <Font size="21.0" />
+                        <Font name="Cooper Black" size="21.0" />
                      </font>
                   </Text>
                   <TextField fx:id="idAc" layoutX="156.0" layoutY="61.0" prefHeight="48.0" prefWidth="251.0" promptText=".." styleClass="border" stylesheets="@css/styles.css" />
@@ -96,10 +97,14 @@
                   <Label fx:id="update" layoutX="187.0" layoutY="224.0" textFill="#8566d9" />
                </children>
             </Pane>
-            <Button fx:id="enrgModifAcBtn" layoutX="160.0" layoutY="643.0" mnemonicParsing="false" onAction="#enregistrer" prefHeight="105.0" prefWidth="286.0" styleClass="button-background" stylesheets="@css/styles.css" text="Enregistrer modifications">
+            <Button fx:id="enrgModifAcBtn" layoutX="138.0" layoutY="639.0" mnemonicParsing="false" onAction="#enregistrer" prefHeight="72.0" prefWidth="286.0" stylesheets="@css/styles.css" text="Enregistrer modifications">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
+               <styleClass>
+                  <String fx:value="side_ankerpane" />
+                  <String fx:value="transparent" />
+               </styleClass>
             </Button>
          </children>
       </Pane>

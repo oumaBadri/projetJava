@@ -21,9 +21,9 @@
             </ImageView>
             <Pane layoutX="-1.0" layoutY="119.0" prefHeight="47.0" prefWidth="342.0">
                <children>
-                  <Label layoutX="107.0" layoutY="4.0" prefHeight="9.0" prefWidth="155.0" text="Foulen Ben Foulen">
+                  <Label layoutX="91.0" layoutY="3.0" prefHeight="23.0" prefWidth="199.0" text="Foulen Ben Foulen">
                      <font>
-                        <Font name="Calisto MT" size="19.0" />
+                        <Font name="Cooper Black" size="19.0" />
                      </font>
                   </Label>
                </children>
@@ -42,7 +42,7 @@
                   <Font name="Cooper Black" size="16.0" />
                </font>
                <styleClass>
-                  <String fx:value="border" />
+                  <String fx:value="side_ankerpane" />
                   <String fx:value="transparent" />
                </styleClass>
             </Button>
@@ -61,7 +61,7 @@
                </font>
                <styleClass>
                   <String fx:value="transparent" />
-                  <String fx:value="border" />
+                  <String fx:value="side_ankerpane" />
                </styleClass>
             </Button>
             <Separator layoutY="26.0" prefHeight="17.0" prefWidth="342.0" />
@@ -76,6 +76,7 @@
                <styleClass>
                   <String fx:value="button-background" />
                   <String fx:value="border" />
+                  <String fx:value="side_ankerpane" />
                </styleClass>
             </Button>
             <Button fx:id="deconnexionBtn" layoutX="178.0" layoutY="62.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="33.0" prefWidth="149.0" stylesheets="@css/styles.css" text="Déconnexion">
@@ -85,6 +86,7 @@
                <styleClass>
                   <String fx:value="button-background" />
                   <String fx:value="border" />
+                  <String fx:value="side_ankerpane" />
                </styleClass>
             </Button>
             <Separator layoutY="22.0" prefHeight="17.0" prefWidth="342.0" />

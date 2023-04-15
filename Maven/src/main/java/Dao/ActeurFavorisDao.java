@@ -23,7 +23,7 @@ public class ActeurFavorisDao {
 		        PreparedStatement pstmt = null;
 		        ResultSet rs = null;
 		        int code = 0;
-
+ 
 		        try {
 		            String sql = "INSERT INTO ActeurFavorisVALUES (?,?)";
 		            pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);

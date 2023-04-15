@@ -15,7 +15,7 @@ public class Acteur {
 		return id_acteur;
 	}
 	
-	
+	 
 	public LocalDate getDate_naissance_ac() {
 		return date_naissance_ac;
 	}
