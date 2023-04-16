@@ -46,12 +46,20 @@ public class App extends Application {
 
     public static void main(String[] args) {
     	//System.out.println("hello");
+<<<<<<< HEAD
       launch();
       /* LocalDate date = LocalDate.of(20,10,20);
 
     	Acteur a= new Acteur(2, "rahma", "bl", "r@gmail.com", "741852963",date );
     	ActeurDAO.ajouterActeur(a);*/
+=======
+
+        //launch();
+
+        //launch();
+>>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava
     	
+
     	/*Connection cnx = utile.conxBD.getInstance();
     	System.out.println("la connection is "+cnx);*/
     /*  Utilisateur u = new Utilisateur(20, "hamoudaa", "badrii",date,"hamouda@gamail.com" ,"12345678");
@@ -60,6 +68,9 @@ public class App extends Application {
         ProducteurDAO.ajouterProducteur(p);*/
         //hello world
     	//test
+    	LocalDate date=LocalDate.of(2002,06, 18);
+    	Acteur a=new Acteur(12,"malak","bendhia","bendhia@gmail.com","1236457",date);
+    	Dao.ActeurDAO.ajouterActeur(a);
     }
 
 }
