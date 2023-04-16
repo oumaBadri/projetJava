@@ -10,8 +10,10 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.time.LocalDate;
 
+import Dao.ActeurDAO;
 import Dao.ProducteurDAO;
 import Dao.UtilisateurDAO;
+import Models.Acteur;
 import Models.Producteur;
 import Models.Utilisateur;
 
@@ -25,9 +27,9 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        scene = new Scene(loadFXML("AjoutShow"),1000,790);
+        scene = new Scene(loadFXML("AcLogin"),1000,790);
 
-        scene = new Scene(loadFXML("ProfileInterface"),1000,790);
+      //  scene = new Scene(loadFXML("ProfileInterface"),1000,790);
 
         stage.setScene(scene);
         stage.show();
@@ -44,12 +46,15 @@ public class App extends Application {
 
     public static void main(String[] args) {
     	//System.out.println("hello");
-        launch();
+      launch();
+      /* LocalDate date = LocalDate.of(20,10,20);
+
+    	Acteur a= new Acteur(2, "rahma", "bl", "r@gmail.com", "741852963",date );
+    	ActeurDAO.ajouterActeur(a);*/
     	
     	/*Connection cnx = utile.conxBD.getInstance();
     	System.out.println("la connection is "+cnx);*/
-    /*  LocalDate date = LocalDate.of(20,10,20);
-      Utilisateur u = new Utilisateur(20, "hamoudaa", "badrii",date,"hamouda@gamail.com" ,"12345678");
+    /*  Utilisateur u = new Utilisateur(20, "hamoudaa", "badrii",date,"hamouda@gamail.com" ,"12345678");
       UtilisateurDAO.ajouterUtilisateur(u);*/
       /*  Producteur p =new Producteur(20, "heelloo", "baadroo", "badri@gmail", "12345678",date);
         ProducteurDAO.ajouterProducteur(p);*/

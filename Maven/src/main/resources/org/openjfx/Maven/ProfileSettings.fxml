@@ -88,7 +88,7 @@
                      </font>
                   </Text>
                   <TextField fx:id="prenomAc" layoutX="156.0" layoutY="279.0" prefHeight="48.0" prefWidth="258.0" promptText="Ben Foulen" styleClass="border" stylesheets="@css/styles.css" />
-                  <DatePicker layoutX="166.0" layoutY="393.0" prefHeight="48.0" prefWidth="258.0" promptText="19/11/2002" styleClass="border" stylesheets="@css/styles.css" />
+                  <DatePicker fx:id="dateAc" layoutX="166.0" layoutY="393.0" prefHeight="48.0" prefWidth="258.0" promptText="19/11/2002" styleClass="border" stylesheets="@css/styles.css" />
                   <Text layoutX="48.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="51.7366943359375">
                      <font>
                         <Font size="21.0" />

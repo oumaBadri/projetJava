@@ -2,18 +2,22 @@ package org.openjfx.Maven;
 
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import Controller.ControlSaisie;
 import Models.Acteur;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
-public class ProfileSettingsController {
+public class ProfileSettingsController implements Initializable{
 	
 	@FXML
     private Label update;
@@ -23,7 +27,10 @@ public class ProfileSettingsController {
 	    private Label nomcor;
 	   @FXML
 	    private Label prenomcor;
-
+	   
+	   @FXML
+	    private DatePicker dateAc;
+	   
     @FXML
     private Button enrgModifAcBtn;
 
@@ -85,6 +92,10 @@ Boolean ChampValid=true;
 	}else {
 		Service.ActeurService.modifPrenomActeur(Integer.parseInt(idAc.getText()), prenomAc.getText());
 	}
+	///edhii taa3 date mich mrigllla
+	if(dateAc.getAccessibleText()!="")
+		Service.ActeurService.modifAnnifActeur(Integer.parseInt(idAc.getText()), dateAc.getValue());
+		
 	
 	if (ChampValid==true)
 		update.setText("modifications enregistrées");
@@ -93,10 +104,39 @@ Boolean ChampValid=true;
     
     
     
+    
+    public void setNom(String nom) {
+        nomAc.setText(nom);
+    }
+    
+    public void setPreom(String prenom) {
+        prenomAc.setText(prenom);
+    }
+    
+    public void setDate(String date) {
+        dateAc.setPromptText(date);
+    }
+    
+    public void setId(String id) {
+        idAc.setText(id);
+    }
+    
+    
     @FXML
     private void switchToMdp() throws IOException {
         App.setRoot("PasswordSettings");
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		setNom(a.getNom_ac());
+		setDate(a.getDate_naissance_ac().toString());
+		setPreom(a.getPrenom_ac());
+		setId(String.valueOf(a.getId_acteur()));
+	}
+		
+	
 
 }
 
