@@ -34,10 +34,18 @@ public class Show {
 	}
 
 
-
-
-
-
+	public Show(int id_show, String titre_show, LocalDate date_difussion_show, String pays, String langue,
+			String genre_show, int is_a_film, String affiche) {
+		super();
+		this.id_show = id_show;
+		this.titre_show = titre_show;
+		Date_difussion_show = date_difussion_show;
+		this.pays = pays;
+		this.langue = langue;
+		this.genre_show = genre_show;
+		this.is_a_film = is_a_film;
+		this.affiche = affiche;
+	}
 
 	public Show() {
 		
@@ -121,10 +129,10 @@ public class Show {
 
 	@Override
 	public String toString() {
-		return "Show [id_show=" + id_show + ", titre_show=" + titre_show + ",Date_difussion_show="
-				+ Date_difussion_show + ", pays=" + pays + ", langue=" + langue + ", genre_show=" +  ", is_a_film=" + is_a_film + "]";
+		return "Show [titre_show=" + titre_show + ", affiche=" + affiche + "]";
 	}
-
+	
+	
 
 
 	

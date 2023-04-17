@@ -28,13 +28,9 @@ public class ImageController {
     
       
    public  void setData(Show show) {
-	   
 	Image image = new Image(getClass().getResourceAsStream(show.getAffiche()));
 	affiche.setImage(image);
 	titre.setText(show.getTitre_show());
-	
-	
-	   
-   }
+	}
     
 }

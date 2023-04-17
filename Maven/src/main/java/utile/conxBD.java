@@ -8,8 +8,8 @@ public class conxBD {
 	private static Connection connexion;
 
     private final String DB_URL = "jdbc:oracle:thin:@localhost:1521:XE";
-    private final String USER = "system";
-    private final String PASS = "ouma";
+    private final String USER = "admin";
+    private final String PASS = "123";
 
     @SuppressWarnings("unused")
 	private  conxBD() throws SQLException{

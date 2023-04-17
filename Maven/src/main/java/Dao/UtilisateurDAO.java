@@ -50,7 +50,7 @@ public class UtilisateurDAO {
 			    ResultSet rs = null;
 		        
 		        try {
-		        	String sql = "INSERT INTO Utilisateur1 VALUES (?,?,?,?,?,?)";
+		        	String sql = "INSERT INTO Utilisateur VALUES (?,?,?,?,?,?)";
 	        		pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		        	System.out.println("coonexion is---------------------- "+conn);
 		        	pstmt.setInt(1, Utilisateur.getId_user());
