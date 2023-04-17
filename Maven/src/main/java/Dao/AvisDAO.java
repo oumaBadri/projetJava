@@ -199,44 +199,44 @@ private static Connection conn = conxBD.getInstance();
 		        return avis;
 			}
 	//**************************************************************************************
-public static List<Avis> findAll2(int id_user) throws SQLException{
+public static List<Integer> findAll2(int id_user) throws SQLException{
 				
-				Statement stmt = null;
-			    ResultSet rs = null;
-			    List<Avis> avis = new ArrayList<>();
-			    String SQL = "SELECT id_show FROM Avis where favoris_show=1,id_user=?";
+	PreparedStatement pstmt = null;
+    ResultSet rs = null;
+			    List<Integer> avis = new ArrayList<>();
+			    String SQL = "SELECT id_show FROM Avis where favoris_show=1 and id_user=?";
 		        try {
-		        	stmt = conn.createStatement();
-		            rs = stmt.executeQuery(SQL);
-
+		        	pstmt = conn.prepareStatement(SQL);
+		            pstmt.setInt(1, id_user);
+		            rs = pstmt.executeQuery();
+		            
 		            while (rs.next()) {
-
-		            	int id_p = rs.getInt(1);
-		                Avis avis1 = new Avis(id_user);
-		                avis.add(avis1);
+		                avis.add(rs.getInt(1));
 		            }
+		            
 		        } catch (Exception e ) {};
+		        
 		        return avis;
 			}
 //************************************************************************************
 	
-public static List<Show> ShowTitre(int id_show) throws SQLException{
+public static String ShowTitre(int id_show) throws SQLException{
 	
-	Statement stmt = null;
+	PreparedStatement pstmt = null;
     ResultSet rs = null;
-    List<Show> show = new ArrayList<>();
+    String titre="";
+   // List<Show> show = new ArrayList<>();
     String SQL = "SELECT Titre_show FROM show  where id_show=?";
     try {
-    	stmt = conn.createStatement();
-        rs = stmt.executeQuery(SQL);
+    	pstmt = conn.prepareStatement(SQL);
+        pstmt.setInt(1, id_show);
+        rs = pstmt.executeQuery();
 
         while (rs.next()) {
-
-        	int id_p = rs.getInt(1);
-            Show sh = new Show(id_p);
-            show.add(sh);
+        		 titre= rs.getString(1);
         }
-    } catch (Exception e ) {};
-    return show;
+    } 
+    catch (Exception e ) {};
+    return titre;
 }
 }

@@ -29,6 +29,7 @@ public class Avis {
 	public Avis(int id_user2) {
 		// TODO Auto-generated constructor stub
 	}
+	
 	public int getNote() {
 		return note;
 	}
