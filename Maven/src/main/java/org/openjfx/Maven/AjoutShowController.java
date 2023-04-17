@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-package org.openjfx.Maven;
 
-public class AjoutShowController {
-
-}
-=======
 package org.openjfx.Maven;
 
 import java.net.URL;
@@ -118,4 +112,3 @@ public class AjoutShowController implements Initializable{
 	}
 
 }
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git

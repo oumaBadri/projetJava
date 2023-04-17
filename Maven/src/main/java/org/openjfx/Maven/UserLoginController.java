@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import Controller.ControlSaisie;
 import Dao.ActeurDAO;
+import Dao.UtilisateurDAO;
 import Models.Acteur;
 import Models.Utilisateur;
 import Service.UtilisateurService;
@@ -40,10 +41,10 @@ public class UserLoginController {
     @FXML
     void Login(ActionEvent event) throws IOException {
 
-    	Utilisateur p;
+    	
     	Boolean ChampValid=true;
     	
-        if (ControlSaisie.ExisteEmail(email.getText())==false){
+        if (ControlSaisie.ExisteEmaiUS(email.getText())==false){
     		emailcor.setText("Email introuvable");
     		ChampValid=false;
     	}	
@@ -54,6 +55,12 @@ public class UserLoginController {
     	}
     	if (ChampValid==true) {
     		
+    		ImageController p= new ImageController();
+    		
+    	    Utilisateur d= UtilisateurDAO.getUser(email.getText());
+    		//System.out.println(d);
+    		
+    		p.a.setId_user(d.getId_user());
     		
     		UtilisateurService.login(email.getText(),mdp.getText());
     		 App.setRoot("Homepage");

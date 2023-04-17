@@ -59,13 +59,7 @@ public class LoginUserController {
     	}
     	if (ChampValid==true) {
     		
-    		ImageController p= new ImageController();
     		
-    
-    		Utilisateur d= UtilisateurDAO.getUser(emailUS.getText());
-    		//System.out.println(d);
-    		
-    		p.a.setId_user(d.getId_user());
     		
     		ActeurService.login(emailUS.getText(),mdpUS.getText());
     		App.setRoot("ProfileInterface");

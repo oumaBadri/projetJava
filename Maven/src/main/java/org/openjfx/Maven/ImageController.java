@@ -48,8 +48,8 @@ public class ImageController {
 	  
 	 Show sh=ShowDAO.findShow(titre.getText(),affiche.getImage().getUrl());
 	 Episode ep =EpisodeDAO.FindEp(sh.getId_show());	
-	 Avis a =new Avis(a.getId_user(),sh.getId_show(),0, null,ep.getNum_ep(),ep.getNum_saison());
-	 AvisDAO.ajouterAvis(a);
+	 Avis avis=new Avis(a.getId_user(),sh.getId_show(),0, null,ep.getNum_ep(),ep.getNum_saison());
+	 AvisDAO.ajouterAvis(avis);
 	 AvisDAO.modifFavoriShow(sh.getId_show(),ep.getNum_ep(),ep.getNum_saison(),a.getId_user());
 	   
 	   
