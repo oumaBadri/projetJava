@@ -71,7 +71,7 @@
                   <Font name="Cooper Black" size="17.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" layoutX="46.0" layoutY="254.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="My List " textFill="#c95c3b">
+            <Button fx:id="myList" alignment="CENTER_RIGHT" layoutX="46.0" layoutY="254.0" mnemonicParsing="false" onAction="#SwithtoMyList" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="My List " textFill="#c95c3b">
                <font>
                   <Font name="Cooper Black" size="16.0" />
                </font>

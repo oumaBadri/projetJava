@@ -30,7 +30,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="88.0" layoutY="5.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="33.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+            <Button layoutX="88.0" layoutY="5.0" mnemonicParsing="false" onAction="#AjoutFavoris" prefHeight="33.0" prefWidth="33.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
                   <ImageView fitHeight="39.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>

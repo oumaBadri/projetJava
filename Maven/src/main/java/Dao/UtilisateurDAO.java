@@ -420,10 +420,35 @@ public class UtilisateurDAO {
 		return acteurs;
        }
 	//**********************************************************************
+	public static  Utilisateur getUser(String mail) {
+		//Statement stmt = null;
+		Utilisateur a= new Utilisateur();
+		//int id=0;
+	    ResultSet rs = null;
+	    PreparedStatement pstmt = null;
 
-
-
+        String SQL = "SELECT id_user FROM utilisateur WHERE MAIL_USER=?";
+        try {
+        	pstmt = conn.prepareStatement(SQL);
+	        pstmt.setString(1,mail);
+	        rs = pstmt.executeQuery();
+	        while (rs.next()) {
+	        	int id = rs.getInt(1);
+                 a.setId_user(id);
+         }
+	        
+	      
+	    } catch (SQLException ex) {
+	        System.out.println(ex.getMessage());
+        }	
+		return a;
+       }
+//*********************************************************************
+	
 }
+
+
+
 	
 	
 	

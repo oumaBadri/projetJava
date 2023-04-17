@@ -265,4 +265,27 @@ public class ShowDAO {
      
      return Shows;
 	}
+ //***************************************************************
+ public static Show findShow(String titre,String image2) throws SQLException{
+		
+		Statement stmt = null;
+	    ResultSet rs = null;
+	    Show sh = new Show();
+        String SQL = " SELECT Titre_show,image FROM Show titre_show=? and image=? ";
+  try {
+  	stmt = conn.createStatement();
+      rs = stmt.executeQuery(SQL);
+
+      while (rs.next()){
+     	 String titre_show = rs.getString(1);
+          String image= rs.getString(2);
+          sh = new Show(titre_show,image);
+         
+      }
+  } catch (Exception e ) {};
+  
+ 
+
+return sh;
+	}
 	}
