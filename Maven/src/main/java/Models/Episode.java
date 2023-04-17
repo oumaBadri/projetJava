@@ -23,6 +23,9 @@ public class Episode {
 		this.desc_ep = desc_ep;
 		this.date_diff = date_diff; 
 	}
+	public Episode(int num_saison2, int num_ep2) {
+		// TODO Auto-generated constructor stub
+	}
 	public int getId_show() {
 		return id_show;
 	}

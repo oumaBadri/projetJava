@@ -14,24 +14,33 @@ import java.util.stream.Stream;
 
 import Dao.ShowDAO;
 import Models.Show;
+import Models.Utilisateur;
 import Service.ShowService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class HomePageController implements Initializable{
 	
-	
 	   @FXML
 	    private HBox Hbox;
-	
+	   @FXML
+	    private Button myList;
 	
 	@FXML
     private void SwithtoInterfaceProfil() throws IOException {
         App.setRoot("ProfileInterface");
     }
+	
+	
+	@FXML
+    private void SwithtoMyList() throws IOException {
+        App.setRoot("favorisFilm");
+    }
+	
 	
 	/*private void  recentlyAdded(List<Show> liste ,Stream<Show> source ) {
 		List<Show> sh = new ArrayList<>();

@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import Dao.ActeurDAO;
 import Dao.AvisDAO;
+import Models.Utilisateur;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,7 +17,10 @@ import javafx.scene.control.ListView;
 public class favorisFilmController implements Initializable{
 		ObservableList<String> list= FXCollections.observableArrayList();
 	
-	
+		static Utilisateur a= new Utilisateur();
+
+		
+		
 	  @FXML
 	    private ListView<String> filmList;
 	  
@@ -24,7 +28,7 @@ public class favorisFilmController implements Initializable{
 	  private void afficherlist() throws SQLException {
 		  list.removeAll(list);
 		 //AvisDAO.findAll2(1).stream().forEach(x->filmList.getItems().addAll(x.));
-		  AvisDAO.findAll2(1).stream().forEach(x->{
+		  AvisDAO.findAll2(a.getId_user()).stream().forEach(x->{
 			try {
 				filmList.getItems().addAll(AvisDAO.ShowTitre(x));
 			} catch (SQLException e) {

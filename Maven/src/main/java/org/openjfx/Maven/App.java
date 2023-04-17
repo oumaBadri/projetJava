@@ -36,11 +36,14 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
 
 
-        scene = new Scene(loadFXML("favorisFilm"),1000,790);
+
+        scene = new Scene(loadFXML("login"),1000,790);
 
        // scene = new Scene(loadFXML("ProfileInterface"),1000,790);
 
       //  scene = new Scene(loadFXML("ProfileInterface"),1000,790);
+
+       // scene = new Scene(loadFXML("UserHome"),1000,790);
 
         stage.setScene(scene);
         stage.show();
@@ -115,5 +118,6 @@ public class App extends Application {
     	Acteur a=new Acteur(12,"malak","bendhia","bendhia@gmail.com","1236457",date);
     	Dao.ActeurDAO.ajouterActeur(a);*/
     }
+
 
 }

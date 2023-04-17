@@ -39,7 +39,7 @@ public class ControlSaisie {
 	public static boolean validEmailActeur(String email) {
 		return email.contains("@")&& !(ActeurService.exitActeurWithEmail(email));
 	}
-	public static boolean ExisteEmail(String champ) {
+	public static boolean ExisteEmaiUS(String champ) {
 		return UtilisateurService.exitUtilisateurWithEmail(champ);
 	}
 	
