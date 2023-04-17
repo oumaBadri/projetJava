@@ -12,6 +12,7 @@ import java.util.List;
 
 import Models.Avis;
 import Models.Producteur;
+import Models.Show;
 import utile.conxBD;
 
 
@@ -219,4 +220,23 @@ public static List<Avis> findAll2(int id_user) throws SQLException{
 			}
 //************************************************************************************
 	
+public static List<Show> ShowTitre(int id_show) throws SQLException{
+	
+	Statement stmt = null;
+    ResultSet rs = null;
+    List<Show> show = new ArrayList<>();
+    String SQL = "SELECT Titre_show FROM show  where id_show=?";
+    try {
+    	stmt = conn.createStatement();
+        rs = stmt.executeQuery(SQL);
+
+        while (rs.next()) {
+
+        	int id_p = rs.getInt(1);
+            Show sh = new Show(id_p);
+            show.add(sh);
+        }
+    } catch (Exception e ) {};
+    return show;
+}
 }
