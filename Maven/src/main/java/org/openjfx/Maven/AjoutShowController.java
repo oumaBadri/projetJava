@@ -2,6 +2,8 @@ package org.openjfx.Maven;
 
 import java.net.URL;
 import java.sql.Date;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import Models.Show;
@@ -84,8 +86,11 @@ public class AjoutShowController implements Initializable{
 	    @FXML
 	    private TextField txt_titre;
 	    
+	    @FXML
+	    private TextField txt_poster;
 	    
-	    public ObservableList<Show> data=FXCollections.observableArrayList();
+	    
+	    //public ObservableList<Show> data=FXCollections.observableArrayList();
 	    @FXML
 	    void addShow() {
 
@@ -113,18 +118,35 @@ public class AjoutShowController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		showShow();
 		
 	}
 	public void showShow() {
-		cln_id.setCellValueFactory(new PropertyValueFactory<Show,Integer>("id_show"));
-		cln_titre.setCellValueFactory(new PropertyValueFactory<Show,String>("id_titre"));
-		cln_dateDiff.setCellValueFactory(new PropertyValueFactory<Show,Date>("id_show"));
-		cln_pays.setCellValueFactory(new PropertyValueFactory<Show,String>("id_show"));
-		cln_langue.setCellValueFactory(new PropertyValueFactory<Show,String>("id_show"));
-		cln_genre.setCellValueFactory(new PropertyValueFactory<Show,String>("id_show"));
-		cln_isAFilm.setCellValueFactory(new PropertyValueFactory<Show,Integer>("id_show"));
+		List<Show> shows=null;
+		try {
+			shows=Dao.ShowDAO.findAll();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		ObservableList<Show> observableList = FXCollections.observableList(shows);
+		/*for(Show s:shows) {
+			data.add(s.getId_show(),s.getTitre_show(),s.getDate_difussion_show(),s.getPays(),s.getGenre_show(),s.getIs_a_film(),s.getAffiche());
+		}*/
 		
+		/*try {
+			data=(ObservableList<Show>) Dao.ShowDAO.findAll();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}*/
+		cln_id.setCellValueFactory(new PropertyValueFactory<Show,Integer>("id_show"));
+		cln_titre.setCellValueFactory(new PropertyValueFactory<Show,String>("titre_show"));
+		cln_dateDiff.setCellValueFactory(new PropertyValueFactory<Show,Date>("Date_diffusion"));
+		cln_pays.setCellValueFactory(new PropertyValueFactory<Show,String>("pays"));
+		cln_langue.setCellValueFactory(new PropertyValueFactory<Show,String>("langue"));
+		cln_genre.setCellValueFactory(new PropertyValueFactory<Show,String>("genre_show"));
+		cln_isAFilm.setCellValueFactory(new PropertyValueFactory<Show,Integer>("is_a_film"));
+		cln_affiche.setCellValueFactory(new PropertyValueFactory<Show,String>("affiche"));
+		table.setItems(observableList);
 	}
 
 }

@@ -33,18 +33,9 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-<<<<<<< HEAD
-        scene = new Scene(loadFXML("UserHome"),1000,790);
-=======
-        scene = new Scene(loadFXML("favorisFilm"),1000,790);
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git
+        scene = new Scene(loadFXML("AjoutShow"),1000,790);
 
-<<<<<<< HEAD
-       // scene = new Scene(loadFXML("ProfileInterface"),1000,790);
-=======
-      //  scene = new Scene(loadFXML("ProfileInterface"),1000,790);
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git
-
+        //scene = new Scene(loadFXML("favorisFilm"),1000,790);
         stage.setScene(scene);
         stage.show();
     }
@@ -57,21 +48,21 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
-
-<<<<<<< HEAD
+    
     public static void main(String[] args) throws SQLException {
-=======
-    public static void main(String[] args) {
+
+
  
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git
     	//System.out.println("hello");
-       // launch();
-    	//LocalDate date = LocalDate.of(20,10,20);
+       launch();
+    	/*LocalDate date = LocalDate.of(20,10,20);
+    	Show s=new Show(12, "lalala", date, "Tunisia", "arabic","Dramatique", 1, "url de l'image");
+    	ShowDAO.ajouterShow(s);*/
 
     	//Episode a= new Episode(1, 1,"loula", 1, "hhhhhh", date);
     	//EpisodeDAO.ajouterEpisode(a);
     	//ActeurDAO.modifAnnifActeur(1, date);
-
+       
     	/*
 <<<<<<< HEAD
       launch();
@@ -89,7 +80,7 @@ public class App extends Application {
 
     	/*Connection cnx = utile.conxBD.getInstance();
     	System.out.println("la connection is "+cnx);*/
-<<<<<<< HEAD
+
       //LocalDate date = LocalDate.of(20,10,20);
      /* Utilisateur u = new Utilisateur(20, "ouma", "Badri",date,"badri@gmail.com" ,"12345678","");
 =======
@@ -101,19 +92,19 @@ public class App extends Application {
      /*  Producteur p =new Producteur(20, "heelloo", "baadroo", "badri@gmail", "12345678",date);
         ProducteurDAO.ajouterProducteur(p);*/
         //hello world
-<<<<<<< HEAD
+
     /*	List<Show> sh= ShowDAO.findAll2();
     	System.out.println(sh);*/
         
         
         
         
-=======
+
     	//test
     	/*LocalDate date=LocalDate.of(2002,06, 18);
     	Acteur a=new Acteur(12,"malak","bendhia","bendhia@gmail.com","1236457",date);
     	Dao.ActeurDAO.ajouterActeur(a);*/
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git
+
     }
 
 }
