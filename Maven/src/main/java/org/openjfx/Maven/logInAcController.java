@@ -8,8 +8,9 @@ import java.util.Optional;
 
 import Controller.ControlSaisie;
 import Dao.ActeurDAO;
+import Dao.UtilisateurDAO;
 import Models.Acteur;
-
+import Models.Utilisateur;
 import Service.ActeurService;
 
 import javafx.event.ActionEvent;

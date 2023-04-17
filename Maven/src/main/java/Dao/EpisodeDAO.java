@@ -210,7 +210,28 @@ public class EpisodeDAO {
 		        }
 				return id_show;  
 			}
-	
+	//*****************************************************************************************
+			public static Episode FindEp(int id_show) throws SQLException{
+				
+				Statement stmt = null;
+			    ResultSet rs = null;
+			    
+				Episode EP = new Episode();
+
+		      String SQL = "SELECT num_ep,num_saison FROM Episode where id_show=?";
+		      try {
+		      	stmt = conn.createStatement();
+		          rs = stmt.executeQuery(SQL);
+
+		          while (rs.next()) {
+		        	  int num_ep = rs.getInt(1);
+			           int num_saison = rs.getInt(2);
+		              EP=new Episode( num_saison, num_ep);
+		          }
+		      } catch (Exception e ) {};
+		      
+		      return EP;
+			}
 	
 	
 	
