@@ -63,17 +63,21 @@ public class logInAcController {
     		ProfileSettingsController  p= new ProfileSettingsController();
     		ChangerMdpController c= new ChangerMdpController();
     		ConfirmSupprController n= new ConfirmSupprController();
+    		ProfileInterfaceController i= new ProfileInterfaceController();
     
     		Acteur d= ActeurDAO.getActeur(emailAc.getText());
     		//System.out.println(d);
+    		i.a.setNom_ac(d.getNom_ac());
+    		i.a.setPrenom_ac(d.getPrenom_ac());
     		n.a.setId_acteur(d.getId_acteur());
     		c.a.setId_acteur(d.getId_acteur());
+    		c.a.setNom_ac(d.getNom_ac());
+    		c.a.setPrenom_ac(d.getPrenom_ac());
     		p.a.setId_acteur(d.getId_acteur());
     		p.a.setNom_ac(d.getNom_ac());
     		p.a.setDate_naissance_ac(d.getDate_naissance_ac());
     		p.a.setPrenom_ac(d.getPrenom_ac());
     		ActeurService.login(emailAc.getText(),mdpAc.getText());
-    		
     		App.setRoot("ProfileInterface");
     		}
 		

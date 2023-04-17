@@ -21,7 +21,10 @@ public class ChangerMdpController implements Initializable{
 	
 	   @FXML
 	    private Label update;
-
+	   
+	   @FXML
+	   
+	    private TextField profileN;
     @FXML
     private PasswordField AncienMdpAc;
 
@@ -102,6 +105,9 @@ public class ChangerMdpController implements Initializable{
     public void setId(String id) {
         idAc.setText(id);
     }
+    public void setlog(String log) {
+    	profileN.setText(log);
+    }
     @FXML
     private void switchToProfl() throws IOException {
         App.setRoot("ProfileSettings");
@@ -111,6 +117,7 @@ public class ChangerMdpController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		setId(String.valueOf(a.getId_acteur()));
+		setlog(a.getNom_ac()+" "+a.getPrenom_ac());
 	}
     
 }

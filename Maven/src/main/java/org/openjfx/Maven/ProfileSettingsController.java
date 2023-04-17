@@ -19,6 +19,10 @@ import javafx.scene.image.ImageView;
 
 public class ProfileSettingsController implements Initializable{
 	
+	
+
+    @FXML
+    private TextField profileN;
 	@FXML
     private Label update;
 	 @FXML
@@ -66,7 +70,7 @@ public class ProfileSettingsController implements Initializable{
 Boolean ChampValid=true;
     
     	
-    	try {
+    /*	try {
     		Integer.parseInt(idAc.getText());
     	}catch(NumberFormatException e) {
     		idcor.setText("Veuillez entrer que des chiffres");
@@ -76,7 +80,7 @@ Boolean ChampValid=true;
     	if (ControlSaisie.validId(Integer.parseInt(idAc.getText()))==false) {
     		idcor.setText("Id n existe pas");
     		ChampValid=false;
-    	}
+    	}*/
     	
     	
     	if (ControlSaisie.validName(nomAc.getText())==false) {
@@ -92,10 +96,12 @@ Boolean ChampValid=true;
 	}else {
 		Service.ActeurService.modifPrenomActeur(Integer.parseInt(idAc.getText()), prenomAc.getText());
 	}
-	///edhii taa3 date mich mrigllla
-	if(dateAc.getAccessibleText()!="")
-		Service.ActeurService.modifAnnifActeur(Integer.parseInt(idAc.getText()), dateAc.getValue());
-		
+	///edhii taa3 date mich mrigllla maal9itiich el conditionn
+	/*if(dateAc
+		Service.ActeurService.modifAnnifActeur(Integer.parseInt(idAc.getText()), dateAc.getValue());*/
+		if (a.getDate_naissance_ac().equals(dateAc.getValue())==false)
+			Service.ActeurService.modifAnnifActeur(Integer.parseInt(idAc.getText()), dateAc.getValue());
+
 	
 	if (ChampValid==true)
 		update.setText("modifications enregistrées");
@@ -121,6 +127,10 @@ Boolean ChampValid=true;
         idAc.setText(id);
     }
     
+    public void setlog(String log) {
+    	profileN.setText(log);
+    }
+    
     
     @FXML
     private void switchToMdp() throws IOException {
@@ -134,6 +144,7 @@ Boolean ChampValid=true;
 		setDate(a.getDate_naissance_ac().toString());
 		setPreom(a.getPrenom_ac());
 		setId(String.valueOf(a.getId_acteur()));
+		setlog(a.getNom_ac()+" "+a.getPrenom_ac());
 	}
 		
 	

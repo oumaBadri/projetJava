@@ -69,3 +69,9 @@
 	-fx-background-color:#F69E7B
 }
 
+
+.listview{
+	-fx-font-size: 20px;
+	 -fx-font-family:calisto MT;
+}
+

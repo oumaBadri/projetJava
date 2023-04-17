@@ -144,7 +144,7 @@ public class ActeurDAO {
 				PreparedStatement pstmt = null;
 			    ResultSet rs = null;
 			    try {
-		            String sql = "UPDATE ACTEUR SET DATE_NAISSANCE_AC=? WHERE ID_ACTEUR=?";
+		            String sql = "UPDATE ACTEUR SET DATE_NAISSANE_AC=? WHERE ID_ACTEUR=?";
 		            pstmt = conn.prepareStatement(sql);
 		            pstmt.setObject(1, annif);
 		        	pstmt.setInt(2, id_Ac);
