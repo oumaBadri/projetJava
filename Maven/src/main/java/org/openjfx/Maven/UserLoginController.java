@@ -2,7 +2,10 @@ package org.openjfx.Maven;
 
 import java.io.IOException;
 
+
 import Controller.ControlSaisie;
+import Dao.ActeurDAO;
+import Models.Acteur;
 import Models.Utilisateur;
 import Service.UtilisateurService;
 import javafx.event.ActionEvent;
@@ -50,6 +53,8 @@ public class UserLoginController {
     		ChampValid=false;
     	}
     	if (ChampValid==true) {
+    		
+    		
     		UtilisateurService.login(email.getText(),mdp.getText());
     		 App.setRoot("Homepage");
     }

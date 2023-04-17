@@ -2,22 +2,29 @@ package org.openjfx.Maven;
 
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import Controller.ControlSaisie;
+import Models.Acteur;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
-public class ChangerMdpController {
+public class ChangerMdpController implements Initializable{
 	
 	   @FXML
 	    private Label update;
-
+	   
+	   @FXML
+	   
+	    private TextField profileN;
     @FXML
     private PasswordField AncienMdpAc;
 
@@ -48,7 +55,7 @@ public class ChangerMdpController {
     @FXML
     private ImageView back;
     
-    
+    static Acteur a= new Acteur();
     
     @FXML
     private void back() throws IOException {
@@ -95,10 +102,22 @@ public class ChangerMdpController {
 
     }
 
-    
+    public void setId(String id) {
+        idAc.setText(id);
+    }
+    public void setlog(String log) {
+    	profileN.setText(log);
+    }
     @FXML
     private void switchToProfl() throws IOException {
         App.setRoot("ProfileSettings");
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		setId(String.valueOf(a.getId_acteur()));
+		setlog(a.getNom_ac()+" "+a.getPrenom_ac());
+	}
     
 }

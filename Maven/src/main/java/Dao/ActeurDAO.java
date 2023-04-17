@@ -144,7 +144,7 @@ public class ActeurDAO {
 				PreparedStatement pstmt = null;
 			    ResultSet rs = null;
 			    try {
-		            String sql = "UPDATE ACTEUR SET DATE_NAISSANCE_AC=? WHERE ID_ACTEUR=?";
+		            String sql = "UPDATE ACTEUR SET DATE_NAISSANE_AC=? WHERE ID_ACTEUR=?";
 		            pstmt = conn.prepareStatement(sql);
 		            pstmt.setObject(1, annif);
 		        	pstmt.setInt(2, id_Ac);
@@ -294,5 +294,39 @@ public class ActeurDAO {
 			        }
 			        return existe;
 			    }
+			 
+			 
+		//*******************************************	 
+			 public static  Acteur getActeur(String mail) {
+					//Statement stmt = null;
+					Acteur a= new Acteur();
+					//int id=0;
+				    ResultSet rs = null;
+				    PreparedStatement pstmt = null;
+
+			        String SQL = "SELECT * FROM ACTEUR WHERE EMAIL=?";
+			        try {
+			        	pstmt = conn.prepareStatement(SQL);
+				        pstmt.setString(1,mail);
+				        rs = pstmt.executeQuery();
+				        while (rs.next()) {
+				        	int id = rs.getInt(1);
+			                String nom = rs.getString(2);
+			                String prenom = rs.getString(3);
+			                LocalDate annif=rs.getObject(4,LocalDate.class);
+
+				            //a = new Acteur(id, nom, prenom,annif);
+			              a.setId_acteur(id);
+			              a.setNom_ac(nom);
+			              a.setPrenom_ac(prenom);
+			              a.setDate_naissance_ac(annif);
+			                }
+				        
+				      
+				    } catch (SQLException ex) {
+				        System.out.println(ex.getMessage());
+			        }
+					return a;
+			       }
 }
 

@@ -8,7 +8,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 import Dao.ActeurDAO;
+import Dao.UtilisateurDAO;
 import Models.Acteur;
+import Models.Utilisateur;
 import utile.conxBD;
 
 public class ActeurService {
@@ -118,6 +120,35 @@ public class ActeurService {
 	        return result;
 	    }
 
+	    
+	    
+	    
+	    ///**********************
+	    public static boolean exitActeurWithEmail(String email) {
+			List<Acteur> User=null;
+			try {
+				User=ActeurDAO.findAll();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			boolean result = User.stream()
+	                .anyMatch(str -> str.getMail_ac().equals(email));
+			return result;
+		}
+	    
+	    
+		public static boolean exitActeurWithMdp(String email) {
+			List<Acteur> User=null;
+			try {
+				User=ActeurDAO.findAll();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			boolean result = User.stream()
+	                .anyMatch(str -> str.getMdp_ac().equals(email));
+			return result;
+		}
+		
 	    
 	    //*****verif id****************
 	  //-----si l'email exist --> return true

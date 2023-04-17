@@ -1,5 +1,8 @@
 package Controller;
 
+import java.sql.SQLException;
+
+import Service.ActeurService;
 import Service.ProducteurService;
 import Service.UtilisateurService;
 
@@ -30,19 +33,40 @@ public class ControlSaisie {
 	public static boolean validEmailutilisateur(String email) {
 		return email.contains("@")&& !(UtilisateurService.exitUtilisateurWithEmail(email));
 	}
+	
+	
+	
+	public static boolean validEmailActeur(String email) {
+		return email.contains("@")&& !(ActeurService.exitActeurWithEmail(email));
+	}
 	public static boolean ExisteEmail(String champ) {
 		return UtilisateurService.exitUtilisateurWithEmail(champ);
+	}
+	
+	
+	public static boolean ExisteEmailAc(String champ) {
+		return ActeurService.exitActeurWithEmail(champ);
 	}
 	
 	public static boolean ExisteMdp(String champ) {
 		return UtilisateurService.exitUtilisateurWithMdp(champ);
 	}
 	
-	
+	public static boolean ExisteMdpAc(String champ) {
+		return ActeurService.exitActeurWithMdp(champ);
+	}
 	public static boolean validMdp(String mdp) {
 		return !(mdp==null) && mdp.length()>=8;
 	}
 
+	
+	public static boolean validId(int id) throws SQLException {
+		return (Service.ActeurService.verifId(id));
+	}
+	
+	public static boolean validAncienMdp(int id,String mdp) {
+		return  ActeurService.verifAncienMDP(id,mdp);
+	}
 
 
 

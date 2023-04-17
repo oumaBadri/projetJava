@@ -217,6 +217,6 @@ public static List<Avis> findAll2(int id_user) throws SQLException{
 		        } catch (Exception e ) {};
 		        return avis;
 			}
-			
+//************************************************************************************
 	
 }
