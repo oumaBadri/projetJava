@@ -26,6 +26,9 @@ public class Avis {
 		this.num_saison = num_saison;
 	}
 	
+	public Avis(int id_user2) {
+		// TODO Auto-generated constructor stub
+	}
 	public int getNote() {
 		return note;
 	}
@@ -72,8 +75,7 @@ public class Avis {
 
 	@Override
 	public String toString() {
-		return "Avis [id_user=" + id_user + ", id_show=" + id_show + ", note=" + note + ", commantaire=" + commantaire
-				+ ", favoris_show=" + favoris_show + ", num_ep=" + num_ep + ", num_saison=" + num_saison + "]";
+		return "Avis [id_show=" + id_show + "]";
 	}
 	
 	

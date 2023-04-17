@@ -25,7 +25,7 @@ public class ShowDAO {
 			    ResultSet rs = null;
 		        
 		        try {
-		        	String sql = "INSERT INTO Show VALUES (?,?,?,?,?,?,?)";
+		        	String sql = "INSERT INTO Show VALUES (?,?,?,?,?,?,?,?)";
 	        		pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		        	System.out.println("coonexion is---------------------- "+conn);
 		        	pstmt.setInt(1, Show.getId_show());
@@ -35,7 +35,7 @@ public class ShowDAO {
 		        	pstmt.setString(5, Show.getLangue());
 		        	pstmt.setInt(6,Show.isIs_a_film());
 		            pstmt.setString(7, Show.getGenre_show());
-		             
+		            pstmt.setString(8, Show.getAffiche());
 		        
 		        	pstmt.executeUpdate();
 		        	
@@ -241,4 +241,28 @@ public class ShowDAO {
 	        }
 		    return id;
 		}
+//******************************************************* 
+ 
+ public static List<Show> findAll2() throws SQLException{
+		
+		Statement stmt = null;
+	    ResultSet rs = null;
+	    
+		List<Show> Shows = new ArrayList<>();
+
+     String SQL = " SELECT Titre_show,image FROM Show ";
+     try {
+     	stmt = conn.createStatement();
+         rs = stmt.executeQuery(SQL);
+
+         while (rs.next()){
+        	 String titre_show = rs.getString(1);
+             String image= rs.getString(2);
+             Show act = new Show(titre_show,image);
+             Shows.add(act);
+         }
+     } catch (Exception e ) {};
+     
+     return Shows;
+	}
 	}

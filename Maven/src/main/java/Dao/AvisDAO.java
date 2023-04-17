@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Models.Avis;
+import Models.Producteur;
+import Models.Show;
 import utile.conxBD;
 
 
@@ -164,6 +166,77 @@ private static Connection conn = conxBD.getInstance();
 		        }
 				return id_Show;
 			}
+	//************************************************************************************************
+			public static List<Avis> findAll() throws SQLException{
+				
+				Statement stmt = null;
+			    ResultSet rs = null;
+			    
+				List<Avis> avis = new ArrayList<>();
+
+		        String SQL = "SELECT * FROM Avis";
+		        try {
+		        	stmt = conn.createStatement();
+		            rs = stmt.executeQuery(SQL);
+
+		            while (rs.next()) {
+
+		            	int id_p = rs.getInt(1);
+		                int Note = rs.getInt(2);
+		                String commentaire = rs.getString(3);
+		                int favoris_show = rs.getInt(5);
+		                int num_ep = rs.getInt(6);
+		                int num_saison = rs.getInt(7);
+		                int id_user = rs.getInt(8);
+		              
+
+
+		                Avis avis1 = new Avis(id_user, favoris_show, Note, commentaire, num_ep, num_saison);
+		                avis.add(avis1);
+		            }
+		        } catch (Exception e ) {};
+		        
+		        return avis;
+			}
+	//**************************************************************************************
+public static List<Avis> findAll2(int id_user) throws SQLException{
+				
+				Statement stmt = null;
+			    ResultSet rs = null;
+			    List<Avis> avis = new ArrayList<>();
+			    String SQL = "SELECT id_show FROM Avis where favoris_show=1,id_user=?";
+		        try {
+		        	stmt = conn.createStatement();
+		            rs = stmt.executeQuery(SQL);
+
+		            while (rs.next()) {
+
+		            	int id_p = rs.getInt(1);
+		                Avis avis1 = new Avis(id_user);
+		                avis.add(avis1);
+		            }
+		        } catch (Exception e ) {};
+		        return avis;
+			}
+//************************************************************************************
 	
+public static List<Show> ShowTitre(int id_show) throws SQLException{
 	
+	Statement stmt = null;
+    ResultSet rs = null;
+    List<Show> show = new ArrayList<>();
+    String SQL = "SELECT Titre_show FROM show  where id_show=?";
+    try {
+    	stmt = conn.createStatement();
+        rs = stmt.executeQuery(SQL);
+
+        while (rs.next()) {
+
+        	int id_p = rs.getInt(1);
+            Show sh = new Show(id_p);
+            show.add(sh);
+        }
+    } catch (Exception e ) {};
+    return show;
+}
 }
