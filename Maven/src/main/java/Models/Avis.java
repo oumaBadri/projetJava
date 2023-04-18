@@ -80,6 +80,12 @@ public class Avis {
 	}
 	
 	
+	public String toString2() {
+		return "Avis [id_user=" + id_user + ", id_show=" + id_show + ", note=" + note + ", commantaire=" + commantaire
+				+ ", favoris_show=" + favoris_show + ", num_ep=" + num_ep + ", num_saison=" + num_saison + "]";
+	}
+	
+	
 	
 	
 }

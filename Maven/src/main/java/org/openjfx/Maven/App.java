@@ -64,7 +64,10 @@ public class App extends Application {
  //System.out.println(AvisDAO.ShowTitre(1));
 
     	//System.out.println("hello");
-      launch();
+    launch();
+    	System.out.println(AvisDAO.idTitre("the originals"));
+    	System.out.println(AvisDAO.findAvis(1, 1).toString2());
+    	System.out.println(AvisDAO.findAvis(1, 1).getNum_ep());
     //	System.out.println(AvisDAO.findAll2(1));
     //	System.out.println(AvisDAO.ShowTitre(1));
     	//Avis a= new Avis(1, 1, 10, "jaime", 1, 1);

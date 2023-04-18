@@ -10,8 +10,10 @@ import Dao.AvisDAO;
 import Models.Utilisateur;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 
 public class favorisFilmController implements Initializable{
@@ -20,7 +22,12 @@ public class favorisFilmController implements Initializable{
 		static Utilisateur a= new Utilisateur();
 
 		
+		@FXML
+	    private Button details;
 		
+
+	    @FXML
+	    private Button supp;
 	  @FXML
 	    private ListView<String> filmList;
 	  
@@ -40,6 +47,29 @@ public class favorisFilmController implements Initializable{
 	  }
 
 
+	  
+	  
+	  @FXML
+	    void supprimer(ActionEvent event) throws SQLException {
+		  
+		        String selectedItem = filmList.getSelectionModel().getSelectedItem();
+		        if (selectedItem != null) {
+		        	AvisDAO.suppFavoriShow(AvisDAO.idTitre(selectedItem), (AvisDAO.findAvis(AvisDAO.idTitre(selectedItem), a.getId_user())).getNum_ep(), (AvisDAO.findAvis(AvisDAO.idTitre(selectedItem), a.getId_user())).getNum_saison(), a.getId_user());
+		            filmList.getItems().remove(selectedItem);
+		        }
+		  }
+	  
+
+	    @FXML
+	    void voirdetails(ActionEvent event) {
+
+	    }
+	  
+	  
+	  
+	  
+	  
+	  
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
@@ -49,6 +79,10 @@ public class favorisFilmController implements Initializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		
+		
 	}
 	
 	

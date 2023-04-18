@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import Models.Avis;
 import Models.Producteur;
@@ -198,7 +199,7 @@ private static Connection conn = conxBD.getInstance();
 		        
 		        return avis;
 			}
-	//**************************************************************************************
+	//**********************retourne  liste des id des shows favoris d un user***************************************
 public static List<Integer> findAll2(int id_user) throws SQLException{
 				
 	PreparedStatement pstmt = null;
@@ -218,7 +219,7 @@ public static List<Integer> findAll2(int id_user) throws SQLException{
 		        
 		        return avis;
 			}
-//************************************************************************************
+//***************************retourne le nom d un show a partir de son id *************************************
 	
 public static String ShowTitre(int id_show) throws SQLException{
 	
@@ -239,4 +240,113 @@ public static String ShowTitre(int id_show) throws SQLException{
     catch (Exception e ) {};
     return titre;
 }
+
+
+
+
+///*********************suppprimer de favoris**********************
+
+public static int suppFavoriShow(int id_Show,int num_ep,int num_saison,int id_user) {
+	
+	PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    try {
+        String sql = "UPDATE Avis SET favoris_show=0 WHERE ID_show=? And num_ep=? and num_saison=? and id_user=?" ;
+        pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, id_Show);
+    	pstmt.setInt(2, num_ep);
+    	pstmt.setInt(3,num_saison);
+    	pstmt.setInt(4,id_user);
+    	pstmt.executeUpdate();
+        // 4- Recupérer l'Id généré par le SGBD
+    	rs = pstmt.getGeneratedKeys();
+    }catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+	return id_Show;
+}
+
+
+//***************************retourne le nom d un show a partir de son id *************************************
+
+public static int idTitre(String titre) throws SQLException{
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    int id = 0;
+    String SQL = "SELECT id_show FROM show WHERE titre_show = ?";
+    try {
+        pstmt = conn.prepareStatement(SQL);
+        pstmt.setString(1, titre);
+        rs = pstmt.executeQuery();
+
+        if (rs.next()) {
+            id = rs.getInt(1);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        if (rs != null) {
+            rs.close();
+        }
+        if (pstmt != null) {
+            pstmt.close();
+        }
+    }
+    return id;
+}
+
+
+
+
+//*************************retourne un avis d un user sur un show *****************
+
+public static Avis findAvis(int idS, int idU) throws SQLException{
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    Avis avis = null;
+
+    String SQL = "SELECT * FROM Avis WHERE id_show = ? AND id_user = ?";
+    try {
+        pstmt = conn.prepareStatement(SQL);
+        pstmt.setInt(1, idS);
+        pstmt.setInt(2, idU);
+        rs = pstmt.executeQuery();
+
+        if (rs.next()) {
+            int id_show = rs.getInt(1);
+            int Note = rs.getInt(2);
+            String commentaire = rs.getString(3);
+            int favoris_show = rs.getInt(4);
+            int num_ep = rs.getInt(5);
+            int num_saison = rs.getInt(6);
+            int id_user = rs.getInt(7);
+            avis = new Avis(id_user, favoris_show, Note, commentaire, num_ep, num_saison);
+            avis.setCommantaire(commentaire);
+            avis.setFavoris_show(favoris_show);
+            avis.setId_show(id_show);
+            avis.setId_user(id_user);
+            avis.setNote(Note);
+            avis.setNum_ep(num_ep);
+            avis.setNum_saison(num_saison);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        if (rs != null) {
+            rs.close();
+        }
+        if (pstmt != null) {
+            pstmt.close();
+        }
+    }
+    return avis;
+}
+
+
+
+
+
+
+
+
 }
