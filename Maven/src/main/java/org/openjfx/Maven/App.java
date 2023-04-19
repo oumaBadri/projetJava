@@ -37,8 +37,6 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
 
         scene = new Scene(loadFXML("login"),1000,790);
-
-       
         stage.setScene(scene);
         stage.show();
     }
@@ -55,11 +53,12 @@ public class App extends Application {
     public static void main(String[] args) throws SQLException {
 
 
+
  //System.out.println(AvisDAO.ShowTitre(1));
     
 
 //System.out.println(AvisDAO.envoyerNotif(1));
-    launch();
+   launch();
     	/*Avis a= new Avis(2, 1, 10, "biiiiien", 1, 1);
     	AvisDAO.ajouterAvis(a);*/
     	/*System.out.println(AvisDAO.idTitre("the originals"));
@@ -121,6 +120,10 @@ public class App extends Application {
     	/*LocalDate date=LocalDate.of(2002,06, 18);
     	Acteur a=new Acteur(12,"malak","bendhia","bendhia@gmail.com","1236457",date);
     	Dao.ActeurDAO.ajouterActeur(a);*/
+    	/*Avis a= new Avis(20, 1, 0,"hello",1, 1);
+    	AvisDAO.ajouterAvis(a);*/
+    	
+    	
 
     }
 

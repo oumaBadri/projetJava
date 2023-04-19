@@ -23,40 +23,37 @@ public class AvisDAO {
 private static Connection conn = conxBD.getInstance();
 	
 
-
 //**********************************Ajouter Avis************************************
 	   public static int ajouterAvis(Avis Avis) {
-			int AvisId = 0;
+			int code = 0;
 			System.out.println("-------connexion is "+conn);
 			PreparedStatement pstmt = null; 
 		    ResultSet rs = null;
 	        
 	        try {
-	        	String sql = "INSERT INTO Avis (id_user,id_show,note,commentaire,num_ep,num_saison) VALUES (?,?,?,?,?,?)";
+	        	String sql = "INSERT INTO  Avis  (id_user,id_show,note,commentaire,num_ep,num_saison) VALUES (?,?,?,?,?,?)";
 	    		pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-	        	System.out.println("coonexion is---------------------- "+conn);
 	            pstmt.setInt(1,Avis.getId_user());
 	        	pstmt.setInt(2,Avis.getId_show());
 	        	pstmt.setInt(3,Avis.getNote());
 	        	pstmt.setString(4,Avis.getCommantaire());
-	            pstmt.setInt(5,Avis.getNum_ep());
-	        	pstmt.setInt(6,Avis.getNum_saison());
-	        	
-	        	
-	             int rs1 =pstmt.executeUpdate();
-	        	
-	            // 4- Recupérer l'Id généré par le SGBD
-	        	rs = pstmt.getGeneratedKeys();
 	            
-	            if(rs.next())
-	            	AvisId = rs.getInt(1);
-	        } catch (SQLIntegrityConstraintViolationException ex) {
-	            System.out.println("Cannot insert duplicate ID.");
+	            pstmt.setInt(5, Avis.getNum_ep());
+	            pstmt.setInt(6, Avis.getNum_saison());
+	        	
+	            pstmt.executeUpdate();
+
+	            rs = pstmt.getGeneratedKeys();
+
+	            if (rs.next()) {
+	                code = rs.getInt(1);
+	            }
+
 	        }catch (SQLException ex) {
 	            System.out.println(ex.getMessage());
 	            
 	        }
-			return AvisId;
+			return code;
 		}
 
 	 
@@ -106,17 +103,15 @@ private static Connection conn = conxBD.getInstance();
 			return id_Show;
 		}
 //**************************************************************************************
-       public static int modifFavoriShow(int id_Show,int num_ep,int num_saison,int id_user) {
+       public static int modifFavoriShow(int id_Show,int id_user) {
 			
 			PreparedStatement pstmt = null;
 		    ResultSet rs = null;
 		    try {
-	            String sql = "UPDATE Avis SET favoris_show=1 WHERE ID_show=? And num_ep=? and num_saison=? and id_user=?" ;
+	            String sql = "UPDATE Avis SET favoris_show=1 WHERE ID_show=?  and id_user=?" ;
 	            pstmt = conn.prepareStatement(sql);
 	            pstmt.setInt(1, id_Show);
-	        	pstmt.setInt(2, num_ep);
-	        	pstmt.setInt(3,num_saison);
-	        	pstmt.setInt(4,id_user);
+	        	pstmt.setInt(2,id_user);
 	        	pstmt.executeUpdate();
 	            // 4- Recupérer l'Id généré par le SGBD
 	        	rs = pstmt.getGeneratedKeys();
@@ -126,7 +121,7 @@ private static Connection conn = conxBD.getInstance();
 			return id_Show;
 		}
 
-     //************************************Suppression Show*************************************
+//************************************Suppression Show*************************************
 			public static int supprimerNote(int id_Show,int num_ep,int num_saison,int id_user) {
 				int showId = 0;
 				PreparedStatement pstmt = null;
@@ -147,7 +142,7 @@ private static Connection conn = conxBD.getInstance();
 		        }
 				return id_Show;
 			}
-	//*********************************************************************************************
+//*********************************************************************************************
 			public static int supprimerCom(int id_Show,int num_ep,int num_saison,int id_user) {
 				int showId = 0;
 				PreparedStatement pstmt = null;
@@ -168,8 +163,30 @@ private static Connection conn = conxBD.getInstance();
 		        }
 				return id_Show;
 			}
-	//************************************************************************************************
-			public static List<Avis> findAll() throws SQLException{
+//************************************************************************************************
+			public static int suppFavoriShow(int id_Show,int num_ep,int num_saison,int id_user) {
+				
+				PreparedStatement pstmt = null;
+			    ResultSet rs = null;
+			    try {
+			        String sql = "UPDATE Avis SET favoris_show=0 WHERE ID_show=? And num_ep=? and num_saison=? and id_user=?" ;
+			        pstmt = conn.prepareStatement(sql);
+			        pstmt.setInt(1, id_Show);
+			    	pstmt.setInt(2, num_ep);
+			    	pstmt.setInt(3,num_saison);
+			    	pstmt.setInt(4,id_user);
+			    	pstmt.executeUpdate();
+			        // 4- Recupérer l'Id généré par le SGBD
+			    	rs = pstmt.getGeneratedKeys();
+			    }catch (SQLException ex) {
+			        System.out.println(ex.getMessage());
+			    }
+				return id_Show;
+			}
+
+//*****************************************************************************************************			
+			
+public static List<Avis> findAll() throws SQLException{
 				
 				Statement stmt = null;
 			    ResultSet rs = null;
@@ -186,21 +203,21 @@ private static Connection conn = conxBD.getInstance();
 		            	int id_p = rs.getInt(1);
 		                int Note = rs.getInt(2);
 		                String commentaire = rs.getString(3);
-		                int favoris_show = rs.getInt(5);
-		                int num_ep = rs.getInt(6);
-		                int num_saison = rs.getInt(7);
-		                int id_user = rs.getInt(8);
+		                int favoris_show = rs.getInt(4);
+		                int num_ep = rs.getInt(5);
+		                int num_saison = rs.getInt(6);
+		                int id_user = rs.getInt(7);
 		              
 
 
-		                Avis avis1 = new Avis(id_user, favoris_show, Note, commentaire, num_ep, num_saison);
+		                Avis avis1 = new Avis(id_user, favoris_show, Note, commentaire, favoris_show, num_ep, num_saison);
 		                avis.add(avis1);
 		            }
 		        } catch (Exception e ) {};
 		        
 		        return avis;
 			}
-	//**********************retourne  liste des id des shows favoris d un user***************************************
+//**********************retourne  liste des id des shows favoris d un user***************************************
 public static List<Integer> findAll2(int id_user) throws SQLException{
 				
 	PreparedStatement pstmt = null;
@@ -219,33 +236,8 @@ public static List<Integer> findAll2(int id_user) throws SQLException{
 		        } catch (Exception e ) {};
 		        
 		        return avis;
+
 			}
-
-
-
-
-
-///*********************suppprimer de favoris**********************
-
-public static int suppFavoriShow(int id_Show,int num_ep,int num_saison,int id_user) {
-	
-	PreparedStatement pstmt = null;
-    ResultSet rs = null;
-    try {
-        String sql = "UPDATE Avis SET favoris_show=0 WHERE ID_show=? And num_ep=? and num_saison=? and id_user=?" ;
-        pstmt = conn.prepareStatement(sql);
-        pstmt.setInt(1, id_Show);
-    	pstmt.setInt(2, num_ep);
-    	pstmt.setInt(3,num_saison);
-    	pstmt.setInt(4,id_user);
-    	pstmt.executeUpdate();
-        // 4- Recupérer l'Id généré par le SGBD
-    	rs = pstmt.getGeneratedKeys();
-    }catch (SQLException ex) {
-        System.out.println(ex.getMessage());
-    }
-	return id_Show;
-}
 
 
 
@@ -275,7 +267,7 @@ public static Avis findAvis(int idS, int idU) throws SQLException{
             int num_ep = rs.getInt(5);
             int num_saison = rs.getInt(6);
             int id_user = rs.getInt(7);
-            avis = new Avis(id_user, favoris_show, Note, commentaire, num_ep, num_saison);
+            avis = new Avis(id_user, id_show, Note, commentaire, favoris_show, num_ep, num_saison);
             avis.setCommantaire(commentaire);
             avis.setFavoris_show(favoris_show);
             avis.setId_show(id_show);
@@ -327,123 +319,8 @@ public List<Integer> getUsers(int showId) throws SQLException {
     return users;
 }
 
-///pouur envoyer notiiif//////////
-/*public static void envoyerNotif() {
-    PreparedStatement pstmt = null;
-    ResultSet rs = null;
+//*********************************************************************************
 
-    // Récupérer la date actuelle
-    LocalDate dateActuelle = LocalDate.now();
-
-    // Requête pour récupérer les utilisateurs ayant un favori pour un show
-    String SQL = "SELECT DISTINCT id_user FROM avis a, show s WHERE a.id_show = s.id_show AND favoris_show = 1";
-
-    try {
-        pstmt = conn.prepareStatement(SQL);
-        rs = pstmt.executeQuery();
-
-        // Pour chaque utilisateur ayant un favori pour un show
-        while (rs.next()) {
-            int id_user = rs.getInt(1);
-
-            // Requête pour récupérer les épisodes disponibles pour les shows favoris de l'utilisateur
-            String SQL2 = "SELECT DISTINCT s.id_show, e.nom_ep "
-                    + "FROM show s, saison sa, episode e "
-                    + "WHERE s.id_show = sa.id_show "
-                    + "AND sa.num_saison = e.num_saison "
-                    + "AND s.id_show IN (SELECT id_show FROM avis WHERE id_user = ? AND favoris_show = 1) "
-                    + "AND e.date_diff = ?";
-
-            pstmt = conn.prepareStatement(SQL2);
-            pstmt.setInt(1, id_user);
-            pstmt.setDate(2, Date.valueOf(dateActuelle));
-            ResultSet rs2 = pstmt.executeQuery();
-
-            // Pour chaque épisode disponible pour les shows favoris de l'utilisateur
-            while (rs2.next()) {
-                int id_show = rs2.getInt(1);
-                String nom_episode = rs2.getString(2);
-
-                // Envoi de la notification à l'utilisateur
-                System.out.println("Notification envoyée à l'utilisateur " + id_user + " : L'épisode " + nom_episode + " du show " + id_show + " est disponible !");
-            }
-        }
-    } catch (SQLException e) {
-        e.printStackTrace();
-    } finally {
-        if (rs != null) {
-            try {
-                rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        if (pstmt != null) {
-            try {
-                pstmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-}
-
-*/
-
-///****************************envoyer notif a user connect***************
-/*public static void envoyerNotif(int id_user_connecte) {
-    PreparedStatement pstmt = null;
-    ResultSet rs = null;
-
-    // Récupérer la date actuelle
-    LocalDate dateActuelle = LocalDate.now();
-
-    // Requête pour récupérer les épisodes disponibles pour les shows favoris de l'utilisateur connecté
-    String SQL2 = "SELECT DISTINCT s.id_show, e.nom_ep "
-            + "FROM show s, saison sa, episode e, avis a "
-            + "WHERE s.id_show = sa.id_show "
-            + "AND sa.num_saison = e.num_saison "
-            + "AND s.id_show = a.id_show "
-            + "AND e.num_ep = a.num_ep "
-            + "AND a.id_user = ? "
-            + "AND a.favoris_show = 1 "
-            + "AND e.date_diff = ?";
-    		
-    		
-
-    try {
-        pstmt = conn.prepareStatement(SQL2);
-        pstmt.setInt(1, id_user_connecte);
-        pstmt.setDate(2, Date.valueOf(dateActuelle));
-        ResultSet rs2 = pstmt.executeQuery();
-
-        // Pour chaque épisode disponible pour les shows favoris de l'utilisateur connecté
-        while (rs2.next()) {
-            int id_show = rs2.getInt(1);
-            String nom_episode = rs2.getString(2);
-
-            // Envoi de la notification à l'utilisateur
-            System.out.println("Notification envoyée à l'utilisateur " + id_user_connecte + " : L'épisode " + nom_episode + " du show " + id_show + " est disponible !");
-        }
-    } catch (SQLException e) {
-        e.printStackTrace();
-    } finally {
-        if (rs != null) {
-            try {
-                rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        if (pstmt != null) {
-            try {
-                pstmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-}*/
 public static List<String> envoyerNotif(int id_user_connecte) {
     PreparedStatement pstmt = null;
     ResultSet rs = null;

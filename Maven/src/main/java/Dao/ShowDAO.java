@@ -267,14 +267,18 @@ public class ShowDAO {
 	}
  //***************************************************************
  public static Show findShow(String titre,String image2) throws SQLException{
-		
-		Statement stmt = null;
+	 PreparedStatement pstmt = null;
 	    ResultSet rs = null;
+		/*Statement stmt = null;
+	    ResultSet rs = null;*/
 	    Show sh = new Show();
-        String SQL = " SELECT Titre_show,image FROM Show titre_show=? and image=? ";
   try {
-  	stmt = conn.createStatement();
-      rs = stmt.executeQuery(SQL);
+      String SQL = " SELECT Titre_show,image FROM Show titre_show=? and image=? ";
+
+  	pstmt = conn.prepareStatement(SQL);
+    pstmt.setString(1, titre);
+    pstmt.setString(2, image2);
+      rs = pstmt.executeQuery();
 
       while (rs.next()){
      	 String titre_show = rs.getString(1);
