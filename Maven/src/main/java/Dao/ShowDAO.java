@@ -268,14 +268,18 @@ public class ShowDAO {
 	}
  //***************************************************************
  public static Show findShow(String titre,String image2) throws SQLException{
-		
-		Statement stmt = null;
+	 PreparedStatement pstmt = null;
 	    ResultSet rs = null;
+		/*Statement stmt = null;
+	    ResultSet rs = null;*/
 	    Show sh = new Show();
-        String SQL = " SELECT Titre_show,image FROM Show titre_show=? and image=? ";
   try {
-  	stmt = conn.createStatement();
-      rs = stmt.executeQuery(SQL);
+      String SQL = " SELECT Titre_show,image FROM Show titre_show=? and image=? ";
+
+  	pstmt = conn.prepareStatement(SQL);
+    pstmt.setString(1, titre);
+    pstmt.setString(2, image2);
+      rs = pstmt.executeQuery();
 
       while (rs.next()){
      	 String titre_show = rs.getString(1);
@@ -290,6 +294,61 @@ public class ShowDAO {
 return sh;
 	}
  
+
+//***************************retourne le nom d un show a partir de son id *************************************
+	
+public static String ShowTitre(int id_show) throws SQLException{
+	
+	PreparedStatement pstmt = null;
+   ResultSet rs = null;
+   String titre="";
+  // List<Show> show = new ArrayList<>();
+   String SQL = "SELECT Titre_show FROM show  where id_show=?";
+   try {
+   	pstmt = conn.prepareStatement(SQL);
+       pstmt.setInt(1, id_show);
+       rs = pstmt.executeQuery();
+
+       while (rs.next()) {
+       		 titre= rs.getString(1);
+       }
+   } 
+   catch (Exception e ) {};
+   return titre;
+}
+
+
+
+//***************************retourne l id d un show a partir de son nom *************************************
+
+public static int idTitre(String titre) throws SQLException{
+  PreparedStatement pstmt = null;
+  ResultSet rs = null;
+  int id = 0;
+  String SQL = "SELECT id_show FROM show WHERE titre_show = ?";
+  try {
+      pstmt = conn.prepareStatement(SQL);
+      pstmt.setString(1, titre);
+      rs = pstmt.executeQuery();
+
+      if (rs.next()) {
+          id = rs.getInt(1);
+      }
+  } catch (SQLException e) {
+      e.printStackTrace();
+  } finally {
+      if (rs != null) {
+          rs.close();
+      }
+      if (pstmt != null) {
+          pstmt.close();
+      }
+  }
+  return id;
+}
+ 
+ 
+
  //---------------------------------------------------
  public static Show findShowParID(Integer identifiant) {
 		PreparedStatement pstmt = null;

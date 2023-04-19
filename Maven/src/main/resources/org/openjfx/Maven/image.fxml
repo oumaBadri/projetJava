@@ -15,7 +15,7 @@
             <Image url="@images/Wednesday-2.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="titre" alignment="CENTER" prefHeight="34.0" prefWidth="256.0" text="Label" textFill="#381c8c">
+      <Label fx:id="titre" alignment="CENTER" prefHeight="34.0" prefWidth="256.0" text="wednesday" textFill="#381c8c">
          <font>
             <Font name="Cooper Black" size="14.0" />
          </font></Label>

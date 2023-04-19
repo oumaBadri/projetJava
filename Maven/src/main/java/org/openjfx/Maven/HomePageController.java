@@ -26,8 +26,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class HomePageController implements Initializable{
-	@FXML
-    private ImageView notificationbtn;
+	   @FXML
+       private ImageView notificationbtn;
 	   @FXML
 	    private HBox Hbox;
 	   @FXML
@@ -50,30 +50,6 @@ public class HomePageController implements Initializable{
       App.setRoot("notification");
 
 	    }
-	
-	/*private void  recentlyAdded(List<Show> liste ,Stream<Show> source ) {
-		List<Show> sh = new ArrayList<>();
-		Show show =  new Show();
-		
-		source.collect(Collectors.toCollection(()->liste));
-		
-		/*show.setTitre_show("wednesday");
-		show.setAffiche("images/Wednesday-2.jpg");
-		sh.add(show);
-		show.setTitre_show("wednesday");
-		show.setAffiche("images/Wednesday-2.jpg");
-		sh.add(show);
-		show.setTitre_show("wednesday");
-		show.setAffiche("images/Wednesday-2.jpg");
-		sh.add(show);
-		sh=ShowDAO.findAll();
-		sh.stream().
-		
-		
-		
-		}*/
-
-	
 	
 	@Override
 	public void initialize(URL location, java.util.ResourceBundle resources){

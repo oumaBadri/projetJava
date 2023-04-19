@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import Dao.ActeurDAO;
 import Dao.AvisDAO;
+import Dao.ShowDAO;
 import Models.Utilisateur;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -41,7 +42,7 @@ public class favorisFilmController implements Initializable{
 		 //AvisDAO.findAll2(1).stream().forEach(x->filmList.getItems().addAll(x.));
 		  AvisDAO.findAll2(a.getId_user()).stream().forEach(x->{
 			try {
-				filmList.getItems().addAll(AvisDAO.ShowTitre(x));
+				filmList.getItems().addAll(ShowDAO.ShowTitre(x));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -58,7 +59,7 @@ public class favorisFilmController implements Initializable{
 		  
 		        String selectedItem = filmList.getSelectionModel().getSelectedItem();
 		        if (selectedItem != null) {
-		        	AvisDAO.suppFavoriShow(AvisDAO.idTitre(selectedItem), (AvisDAO.findAvis(AvisDAO.idTitre(selectedItem), a.getId_user())).getNum_ep(), (AvisDAO.findAvis(AvisDAO.idTitre(selectedItem), a.getId_user())).getNum_saison(), a.getId_user());
+		        	AvisDAO.suppFavoriShow(ShowDAO.idTitre(selectedItem), (AvisDAO.findAvis(ShowDAO.idTitre(selectedItem), a.getId_user())).getNum_ep(), (AvisDAO.findAvis(ShowDAO.idTitre(selectedItem), a.getId_user())).getNum_saison(), a.getId_user());
 		            filmList.getItems().remove(selectedItem);
 		        }
 		  }

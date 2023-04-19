@@ -3,6 +3,9 @@ package org.openjfx.Maven;
 
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Dao.AvisDAO;
@@ -12,16 +15,19 @@ import Models.Avis;
 import Models.Episode;
 import Models.Show;
 import Models.Utilisateur;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import utile.conxBD;
 import javafx.scene.image.Image;
 
 public class ImageController {
-
 	@FXML
-    private ImageView affiche;
+    private  ImageView affiche;
 
     @FXML
     private Button like;
@@ -33,20 +39,16 @@ public class ImageController {
     private Button show;
 
     @FXML
-    private Label titre;
+    private  Label titre;
     
-    Utilisateur a = new Utilisateur();
-      
-   public  void setData(Show show) {
+    static Utilisateur a = new Utilisateur();
+   
+    public  void setData(Show show) {
 	Image image = new Image(getClass().getResourceAsStream(show.getAffiche()));
 	affiche.setImage(image);
 	titre.setText(show.getTitre_show());
 	}
-   
-   
-   
-   
-   public static String getRelativeImagePath(String path) {
+    public static String getRelativeImagePath(String path) {
 	    int index = path.indexOf("images/");
 	    if (index >= 0) {
 	        return path.substring(index);
@@ -54,19 +56,17 @@ public class ImageController {
 	        return "";
 	    }
 	}
-   
-   
+    
    public void AjoutFavoris() throws SQLException {
-	   String a2=getRelativeImagePath(affiche.getImage().getUrl());
-	   System.out.println(a2);
-	  
-	 Show sh=ShowDAO.findShow(titre.getText(),a2);
-	 Episode ep =EpisodeDAO.FindEp(sh.getId_show());	
-	 Avis avis=new Avis(a.getId_user(),sh.getId_show(),0, null,ep.getNum_ep(),ep.getNum_saison());
+	 int sh=ShowDAO.findIdShow(titre.getText());
+     Avis avis=new Avis(a.getId_user(),sh);
 	 AvisDAO.ajouterAvis(avis);
-	 AvisDAO.modifFavoriShow(sh.getId_show(),ep.getNum_ep(),ep.getNum_saison(),a.getId_user());
-	   
-	   
+	 AvisDAO.modifFavoriShow(sh,a.getId_user());
    }
+   
+   
+
+
+
     
 }
