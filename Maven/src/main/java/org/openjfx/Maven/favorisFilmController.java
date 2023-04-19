@@ -1,5 +1,6 @@
 package org.openjfx.Maven;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -10,17 +11,27 @@ import Dao.AvisDAO;
 import Models.Utilisateur;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class favorisFilmController implements Initializable{
 		ObservableList<String> list= FXCollections.observableArrayList();
 	
 		static Utilisateur a= new Utilisateur();
+		  @FXML
+		    private ImageView retour;
+		
+		@FXML
+	    private Button details;
+		
 
-		
-		
+	    @FXML
+	    private Button supp;
 	  @FXML
 	    private ListView<String> filmList;
 	  
@@ -40,6 +51,33 @@ public class favorisFilmController implements Initializable{
 	  }
 
 
+	  
+	  
+	  @FXML
+	    void supprimer(ActionEvent event) throws SQLException {
+		  
+		        String selectedItem = filmList.getSelectionModel().getSelectedItem();
+		        if (selectedItem != null) {
+		        	AvisDAO.suppFavoriShow(AvisDAO.idTitre(selectedItem), (AvisDAO.findAvis(AvisDAO.idTitre(selectedItem), a.getId_user())).getNum_ep(), (AvisDAO.findAvis(AvisDAO.idTitre(selectedItem), a.getId_user())).getNum_saison(), a.getId_user());
+		            filmList.getItems().remove(selectedItem);
+		        }
+		  }
+	  
+
+	    @FXML
+	    void voirdetails(ActionEvent event) {
+
+	    }
+	  
+	  
+	    @FXML
+	    void retour(MouseEvent event) throws IOException {
+		 App.setRoot("UserHome");
+
+	    }
+	  
+	  
+	  
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
@@ -49,6 +87,10 @@ public class favorisFilmController implements Initializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		
+		
 	}
 	
 	

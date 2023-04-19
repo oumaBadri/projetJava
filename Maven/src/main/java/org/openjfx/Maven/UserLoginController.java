@@ -14,6 +14,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class UserLoginController {
 	@FXML
@@ -25,7 +27,7 @@ public class UserLoginController {
     @FXML
     private Label emailcor;
 
-
+    
     @FXML
     private Button login;
 
@@ -57,11 +59,12 @@ public class UserLoginController {
     		
     		ImageController p= new ImageController();
     		favorisFilmController i= new favorisFilmController();
+    		NotifController f= new NotifController();
     		
     	    Utilisateur d= UtilisateurDAO.getUser(email.getText());
     	    System.out.println(d);
     		//System.out.println(d);
-    		
+    		f.a.setId_user(d.getId_user());
     		p.a.setId_user(d.getId_user());
     		i.a.setId_user(d.getId_user());
     		System.out.println("*****"+i.a.getId_user());
@@ -75,4 +78,7 @@ public class UserLoginController {
         private void switchToInscription() throws IOException {
             App.setRoot("Inscription");
         }
+    	
+    	
+    	
 }

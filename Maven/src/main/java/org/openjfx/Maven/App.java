@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -35,16 +36,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-
-        scene = new Scene(loadFXML("AjoutShow"),1000,790);
-
-       // scene = new Scene(loadFXML("login"),1000,790);
-
-       // scene = new Scene(loadFXML("ProfileInterface"),1000,790);
-
-      //  scene = new Scene(loadFXML("ProfileInterface"),1000,790);
-
-       // scene = new Scene(loadFXML("UserHome"),1000,790);
+        scene = new Scene(loadFXML("UserHome"),1000,790);
         stage.setScene(scene);
         stage.show();
     }
@@ -57,9 +49,15 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
+
     public static void main(String[] args) throws SQLException {
 
+    	/*Avis a= new Avis(20, 1, 0,"hello",1, 1);
+    	AvisDAO.ajouterAvis(a);*/
+    	launch();
+    	
 
+<<<<<<< HEAD
 
  //System.out.println(AvisDAO.ShowTitre(1));
 
@@ -125,6 +123,8 @@ public class App extends Application {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}*/
+=======
+>>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava
     }
 
 

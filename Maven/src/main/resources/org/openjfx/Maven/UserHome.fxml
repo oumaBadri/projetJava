@@ -26,7 +26,7 @@
                </graphic>
             </Button>
             <Button layoutX="740.0" layoutY="15.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="66.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
-            <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="777.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="notificationbtn" fitHeight="36.0" fitWidth="29.0" layoutX="777.0" layoutY="35.0" onMouseClicked="#goToNotif" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/bell.png" />
                </image>

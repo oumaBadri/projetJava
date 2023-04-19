@@ -20,11 +20,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class HomePageController implements Initializable{
-	
+	@FXML
+    private ImageView notificationbtn;
 	   @FXML
 	    private HBox Hbox;
 	   @FXML
@@ -41,6 +44,12 @@ public class HomePageController implements Initializable{
         App.setRoot("favorisFilm");
     }
 	
+	
+	 @FXML
+	    void goToNotif(MouseEvent event) throws IOException {
+      App.setRoot("notification");
+
+	    }
 	
 	/*private void  recentlyAdded(List<Show> liste ,Stream<Show> source ) {
 		List<Show> sh = new ArrayList<>();

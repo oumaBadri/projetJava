@@ -44,6 +44,18 @@ public class ImageController {
 	}
    
    
+   
+   
+   public static String getRelativeImagePath(String path) {
+	    int index = path.indexOf("images/");
+	    if (index >= 0) {
+	        return path.substring(index);
+	    } else {
+	        return "";
+	    }
+	}
+   
+   
    public void AjoutFavoris() throws SQLException {
 	  
 	 Show sh=ShowDAO.findShow(titre.getText(),affiche.getImage().getUrl());
