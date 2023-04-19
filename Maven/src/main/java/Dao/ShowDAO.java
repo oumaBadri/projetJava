@@ -191,10 +191,10 @@ public class ShowDAO {
                 String langue_show = rs.getString(5);
                 int is_film = rs.getInt(6);
                 String genre_show= rs.getString(7);
-                
+                String affiche_show=rs.getString(8);
                
 
-                Show act = new Show(id_show, titre_show, annif_show, Pays_show, langue_show, genre_show, is_film);
+                Show act = new Show(id_show, titre_show, annif_show, Pays_show, langue_show, genre_show, is_film,affiche_show);
                 Shows.add(act);
             }
         } catch (Exception e ) {};

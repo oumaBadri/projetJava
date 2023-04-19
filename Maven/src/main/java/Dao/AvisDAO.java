@@ -1,6 +1,7 @@
 package Dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -267,7 +268,7 @@ public static int suppFavoriShow(int id_Show,int num_ep,int num_saison,int id_us
 }
 
 
-//***************************retourne le nom d un show a partir de son id *************************************
+//***************************retourne l id d un show a partir de son nom *************************************
 
 public static int idTitre(String titre) throws SQLException{
     PreparedStatement pstmt = null;
@@ -342,6 +343,204 @@ public static Avis findAvis(int idS, int idU) throws SQLException{
     return avis;
 }
 
+///retourne les id des user qu on mis favoris a un show donne//////
+public List<Integer> getUsers(int showId) throws SQLException {
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    List<Integer> users = new ArrayList<>();
+
+    String SQL = "SELECT id_user FROM avis WHERE id_show = ? AND favoris_show = 1";
+    try {
+        pstmt = conn.prepareStatement(SQL);
+        pstmt.setInt(1, showId);
+        rs = pstmt.executeQuery();
+
+        while (rs.next()) {
+            int userId = rs.getInt(1);
+            users.add(userId);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        if (rs != null) {
+            rs.close();
+        }
+        if (pstmt != null) {
+            pstmt.close();
+        }
+    }
+
+    return users;
+}
+
+///pouur envoyer notiiif//////////
+/*public static void envoyerNotif() {
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+
+    // Récupérer la date actuelle
+    LocalDate dateActuelle = LocalDate.now();
+
+    // Requête pour récupérer les utilisateurs ayant un favori pour un show
+    String SQL = "SELECT DISTINCT id_user FROM avis a, show s WHERE a.id_show = s.id_show AND favoris_show = 1";
+
+    try {
+        pstmt = conn.prepareStatement(SQL);
+        rs = pstmt.executeQuery();
+
+        // Pour chaque utilisateur ayant un favori pour un show
+        while (rs.next()) {
+            int id_user = rs.getInt(1);
+
+            // Requête pour récupérer les épisodes disponibles pour les shows favoris de l'utilisateur
+            String SQL2 = "SELECT DISTINCT s.id_show, e.nom_ep "
+                    + "FROM show s, saison sa, episode e "
+                    + "WHERE s.id_show = sa.id_show "
+                    + "AND sa.num_saison = e.num_saison "
+                    + "AND s.id_show IN (SELECT id_show FROM avis WHERE id_user = ? AND favoris_show = 1) "
+                    + "AND e.date_diff = ?";
+
+            pstmt = conn.prepareStatement(SQL2);
+            pstmt.setInt(1, id_user);
+            pstmt.setDate(2, Date.valueOf(dateActuelle));
+            ResultSet rs2 = pstmt.executeQuery();
+
+            // Pour chaque épisode disponible pour les shows favoris de l'utilisateur
+            while (rs2.next()) {
+                int id_show = rs2.getInt(1);
+                String nom_episode = rs2.getString(2);
+
+                // Envoi de la notification à l'utilisateur
+                System.out.println("Notification envoyée à l'utilisateur " + id_user + " : L'épisode " + nom_episode + " du show " + id_show + " est disponible !");
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (pstmt != null) {
+            try {
+                pstmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+*/
+
+///****************************envoyer notif a user connect***************
+/*public static void envoyerNotif(int id_user_connecte) {
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+
+    // Récupérer la date actuelle
+    LocalDate dateActuelle = LocalDate.now();
+
+    // Requête pour récupérer les épisodes disponibles pour les shows favoris de l'utilisateur connecté
+    String SQL2 = "SELECT DISTINCT s.id_show, e.nom_ep "
+            + "FROM show s, saison sa, episode e, avis a "
+            + "WHERE s.id_show = sa.id_show "
+            + "AND sa.num_saison = e.num_saison "
+            + "AND s.id_show = a.id_show "
+            + "AND e.num_ep = a.num_ep "
+            + "AND a.id_user = ? "
+            + "AND a.favoris_show = 1 "
+            + "AND e.date_diff = ?";
+    		
+    		
+
+    try {
+        pstmt = conn.prepareStatement(SQL2);
+        pstmt.setInt(1, id_user_connecte);
+        pstmt.setDate(2, Date.valueOf(dateActuelle));
+        ResultSet rs2 = pstmt.executeQuery();
+
+        // Pour chaque épisode disponible pour les shows favoris de l'utilisateur connecté
+        while (rs2.next()) {
+            int id_show = rs2.getInt(1);
+            String nom_episode = rs2.getString(2);
+
+            // Envoi de la notification à l'utilisateur
+            System.out.println("Notification envoyée à l'utilisateur " + id_user_connecte + " : L'épisode " + nom_episode + " du show " + id_show + " est disponible !");
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (pstmt != null) {
+            try {
+                pstmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}*/
+public static List<String> envoyerNotif(int id_user_connecte) {
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    List<String> notifications = new ArrayList<>();
+
+    LocalDate dateActuelle = LocalDate.now();
+
+    String SQL2 = "SELECT DISTINCT s.id_show, e.nom_ep "
+            + "FROM show s, saison sa, episode e, avis a "
+            + "WHERE s.id_show = sa.id_show "
+            + "AND sa.num_saison = e.num_saison "
+            + "AND s.id_show = a.id_show "
+            + "AND e.num_ep = a.num_ep "
+            + "AND a.id_user = ? "
+            + "AND a.favoris_show = 1 "
+            + "AND e.date_diff = ?";
+
+    try {
+        pstmt = conn.prepareStatement(SQL2);
+        pstmt.setInt(1, id_user_connecte);
+        pstmt.setDate(2, Date.valueOf(dateActuelle));
+        ResultSet rs2 = pstmt.executeQuery();
+
+        while (rs2.next()) {
+            int id_show = rs2.getInt(1);
+            String nom_episode = rs2.getString(2);
+
+            String notif = "L'épisode " + nom_episode + " du show " + ShowTitre(id_show)  + " est disponible !";
+            notifications.add(notif);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (pstmt != null) {
+            try {
+                pstmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    return notifications;
+}
 
 
 

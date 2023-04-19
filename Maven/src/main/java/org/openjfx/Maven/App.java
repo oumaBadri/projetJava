@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -36,6 +37,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
 
 
+       // scene = new Scene(loadFXML("AjoutShow"),1000,790);
+
 
         scene = new Scene(loadFXML("login"),1000,790);
 
@@ -59,15 +62,24 @@ public class App extends Application {
     }
 
 
-    public static void main(String[] args) throws SQLException {
-  
- //System.out.println(AvisDAO.ShowTitre(1));
 
-    	//System.out.println("hello");
+
+
+
+
+ //System.out.println(AvisDAO.ShowTitre(1));
+    public static void main(String[] args) throws ParseException, SQLException {
+
+//System.out.println(AvisDAO.envoyerNotif(1));
     launch();
-    	System.out.println(AvisDAO.idTitre("the originals"));
+    	/*System.out.println(AvisDAO.idTitre("the originals"));
     	System.out.println(AvisDAO.findAvis(1, 1).toString2());
-    	System.out.println(AvisDAO.findAvis(1, 1).getNum_ep());
+    	System.out.println(AvisDAO.findAvis(1, 1).getNum_ep());*/
+
+    	/*LocalDate date = LocalDate.of(20,10,20);
+    	Show s=new Show(12, "lalala", date, "Tunisia", "arabic","Dramatique", 1, "url de l'image");
+    	ShowDAO.ajouterShow(s);*/
+
     //	System.out.println(AvisDAO.findAll2(1));
     //	System.out.println(AvisDAO.ShowTitre(1));
     	//Avis a= new Avis(1, 1, 10, "jaime", 1, 1);
@@ -81,7 +93,7 @@ public class App extends Application {
     	//Episode a= new Episode(1, 1,"loula", 1, "hhhhhh", date);
     	//EpisodeDAO.ajouterEpisode(a);
     	//ActeurDAO.modifAnnifActeur(1, date);
-
+       
     	/*
 <<<<<<< HEAD
       launch();
@@ -99,6 +111,7 @@ public class App extends Application {
 
     	/*Connection cnx = utile.conxBD.getInstance();
     	System.out.println("la connection is "+cnx);*/
+
       //LocalDate date = LocalDate.of(20,10,20);
      /* Utilisateur u = new Utilisateur(20, "ouma", "Badri",date,"badri@gmail.com" ,"12345678","");
 =======
@@ -110,16 +123,15 @@ public class App extends Application {
      /*  Producteur p =new Producteur(20, "heelloo", "baadroo", "badri@gmail", "12345678",date);
         ProducteurDAO.ajouterProducteur(p);*/
         //hello world
+
     /*	List<Show> sh= ShowDAO.findAll2();
     	System.out.println(sh);*/
-        
-        
-        
-        
+
     	//test
     	/*LocalDate date=LocalDate.of(2002,06, 18);
     	Acteur a=new Acteur(12,"malak","bendhia","bendhia@gmail.com","1236457",date);
     	Dao.ActeurDAO.ajouterActeur(a);*/
+
     }
 
 

@@ -1,5 +1,6 @@
 package org.openjfx.Maven;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -15,12 +16,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class favorisFilmController implements Initializable{
 		ObservableList<String> list= FXCollections.observableArrayList();
 	
 		static Utilisateur a= new Utilisateur();
-
+		  @FXML
+		    private ImageView retour;
 		
 		@FXML
 	    private Button details;
@@ -66,7 +70,11 @@ public class favorisFilmController implements Initializable{
 	    }
 	  
 	  
-	  
+	    @FXML
+	    void retour(MouseEvent event) throws IOException {
+		 App.setRoot("UserHome");
+
+	    }
 	  
 	  
 	  
