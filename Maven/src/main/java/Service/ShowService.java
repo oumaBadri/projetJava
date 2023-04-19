@@ -14,6 +14,15 @@ public class ShowService {
 		return show;
 		}
 	
+	public static int getNombreSaison(int id) {
+		int n=0;
+		try {
+			n=Dao.ShowDAO.getNombreSaisons(id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
 	
 	
 	

@@ -44,7 +44,7 @@
 }
 
 .side_ankerpane{
-	-fx-bacjground-color:383E56;
+	-fx-background-color:383E56;
 	-fx-border-color:383E56;
 	-fx-border-width:2px 2px 2px 2px ;
 	-fx-border-radius:20px;
@@ -54,7 +54,7 @@
 	
 	}
 	.side_recherche__ankerpane{
-	-fx-bacjground-color:#EEDAD1;
+	-fx-background-color:#EEDAD1;
 	-fx-border-color:#EEDAD1;
 	-fx-border-width:2px 2px 2px 2px ;
 	-fx-border-radius:20px;
