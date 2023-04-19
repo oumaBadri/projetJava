@@ -2,6 +2,7 @@ package Models;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.ZoneId;
 
 import javafx.scene.image.Image;
 
@@ -15,7 +16,7 @@ public class Show {
     private String genre_show;
     private int is_a_film;
     private String affiche;
-	
+	private Object dateOb;
 
 	public Show(int id_show, String titre_show, LocalDate Date_difussion_show, String pays, String langue,String genre_show,int is_a_film) {
 		
@@ -59,6 +60,18 @@ public class Show {
 	
 
 	
+
+	public Show(Integer identifiant, String titre_show2, Object date_diff, String pays_Show, String langue_show,
+			String genre, int is_Film, String image) {
+		this.id_show=identifiant;
+		this.titre_show=titre_show2;
+		this.dateOb=date_diff;
+		this.pays=pays_Show;
+		this.langue=langue_show;
+		this.genre_show=genre;
+		this.is_a_film=is_Film;
+		this.affiche=image;
+	}
 
 	public String getTitre_show() {
 		return titre_show;
@@ -140,6 +153,7 @@ public class Show {
 	public String toString() {
 		return "Show [titre_show=" + titre_show + ", affiche=" + affiche + "]";
 	}
+	
 	
 	
 
