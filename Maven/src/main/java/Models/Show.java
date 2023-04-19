@@ -1,5 +1,6 @@
 package Models;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import javafx.scene.image.Image;
@@ -54,6 +55,10 @@ public class Show {
 	public Show(int id_p) {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+
+	
 
 	public String getTitre_show() {
 		return titre_show;

@@ -109,7 +109,23 @@ public class AjoutShowController implements Initializable{
 
 	    @FXML
 	    void searchShow() {
-
+	    	
+	    	int m=0;
+	    	Show S=Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText()));
+	    	txt_titre.setText(S.getTitre_show());
+	    	txt_genre.setText(S.getGenre_show());
+	    	
+	    	if (S.getIs_a_film()==0) {
+	    		txt_isAFilm.setText("True");
+	    	}
+	    	else {
+	    		txt_isAFilm.setText("false");
+	    	}
+	 	   txt_langue.setText(S.getLangue());
+	 	   txt_payer.setText(S.getPays());
+	 	   txt_poster.setText(S.getAffiche());
+	    	
+	 	   //txt_NombreSaison (Ne5ou maand yosr l fonction bech naamelha f Dao b inner Join
 	    }
 
 	    @FXML
@@ -122,6 +138,8 @@ public class AjoutShowController implements Initializable{
 		showShow();
 		
 	}
+	
+	//pour voir la table de base de donnee
 	public void showShow() {
 		List<Show> shows=null;
 		try {

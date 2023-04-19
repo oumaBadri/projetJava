@@ -69,7 +69,7 @@ public class App extends Application {
     	Show s=new Show(12, "lalala", date, "Tunisia", "arabic","Dramatique", 1, "url de l'image");
     	ShowDAO.ajouterShow(s);*/
 
-      launch();
+      //launch();
     //	System.out.println(AvisDAO.findAll2(1));
     //	System.out.println(AvisDAO.ShowTitre(1));
     	//Avis a= new Avis(1, 1, 10, "jaime", 1, 1);
@@ -111,7 +111,7 @@ public class App extends Application {
     /*	List<Show> sh= ShowDAO.findAll2();
     	System.out.println(sh);*/
         
-        
+       System.out.println(Dao.ShowDAO.findShowParID(12)); 
     	//test
     	/*LocalDate date=LocalDate.of(2002,06, 18);
     	Acteur a=new Acteur(12,"malak","bendhia","bendhia@gmail.com","1236457",date);
