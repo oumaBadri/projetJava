@@ -16,20 +16,39 @@ public class Avis {
 	public Avis() {
 		super();
 	}
-	public Avis(int id_user,int id_show, int note,String commantaire, int num_ep,int num_saison) {
+	
+	
+
+
+
+	public Avis(int id_user, int id_show, int note, String commantaire, int num_ep, int num_saison) {
 		super();
 		this.id_user = id_user;
 		this.id_show = id_show;
-		this.note = note; 
+		this.note = note;
 		this.commantaire = commantaire;
+
 		this.num_ep = num_ep;
 		this.num_saison = num_saison;
 	}
 	
-	public Avis(int id_user2) {
-		// TODO Auto-generated constructor stub
+
+
+	public Avis(int id_user, int id_show, int note, String commantaire, int favoris_show, int num_ep, int num_saison) {
+		super();
+		this.id_user = id_user;
+		this.id_show = id_show;
+		this.note = note;
+		this.commantaire = commantaire;
+		this.favoris_show = favoris_show;
+		this.num_ep = num_ep;
+		this.num_saison = num_saison;
 	}
-	
+
+
+
+
+
 	public int getNote() {
 		return note;
 	}
