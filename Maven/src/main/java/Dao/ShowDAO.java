@@ -288,4 +288,60 @@ public class ShowDAO {
 
 return sh;
 	}
+ 
+//***************************retourne le nom d un show a partir de son id *************************************
+	
+public static String ShowTitre(int id_show) throws SQLException{
+	
+	PreparedStatement pstmt = null;
+   ResultSet rs = null;
+   String titre="";
+  // List<Show> show = new ArrayList<>();
+   String SQL = "SELECT Titre_show FROM show  where id_show=?";
+   try {
+   	pstmt = conn.prepareStatement(SQL);
+       pstmt.setInt(1, id_show);
+       rs = pstmt.executeQuery();
+
+       while (rs.next()) {
+       		 titre= rs.getString(1);
+       }
+   } 
+   catch (Exception e ) {};
+   return titre;
+}
+
+
+
+//***************************retourne l id d un show a partir de son nom *************************************
+
+public static int idTitre(String titre) throws SQLException{
+  PreparedStatement pstmt = null;
+  ResultSet rs = null;
+  int id = 0;
+  String SQL = "SELECT id_show FROM show WHERE titre_show = ?";
+  try {
+      pstmt = conn.prepareStatement(SQL);
+      pstmt.setString(1, titre);
+      rs = pstmt.executeQuery();
+
+      if (rs.next()) {
+          id = rs.getInt(1);
+      }
+  } catch (SQLException e) {
+      e.printStackTrace();
+  } finally {
+      if (rs != null) {
+          rs.close();
+      }
+      if (pstmt != null) {
+          pstmt.close();
+      }
+  }
+  return id;
+}
+ 
+ 
+ 
+ 
 	}
