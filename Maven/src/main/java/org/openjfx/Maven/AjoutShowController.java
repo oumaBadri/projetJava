@@ -12,6 +12,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
@@ -57,8 +59,6 @@ public class AjoutShowController implements Initializable{
 	    @FXML
 	    private TableColumn<Show, String> cln_titre;
 
-	    @FXML
-	    private DatePicker dateDiff;
 
 	    @FXML
 	    private ImageView imageView_search;
@@ -90,6 +90,12 @@ public class AjoutShowController implements Initializable{
 	    @FXML
 	    private TextField txt_poster;
 	    
+	    @FXML
+	    private TextField txt_nbrSaison;
+	    
+	    @FXML
+	    private TextField txt_dateDiff;
+	    
 	    
 	    //public ObservableList<Show> data=FXCollections.observableArrayList();
 	    @FXML
@@ -109,7 +115,66 @@ public class AjoutShowController implements Initializable{
 
 	    @FXML
 	    void searchShow() {
+	    	/*
+	    	int m=0;
+	    	//try {
+	    		Show S=Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText()));
+	    		txt_titre.setText(S.getTitre_show());
+	    		txt_genre.setText(S.getGenre_show());
+	    	
+	    		if (S.getIs_a_film()==0) {
+	    			txt_isAFilm.setText("True");
+	    		}
+	    		else {
+	    			txt_isAFilm.setText("false");
+	    		}
+	    		txt_langue.setText(S.getLangue());
+	    		txt_payer.setText(S.getPays());
+	    		txt_poster.setText(S.getAffiche());
+	    	
+	 	   //b9at nombre de saison bech naamelha b innerJoin
+	    		m=1;
+	    /*}catch(SQLException e) {
+	    		e.printStackTrace();
+	    	}*/
+	    	/*if (m==0) {
+	    		Alert alert=new Alert(AlertType.ERROR,"Aucun Show trouvee avec ce Id",javafx.scene.control.ButtonType.OK);
+	    		alert.showAndWait();
+	    		}*/
+	    	int m=0;
+	    	try {
+	    	    Show S = Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText()));
+	    	    txt_titre.setText(S.getTitre_show());
+	    	    txt_genre.setText(S.getGenre_show());
 
+	    	    if (S.getIs_a_film() == 0) {
+	    	        txt_isAFilm.setText("True");
+	    	    } else {
+	    	        txt_isAFilm.setText("false");
+	    	    }
+
+	    	    txt_langue.setText(S.getLangue());
+	    	    txt_payer.setText(S.getPays());
+	    	    txt_poster.setText(S.getAffiche());
+	    	    txt_nbrSaison.setText(String.valueOf(Service.ShowService.getNombreSaison(Integer.parseInt(txt_searchId.getText()))));
+	    	    
+	    	    
+	    	    m = 1;
+	    	    
+	    	} catch (NumberFormatException e) {
+	    		e.printStackTrace();
+	    	    /*Alert alert = new Alert(AlertType.ERROR, "Le format d'entrée est incorrect. Veuillez entrer un identifiant valide.", javafx.scene.control.ButtonType.OK);
+	    	    alert.showAndWait();*/
+	    	} catch (Exception e) {
+	    		e.printStackTrace();
+	    	    /*Alert alert = new Alert(AlertType.ERROR, "Une erreur s'est produite lors de la recherche du spectacle.", javafx.scene.control.ButtonType.OK);
+	    	    alert.showAndWait();*/
+	    	}
+	    	if (m == 0) {
+    	        Alert alert = new Alert(AlertType.ERROR, "Aucun Show trouvee avec ce Id", javafx.scene.control.ButtonType.OK);
+    	        alert.showAndWait();
+    	        }
+	    	
 	    }
 
 	    @FXML
@@ -122,6 +187,8 @@ public class AjoutShowController implements Initializable{
 		showShow();
 		
 	}
+	
+	//pour voir la table de base de donnee
 	public void showShow() {
 		List<Show> shows=null;
 		try {

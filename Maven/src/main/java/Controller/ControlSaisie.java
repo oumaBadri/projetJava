@@ -1,6 +1,9 @@
 package Controller;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 import Service.ActeurService;
 import Service.ProducteurService;
@@ -68,6 +71,10 @@ public class ControlSaisie {
 		return  ActeurService.verifAncienMDP(id,mdp);
 	}
 
-
-
+	   /*public static LocalDate convertToDateViaInstant(Date dateToConvert) {
+	        return dateToConvert.toInstant()
+	          .atZone(ZoneId.systemDefault())
+	          .toLocalDate();
+	    }
+*/
 }

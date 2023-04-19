@@ -1,5 +1,6 @@
 package Dao;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -288,4 +289,57 @@ public class ShowDAO {
 
 return sh;
 	}
+ 
+ //---------------------------------------------------
+ public static Show findShowParID(Integer identifiant) {
+		PreparedStatement pstmt = null;
+		Show s=null;
+	    ResultSet rs = null;
+	    int id=identifiant;
+	    try {
+         String sql = "SELECT Titre_show,Date_diff,Pays_show,langue_show,Is_film,Genre,Image FROM Show WHERE Id_show=?";
+         pstmt = conn.prepareStatement(sql);
+         pstmt.setInt(1, id);
+         rs = pstmt.executeQuery();
+         while (rs.next()) {
+         	 String titre_show = rs.getString(1);
+         	 Object date_diff=rs.getObject(2);
+         	 String Pays_Show=rs.getString(3);
+         	 String Langue_show=rs.getString(4);
+        	 int is_Film=rs.getInt(5);
+        	 String genre=rs.getString(6);
+        	 String image=rs.getString(7);
+        	 
+        	 s=new Show(identifiant,titre_show,date_diff,Pays_Show,Langue_show,genre,is_Film,image);
+         	}
+     }catch (SQLException ex) {
+         System.out.println(ex.getMessage());
+     }
+	    return s;
+	}
+ 
+ 
+//----------Compter nbre de saison d'une serie----------------------------------- 
+ public static int getNombreSaisons(int idShow) throws SQLException {
+	    PreparedStatement stmt = null;
+	    ResultSet rs = null;
+	    int nombreSaisons = 0;
+
+	    try {
+	        String sql = "SELECT COUNT(*) FROM Saison JOIN Show ON Saison.id_show = Show.id_show WHERE Show.id_show = ?";
+	        stmt = conn.prepareStatement(sql);
+	        stmt.setInt(1, idShow);
+	        rs = stmt.executeQuery();
+
+	        if (rs.next()) {
+	            nombreSaisons = rs.getInt(1);
+	        }
+
+	    } catch (SQLException e) {
+	        throw e;
+	    }
+	    return nombreSaisons;
+	}
+ 
+ 
 	}
