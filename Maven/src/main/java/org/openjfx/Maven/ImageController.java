@@ -57,8 +57,10 @@ public class ImageController {
    
    
    public void AjoutFavoris() throws SQLException {
+	   String a2=getRelativeImagePath(affiche.getImage().getUrl());
+	   System.out.println(a2);
 	  
-	 Show sh=ShowDAO.findShow(titre.getText(),affiche.getImage().getUrl());
+	 Show sh=ShowDAO.findShow(titre.getText(),a2);
 	 Episode ep =EpisodeDAO.FindEp(sh.getId_show());	
 	 Avis avis=new Avis(a.getId_user(),sh.getId_show(),0, null,ep.getNum_ep(),ep.getNum_saison());
 	 AvisDAO.ajouterAvis(avis);
