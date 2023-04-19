@@ -2,7 +2,7 @@
 
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -31,13 +31,7 @@
                   <Image url="@images/bell.png" />
                </image>
             </ImageView>
-            <ChoiceBox layoutX="550.0" layoutY="34.0" prefHeight="26.0" prefWidth="200.0" stylesheets="@../../Style/MainStyle.css">
-               <styleClass>
-                  <String fx:value="transparent" />
-                  <String fx:value="side_ankerpane" />
-               </styleClass>
-            </ChoiceBox>
-            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="550.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="484.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/recherche-removebg-preview.png" />
                </image>
@@ -51,6 +45,12 @@
                   </ImageView>
                </graphic>
             </Button>
+            <ComboBox fx:id="choicebox" layoutX="484.0" layoutY="34.0" prefHeight="30.0" prefWidth="224.0" stylesheets="@../../Style/MainStyle.css">
+               <styleClass>
+                  <String fx:value="transparent" />
+                  <String fx:value="side_ankerpane" />
+               </styleClass>
+            </ComboBox>
          </children>
          <styleClass>
             <String fx:value="left" />
@@ -61,12 +61,12 @@
    <left>
       <AnchorPane prefHeight="652.0" prefWidth="242.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER_RIGHT" layoutX="46.0" layoutY="137.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Movies" textFill="#c95c3b">
+            <Button fx:id="mymovie" alignment="CENTER_RIGHT" layoutX="46.0" layoutY="137.0" mnemonicParsing="false" onAction="#SwithtoMyMovie" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Movies" textFill="#c95c3b">
                <font>
                   <Font name="Cooper Black" size="19.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" layoutX="59.0" layoutY="197.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="TV Shows " textFill="#c95c3b">
+            <Button fx:id="Myshow" alignment="CENTER_RIGHT" layoutX="59.0" layoutY="197.0" mnemonicParsing="false" onAction="#SwithtoMyShow" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="TV Shows " textFill="#c95c3b">
                <font>
                   <Font name="Cooper Black" size="17.0" />
                </font>

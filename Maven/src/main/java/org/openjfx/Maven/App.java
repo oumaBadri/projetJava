@@ -4,12 +4,17 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+
+import Dao.ShowDAO;
 
 /**
  * JavaFX App
@@ -38,7 +43,7 @@ public class App extends Application {
     public static void main(String[] args) throws SQLException {
 
      launch();
-    	  
+      //ShowDAO.findAllMovie().stream().forEach(System.out::println);
     }
 
 

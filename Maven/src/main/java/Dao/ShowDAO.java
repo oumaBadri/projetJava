@@ -178,7 +178,7 @@ public class ShowDAO {
 	    
 		List<Show> Shows = new ArrayList<>();
 
-        String SQL = "SELECT * FROM Show";
+        String SQL = "SELECT * FROM Show ";
         try {
         	stmt = conn.createStatement();
             rs = stmt.executeQuery(SQL);
@@ -399,6 +399,61 @@ public static int idTitre(String titre) throws SQLException{
 	    }
 	    return nombreSaisons;
 	}
+ //*********************************************************************************
+
+public static String ShowTitre() {
+	
+	
+	
+	PreparedStatement pstmt = null;
+	   ResultSet rs = null;
+	   String titre="";
+	  // List<Show> show = new ArrayList<>();
+	   String SQL = "SELECT Titre_show FROM show where is_film=1 " ;
+	   try {
+	   	pstmt = conn.prepareStatement(SQL);
+	    
+	       rs = pstmt.executeQuery();
+
+	       while (rs.next()) {
+	       		 titre= rs.getString(1);
+	       }
+	   } 
+	   catch (Exception e ) {};
+	   return titre;
+}
  
- 
-	}
+ //*************************************************************************************
+public static List<Show> findAllMovie() throws SQLException{
+	
+	Statement stmt = null;
+    ResultSet rs = null;
+    
+	List<Show> Shows = new ArrayList<>();
+
+    String SQL = "SELECT * FROM Show where is_film=1";
+    try {
+    	stmt = conn.createStatement();
+        rs = stmt.executeQuery(SQL);
+
+        while (rs.next()) {
+
+        	int id_show = rs.getInt(1);
+            String titre_show = rs.getString(2);
+            LocalDate annif_show=rs.getObject(3,LocalDate.class);
+            String Pays_show = rs.getString(4);
+            String langue_show = rs.getString(5);
+            int is_film = rs.getInt(6);
+            String genre_show= rs.getString(7);
+            String affiche_show=rs.getString(8);
+           
+
+            Show act = new Show(id_show, titre_show, annif_show, Pays_show, langue_show, genre_show, is_film,affiche_show);
+            Shows.add(act);
+        }
+    } catch (Exception e ) {};
+    
+    return Shows;
+}
+}
+	

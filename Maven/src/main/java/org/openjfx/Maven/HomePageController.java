@@ -20,6 +20,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -32,7 +33,11 @@ public class HomePageController implements Initializable{
 	    private HBox Hbox;
 	   @FXML
 	    private Button myList;
-	
+	   @FXML
+	    private ComboBox<String> choicebox;
+	    
+	  
+	   
 	@FXML
     private void SwithtoInterfaceProfil() throws IOException {
         App.setRoot("ProfileInterface");
@@ -43,7 +48,14 @@ public class HomePageController implements Initializable{
     private void SwithtoMyList() throws IOException {
         App.setRoot("favorisFilm");
     }
-	
+	@FXML
+    private void SwithtoMyShow() throws IOException {
+        App.setRoot("TvShow");
+    }
+	@FXML
+    private void SwithtoMyMovie() throws IOException {
+        App.setRoot("Movie");
+    }
 	
 	 @FXML
 	    void goToNotif(MouseEvent event) throws IOException {
