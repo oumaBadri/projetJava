@@ -91,11 +91,21 @@ public class Acteur {
 	}
 
 	
+	public Acteur(int idActeur, String nomActeur,String prenomActeur) {
+		this.id_acteur = idActeur;
+		this.nom_ac = nomActeur;
+		this.prenom_ac=prenomActeur;
+		}
+
+
 	public String toString2() {
 		return "Acteur ["+" nom_ac=" + nom_ac + ", prenom_ac=" + prenom_ac 
 				 + ", date_naissance_ac=" + date_naissance_ac + "]";
 	}
-	
+	public String toString3() {
+		return "Acteur [" + ", id_ac=" + id_acteur+" nom_ac=" + nom_ac + ", prenom_ac=" + prenom_ac 
+				  + "]";
+	}
 	
 	
 

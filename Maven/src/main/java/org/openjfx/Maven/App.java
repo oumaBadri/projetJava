@@ -14,7 +14,9 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Dao.SaisonDao;
 import Dao.ShowDAO;
+import Models.Show;
 
 /**
  * JavaFX App
@@ -41,9 +43,10 @@ public class App extends Application {
     }
 
     public static void main(String[] args) throws SQLException {
-
-     launch();
-      //ShowDAO.findAllMovie().stream().forEach(System.out::println);
+//System.out.println(SaisonDao.getDescrip(1));
+    launch();
+    	//System.out.println(ShowDAO.findActeursByShow(1));
+   
     }
 
 

@@ -60,13 +60,14 @@ public class UserLoginController {
     		ImageController p= new ImageController();
     		favorisFilmController i= new favorisFilmController();
     		NotifController f= new NotifController();
-    		
+    		DetailShowController di= new DetailShowController();
     	    Utilisateur d= UtilisateurDAO.getUser(email.getText());
     	    System.out.println(d);
     		//System.out.println(d);
     		f.a.setId_user(d.getId_user());
     		p.a.setId_user(d.getId_user());
     		i.a.setId_user(d.getId_user());
+    		di.a.setId_user(d.getId_user());
     		System.out.println("*****"+i.a.getId_user());
     		UtilisateurService.login(email.getText(),mdp.getText());
     		 App.setRoot("UserHome");

@@ -5,10 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
+import Models.Acteur;
 import Models.Show;
 import utile.conxBD;
 
@@ -455,5 +458,72 @@ public static List<Show> findAllMovie() throws SQLException{
     
     return Shows;
 }
+
+//***********retourne la date diff de show*******************
+
+
+public static String getDateOnly(Object object) {
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    return formatter.format(object);
+}
+
+//*******************recupere liste d acteur**************
+
+public static List<Acteur> findActeursByShow(int idShow) {
+    List<Acteur> acteurs = new ArrayList<>();
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+
+    try {
+        // Requête SQL pour récupérer les acteurs principaux
+        String sql = "SELECT acteur.Id_acteur, acteur.Nom_ac,acteur.Prenom_ac FROM acteur "
+                + "JOIN roleprincipal ON acteur.Id_acteur = roleprincipal.Id_acteur "
+                + "WHERE roleprincipal.Id_show = ?";
+        pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, idShow);
+        rs = pstmt.executeQuery();
+
+        // Parcourir les résultats et ajouter chaque acteur à la liste
+        while (rs.next()) {
+            int idActeur = rs.getInt(1);
+            String nomActeur = rs.getString(2);
+            String prenomActeur = rs.getString(3);
+
+            Acteur acteur = new Acteur(idActeur, nomActeur,prenomActeur);
+            acteurs.add(acteur);
+        }
+
+        // Requête SQL pour récupérer les acteurs secondaires
+        sql = "SELECT acteur.Id_acteur, acteur.Nom_ac, acteur.Prenom_ac FROM acteur "
+                + "JOIN rolesecondaire ON acteur.Id_acteur = rolesecondaire.Id_acteur "
+                + "WHERE rolesecondaire.Id_show = ?";
+        pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, idShow);
+        rs = pstmt.executeQuery();
+
+        // Parcourir les résultats et ajouter chaque acteur à la liste (s'il n'est pas déjà dans la liste)
+        while (rs.next()) {
+            int idActeur = rs.getInt(1);
+            String nomActeur = rs.getString(2);
+            String prenomActeur = rs.getString(3);
+
+           Acteur acteur = new Acteur(idActeur, nomActeur,prenomActeur);
+            if (!acteurs.contains(acteur)) {
+                acteurs.add(acteur);
+            }
+        }
+
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+    return acteurs;
+}
+
+
+
+
+
+
+
 }
 	

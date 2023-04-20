@@ -40,7 +40,7 @@
                </graphic>
             </Button>
             <Button layoutX="166.0" layoutY="5.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="33.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
-            <ImageView fitHeight="35.0" fitWidth="50.0" layoutX="141.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="detail" fitHeight="35.0" fitWidth="50.0" layoutX="141.0" layoutY="5.0" onMouseClicked="#voirDetail" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/play2-removebg-preview.png" />
                </image>
