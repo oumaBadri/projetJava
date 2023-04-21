@@ -29,6 +29,9 @@ import javafx.scene.image.Image;
 
 public class ImageController {
 	
+
+   
+	
 	@FXML
     private ImageView detail;
 	@FXML
@@ -53,6 +56,12 @@ public class ImageController {
 	affiche.setImage(image);
 	titre.setText(show.getTitre_show());
 	}
+    
+    
+    
+    
+    
+    
     public static String getRelativeImagePath(String path) {
 	    int index = path.indexOf("images/");
 	    if (index >= 0) {
@@ -73,6 +82,7 @@ public class ImageController {
 
    @FXML
    void voirDetail(MouseEvent event) throws IOException {
+	   
 	   DetailShowController.s.setAffiche(affiche.getImage().getUrl());
 	   DetailShowController.s.setTitre_show(titre.getText());
 	   int x =ShowDAO.findIdShow(titre.getText());

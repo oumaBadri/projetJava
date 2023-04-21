@@ -20,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
@@ -31,13 +32,20 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class DetailShowController implements Initializable {
+	
 	static Show s= new Show();
+	
 	static Utilisateur a= new Utilisateur();
+	@FXML
+    private ChoiceBox<String> choice;
 	
 	@FXML
     private Label tit;
 	@FXML
 	private FlowPane acteursFlowPane;
+	
+	  @FXML
+	    private HBox Hbox2;
 	  @FXML
 	    private Label date;
 	  @FXML
@@ -73,33 +81,64 @@ public class DetailShowController implements Initializable {
     	 AvisDAO.modifFavoriShow(sh,a.getId_user());
     }
     
-    /*public void afficherActeurs(List<Acteur> acteurs) {
-      
-
-        for (Acteur acteur : acteurs) {
-            
-            ImageView imageView = new ImageView("images/acteur.png");
-            imageView.setFitHeight(10); // Ajustement de la taille de l'image
-            imageView.setFitWidth(10);
-
-            Label label = new Label(acteur.getNom_ac() + " " + acteur.getPrenom_ac());
-
-            VBox vBox = new VBox(imageView, label); // Création d'un conteneur vertical pour l'image et le label
-            vBox.setAlignment(Pos.CENTER);
-            vBox.setSpacing(2);
-
-            acteursFlowPane.getChildren().add(vBox); // Ajout du conteneur au FlowPane
-        }
-
-        // Ajout du FlowPane à votre interface utilisateur (par exemple, dans un VBox)
-        // vbox.getChildren().add(flowPane);
+    
+    
+    private  List<String> createListe() throws SQLException {
+    List<String> saisons=null;	
+     int nb= ShowDAO.getNombreSaisons(s.getId_show());
+    for(int i=0;i<nb;i++) 
+    {saisons.add("saison "+i);	
     }
-*/
-
+    return saisons;
+    }
+    
+    
+    
+    
+    public void displayEp(String numSaison) {
+    
+    }
+    
+   
+ 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		tit.setText(s.getTitre_show());
+		
+//*****************pour le choiceBox*******************
+		List<String> saisonliste=null;
+		
+			try {
+				saisonliste = createListe();
+			} catch (SQLException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+		
+		choice.getItems().addAll(saisonliste);
+		
+		
+		
+		//********display affiche*****************
+	try {
+	Show show1 =ShowDAO.findShowParID(s.getId_show());
+	FXMLLoader fxmlLoader = new FXMLLoader();
+	fxmlLoader.setLocation(getClass().getResource("affiche.fxml"));
+	VBox image  = fxmlLoader.load();
+	AfficheController afficheController = fxmlLoader.getController();
+	if (afficheController != null) {
+	    afficheController.setData2(show1.getAffiche());
+	}
+	//imageController.setData(show);
+	Hbox2.getChildren().add(image);
+	
+	
+}catch(IOException e) {
+	e.printStackTrace();
+}
+	
+
+		
+	tit.setText(s.getTitre_show());
 		langue.setText(s.getLangue());
 		pays.setText(s.getPays());
 		genre.setText(s.getGenre_show());
@@ -114,7 +153,7 @@ public class DetailShowController implements Initializable {
 			List<Acteur> acteurs =ShowDAO.findActeursByShow(s.getId_show());
 			for(Acteur acteur :acteurs){
 			FXMLLoader fxmlLoader = new FXMLLoader();
-			fxmlLoader.setLocation(getClass().getResource("image.fxml"));
+			fxmlLoader.setLocation(getClass().getResource("Acteuraff.fxml"));
 			VBox image  = fxmlLoader.load();
 			ActeurAffController affController = fxmlLoader.getController();
 			if (affController != null) {

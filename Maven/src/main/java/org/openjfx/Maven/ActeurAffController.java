@@ -1,6 +1,5 @@
 package org.openjfx.Maven;
 
-import Models.Show;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;

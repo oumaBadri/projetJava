@@ -17,175 +17,46 @@
    <children>
       <AnchorPane layoutX="646.0" layoutY="11.0" prefHeight="730.0" prefWidth="340.0" style="-fx-border-color: D4B5B0;" stylesheets="@../../../Style/MainStyle.css">
          <children>
-            <Label layoutX="22.0" layoutY="48.0" prefHeight="27.0" prefWidth="90.0" text="Episode :">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="22.0" layoutY="97.0" prefHeight="27.0" prefWidth="90.0" text="Episode :">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Button fx:id="play" layoutX="227.0" layoutY="44.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="7.0" style="-fx-border-color: D4B5B0;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/play-removebg-preview%20(1).png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="227.0" layoutY="94.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="7.0" style="-fx-border-color: D4B5B0;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/play-removebg-preview%20(1).png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Label layoutX="108.0" layoutY="50.0" prefHeight="18.0" prefWidth="27.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
-            <Label layoutX="108.0" layoutY="100.0" prefHeight="22.0" prefWidth="27.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
-            <Button layoutX="227.0" layoutY="136.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="7.0" style="-fx-border-color: D4B5B0;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="227.0" layoutY="187.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="7.0" style="-fx-border-color: D4B5B0;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="227.0" layoutY="240.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="7.0" style="-fx-border-color: D4B5B0;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="227.0" layoutY="287.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="7.0" style="-fx-border-color: D4B5B0;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="227.0" layoutY="335.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="7.0" style="-fx-border-color: D4B5B0;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="227.0" layoutY="386.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="7.0" style="-fx-border-color: D4B5B0;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="227.0" layoutY="444.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="7.0" style="-fx-border-color: D4B5B0;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="227.0" layoutY="496.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="7.0" style="-fx-border-color: D4B5B0;" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/play-removebg-preview%20(1).png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Label layoutX="22.0" layoutY="139.0" prefHeight="27.0" prefWidth="82.0" text="Episode :">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="22.0" layoutY="190.0" prefHeight="27.0" prefWidth="82.0" text="Episode :">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="22.0" layoutY="248.0" prefHeight="27.0" prefWidth="82.0" text="Episode :">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="22.0" layoutY="295.0" prefHeight="27.0" prefWidth="82.0" text="Episode :">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="22.0" layoutY="343.0" prefHeight="27.0" prefWidth="82.0" text="Episode :">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="22.0" layoutY="394.0" prefHeight="27.0" prefWidth="82.0" text="Episode :">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="22.0" layoutY="448.0" prefHeight="27.0" prefWidth="74.0" text="Episode :">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="22.0" layoutY="504.0" prefHeight="27.0" prefWidth="74.0" text="Episode :">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="108.0" layoutY="142.0" prefHeight="22.0" prefWidth="27.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
-            <Label layoutX="108.0" layoutY="192.0" prefHeight="22.0" prefWidth="27.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
-            <Label layoutX="108.0" layoutY="246.0" prefHeight="22.0" prefWidth="27.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
-            <Label layoutX="108.0" layoutY="293.0" prefHeight="22.0" prefWidth="27.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
-            <Label layoutX="108.0" layoutY="341.0" prefHeight="22.0" prefWidth="27.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
-            <Label layoutX="108.0" layoutY="392.0" prefHeight="22.0" prefWidth="27.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
-            <Label layoutX="108.0" layoutY="450.0" prefHeight="22.0" prefWidth="27.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
-            <Label layoutX="108.0" layoutY="503.0" prefHeight="22.0" prefWidth="27.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
-            <ComboBox layoutX="14.0" layoutY="14.0" prefWidth="150.0" promptText="Saison" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css" />
+            <ComboBox fx:id="choice" layoutX="14.0" layoutY="14.0" prefWidth="150.0" promptText="Saison" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css" />
+            <HBox layoutY="78.0" prefHeight="49.0" prefWidth="288.0">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="89.0" text="  Episode :">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="22.0" prefWidth="27.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" text="1">
+                     <font>
+                        <Font name="Cooper Black" size="13.0" />
+                     </font></Label>
+                  <Button fx:id="play" mnemonicParsing="false" prefHeight="26.0" prefWidth="68.0">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/play-removebg-preview%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+               </children>
+            </HBox>
          </children>
          <padding>
             <Insets left="10.0" right="60.0" />
          </padding>
       </AnchorPane>
-      <AnchorPane layoutX="14.0" layoutY="395.0" prefHeight="200.0" prefWidth="610.0" style="-fx-border-color: D4B5B0;" stylesheets="@../../../Style/MainStyle.css">
+      <AnchorPane layoutX="14.0" layoutY="403.0" prefHeight="192.0" prefWidth="612.0" style="-fx-border-color: D4B5B0;" stylesheets="@../../../Style/MainStyle.css">
          <children>
-            <Label layoutX="14.0" layoutY="5.0" prefHeight="28.0" prefWidth="90.0" text="Acteurs:">
+            <VBox layoutX="-2.0" layoutY="28.0" prefHeight="164.0" prefWidth="612.0">
+               <children>
+                  <ScrollPane prefHeight="194.0" prefWidth="612.0" />
+                  <HBox fx:id="Hbox" prefHeight="0.0" prefWidth="600.0" />
+               </children>
+            </VBox>
+            <Label layoutX="33.0" layoutY="-2.0" prefHeight="28.0" prefWidth="90.0" text="Acteurs:">
                <font>
                   <Font name="Cooper Black" size="19.0" />
                </font>
             </Label>
-            <VBox layoutX="-2.0" layoutY="28.0" prefHeight="164.0" prefWidth="612.0">
-               <children>
-                  <ScrollPane prefHeight="168.0" prefWidth="612.0" />
-                  <HBox fx:id="Hbox" prefHeight="0.0" prefWidth="600.0" />
-               </children>
-            </VBox>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="362.0" prefWidth="610.0" style="-fx-border-color: #D4B5B0;" stylesheets="@../../../Style/MainStyle.css">
@@ -235,16 +106,12 @@
                </children>
             </AnchorPane>
             <TextArea fx:id="description" layoutX="282.0" layoutY="223.0" prefHeight="122.0" prefWidth="318.0" style="-fx-border-color: D4B5B0;" stylesheets="@../../../Style/MainStyle.css" />
-            <ImageView fx:id="affiche" fitHeight="302.0" fitWidth="257.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../images/Wednesday-2.jpg" />
-               </image>
-            </ImageView>
             <Label fx:id="tit" layoutX="305.0" layoutY="15.0" textFill="#1572a1">
                <font>
                   <Font name="Cooper Black" size="26.0" />
                </font>
             </Label>
+            <HBox fx:id="Hbox2" layoutX="14.0" layoutY="7.0" prefHeight="294.0" prefWidth="200.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="10.0" layoutY="623.0" prefHeight="122.0" prefWidth="618.0" style="-fx-border-color: #D4B5B0;" stylesheets="@../../../Style/MainStyle.css">
