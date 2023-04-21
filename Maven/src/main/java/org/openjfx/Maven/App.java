@@ -28,12 +28,12 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-<<<<<<< HEAD
+
 
         scene = new Scene(loadFXML("AjoutShow"),1000,790);
-=======
-    	scene = new Scene(loadFXML("login"),1000,790);
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava
+
+    	//scene = new Scene(loadFXML("login"),1000,790);
+
         stage.setScene(scene);
         stage.show();
 
@@ -49,7 +49,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) throws SQLException {
-<<<<<<< HEAD
+
 
     	/*Avis a= new Avis(20, 1, 0,"hello",1, 1);
     	AvisDAO.ajouterAvis(a);*/
@@ -123,15 +123,14 @@ public class App extends Application {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}*/
-=======
+
 //System.out.println(SaisonDao.getDescrip(1));
     //launch();
-    	UtilisateurDAO.supprimerUtilisateur(1);
+    	//UtilisateurDAO.supprimerUtilisateur(1);
     	//System.out.println(ShowDAO.getNombreSaisons(1));
     	//System.out.println(SaisonDao.getNbEp(1, 1));
     	//System.out.println(ShowDAO.findActeursByShow(1));
-   
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava
+
     }
 
 

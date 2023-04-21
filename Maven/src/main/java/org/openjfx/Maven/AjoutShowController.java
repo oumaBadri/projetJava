@@ -201,7 +201,7 @@ public class AjoutShowController implements Initializable{
 	            return;
 	        }
 	        if (isAFilm != 0 && isAFilm != 1) {
-	            Alert alert = new Alert(AlertType.ERROR, "'isAFilm' doit être soit 0 ou 1.");
+	            Alert alert = new Alert(AlertType.ERROR, "Mettre 1 si c'est un film ou 0 si c'est une serie");
 	            alert.showAndWait();
 	            return;
 	        }
@@ -218,7 +218,7 @@ public class AjoutShowController implements Initializable{
 	        txt_nbrSaison.clear();
 	        datePIcker.setValue(null);
 	       
-	        Alert alert = new Alert(AlertType.INFORMATION, "Le spectacle a été ajouté avec succès!");
+	        Alert alert = new Alert(AlertType.INFORMATION, "Le SHOW a été ajouté avec succès!");
 	        alert.showAndWait();
 	        showShow();
 	    }
@@ -343,11 +343,11 @@ public class AjoutShowController implements Initializable{
 	                alert.showAndWait();
 	                return;
 	            }
-	            if(!genre.equalsIgnoreCase("homme") && !genre.equalsIgnoreCase("femme")) {
+	            if(!genre.equals("Comédie") && !genre.equals("Dramatique")  && !genre.equals("Policier")&& !genre.equals("Action")&& !genre.equals("Historique")&& !genre.equals("Science-Fiction")) {
 	                Alert alert = new Alert(AlertType.ERROR);
 	                alert.setTitle("Erreur");
 	                alert.setHeaderText("Genre invalide");
-	                alert.setContentText("Le genre doit être 'homme' ou 'femme'");
+	                alert.setContentText("Le genre doit être soit 'Comédie' ou 'Dramatique' ou 'Policier' ou 'Action' ou 'Historique' ou 'Science-Fiction'.");
 	                alert.showAndWait();
 	                return;
 	            }
@@ -355,7 +355,7 @@ public class AjoutShowController implements Initializable{
 	                Alert alert = new Alert(AlertType.ERROR);
 	                alert.setTitle("Erreur");
 	                alert.setHeaderText("Valeur invalide pour 'isAFilm'");
-	                alert.setContentText("La valeur doit être soit 0 ou 1");
+	                alert.setContentText("Mettre 1 si c'est un film ou 0 si c'est une serie");
 	                alert.showAndWait();
 	                return;
 	            }
