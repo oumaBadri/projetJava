@@ -30,13 +30,16 @@ public class HomePageController implements Initializable{
 	   @FXML
        private ImageView notificationbtn;
 	   @FXML
+	    private Button profilebtn;
+	   @FXML
 	    private HBox Hbox;
 	   @FXML
 	    private Button myList;
 	   @FXML
 	    private ComboBox<String> choicebox;
 	    
-	  
+	   @FXML
+	    private ImageView profile;
 	   
 	@FXML
     private void SwithtoInterfaceProfil() throws IOException {
@@ -63,6 +66,13 @@ public class HomePageController implements Initializable{
 
 	    }
 	
+	    @FXML
+	    void goToProfil(MouseEvent event) throws IOException {
+	        App.setRoot("ProfileInterfaceUser");
+
+	    }
+	 
+	 
 	@Override
 	public void initialize(URL location, java.util.ResourceBundle resources){
 	  try {

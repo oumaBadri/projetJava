@@ -16,6 +16,7 @@ import java.util.List;
 
 import Dao.SaisonDao;
 import Dao.ShowDAO;
+import Dao.UtilisateurDAO;
 import Models.Show;
 
 /**
@@ -27,7 +28,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-    	scene = new Scene(loadFXML("AcLogin"),1000,790);
+    	scene = new Scene(loadFXML("login"),1000,790);
         stage.setScene(scene);
         stage.show();
 
@@ -44,7 +45,8 @@ public class App extends Application {
 
     public static void main(String[] args) throws SQLException {
 //System.out.println(SaisonDao.getDescrip(1));
-    launch();
+    //launch();
+    	UtilisateurDAO.supprimerUtilisateur(1);
     	//System.out.println(ShowDAO.getNombreSaisons(1));
     	//System.out.println(SaisonDao.getNbEp(1, 1));
     	//System.out.println(ShowDAO.findActeursByShow(1));
