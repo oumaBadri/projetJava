@@ -70,6 +70,10 @@ public class ControlSaisie {
 	public static boolean validAncienMdp(int id,String mdp) {
 		return  ActeurService.verifAncienMDP(id,mdp);
 	}
+	
+	public static boolean validAncienMdpUser(int id,String mdp) {
+		return  UtilisateurService.verifAncienMDP(id,mdp);
+	}
 
 	   /*public static LocalDate convertToDateViaInstant(Date dateToConvert) {
 	        return dateToConvert.toInstant()

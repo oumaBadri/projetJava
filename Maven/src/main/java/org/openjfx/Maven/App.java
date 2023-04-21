@@ -4,27 +4,20 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
-import Dao.ActeurDAO;
-import Dao.AvisDAO;
-import Dao.EpisodeDAO;
-import Dao.ProducteurDAO;
+import Dao.SaisonDao;
 import Dao.ShowDAO;
 import Dao.UtilisateurDAO;
-import Models.Acteur;
-import Models.Avis;
-import Models.Episode;
-import Models.Producteur;
 import Models.Show;
-import Models.Utilisateur;
 
 /**
  * JavaFX App
@@ -35,10 +28,15 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+<<<<<<< HEAD
 
         scene = new Scene(loadFXML("AjoutShow"),1000,790);
+=======
+    	scene = new Scene(loadFXML("login"),1000,790);
+>>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava
         stage.setScene(scene);
         stage.show();
+
     }
 
     static void setRoot(String fxml) throws IOException {
@@ -51,6 +49,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) throws SQLException {
+<<<<<<< HEAD
 
     	/*Avis a= new Avis(20, 1, 0,"hello",1, 1);
     	AvisDAO.ajouterAvis(a);*/
@@ -124,6 +123,15 @@ public class App extends Application {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}*/
+=======
+//System.out.println(SaisonDao.getDescrip(1));
+    //launch();
+    	UtilisateurDAO.supprimerUtilisateur(1);
+    	//System.out.println(ShowDAO.getNombreSaisons(1));
+    	//System.out.println(SaisonDao.getNbEp(1, 1));
+    	//System.out.println(ShowDAO.findActeursByShow(1));
+   
+>>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava
     }
 
 

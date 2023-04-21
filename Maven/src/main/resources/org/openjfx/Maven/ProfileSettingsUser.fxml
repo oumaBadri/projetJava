@@ -13,17 +13,17 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="790.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.ProfileSettingsController">
+<AnchorPane prefHeight="790.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.ProfileSettingsControllerUser">
    <children>
       <Pane layoutX="-4.0" prefHeight="815.0" prefWidth="474.0" styleClass="left-side-background" stylesheets="@../../Style/MainStyle.css">
          <children>
             <Pane layoutX="70.0" layoutY="133.0" prefHeight="105.0" prefWidth="324.0">
                <children>
-                  <Text layoutX="19.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Foulen Ben Foulen" textAlignment="CENTER" wrappingWidth="286.091796875">
+                  <TextField fx:id="profileN" layoutX="-8.0" layoutY="4.0" prefHeight="96.0" prefWidth="324.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Foulen ben foulen">
                      <font>
-                        <Font name="Cooper Black" size="42.0" />
+                        <Font name="Cooper Black" size="31.0" />
                      </font>
-                  </Text>
+                  </TextField>
                </children>
             </Pane>
             <Pane layoutX="59.0" layoutY="368.0" prefHeight="119.0" prefWidth="124.0">
@@ -50,60 +50,65 @@
                   <Font name="Calisto MT" size="30.0" />
                </font>
             </Button>
-            <Button fx:id="mdpAc" layoutX="165.0" layoutY="584.0" mnemonicParsing="false" onAction="#switchToMdp" styleClass="transparent" stylesheets="@css/styles.css" text="Mot de passe">
+            <Button fx:id="mdpAc" layoutX="192.0" layoutY="584.0" mnemonicParsing="false" onAction="#switchToMdp" styleClass="transparent" stylesheets="@css/styles.css" text="Mot de passe">
                <font>
                   <Font name="Calisto MT" size="33.0" />
                </font>
             </Button>
             <Separator layoutX="192.0" layoutY="380.0" orientation="VERTICAL" prefHeight="105.0" prefWidth="24.0" />
+            <ImageView fx:id="back" fitHeight="77.0" fitWidth="80.0" layoutY="8.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/back.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Pane layoutX="463.0" layoutY="-11.0" prefHeight="826.0" prefWidth="539.0" styleClass="right-side-background" stylesheets="@../../Style/MainStyle.css">
          <children>
             <Text fontSmoothingType="LCD" layoutX="46.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paramétres de profile" wrappingWidth="402.3428649902344">
                <font>
-                  <Font name="Cooper Black" size="25.0" />
+                  <Font name="Arial Black" size="25.0" />
                </font>
             </Text>
             <Pane layoutX="18.0" layoutY="89.0" prefHeight="524.0" prefWidth="438.0">
                <children>
-                  <Text layoutX="40.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" wrappingWidth="66.93670654296875">
+                  <Text layoutX="41.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" wrappingWidth="65.336669921875">
                      <font>
-                        <Font name="Cooper Black" size="23.0" />
+                        <Font name="Cooper Black" size="20.0" />
                      </font>
                   </Text>
                   <TextField fx:id="nomAc" layoutX="156.0" layoutY="173.0" prefHeight="48.0" prefWidth="258.0" promptText="Foulen" styleClass="border" stylesheets="@css/styles.css" />
-                  <Text layoutX="1.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date de naissance" wrappingWidth="163.9999389648438">
+                  <Text layoutX="12.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date de naissance" wrappingWidth="143.9999389648438">
                      <font>
-                        <Font name="Cooper Black" size="18.0" />
+                        <Font name="Cooper Black" size="21.0" />
                      </font>
                   </Text>
-                  <Text layoutX="40.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom" wrappingWidth="86.93670654296875">
+                  <Text layoutX="41.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom" wrappingWidth="86.93670654296875">
                      <font>
-                        <Font name="Cooper Black" size="20.0" />
+                        <Font name="Cooper Black" size="21.0" />
                      </font>
                   </Text>
                   <TextField fx:id="prenomAc" layoutX="156.0" layoutY="279.0" prefHeight="48.0" prefWidth="258.0" promptText="Ben Foulen" styleClass="border" stylesheets="@css/styles.css" />
                   <DatePicker fx:id="dateAc" layoutX="166.0" layoutY="393.0" prefHeight="48.0" prefWidth="258.0" promptText="19/11/2002" styleClass="border" stylesheets="@css/styles.css" />
                   <Text layoutX="48.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="51.7366943359375">
                      <font>
-                        <Font name="Cooper Black" size="21.0" />
+                        <Font name="Cooper Black" size="20.0" />
                      </font>
                   </Text>
                   <TextField fx:id="idAc" layoutX="156.0" layoutY="61.0" prefHeight="48.0" prefWidth="251.0" promptText=".." styleClass="border" stylesheets="@css/styles.css" />
-                  <Label fx:id="idcor" layoutX="160.0" layoutY="134.0" prefHeight="27.0" prefWidth="217.0" text=".." textFill="#ef0606" />
+                  <Label fx:id="idcor" layoutX="156.0" layoutY="109.0" prefHeight="27.0" prefWidth="217.0" text=".." textFill="#ef0606" />
                   <Label fx:id="nomcor" layoutX="160.0" layoutY="226.0" prefHeight="30.0" prefWidth="251.0" text=".." textFill="#ef0606" />
                   <Label fx:id="prenomcor" layoutX="160.0" layoutY="334.0" prefHeight="40.0" prefWidth="251.0" text=".." textFill="#ef0606" />
                   <Label fx:id="update" layoutX="187.0" layoutY="224.0" textFill="#8566d9" />
                </children>
             </Pane>
-            <Button fx:id="enrgModifAcBtn" layoutX="138.0" layoutY="639.0" mnemonicParsing="false" onAction="#enregistrer" prefHeight="72.0" prefWidth="286.0" stylesheets="@css/styles.css" text="Enregistrer modifications">
+            <Button fx:id="enrgModifAcBtn" layoutX="118.0" layoutY="646.0" mnemonicParsing="false" onAction="#enregistrer" prefHeight="77.0" prefWidth="258.0" stylesheets="@css/styles.css" text="Enregistrer modifications">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="12.0" />
                </font>
                <styleClass>
-                  <String fx:value="side_ankerpane" />
                   <String fx:value="transparent" />
+                  <String fx:value="side_ankerpane" />
                </styleClass>
             </Button>
          </children>

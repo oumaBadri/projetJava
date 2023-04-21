@@ -49,6 +49,20 @@ public class Avis {
 
 
 
+	
+
+
+
+	public Avis(int id_user, int id_show) {
+		super();
+		this.id_user = id_user;
+		this.id_show = id_show;
+	}
+
+
+
+
+
 	public int getNote() {
 		return note;
 	}

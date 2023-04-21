@@ -31,15 +31,15 @@ private static Connection conn = conxBD.getInstance();
 		    ResultSet rs = null;
 	        
 	        try {
-	        	String sql = "INSERT INTO  Avis  (id_user,id_show,note,commentaire,num_ep,num_saison) VALUES (?,?,?,?,?,?)";
+	        	String sql = "INSERT INTO  Avis  (id_user,id_show) VALUES (?,?)";
 	    		pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 	            pstmt.setInt(1,Avis.getId_user());
 	        	pstmt.setInt(2,Avis.getId_show());
-	        	pstmt.setInt(3,Avis.getNote());
+	        	/*pstmt.setInt(3,Avis.getNote());
 	        	pstmt.setString(4,Avis.getCommantaire());
 	            
 	            pstmt.setInt(5, Avis.getNum_ep());
-	            pstmt.setInt(6, Avis.getNum_saison());
+	            pstmt.setInt(6, Avis.getNum_saison());*/
 	        	
 	            pstmt.executeUpdate();
 
@@ -103,17 +103,15 @@ private static Connection conn = conxBD.getInstance();
 			return id_Show;
 		}
 //**************************************************************************************
-       public static int modifFavoriShow(int id_Show,int num_ep,int num_saison,int id_user) {
+       public static int modifFavoriShow(int id_Show,int id_user) {
 			
 			PreparedStatement pstmt = null;
 		    ResultSet rs = null;
 		    try {
-	            String sql = "UPDATE Avis SET favoris_show=1 WHERE ID_show=? And num_ep=? and num_saison=? and id_user=?" ;
+	            String sql = "UPDATE Avis SET favoris_show=1 WHERE ID_show=?  and id_user=?" ;
 	            pstmt = conn.prepareStatement(sql);
 	            pstmt.setInt(1, id_Show);
-	        	pstmt.setInt(2, num_ep);
-	        	pstmt.setInt(3,num_saison);
-	        	pstmt.setInt(4,id_user);
+	        	pstmt.setInt(2,id_user);
 	        	pstmt.executeUpdate();
 	            // 4- Recupérer l'Id généré par le SGBD
 	        	rs = pstmt.getGeneratedKeys();
@@ -239,7 +237,13 @@ public static List<Integer> findAll2(int id_user) throws SQLException{
 		        
 		        return avis;
 
-}
+			}
+
+
+
+
+
+
 
 //*************************retourne un avis d un user sur un show *****************
 
@@ -344,7 +348,7 @@ public static List<String> envoyerNotif(int id_user_connecte) {
             int id_show = rs2.getInt(1);
             String nom_episode = rs2.getString(2);
 
-            String notif = "L'épisode " + nom_episode + " du show " + ShowTitre(id_show)  + " est disponible !";
+            String notif = "L'épisode " + nom_episode + " du show " + ShowDAO.ShowTitre(id_show)  + " est disponible !";
             notifications.add(notif);
         }
     } catch (SQLException e) {

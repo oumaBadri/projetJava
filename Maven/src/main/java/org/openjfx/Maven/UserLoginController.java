@@ -60,13 +60,32 @@ public class UserLoginController {
     		ImageController p= new ImageController();
     		favorisFilmController i= new favorisFilmController();
     		NotifController f= new NotifController();
-    		
+    		DetailShowController di= new DetailShowController();
     	    Utilisateur d= UtilisateurDAO.getUser(email.getText());
     	    System.out.println(d);
+    	    
+    	    ProfileSettingsControllerUser  pi= new ProfileSettingsControllerUser();
+    		ChangerMdpControllerUser c= new ChangerMdpControllerUser();
+    		ConfirmSupprControllerUser n= new ConfirmSupprControllerUser();
+    		ProfileInterfaceControllerUser ii= new ProfileInterfaceControllerUser();
+       	    
+    		ii.a.setNom_user(d.getNom_user());
+    		ii.a.setPrenom_user(d.getPrenom_user());
+    		n.a.setId_user(d.getId_user());
+    		c.a.setId_user(d.getId_user());
+    		c.a.setNom_user(d.getNom_user());
+    		c.a.setPrenom_user(d.getPrenom_user());
+    		pi.a.setId_user(d.getId_user());
+    		pi.a.setNom_user(d.getNom_user());
+    		pi.a.setDate_naissance_user(d.getDate_naissance_user());
+    		pi.a.setPrenom_user(d.getPrenom_user());
+    		
+    		
     		//System.out.println(d);
     		f.a.setId_user(d.getId_user());
     		p.a.setId_user(d.getId_user());
     		i.a.setId_user(d.getId_user());
+    		di.a.setId_user(d.getId_user());
     		System.out.println("*****"+i.a.getId_user());
     		UtilisateurService.login(email.getText(),mdp.getText());
     		 App.setRoot("UserHome");

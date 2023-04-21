@@ -33,6 +33,10 @@ public class Utilisateur {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Utilisateur(String nom_ac, String prenom_ac, LocalDate annif_ac) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId_user() {
 		return id_user;
 	}

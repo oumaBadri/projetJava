@@ -85,6 +85,7 @@ public class Show {
 		return Date_difussion_show;
 	}
 
+
 	public void setDate_difussion_show(LocalDate Date_difussion_show) {
 		this.Date_difussion_show = Date_difussion_show;
 	}
@@ -151,7 +152,26 @@ public class Show {
 
 	@Override
 	public String toString() {
-		return "Show [titre_show=" + titre_show + ", affiche=" + affiche + "]";
+		return "Show [id_show=" + id_show + ", titre_show=" + titre_show + ", Date_difussion_show="
+				+ Date_difussion_show + ", pays=" + pays + ", langue=" + langue + ", genre_show=" + genre_show
+				+ ", is_a_film=" + is_a_film + ", affiche=" + affiche + ", dateOb=" + dateOb + "]";
+	}
+
+	/*public void setDate_difussion_show(String string) {
+		// TODO Auto-generated method stub
+		
+	}*/
+
+	public Object getDateOb() {
+		// TODO Auto-generated method stub
+		return dateOb;
+		//return null;
+	}
+	
+	public void setDateOb(Object date) {
+		// TODO Auto-generated method stub
+		this.dateOb=date;
+		//return null;
 	}
 	
 	

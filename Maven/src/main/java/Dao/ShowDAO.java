@@ -5,10 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
+import Models.Acteur;
 import Models.Show;
 import utile.conxBD;
 
@@ -184,7 +187,7 @@ public class ShowDAO {
 	    
 		List<Show> Shows = new ArrayList<>();
 
-        String SQL = "SELECT * FROM Show";
+        String SQL = "SELECT * FROM Show ";
         try {
         	stmt = conn.createStatement();
             rs = stmt.executeQuery(SQL);
@@ -274,14 +277,18 @@ public class ShowDAO {
 	}
  //***************************************************************
  public static Show findShow(String titre,String image2) throws SQLException{
-		
-		Statement stmt = null;
+	 PreparedStatement pstmt = null;
 	    ResultSet rs = null;
+		/*Statement stmt = null;
+	    ResultSet rs = null;*/
 	    Show sh = new Show();
-        String SQL = " SELECT Titre_show,image FROM Show titre_show=? and image=? ";
   try {
-  	stmt = conn.createStatement();
-      rs = stmt.executeQuery(SQL);
+      String SQL = " SELECT Titre_show,image FROM Show titre_show=? and image=? ";
+
+  	pstmt = conn.prepareStatement(SQL);
+    pstmt.setString(1, titre);
+    pstmt.setString(2, image2);
+      rs = pstmt.executeQuery();
 
       while (rs.next()){
      	 String titre_show = rs.getString(1);
@@ -298,6 +305,61 @@ public class ShowDAO {
 return sh;
 	}
  
+
+//***************************retourne le nom d un show a partir de son id *************************************
+	
+public static String ShowTitre(int id_show) throws SQLException{
+	
+	PreparedStatement pstmt = null;
+   ResultSet rs = null;
+   String titre="";
+  // List<Show> show = new ArrayList<>();
+   String SQL = "SELECT Titre_show FROM show  where id_show=?";
+   try {
+   	pstmt = conn.prepareStatement(SQL);
+       pstmt.setInt(1, id_show);
+       rs = pstmt.executeQuery();
+
+       while (rs.next()) {
+       		 titre= rs.getString(1);
+       }
+   } 
+   catch (Exception e ) {};
+   return titre;
+}
+
+
+
+//***************************retourne l id d un show a partir de son nom *************************************
+
+public static int idTitre(String titre) throws SQLException{
+  PreparedStatement pstmt = null;
+  ResultSet rs = null;
+  int id = 0;
+  String SQL = "SELECT id_show FROM show WHERE titre_show = ?";
+  try {
+      pstmt = conn.prepareStatement(SQL);
+      pstmt.setString(1, titre);
+      rs = pstmt.executeQuery();
+
+      if (rs.next()) {
+          id = rs.getInt(1);
+      }
+  } catch (SQLException e) {
+      e.printStackTrace();
+  } finally {
+      if (rs != null) {
+          rs.close();
+      }
+      if (pstmt != null) {
+          pstmt.close();
+      }
+  }
+  return id;
+}
+ 
+ 
+
  //---------------------------------------------------
  public static Show findShowParID(Integer identifiant) {
 		PreparedStatement pstmt = null;
@@ -348,6 +410,128 @@ return sh;
 	    }
 	    return nombreSaisons;
 	}
+ //*********************************************************************************
+
+public static String ShowTitre() {
+	
+	
+	
+	PreparedStatement pstmt = null;
+	   ResultSet rs = null;
+	   String titre="";
+	  // List<Show> show = new ArrayList<>();
+	   String SQL = "SELECT Titre_show FROM show where is_film=1 " ;
+	   try {
+	   	pstmt = conn.prepareStatement(SQL);
+	    
+	       rs = pstmt.executeQuery();
+
+	       while (rs.next()) {
+	       		 titre= rs.getString(1);
+	       }
+	   } 
+	   catch (Exception e ) {};
+	   return titre;
+}
  
- 
-	}
+ //*************************************************************************************
+public static List<Show> findAllMovie() throws SQLException{
+	
+	Statement stmt = null;
+    ResultSet rs = null;
+    
+	List<Show> Shows = new ArrayList<>();
+
+    String SQL = "SELECT * FROM Show where is_film=1";
+    try {
+    	stmt = conn.createStatement();
+        rs = stmt.executeQuery(SQL);
+
+        while (rs.next()) {
+
+        	int id_show = rs.getInt(1);
+            String titre_show = rs.getString(2);
+            LocalDate annif_show=rs.getObject(3,LocalDate.class);
+            String Pays_show = rs.getString(4);
+            String langue_show = rs.getString(5);
+            int is_film = rs.getInt(6);
+            String genre_show= rs.getString(7);
+            String affiche_show=rs.getString(8);
+           
+
+            Show act = new Show(id_show, titre_show, annif_show, Pays_show, langue_show, genre_show, is_film,affiche_show);
+            Shows.add(act);
+        }
+    } catch (Exception e ) {};
+    
+    return Shows;
+}
+
+//***********retourne la date diff de show*******************
+
+
+public static String getDateOnly(Object object) {
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    return formatter.format(object);
+}
+
+//*******************recupere liste d acteur**************
+
+public static List<Acteur> findActeursByShow(int idShow) {
+    List<Acteur> acteurs = new ArrayList<>();
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+
+    try {
+        // Requête SQL pour récupérer les acteurs principaux
+        String sql = "SELECT acteur.Id_acteur, acteur.Nom_ac,acteur.Prenom_ac FROM acteur "
+                + "JOIN roleprincipal ON acteur.Id_acteur = roleprincipal.Id_acteur "
+                + "WHERE roleprincipal.Id_show = ?";
+        pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, idShow);
+        rs = pstmt.executeQuery();
+
+        // Parcourir les résultats et ajouter chaque acteur à la liste
+        while (rs.next()) {
+            int idActeur = rs.getInt(1);
+            String nomActeur = rs.getString(2);
+            String prenomActeur = rs.getString(3);
+
+            Acteur acteur = new Acteur(idActeur, nomActeur,prenomActeur);
+            acteurs.add(acteur);
+        }
+
+        // Requête SQL pour récupérer les acteurs secondaires
+        sql = "SELECT acteur.Id_acteur, acteur.Nom_ac, acteur.Prenom_ac FROM acteur "
+                + "JOIN rolesecondaire ON acteur.Id_acteur = rolesecondaire.Id_acteur "
+                + "WHERE rolesecondaire.Id_show = ?";
+        pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, idShow);
+        rs = pstmt.executeQuery();
+
+        // Parcourir les résultats et ajouter chaque acteur à la liste (s'il n'est pas déjà dans la liste)
+        while (rs.next()) {
+            int idActeur = rs.getInt(1);
+            String nomActeur = rs.getString(2);
+            String prenomActeur = rs.getString(3);
+
+           Acteur acteur = new Acteur(idActeur, nomActeur,prenomActeur);
+            if (!acteurs.contains(acteur)) {
+                acteurs.add(acteur);
+            }
+        }
+
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+    return acteurs;
+}
+
+
+
+
+
+
+
+}
+	

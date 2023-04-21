@@ -20,19 +20,27 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class HomePageController implements Initializable{
-	@FXML
-    private ImageView notificationbtn;
+	   @FXML
+       private ImageView notificationbtn;
+	   @FXML
+	    private Button profilebtn;
 	   @FXML
 	    private HBox Hbox;
 	   @FXML
 	    private Button myList;
-	
+	   @FXML
+	    private ComboBox<String> choicebox;
+	    
+	   @FXML
+	    private ImageView profile;
+	   
 	@FXML
     private void SwithtoInterfaceProfil() throws IOException {
         App.setRoot("ProfileInterface");
@@ -43,7 +51,14 @@ public class HomePageController implements Initializable{
     private void SwithtoMyList() throws IOException {
         App.setRoot("favorisFilm");
     }
-	
+	@FXML
+    private void SwithtoMyShow() throws IOException {
+        App.setRoot("TvShow");
+    }
+	@FXML
+    private void SwithtoMyMovie() throws IOException {
+        App.setRoot("Movie");
+    }
 	
 	 @FXML
 	    void goToNotif(MouseEvent event) throws IOException {
@@ -51,30 +66,13 @@ public class HomePageController implements Initializable{
 
 	    }
 	
-	/*private void  recentlyAdded(List<Show> liste ,Stream<Show> source ) {
-		List<Show> sh = new ArrayList<>();
-		Show show =  new Show();
-		
-		source.collect(Collectors.toCollection(()->liste));
-		
-		/*show.setTitre_show("wednesday");
-		show.setAffiche("images/Wednesday-2.jpg");
-		sh.add(show);
-		show.setTitre_show("wednesday");
-		show.setAffiche("images/Wednesday-2.jpg");
-		sh.add(show);
-		show.setTitre_show("wednesday");
-		show.setAffiche("images/Wednesday-2.jpg");
-		sh.add(show);
-		sh=ShowDAO.findAll();
-		sh.stream().
-		
-		
-		
-		}*/
+	    @FXML
+	    void goToProfil(MouseEvent event) throws IOException {
+	        App.setRoot("ProfileInterfaceUser");
 
-	
-	
+	    }
+	 
+	 
 	@Override
 	public void initialize(URL location, java.util.ResourceBundle resources){
 	  try {

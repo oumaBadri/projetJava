@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1000.0" styleClass="left" stylesheets="@../../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.DetailShowController">
+   <children>
+      <AnchorPane layoutX="646.0" layoutY="11.0" prefHeight="730.0" prefWidth="340.0" style="-fx-border-color: D4B5B0;" stylesheets="@../../../Style/MainStyle.css">
+         <children>
+            <HBox fx:id="boucle" layoutY="78.0" prefHeight="65.0" prefWidth="304.0" />
+            <ChoiceBox fx:id="choice" layoutX="14.0" layoutY="44.0" prefHeight="0.0" prefWidth="150.0" />
+            <Label layoutX="37.0" layoutY="14.0" text="Saison:">
+               <font>
+                  <Font name="Cooper Black" size="19.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="10.0" right="60.0" />
+         </padding>
+      </AnchorPane>
+      <AnchorPane layoutX="14.0" layoutY="403.0" prefHeight="192.0" prefWidth="612.0" style="-fx-border-color: D4B5B0;" stylesheets="@../../../Style/MainStyle.css">
+         <children>
+            <VBox layoutX="-2.0" layoutY="28.0" prefHeight="164.0" prefWidth="612.0">
+               <children>
+                  <ScrollPane prefHeight="194.0" prefWidth="612.0" />
+                  <HBox fx:id="Hbox" prefHeight="0.0" prefWidth="600.0" />
+               </children>
+            </VBox>
+            <Label layoutX="33.0" layoutY="-2.0" prefHeight="28.0" prefWidth="90.0" text="Acteurs:">
+               <font>
+                  <Font name="Cooper Black" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="362.0" prefWidth="610.0" style="-fx-border-color: #D4B5B0;" stylesheets="@../../../Style/MainStyle.css">
+         <children>
+            <HBox layoutX="14.0" layoutY="324.0" prefHeight="39.0" prefWidth="257.0" stylesheets="@../../../Style/MainStyle.css" />
+            <AnchorPane layoutX="282.0" layoutY="49.0" prefHeight="177.0" prefWidth="281.0">
+               <children>
+                  <Label fx:id="langue" layoutX="141.0" layoutY="29.0" prefHeight="22.0" prefWidth="99.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
+                  <Label fx:id="pays" layoutX="141.0" layoutY="61.0" prefHeight="22.0" prefWidth="99.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
+                  <Label layoutX="7.0" layoutY="33.0" text="Langue:">
+                     <font>
+                        <Font name="Cooper Black" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="4.0" layoutY="63.0" prefHeight="18.0" prefWidth="74.0" text="Pays:">
+                     <font>
+                        <Font name="Cooper Black" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="7.0" layoutY="95.0" prefHeight="18.0" prefWidth="52.0" text="Genre:">
+                     <font>
+                        <Font name="Cooper Black" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="4.0" layoutY="124.0" text="Date Diffusion:">
+                     <font>
+                        <Font name="Cooper Black" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="genre" layoutX="104.0" layoutY="95.0" text="..." />
+                  <Label fx:id="date" layoutX="199.0" layoutY="122.0" text="..." />
+               </children>
+            </AnchorPane>
+            <TextArea fx:id="description" editable="false" layoutX="282.0" layoutY="223.0" prefHeight="122.0" prefWidth="318.0" style="-fx-border-color: D4B5B0;" stylesheets="@../../../Style/MainStyle.css" />
+            <Label fx:id="tit" layoutX="305.0" layoutY="15.0" textFill="#1572a1">
+               <font>
+                  <Font name="Cooper Black" size="26.0" />
+               </font>
+            </Label>
+            <HBox fx:id="Hbox2" layoutX="14.0" layoutY="7.0" prefHeight="349.0" prefWidth="202.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="10.0" layoutY="623.0" prefHeight="122.0" prefWidth="618.0" style="-fx-border-color: #D4B5B0;" stylesheets="@../../../Style/MainStyle.css">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="90.0" text="Avis :">
+               <font>
+                  <Font name="Cooper Black" size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
