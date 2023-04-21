@@ -48,6 +48,8 @@ public class ImageController {
 	affiche.setImage(image);
 	titre.setText(show.getTitre_show());
 	}
+    
+    
     public static String getRelativeImagePath(String path) {
 	    int index = path.indexOf("images/");
 	    if (index >= 0) {

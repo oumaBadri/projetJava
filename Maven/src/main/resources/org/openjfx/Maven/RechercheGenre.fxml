@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="930.0" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.RechercheGenreController">
+   <top>
+      <AnchorPane prefHeight="98.0" prefWidth="846.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button alignment="TOP_LEFT" layoutX="825.0" layoutY="15.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="62.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/producteur.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="740.0" layoutY="15.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="66.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+            <Button layoutX="14.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="140.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="91.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/336721789_916246296322521_3193178127915645001_n-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField fx:id="recherche" layoutX="331.0" layoutY="21.0" prefHeight="40.0" prefWidth="213.0" promptText="Type " styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Line endX="100.0" layoutX="438.0" layoutY="63.0" startX="-100.0" />
+            <ImageView fitHeight="34.0" fitWidth="48.0" layoutX="507.0" layoutY="24.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/recherche-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+         <styleClass>
+            <String fx:value="left" />
+            <String fx:value="side_ankerpane" />
+         </styleClass>
+      </AnchorPane>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane prefHeight="730.0" prefWidth="760.0">
+               <content>
+                  <HBox fx:id="Hbox" prefHeight="790.0" prefWidth="1026.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

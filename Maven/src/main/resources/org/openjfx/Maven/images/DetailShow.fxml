@@ -173,7 +173,7 @@
       </AnchorPane>
       <AnchorPane layoutX="14.0" layoutY="395.0" prefHeight="122.0" prefWidth="610.0" style="-fx-border-color: D4B5B0;" stylesheets="@../../../Style/MainStyle.css">
          <children>
-            <ImageView fitHeight="63.0" fitWidth="70.0" layoutX="38.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="63.0" fitWidth="82.0" layoutX="26.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/face%20login.png" />
                </image>
@@ -184,31 +184,31 @@
                </font>
             </Label>
             <Label layoutX="26.0" layoutY="98.0" prefHeight="22.0" prefWidth="82.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
-            <ImageView fitHeight="63.0" fitWidth="90.0" layoutX="135.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="63.0" fitWidth="82.0" layoutX="126.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/face%20login.png" />
                </image>
             </ImageView>
             <Label layoutX="123.0" layoutY="98.0" prefHeight="22.0" prefWidth="82.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
-            <ImageView fitHeight="63.0" fitWidth="90.0" layoutX="232.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="63.0" fitWidth="82.0" layoutX="220.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/face%20login.png" />
                </image>
             </ImageView>
             <Label layoutX="220.0" layoutY="98.0" prefHeight="22.0" prefWidth="82.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
             <Label layoutX="322.0" layoutY="98.0" prefHeight="22.0" prefWidth="82.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
-            <ImageView fitHeight="63.0" fitWidth="90.0" layoutX="334.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="63.0" fitWidth="82.0" layoutX="325.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/face%20login.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="63.0" fitWidth="90.0" layoutX="435.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="63.0" fitWidth="74.0" layoutX="426.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/face%20login.png" />
                </image>
             </ImageView>
             <Label layoutX="423.0" layoutY="97.0" prefHeight="22.0" prefWidth="74.0" styleClass="border" stylesheets="@../../../Style/MainStyle.css" />
-            <ImageView fitHeight="63.0" fitWidth="90.0" layoutX="523.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="63.0" fitWidth="74.0" layoutX="519.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/face%20login.png" />
                </image>
@@ -218,7 +218,7 @@
       </AnchorPane>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="362.0" prefWidth="610.0" style="-fx-border-color: #D4B5B0;" stylesheets="@../../../Style/MainStyle.css">
          <children>
-            <HBox layoutX="14.0" layoutY="324.0" prefHeight="39.0" prefWidth="257.0" stylesheets="@../../../Style/MainStyle.css">
+            <HBox layoutY="309.0" prefHeight="58.0" prefWidth="257.0" stylesheets="@../../../Style/MainStyle.css">
                <children>
                   <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="30.0" prefWidth="39.0" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
                      <graphic>
@@ -269,7 +269,7 @@
                </children>
             </AnchorPane>
             <TextArea layoutX="282.0" layoutY="177.0" prefHeight="167.0" prefWidth="318.0" style="-fx-border-color: D4B5B0;" stylesheets="@../../../Style/MainStyle.css" />
-            <ImageView fitHeight="302.0" fitWidth="257.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="294.0" fitWidth="257.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/Wednesday-2.jpg" />
                </image>

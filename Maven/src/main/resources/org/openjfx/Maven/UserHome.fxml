@@ -3,13 +3,16 @@
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="930.0" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.HomePageController">
@@ -61,36 +64,78 @@
    <left>
       <AnchorPane prefHeight="652.0" prefWidth="242.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="mymovie" alignment="CENTER_RIGHT" layoutX="46.0" layoutY="137.0" mnemonicParsing="false" onAction="#SwithtoMyMovie" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Movies" textFill="#c95c3b">
+            <Button fx:id="mymovie" alignment="CENTER_RIGHT" layoutX="46.0" layoutY="43.0" mnemonicParsing="false" onAction="#SwithtoMyMovie" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Movies" textFill="#c95c3b">
                <font>
                   <Font name="Cooper Black" size="19.0" />
                </font>
             </Button>
-            <Button fx:id="Myshow" alignment="CENTER_RIGHT" layoutX="59.0" layoutY="197.0" mnemonicParsing="false" onAction="#SwithtoMyShow" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="TV Shows " textFill="#c95c3b">
+            <Button fx:id="Myshow" alignment="CENTER_RIGHT" layoutX="46.0" layoutY="98.0" mnemonicParsing="false" onAction="#SwithtoMyShow" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="TV Shows " textFill="#c95c3b">
                <font>
                   <Font name="Cooper Black" size="17.0" />
                </font>
             </Button>
-            <Button fx:id="myList" alignment="CENTER_RIGHT" layoutX="46.0" layoutY="254.0" mnemonicParsing="false" onAction="#SwithtoMyList" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="My List " textFill="#c95c3b">
+            <Button fx:id="myList" alignment="CENTER_RIGHT" layoutX="46.0" layoutY="144.0" mnemonicParsing="false" onAction="#SwithtoMyList" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="My List " textFill="#c95c3b">
                <font>
                   <Font name="Cooper Black" size="16.0" />
                </font>
             </Button>
-            <ImageView fitHeight="59.0" fitWidth="47.0" layoutX="59.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="59.0" fitWidth="47.0" layoutX="44.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/film-removebg-preview.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="63.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="48.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Capture_d_écran_2023-04-13_164213-removebg-preview.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="67.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="52.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Capture_d_écran_2023-04-13_164858-removebg-preview.png" />
                </image>
             </ImageView>
+            <Separator layoutX="21.0" layoutY="189.0" prefHeight="14.0" prefWidth="200.0" />
+            <Label layoutX="9.0" layoutY="214.0" prefHeight="34.0" prefWidth="106.0" text="Search " textFill="#c95c3b">
+               <font>
+                  <Font name="Cooper Black" size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="41.0" layoutY="249.0" mnemonicParsing="false" onAction="#RechercheTitre" prefHeight="34.0" prefWidth="159.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="By Title" textFill="#0b0071">
+               <font>
+                  <Font name="Cooper Black" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="37.0" layoutY="284.0" mnemonicParsing="false" onAction="#RechercheAnnee" prefHeight="34.0" prefWidth="159.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="By Year" textFill="#0b0071">
+               <font>
+                  <Font name="Cooper Black" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="41.0" layoutY="318.0" mnemonicParsing="false" onAction="#RechercheLangue" prefHeight="34.0" prefWidth="159.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="By Language" textFill="#0b0071">
+               <font>
+                  <Font name="Cooper Black" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="36.0" layoutY="351.0" mnemonicParsing="false" onAction="#RecherchePays" prefHeight="34.0" prefWidth="159.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="By Country" textFill="#0b0071">
+               <font>
+                  <Font name="Cooper Black" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="44.0" layoutY="385.0" mnemonicParsing="false" onAction="#RechercheGenre" prefHeight="34.0" prefWidth="159.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="By Type" textFill="#0b0071">
+               <font>
+                  <Font name="Cooper Black" size="15.0" />
+               </font>
+            </Button>
+            <Line endX="45.19999694824219" endY="0.399993896484375" layoutX="143.0" layoutY="283.0" startX="-100.0" />
+            <Line endX="47.19996643066406" layoutX="146.0" layoutY="318.0" startX="-100.0" />
+            <Line endX="49.19999694824219" layoutX="146.0" layoutY="352.0" startX="-100.0" />
+            <Line endX="46.19999694824219" endY="0.399993896484375" layoutX="149.0" layoutY="385.0" startX="-100.0" />
+            <Line endX="49.19999694824219" layoutX="145.0" layoutY="419.0" startX="-100.0" />
+            <Button layoutX="44.0" layoutY="418.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="159.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Actor" textFill="#0b0071">
+               <font>
+                  <Font name="Cooper Black" size="15.0" />
+               </font>
+            </Button>
+            <Line endX="46.19999694824219" endY="0.399993896484375" layoutX="150.0" layoutY="450.0" startX="-100.0" />
          </children>
          <styleClass>
             <String fx:value="left" />

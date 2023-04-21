@@ -62,7 +62,35 @@ public class HomePageController implements Initializable{
       App.setRoot("notification");
 
 	    }
-	
+	 @FXML
+	    void RechercheTitre() throws IOException {
+   App.setRoot("RechercherTitre");
+
+	    }
+	 @FXML
+	    void RechercheAnnee() throws IOException {
+   App.setRoot("RechercheAnnee");
+
+	    }
+	 @FXML
+	    void RecherchePays() throws IOException {
+   App.setRoot("RecherchePays");
+
+	    }
+	 @FXML
+	    void RechercheLangue() throws IOException {
+   App.setRoot("RechercheLangue");
+
+	    }
+	 
+	 @FXML
+	    void RechercheGenre() throws IOException {
+   App.setRoot("RechercheGenre");
+
+	    }
+	 
+	 
+	 
 	@Override
 	public void initialize(URL location, java.util.ResourceBundle resources){
 	  try {

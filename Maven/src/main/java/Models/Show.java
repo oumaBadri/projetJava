@@ -29,11 +29,7 @@ public class Show {
 		this.is_a_film = is_a_film;
 	}
 
-	public Show(String titre_show, String affiche) {
-		super();
-		this.titre_show = titre_show;
-		this.affiche = affiche;
-	}
+	
 
 
 	public Show(int id_show, String titre_show, LocalDate date_difussion_show, String pays, String langue,
@@ -71,6 +67,10 @@ public class Show {
 		this.genre_show=genre;
 		this.is_a_film=is_Film;
 		this.affiche=image;
+	}
+
+	public Show(String titre_show2) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getTitre_show() {
@@ -134,12 +134,7 @@ public class Show {
 		this.affiche = affiche;
 	}
 
-
-
-
-
-
-	public int getIs_a_film() {
+public int getIs_a_film() {
 		return is_a_film;
 	}
 
@@ -149,12 +144,23 @@ public class Show {
 
 
 
-	@Override
-	public String toString() {
-		return "Show [titre_show=" + titre_show + ", affiche=" + affiche + "]";
+	public Show(String titre_show, String affiche) {
+		super();
+		this.titre_show = titre_show;
+		this.affiche = affiche;
+	}
+
+	
+	public String toString1() {
+		return "Show [id_show=" + id_show + ", titre_show=" + titre_show + ", Date_difussion_show="
+				+ Date_difussion_show + ", pays=" + pays + ", langue=" + langue + ", genre_show=" + genre_show
+				+ ", is_a_film=" + is_a_film + ", affiche=" + affiche + "]";
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Show ["+" titre_show="+ titre_show +" affiche=" + affiche + "]";
+	}
 	
 
 

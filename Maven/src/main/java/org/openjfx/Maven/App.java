@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Dao.ShowDAO;
+import Dao.UtilisateurDAO;
+import Models.Show;
 
 /**
  * JavaFX App
@@ -25,7 +27,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-    	scene = new Scene(loadFXML("login"),1000,790);
+    	scene = new Scene(loadFXML("RechercheGenre"),1000,790);
         stage.setScene(scene);
         stage.show();
 
@@ -41,9 +43,15 @@ public class App extends Application {
     }
 
     public static void main(String[] args) throws SQLException {
-
-     launch();
+    	launch();
       //ShowDAO.findAllMovie().stream().forEach(System.out::println);
+    	/*List<Show> show1 =ShowDAO.findShow("wednesday");
+        System.out.println(show1);*/
+	/*List<Show> show1 = UtilisateurDAO.RechercherParAnnee(2017);
+	System.out.println(show1);*/
+    	
+    	/*List<Show> show1 = UtilisateurDAO.RechercherParPays("uk");
+    	System.out.println(show1);*/
     }
 
 

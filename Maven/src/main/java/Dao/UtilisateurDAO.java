@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Models.Acteur;
+import Models.Show;
 import Models.Utilisateur;
 import utile.conxBD;
 
@@ -204,21 +205,22 @@ public class UtilisateurDAO {
 		return id_u;
 	}
 //********************************Recherche*******************************************
-	public static  List<String> RechercherParPays(String pays) {
+	public static  List<Show> RechercherParPays(String pays) {
 		//Statement stmt = null;
 	    ResultSet rs = null;
 	    PreparedStatement pstmt = null;
-	    List<String> Shows = new ArrayList<>();
-
-        String SQL = "SELECT * FROM Show WHERE pays_show=?";
+	    List<Show> Shows = new ArrayList<>();
+	    Show s=new Show();
+        String SQL = "SELECT titre_show,image FROM Show WHERE pays_show=?";
         try {
         	pstmt = conn.prepareStatement(SQL);
 	        pstmt.setString(1,pays);
 	        rs = pstmt.executeQuery();
 	        while (rs.next()) {
-	        	String titre_show = rs.getString(2);
-                Shows.add(titre_show);
-                
+	        	String titre_show = rs.getString(1);
+	        	String image = rs.getString(2);
+	        	s= new Show(titre_show, image);
+	        	Shows.add(s);
                 }
 	      
 	    } catch (SQLException ex) {
@@ -227,21 +229,22 @@ public class UtilisateurDAO {
 		return Shows;
        }
 	//**********************************************************************
-	public static  List<String> RechercherParLangue(String langue) {
+	public static  List<Show> RechercherParLangue(String langue) {
 		//Statement stmt = null;
 	    ResultSet rs = null;
 	    PreparedStatement pstmt = null;
-	    List<String> Shows = new ArrayList<>();
-
-        String SQL = "SELECT * FROM Show WHERE langue_show=?";
+	    List<Show> Shows = new ArrayList<>();
+	    Show s=new Show();
+        String SQL = "SELECT titre_show ,image  FROM Show WHERE langue_show=?";
         try {
         	pstmt = conn.prepareStatement(SQL);
 	        pstmt.setString(1,langue);
 	        rs = pstmt.executeQuery();
 	        while (rs.next()) {
-	        	String titre_show = rs.getString(2);
-                Shows.add(titre_show);
-                
+	        	String titre_show = rs.getString(1);
+	        	String image = rs.getString(2);
+	        	s= new Show(titre_show, image);
+	        	Shows.add(s);
                 }
 	      
 	    } catch (SQLException ex) {
@@ -250,20 +253,23 @@ public class UtilisateurDAO {
 		return Shows;
        }
 	//**********************************************************************
-	public static  List<String> RechercherParAnnee(int annee) {
+	public static  List<Show> RechercherParAnnee(int annee) {
 		//Statement stmt = null;
 	    ResultSet rs = null;
 	    PreparedStatement pstmt = null;
-	    List<String> Shows = new ArrayList<>();
-
-        String SQL = "SELECT * FROM Show WHERE EXTRACT(YEAR FROM date_diff) = ?";
+	    List<Show> Shows = new ArrayList<>();
+	    Show s=new Show();
+        String SQL = "SELECT titre_show ,image  FROM Show WHERE EXTRACT(YEAR FROM date_diff) = ?";
         try {
         	pstmt = conn.prepareStatement(SQL);
 	        pstmt.setInt(1,annee);
 	        rs = pstmt.executeQuery();
 	        while (rs.next()) {
-	        	String titre_show = rs.getString(2);
-                Shows.add(titre_show);
+	        	String titre_show = rs.getString(1);
+	        	String image = rs.getString(2);
+	        	s= new Show(titre_show, image);
+	        		
+                Shows.add(s);
                 
                 }
 	      
@@ -273,23 +279,27 @@ public class UtilisateurDAO {
 		return Shows;
        }
 	//**********************************************************************
-	public static  List<String> RechercherPargenre( String genre) {
+	public static  List<Show> RechercherPargenre( String genre) {
 		
 	    ResultSet rs = null;
 	    PreparedStatement pstmt = null;
-	    List<String> Shows = new ArrayList<>();
+	    List<Show> Shows = new ArrayList<>();
+	    Show s=new Show();
      switch(genre) {
      case "Comédie":
      {
     	 try {
-    	 String SQL = "SELECT * FROM Show WHERE genre=?";
+    	 String SQL = "SELECT titre_show ,image FROM Show WHERE genre=?";
          
          	pstmt = conn.prepareStatement(SQL);
  	        pstmt.setString(1,genre);
  	        rs = pstmt.executeQuery();
  	        while (rs.next()) {
- 	        	String titre_show = rs.getString(2);
-                 Shows.add(titre_show);
+ 	        	String titre_show = rs.getString(1);
+	        	String image = rs.getString(2);
+	        	s= new Show(titre_show, image);
+	        		
+                Shows.add(s);
                  }
  	      
  	    } catch (SQLException ex) {
@@ -299,14 +309,17 @@ public class UtilisateurDAO {
        }
      case"Dramatique":
      {
-    	 String SQL = "SELECT * FROM Show WHERE genre=?";
+    	 String SQL = "SELECT titre_show ,image  FROM Show WHERE genre=?";
          try {
          	pstmt = conn.prepareStatement(SQL);
  	        pstmt.setString(1,genre);
  	        rs = pstmt.executeQuery();
  	        while (rs.next()) {
- 	        	String titre_show = rs.getString(2);
-                 Shows.add(titre_show);
+ 	        	String titre_show = rs.getString(1);
+	        	String image = rs.getString(2);
+	        	s= new Show(titre_show, image);
+	        		
+                Shows.add(s);
                  
                  }
  	      
@@ -317,15 +330,17 @@ public class UtilisateurDAO {
        } 
      case"Policier":
      {
-    	 String SQL = "SELECT * FROM Show WHERE genre=?";
+    	 String SQL = "SELECT titre_show ,image  FROM Show WHERE genre=?";
          try {
          	pstmt = conn.prepareStatement(SQL);
  	        pstmt.setString(1,genre);
  	        rs = pstmt.executeQuery();
  	        while (rs.next()) {
- 	        	String titre_show = rs.getString(2);
-                 Shows.add(titre_show);
-                 
+ 	        	String titre_show = rs.getString(1);
+	        	String image = rs.getString(2);
+	        	s= new Show(titre_show, image);
+	        		
+                Shows.add(s);
                  }
  	      
  	    } catch (SQLException ex) {
@@ -335,14 +350,17 @@ public class UtilisateurDAO {
     }
      case"Action":
      {
-    	 String SQL = "SELECT * FROM Show WHERE genre=?";
+    	 String SQL = "SELECT titre_show ,image  FROM Show WHERE genre=?";
          try {
          	pstmt = conn.prepareStatement(SQL);
  	        pstmt.setString(1,genre);
  	        rs = pstmt.executeQuery();
  	        while (rs.next()) {
- 	        	String titre_show = rs.getString(2);
-                 Shows.add(titre_show);
+ 	        	String titre_show = rs.getString(1);
+	        	String image = rs.getString(2);
+	        	s= new Show(titre_show, image);
+	        		
+                Shows.add(s);
                  
                  }
  	      
@@ -353,15 +371,17 @@ public class UtilisateurDAO {
      }
      case"Historique":
      {
-    	 String SQL = "SELECT * FROM Show WHERE genre=?";
+    	 String SQL = "SELECT titre_show ,image  FROM Show WHERE genre=?";
          try {
          	pstmt = conn.prepareStatement(SQL);
  	        pstmt.setString(1,genre);
  	        rs = pstmt.executeQuery();
  	        while (rs.next()) {
- 	        	String titre_show = rs.getString(2);
-                 Shows.add(titre_show);
-                 
+ 	        	String titre_show = rs.getString(1);
+	        	String image = rs.getString(2);
+	        	s= new Show(titre_show, image);
+	        		
+                Shows.add(s);
                  }
  	      
  	    } catch (SQLException ex) {
@@ -372,15 +392,17 @@ public class UtilisateurDAO {
      }
      case"Science-Fiction":
      {
-    	 String SQL = "SELECT * FROM Show WHERE genre=?";
+    	 String SQL = "SELECT titre_show ,image  FROM Show WHERE genre=?";
          try {
          	pstmt = conn.prepareStatement(SQL);
  	        pstmt.setString(1,genre);
  	        rs = pstmt.executeQuery();
  	        while (rs.next()) {
- 	        	String titre_show = rs.getString(2);
-                 Shows.add(titre_show);
-                 
+ 	        	String titre_show = rs.getString(1);
+	        	String image = rs.getString(2);
+	        	s= new Show(titre_show, image);
+	        		
+                Shows.add(s);
                  }
  	      
  	    } catch (SQLException ex) {

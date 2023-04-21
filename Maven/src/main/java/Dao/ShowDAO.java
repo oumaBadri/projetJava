@@ -425,13 +425,11 @@ public static String ShowTitre() {
  
  //*************************************************************************************
 public static List<Show> findAllMovie() throws SQLException{
-	
-	Statement stmt = null;
+    Statement stmt = null;
     ResultSet rs = null;
-    
-	List<Show> Shows = new ArrayList<>();
-
+    List<Show> Shows = new ArrayList<>();
     String SQL = "SELECT * FROM Show where is_film=1";
+   
     try {
     	stmt = conn.createStatement();
         rs = stmt.executeQuery(SQL);
@@ -455,5 +453,32 @@ public static List<Show> findAllMovie() throws SQLException{
     
     return Shows;
 }
+//********************************************************************************
+public static List<Show> findShow( String identifiant) {
+	PreparedStatement pstmt = null;
+	Show s=new Show();
+	List<Show> Shows = new ArrayList<>();
+    ResultSet rs = null;
+    String id=identifiant;
+    try {
+     String sql = "SELECT Image FROM Show WHERE titre_show=?";
+     pstmt = conn.prepareStatement(sql);
+     pstmt.setString(1, id);
+     rs = pstmt.executeQuery();
+     while (rs.next()) {
+     	
+    	 String image=rs.getString(1);
+    	 
+    	 s=new Show(identifiant,image);
+    	 Shows.add(s);
+     
+     }
+ }catch (SQLException ex) {
+     System.out.println(ex.getMessage());
+ }
+    return Shows;
+}
+    
+
 }
 	
