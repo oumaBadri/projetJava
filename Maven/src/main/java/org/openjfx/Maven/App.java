@@ -36,7 +36,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        scene = new Scene(loadFXML("UserHome"),1000,790);
+        scene = new Scene(loadFXML("AjoutShow"),1000,790);
         stage.setScene(scene);
         stage.show();
     }
@@ -55,10 +55,11 @@ public class App extends Application {
     	/*Avis a= new Avis(20, 1, 0,"hello",1, 1);
     	AvisDAO.ajouterAvis(a);*/
     	launch();
-    	
+    	/*Show s=new Show(123,"13 reasons why",LocalDate.of(2022,10,20),"aze0","azerty","Dramatique",0,"url");
+    	Service.ShowService.addShow(s);
+    	*/
 
-<<<<<<< HEAD
-
+    	//System.out.println(Service.ShowService.exitSerieWithId(17));
  //System.out.println(AvisDAO.ShowTitre(1));
 
     	//System.out.println("hello");
@@ -67,7 +68,7 @@ public class App extends Application {
     	Show s=new Show(125, "Wednesday ", date, "	United States", "English","Dramatique", 1, "url de l'image");
     	ShowDAO.ajouterShow(s);*/
 
-      launch();
+      //launch();
     //	System.out.println(AvisDAO.findAll2(1));
     //	System.out.println(AvisDAO.ShowTitre(1));
     	//Avis a= new Avis(1, 1, 10, "jaime", 1, 1);
@@ -123,8 +124,6 @@ public class App extends Application {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}*/
-=======
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava
     }
 
 

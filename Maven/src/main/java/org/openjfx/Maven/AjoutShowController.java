@@ -4,9 +4,15 @@ package org.openjfx.Maven;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import Controller.ControlSaisie;
+import Models.Producteur;
 import Models.Show;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -94,14 +100,120 @@ public class AjoutShowController implements Initializable{
 	    private TextField txt_nbrSaison;
 	    
 	    @FXML
+	    private DatePicker datePIcker;
+	   
+	   
+	    @FXML
 	    private TextField txt_dateDiff;
 	    
-	    
-	    //public ObservableList<Show> data=FXCollections.observableArrayList();
 	    @FXML
 	    void addShow() {
-
+	    	Show s=null;
+	    	/*Show s=null;
+	    	Boolean ChampValid=true;
+	    	try {
+	    		Integer.parseInt(txt_searchId.getText());
+	    	}catch(NumberFormatException e) {
+	    		cincor.setText("Veuillez entrer que des chiffres");
+	    		ChampValid=false;
+	    	}*/
+	    	
+	    	
+	    	/*if (!(txt_genre.getText()).equals("")
+	    			&& !(txt_isAFilm.getText()).equals("") 
+	    			&&! txt_isAFilm.getText().equals("1") || !txt_isAFilm.getText().equals("0")
+					&&! txt_langue.getText().equals("")
+					&&! txt_payer.getText().equals("")
+					&&!(txt_titre.getText()).equals("")
+					&&!(txt_poster.getText()).equals("")
+					&&!(txt_dateDiff.getText()).equals("")){
+	    			
+	    		//----------------mochkelt datePicker----------------
+	    		LocalDateTime localDateTime = datePIcker.getValue().atStartOfDay();
+	    		ZonedDateTime zonedDateTime = ZonedDateTime.of(localDateTime, systemDefault());
+	    		java.util.Date date = java.util.Date.from(zonedDateTime.toInstant());
+	    		
+	    		//java.util.Date date=java.util.Date.from(datePIcker.getValue().atStartOfDay(ZoneId.systemDefault()));
+					s=new Show(Integer.parseInt(txt_searchId.getText()),
+							txt_titre.getText(),
+							LocalDate.parse(txt_dateDiff.getText()),
+							txt_payer.getText(),
+							txt_langue.getText(),
+							txt_genre.getText(),
+							Integer.parseInt(txt_isAFilm.getText()),
+							txt_poster.getText());	
+					Service.ShowService.addShow(s);
+					Alert alert=new Alert (AlertType.CONFIRMATION,"Show ajoutee avec succes !",javafx.scene.control.ButtonType.OK);
+		    		alert.showAndWait();
+		    		showShow();
+		    		
+	    	}else {
+	    		Alert alert=new Alert (AlertType.WARNING,"Veuillez ramplir tous les champs !",javafx.scene.control.ButtonType.OK);
+	    		alert.showAndWait();
+	    	}*/
+	    	
+	    	
+	        String titre = txt_titre.getText();
+	        String genre = txt_genre.getText();
+	        String langue = txt_langue.getText();
+	        String pays = txt_payer.getText();
+	        String affiche = txt_poster.getText();
+	        String isAFilmText = txt_isAFilm.getText();
+	        String nbrSaisonText = txt_nbrSaison.getText();
+	        LocalDate dateDiff = datePIcker.getValue();
+	        if (titre.isEmpty() || genre.isEmpty() || langue.isEmpty() || pays.isEmpty() ||
+	                affiche.isEmpty() || isAFilmText.isEmpty() || nbrSaisonText.isEmpty() || dateDiff == null) {
+	            Alert alert = new Alert(AlertType.ERROR, "Tous les champs sont obligatoires!");
+	            alert.showAndWait();
+	            return;
+	        }
+	        int isAFilm, nbrSaison;
+	        try {
+	            isAFilm = Integer.parseInt(isAFilmText);
+	            nbrSaison = Integer.parseInt(nbrSaisonText);
+	        } catch (NumberFormatException e) {
+	            Alert alert = new Alert(AlertType.ERROR, "Veuillez entrer des valeurs valides pour 'isAFilm' et 'nbrSaison'.");
+	            alert.showAndWait();
+	            return;
+	        }
+	        if (!genre.equals("Comédie") && !genre.equals("Dramatique")  && !genre.equals("Policier")&& !genre.equals("Action")&& !genre.equals("Historique")&& !genre.equals("Science-Fiction")) {
+	            Alert alert = new Alert(AlertType.ERROR, "Le genre doit être soit 'homme' ou 'femme'.");
+	            alert.showAndWait();
+	            return;
+	        }
+	        if (isAFilm != 0 && isAFilm != 1) {
+	            Alert alert = new Alert(AlertType.ERROR, "'isAFilm' doit être soit 0 ou 1.");
+	            alert.showAndWait();
+	            return;
+	        }
+	        Show show = new Show(Integer.parseInt(txt_searchId.getText()),titre , dateDiff , pays , langue, genre, isAFilm, affiche);
+	        
+	        Dao.ShowDAO.ajouterShow(show);
+	        
+	        txt_titre.clear();
+	        txt_genre.clear();
+	        txt_langue.clear();
+	        txt_payer.clear();
+	        txt_poster.clear();
+	        txt_isAFilm.clear();
+	        txt_nbrSaison.clear();
+	        datePIcker.setValue(null);
+	       
+	        Alert alert = new Alert(AlertType.INFORMATION, "Le spectacle a été ajouté avec succès!");
+	        alert.showAndWait();
 	    }
+	    	
+	    
+	    	
+	    	/*int id=Integer.parseInt(txt_searchId.getText());
+	    	String titre=txt_titre.getText();
+	    	String genre=txt_genre.getText();
+	    	String langue=txt_langue.getText();
+	    	int isFilm=Integer.parseInt(txt_isAFilm.getText());
+	    	String pays=txt_payer.getText();
+	    	LocalD*/
+
+	    
 
 	    @FXML
 	    void deleteShow() {
@@ -152,12 +264,12 @@ public class AjoutShowController implements Initializable{
 	    	    } else {
 	    	        txt_isAFilm.setText("false");
 	    	    }
-
+	    	    
 	    	    txt_langue.setText(S.getLangue());
 	    	    txt_payer.setText(S.getPays());
 	    	    txt_poster.setText(S.getAffiche());
 	    	    txt_nbrSaison.setText(String.valueOf(Service.ShowService.getNombreSaison(Integer.parseInt(txt_searchId.getText()))));
-	    	    
+	    	    datePIcker.setValue(S.getDate_difussion_show());
 	    	    
 	    	    m = 1;
 	    	    
@@ -179,7 +291,17 @@ public class AjoutShowController implements Initializable{
 
 	    @FXML
 	    void updateShow() {
-
+	    	int id=Integer.parseInt(txt_searchId.getText());
+	    	String titre=txt_titre.getText();
+	    	LocalDate date=datePIcker.getValue();
+	    	String genre=txt_genre.getText();
+	    	String langue=txt_langue.getText();
+	    	String pays=txt_payer.getText();
+	    	String affiche=txt_poster.getText();
+	    	int isFilm=Integer.parseInt(txt_isAFilm.getText());
+	    	int nbrSaison=Integer.parseInt(txt_nbrSaison.getText());
+	    	
+	    	
 	    }
 
 	@Override
@@ -190,6 +312,7 @@ public class AjoutShowController implements Initializable{
 	
 	//pour voir la table de base de donnee
 	public void showShow() {
+		table.getItems().clear();
 		List<Show> shows=null;
 		try {
 			shows=Dao.ShowDAO.findAll();

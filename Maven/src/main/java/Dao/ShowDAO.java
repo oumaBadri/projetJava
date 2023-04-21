@@ -283,7 +283,9 @@ public class ShowDAO {
           sh = new Show(titre_show,image);
          
       }
-  } catch (Exception e ) {};
+  } catch (NullPointerException e ) {
+	  e.printStackTrace();
+  };
   
  
 
@@ -303,14 +305,14 @@ return sh;
          rs = pstmt.executeQuery();
          while (rs.next()) {
          	 String titre_show = rs.getString(1);
-         	 Object date_diff=rs.getObject(2);
+         	 Date date_diff=rs.getDate(2);
          	 String Pays_Show=rs.getString(3);
          	 String Langue_show=rs.getString(4);
         	 int is_Film=rs.getInt(5);
         	 String genre=rs.getString(6);
         	 String image=rs.getString(7);
         	 
-        	 s=new Show(identifiant,titre_show,date_diff,Pays_Show,Langue_show,genre,is_Film,image);
+        	 s=new Show(identifiant,titre_show,date_diff.toLocalDate(),Pays_Show,Langue_show,genre,is_Film,image);
          	}
      }catch (SQLException ex) {
          System.out.println(ex.getMessage());
