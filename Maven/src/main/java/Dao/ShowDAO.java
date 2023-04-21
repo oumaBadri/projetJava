@@ -54,15 +54,21 @@ public class ShowDAO {
 			}
 //*****************************Modification Show***********************************************
 			
-			public static int modifTitreShow(int id_show,String titre) {
+			public static int modifShow(int id_show,String titre,LocalDate date, String genre,String langue,String pays,int isAFilm,String affiche) {
 			
 				PreparedStatement pstmt = null;
 			    ResultSet rs = null;
 			    try {
-		            String sql = "UPDATE Show SET titre_show=? WHERE ID_show=?";
+		            String sql = "UPDATE Show SET titre_show=?,date_diff=? ,pays_show=? ,langue_show=? ,is_film=?,genre=?, image=? WHERE ID_show=?";
 		            pstmt = conn.prepareStatement(sql);
 		            pstmt.setString(1, titre);
-		        	pstmt.setInt(2, id_show);
+		            pstmt.setObject(2, date);
+		        	pstmt.setString(3, pays);
+		        	pstmt.setString(4, langue);
+		        	pstmt.setInt(5, isAFilm);
+		        	pstmt.setString(6, genre);
+		        	pstmt.setString(7, affiche);
+		        	pstmt.setInt(8, id_show);
 		        	pstmt.executeUpdate();
 		            // 4- Recupérer l'Id généré par le SGBD
 		        	rs = pstmt.getGeneratedKeys();
