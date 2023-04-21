@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -23,7 +24,11 @@ public class RechercheTitreController {
     @FXML
     private TextField recherche;
 
+    @FXML
+    void retour() throws IOException {
+	 App.setRoot("UserHome");
 
+    }
 	
     public void search() {
     	List<Show> show1 =ShowDAO.findShow(recherche.getText());

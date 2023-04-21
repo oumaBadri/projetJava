@@ -2,6 +2,7 @@ package org.openjfx.Maven;
 
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,10 +23,17 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import utile.conxBD;
 import javafx.scene.image.Image;
 
 public class ImageController {
+	
+
+   
+	
+	@FXML
+    private ImageView detail;
 	@FXML
     private  ImageView affiche;
 
@@ -50,6 +58,7 @@ public class ImageController {
 	}
     
     
+
     public static String getRelativeImagePath(String path) {
 	    int index = path.indexOf("images/");
 	    if (index >= 0) {
@@ -68,7 +77,26 @@ public class ImageController {
    
    
 
+   @FXML
+   void voirDetail(MouseEvent event) throws IOException {
+	   
+	   DetailShowController.s.setAffiche(affiche.getImage().getUrl());
+	   DetailShowController.s.setTitre_show(titre.getText());
+	   int x =ShowDAO.findIdShow(titre.getText());
+	   DetailShowController.s.setId_show(x);
+	   Show q= ShowDAO.findShowParID(x);
+	   
+	   Object c=q.getDateOb();
+	   DetailShowController.s.setDateOb(c);
+	   DetailShowController.s.setGenre_show(q.getGenre_show());
+	   DetailShowController.s.setLangue(q.getLangue());
+	   DetailShowController.s.setPays(q.getPays());
+	   DetailShowController.s.setIs_a_film(q.getIs_a_film());
 
+	   
+	   App.setRoot("DetailShow");
+
+   }
 
     
 }

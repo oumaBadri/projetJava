@@ -415,25 +415,27 @@ public class UtilisateurDAO {
 	return Shows;
 	}
 	//**********************************************************************
-	public static  List<Acteur> RechercherActeur(String nom) {
+	public static  List<Acteur> RechercherActeur(String nom ) {
 		//Statement stmt = null;
 	    ResultSet rs = null;
 	    PreparedStatement pstmt = null;
 	    List<Acteur> acteurs = new ArrayList<>();
 
-        String SQL = "SELECT * FROM Acteur WHERE nom_ac=?";
+        String SQL = "SELECT * FROM Acteur WHERE nom_ac=? ";
         try {
         	pstmt = conn.prepareStatement(SQL);
 	        pstmt.setString(1,nom);
 	        rs = pstmt.executeQuery();
 	        while (rs.next()) {
-	       
+	        	int id_ac = rs.getInt(1);
                 String Nom_ac = rs.getString(2);
                 String Prenom_ac = rs.getString(3);
+                String mail_ac = rs.getString(5);
+                String mdp_ac = rs.getString(6);
                 LocalDate annif_ac=rs.getObject(4,LocalDate.class);
                
 
-                Acteur act = new Acteur( Nom_ac, Prenom_ac,annif_ac);
+                Acteur act = new Acteur(id_ac, Nom_ac, Prenom_ac,mail_ac,mdp_ac,annif_ac);
                 acteurs.add(act);
 	        }
 	    } catch (SQLException ex) {

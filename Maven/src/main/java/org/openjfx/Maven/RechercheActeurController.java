@@ -3,7 +3,9 @@ package org.openjfx.Maven;
 import java.io.IOException;
 import java.util.List;
 
+import Dao.ShowDAO;
 import Dao.UtilisateurDAO;
+import Models.Acteur;
 import Models.Show;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,14 +14,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class RecherchePaysController {
-
+public class RechercheActeurController {
 
 	@FXML
     private HBox Hbox;
-
-	
-	 @FXML
+	@FXML
 	    private  TextField recherche;
 
 	 @FXML
@@ -29,16 +28,18 @@ public class RecherchePaysController {
 	    }
 		
 	    public void search() {
-	    	List<Show> show1 = UtilisateurDAO.RechercherParPays(recherche.getText());
 	    	try {
-				for(Show show :show1){
+	    		
+				List<Acteur> acteurs =UtilisateurDAO.RechercherActeur(recherche.getText());
+				for(Acteur acteur :acteurs){
 				FXMLLoader fxmlLoader = new FXMLLoader();
-				fxmlLoader.setLocation(getClass().getResource("image.fxml"));
+				fxmlLoader.setLocation(getClass().getResource("Acteuraff.fxml"));
 				VBox image  = fxmlLoader.load();
-				ImageController imageController = fxmlLoader.getController();
-				if (imageController != null) {
-				    imageController.setData(show);
-				}
+				ActeurAffController affController = fxmlLoader.getController();
+				if (affController != null) {
+					String s= acteur.getNom_ac()+acteur.getPrenom_ac();
+				    affController.setData(s);
+				    }
 				Hbox.getChildren().add(image);
 				
 				}
@@ -47,6 +48,13 @@ public class RecherchePaysController {
 			}
 			
 			}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

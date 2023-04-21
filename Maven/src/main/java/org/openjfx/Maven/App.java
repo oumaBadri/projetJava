@@ -14,8 +14,11 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Dao.SaisonDao;
 import Dao.ShowDAO;
+
 import Dao.UtilisateurDAO;
+import Models.Acteur;
 import Models.Show;
 
 /**
@@ -27,7 +30,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-    	scene = new Scene(loadFXML("RechercheGenre"),1000,790);
+    	scene = new Scene(loadFXML("RechercheActeur"),1000,790);
         stage.setScene(scene);
         stage.show();
 
@@ -42,17 +45,15 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) throws SQLException {
-    	launch();
-      //ShowDAO.findAllMovie().stream().forEach(System.out::println);
-    	/*List<Show> show1 =ShowDAO.findShow("wednesday");
-        System.out.println(show1);*/
-	/*List<Show> show1 = UtilisateurDAO.RechercherParAnnee(2017);
-	System.out.println(show1);*/
+    public static void main(String[] args) {
+
+    	launch(); 
+    	//List<Acteur> acteurs =UtilisateurDAO.RechercherActeur("ouma");
+    	//for(Acteur acteur :acteurs){
+    		//System.out.println(acteur.getNom_ac());
+    		//System.out.println(acteur.getPrenom_ac());
+    	}
     	
-    	/*List<Show> show1 = UtilisateurDAO.RechercherParPays("uk");
-    	System.out.println(show1);*/
     }
 
 
-}

@@ -206,6 +206,25 @@ return id_Show;
 		}
 	
 	
-	
+		//**************************************description de saison 1 cad film************************************
+		public static String getDescrip(int id) throws SQLException {
+		    String SQL = "SELECT DESC_SAISON_S FROM Saison WHERE ID_SHOW=? AND Num_SAISON=1";
+		    String descp = "";
+		    
+		    try (PreparedStatement stmt = conn.prepareStatement(SQL)) {
+		        stmt.setInt(1, id);
+		        ResultSet rs = stmt.executeQuery();
+
+		        if (rs.next()) {
+		            descp = rs.getString(1);
+		        }
+		    } catch (SQLException e) {
+		        throw e;
+		    } 
+		    
+		    
+		    return descp;
+		}
+
 	
 }

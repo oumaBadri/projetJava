@@ -27,7 +27,7 @@
                </graphic>
             </Button>
             <Button layoutX="740.0" layoutY="15.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="66.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
-            <Button layoutX="14.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="140.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+            <Button layoutX="14.0" mnemonicParsing="false" onAction="#retour" prefHeight="98.0" prefWidth="140.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
                   <ImageView fitHeight="91.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
                      <image>

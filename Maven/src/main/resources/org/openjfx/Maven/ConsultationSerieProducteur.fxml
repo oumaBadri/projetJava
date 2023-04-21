@@ -17,27 +17,7 @@
    <children>
       <Pane prefHeight="91.0" prefWidth="1000.0" stylesheets="@../../Style/MainStyle.css">
          <children>
-            <Button layoutX="246.0" layoutY="30.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="81.0" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css" text="Movies" textFill="#1572a1">
-               <font>
-                  <Font name="Cooper Black" size="16.0" />
-               </font>
-            </Button>
-            <Button layoutX="378.0" layoutY="26.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="103.0" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css" text="TV Shows" textFill="#1572a1">
-               <font>
-                  <Font name="Cooper Black" size="14.0" />
-               </font>
-            </Button>
-            <ComboBox layoutX="748.0" layoutY="33.0" prefWidth="150.0" promptText="         Recherche" stylesheets="@../../../Style/MainStyle.css">
-               <styleClass>
-                  <String fx:value="transparent" />
-                  <String fx:value="side_ankerpane" />
-               </styleClass></ComboBox>
-            <ImageView fitHeight="26.0" fitWidth="20.0" layoutX="758.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/recherche-removebg-preview.png" />
-               </image>
-            </ImageView>
-            <Button layoutX="898.0" layoutY="31.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
+            <Button layoutX="867.0" layoutY="28.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
                <graphic>
                   <ImageView fitHeight="21.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -73,7 +53,7 @@
       </Pane>
       <Pane layoutY="91.0" prefHeight="699.0" prefWidth="288.0" stylesheets="@../../Style/MainStyle.css">
          <children>
-            <ImageView fx:id="ShowAffiche" fitHeight="218.0" fitWidth="210.0" layoutX="46.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="ShowAffiche" fitHeight="238.0" fitWidth="231.0" layoutX="25.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="44.0" layoutY="284.0" prefHeight="29.0" prefWidth="183.0" text="The title" textFill="#1b5173" underline="true">
                <font>
                   <Font name="Cooper Black" size="33.0" />

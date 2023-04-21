@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="930.0" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.RechercheAnneeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="930.0" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.RechercheActeurController">
    <top>
       <AnchorPane prefHeight="98.0" prefWidth="846.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
          <children>
@@ -27,7 +27,7 @@
                </graphic>
             </Button>
             <Button layoutX="740.0" layoutY="15.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="66.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
-            <Button layoutX="14.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="140.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+            <Button layoutX="14.0" mnemonicParsing="false" onAction="#retour" prefHeight="98.0" prefWidth="140.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
                   <ImageView fitHeight="91.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -36,7 +36,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <TextField fx:id="recherche" layoutX="331.0" layoutY="21.0" prefHeight="40.0" prefWidth="213.0" promptText="Type " styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+            <TextField fx:id="recherche" layoutX="331.0" layoutY="21.0" onAction="#search" prefHeight="40.0" prefWidth="213.0" promptText="Type " styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <font>
                   <Font size="18.0" />
                </font>

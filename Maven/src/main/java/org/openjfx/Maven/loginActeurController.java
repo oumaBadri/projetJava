@@ -19,7 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class logInAcController {
+public class loginActeurController {
 	@FXML
     private Button CreateAcountAc;
 
@@ -86,7 +86,7 @@ public class logInAcController {
 	
     	@FXML
         private void switchToInscription() throws IOException {
-            App.setRoot("Inscription");
+            App.setRoot("InscriptionActeur");
         }
 }
 

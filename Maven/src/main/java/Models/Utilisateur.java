@@ -11,11 +11,10 @@ public class Utilisateur {
     private String email_user;
     private String mdp_user;
 	
-    public Utilisateur() {
-		super();
-	}
-	
-	public Utilisateur(int id_user, String nom_user, String prenom_user, LocalDate date_naissance_user, String email_user, String mdp_user) {
+   
+
+	public Utilisateur(int id_user, String nom_user, String prenom_user, LocalDate date_naissance_user,
+			String email_user, String mdp_user) {
 		super();
 		this.id_user = id_user;
 		this.nom_user = nom_user;
@@ -25,13 +24,19 @@ public class Utilisateur {
 		this.mdp_user = mdp_user;
 	}
 
-
-
-
-
-	public Utilisateur(String text, String text2) {
-		// TODO Auto-generated constructor stub
+	
+	
+	
+	
+	
+	public Utilisateur() {
+		super();
 	}
+
+
+
+
+
 
 	public int getId_user() {
 		return id_user;

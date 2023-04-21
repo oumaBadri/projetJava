@@ -1,6 +1,12 @@
 package org.openjfx.Maven;
+
+import java.io.IOException;
+
 import Controller.ControlSaisie;
+import Dao.UtilisateurDAO;
 import Models.Producteur;
+import Models.Utilisateur;
+import Service.UtilisateurService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,7 +16,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-public class InscriptionController {
+public class InscriptionUserController {
 	@FXML
     private TextField id;
 
@@ -60,7 +66,7 @@ public class InscriptionController {
     @FXML
    
     void signIN(ActionEvent event) {
-    	Producteur p;
+    	Utilisateur p;
     	Boolean ChampValid=true;
    
     	try {
@@ -80,7 +86,7 @@ public class InscriptionController {
     			ChampValid=false;
     	}
     		
-    	if (ControlSaisie.validEmailproducteur(mail_p.getText())==false){
+    	if (ControlSaisie.validEmailutilisateur(mail_p.getText())==false){
     		emailcor.setText("email invalide");
     		ChampValid=false;
     	}	
@@ -90,9 +96,8 @@ public class InscriptionController {
     		ChampValid=false;
     	}
     	if (ChampValid==true) {
-    		p=new Producteur(Integer.parseInt(id.getText()),nom.getText(),prenom.getText(),mail_p.getText(),password.getText(),date.getValue());
-    		Service.ProducteurService.ajouterProducteur(p);
-    		
+    		p=new Utilisateur(Integer.parseInt(id.getText()),nom.getText(),prenom.getText(),date.getValue(),password.getText(),mail_p.getText());
+    		Service.UtilisateurService.AjoutUtilisateur(p);    		
     	}
     }
 }

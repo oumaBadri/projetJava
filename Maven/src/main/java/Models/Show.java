@@ -85,6 +85,7 @@ public class Show {
 		return Date_difussion_show;
 	}
 
+
 	public void setDate_difussion_show(LocalDate Date_difussion_show) {
 		this.Date_difussion_show = Date_difussion_show;
 	}
@@ -144,6 +145,7 @@ public int getIs_a_film() {
 
 
 
+
 	public Show(String titre_show, String affiche) {
 		super();
 		this.titre_show = titre_show;
@@ -154,9 +156,29 @@ public int getIs_a_film() {
 	public String toString1() {
 		return "Show [id_show=" + id_show + ", titre_show=" + titre_show + ", Date_difussion_show="
 				+ Date_difussion_show + ", pays=" + pays + ", langue=" + langue + ", genre_show=" + genre_show
-				+ ", is_a_film=" + is_a_film + ", affiche=" + affiche + "]";
+				+ ", is_a_film=" + is_a_film + ", affiche=" + affiche + "]";}
+
+	//@Override
+	public String toString2() {
+		return "Show [id_show=" + id_show + ", titre_show=" + titre_show + ", Date_difussion_show="
+				+ Date_difussion_show + ", pays=" + pays + ", langue=" + langue + ", genre_show=" + genre_show
+				+ ", is_a_film=" + is_a_film + ", affiche=" + affiche + ", dateOb=" + dateOb + "]";
+	}
+
+
+
+	public Object getDateOb() {
+		// TODO Auto-generated method stub
+		return dateOb;
+		//return null;
 	}
 	
+	public void setDateOb(Object date) {
+		// TODO Auto-generated method stub
+		this.dateOb=date;
+		//return null;
+
+	}
 	@Override
 	public String toString() {
 		return "Show ["+" titre_show="+ titre_show +" affiche=" + affiche + "]";

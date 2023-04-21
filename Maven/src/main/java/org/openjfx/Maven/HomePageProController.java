@@ -1,20 +1,11 @@
 package org.openjfx.Maven;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.ResourceBundle;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import Dao.ShowDAO;
 import Models.Show;
-import Models.Utilisateur;
 import Service.ShowService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,9 +17,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class HomePageController implements Initializable{
-	   @FXML
-       private ImageView notificationbtn;
+public class HomePageProController implements Initializable {
+
+	
+	
+	
+	@FXML
+    private ImageView notificationbtn;
 	   @FXML
 	    private HBox Hbox;
 	   @FXML
@@ -39,60 +34,60 @@ public class HomePageController implements Initializable{
 	  
 	   
 	@FXML
-    private void SwithtoInterfaceProfil() throws IOException {
-        App.setRoot("ProfileInterface");
-    }
+ private void SwithtoInterfaceProfil() throws IOException {
+     App.setRoot("ProfileInterface");
+ }
 	
 	
 	@FXML
-    private void SwithtoMyList() throws IOException {
-        App.setRoot("favorisFilm");
-    }
+ private void SwithtoMyList() throws IOException {
+     App.setRoot("favorisFilm");
+ }
 	@FXML
-    private void SwithtoMyShow() throws IOException {
-        App.setRoot("TvShow");
-    }
+ private void SwithtoMyShow() throws IOException {
+     App.setRoot("TvShow");
+ }
 	@FXML
-    private void SwithtoMyMovie() throws IOException {
-        App.setRoot("Movie");
-    }
+ private void SwithtoMyMovie() throws IOException {
+     App.setRoot("Movie");
+ }
 	
 	 @FXML
 	    void goToNotif(MouseEvent event) throws IOException {
-      App.setRoot("notification");
+   App.setRoot("notification");
 
 	    }
 	 @FXML
 	    void RechercheTitre() throws IOException {
-            App.setRoot("RechercheTitre");
+         App.setRoot("RechercheTitre");
 
 	    }
 	 @FXML
 	    void RechercheAnnee() throws IOException {
-   App.setRoot("RechercheAnnee");
+App.setRoot("RechercheAnnee");
 
 	    }
 	 @FXML
 	    void RecherchePays() throws IOException {
-   App.setRoot("RecherchePays");
+App.setRoot("RecherchePays");
 
 	    }
 	 @FXML
 	    void RechercheLangue() throws IOException {
-   App.setRoot("RechercheLangue");
+App.setRoot("RechercheLangue");
 
 	    }
 	 
 	 @FXML
 	    void RechercheGenre() throws IOException {
-   App.setRoot("RechercheGenre");
+App.setRoot("RechercheGenre");
 
 	    }
 	 
 	 
 	 @FXML
 	    void RechercheActeur() throws IOException {
-   App.setRoot("RechercheActeur");
+App.setRoot("RechercheActeur");
 
 	    }
 	 
@@ -118,6 +113,4 @@ public class HomePageController implements Initializable{
 		
 	
 	}
-	
-	
 }
