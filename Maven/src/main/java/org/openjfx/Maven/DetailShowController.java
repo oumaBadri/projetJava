@@ -3,6 +3,7 @@ package org.openjfx.Maven;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -38,7 +39,8 @@ public class DetailShowController implements Initializable {
 	static Utilisateur a= new Utilisateur();
 	@FXML
     private ChoiceBox<String> choice;
-	
+	@FXML
+    private HBox boucle;
 	@FXML
     private Label tit;
 	@FXML
@@ -71,52 +73,72 @@ public class DetailShowController implements Initializable {
     private Button play;
     
     
-
-    @FXML
-    void addFav(MouseEvent event) {
-    	 int sh=ShowDAO.findIdShow(tit.getText());
-         Avis avis=new Avis(a.getId_user(),sh);
-         avis.setNum_ep(1);
-    	 AvisDAO.ajouterAvis(avis);
-    	 AvisDAO.modifFavoriShow(sh,a.getId_user());
-    }
     
     
-    
+    //*********pour cree liste de choicebox*****************
     private  List<String> createListe() throws SQLException {
-    List<String> saisons=null;	
+    List<String> saisons= new ArrayList<>();	
      int nb= ShowDAO.getNombreSaisons(s.getId_show());
+     System.out.println(nb+"nbeppersaison");
     for(int i=0;i<nb;i++) 
-    {saisons.add("saison "+i);	
+    {int f=i+1;
+    	saisons.add("saison "+f);	
     }
     return saisons;
     }
     
     
-    
-    
-    public void displayEp(String numSaison) {
-    
+    //********pour le display de hbox*************
+ 
+   public void displayEp(String numSaison) throws NumberFormatException, SQLException {
+       int n=0;
+    	try {  n = SaisonDao.getNbEp(s.getId_show(), Integer.parseInt(choice.getValue()));} catch (NumberFormatException e) {
+    	    // handle the exception
+       }
+        HBox hbox = boucle;
+
+        for (int i = 0; i < n; i++) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayEp.fxml"));
+                HBox display = fxmlLoader.load();
+                Label label = (Label) display.lookup("#numEp");
+                Button button = (Button) display.lookup("#play");
+                label.setText("Épisode " + (i + 1));
+                button.setOnAction(e -> {
+                    // action à effectuer lors du clic sur le bouton "Regarder"
+                });
+                hbox.getChildren().add(display);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
     
-   
  
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
 //*****************pour le choiceBox*******************
-		List<String> saisonliste=null;
-		
+		List<String> saisonliste=new ArrayList<>();
+
 			try {
 				saisonliste = createListe();
+				System.out.println(saisonliste+"****+++");
 			} catch (SQLException e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
 			}
 		
 		choice.getItems().addAll(saisonliste);
-		
-		
+		//choice.setOnAction(this::displayEp);
+		 choice.setOnAction((event) -> {
+		        try {
+		            displayEp(choice.getValue());
+		        } catch (NumberFormatException | SQLException e) {
+		            e.printStackTrace();
+		        }
+		    });
 		
 		//********display affiche*****************
 	try {
@@ -136,7 +158,7 @@ public class DetailShowController implements Initializable {
 	e.printStackTrace();
 }
 	
-
+//*******display les autes info *************
 		
 	tit.setText(s.getTitre_show());
 		langue.setText(s.getLangue());
@@ -148,7 +170,9 @@ public class DetailShowController implements Initializable {
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
-			
+		
+		
+	//******display les acteurs***************	
 		try {
 			List<Acteur> acteurs =ShowDAO.findActeursByShow(s.getId_show());
 			for(Acteur acteur :acteurs){
@@ -166,6 +190,11 @@ public class DetailShowController implements Initializable {
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+
+
+	private void displayEp(ActionEvent actionevent1) {
 	}
 
 }
