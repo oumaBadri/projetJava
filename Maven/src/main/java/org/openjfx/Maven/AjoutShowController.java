@@ -419,5 +419,11 @@ public class AjoutShowController implements Initializable{
 		cln_affiche.setCellValueFactory(new PropertyValueFactory<Show,String>("affiche"));
 		table.setItems(observableList);
 	}
+	
+	@FXML
+	void tableEvent() {
+		
+	}
+	
 
 }
