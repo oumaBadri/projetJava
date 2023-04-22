@@ -53,6 +53,7 @@ public void initialize(URL location, ResourceBundle resources) {
 	// TODO Auto-generated method stub
 	try {
 		afficherlist();
+		System.out.println("hayyya");
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
