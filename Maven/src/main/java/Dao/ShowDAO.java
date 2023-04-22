@@ -275,35 +275,7 @@ public class ShowDAO {
      
      return Shows;
 	}
- //***************************************************************
- public static Show findShow(String titre,String image2) throws SQLException{
-	 PreparedStatement pstmt = null;
-	    ResultSet rs = null;
-		/*Statement stmt = null;
-	    ResultSet rs = null;*/
-	    Show sh = new Show();
-  try {
-      String SQL = " SELECT Titre_show,image FROM Show titre_show=? and image=? ";
 
-  	pstmt = conn.prepareStatement(SQL);
-    pstmt.setString(1, titre);
-    pstmt.setString(2, image2);
-      rs = pstmt.executeQuery();
-
-      while (rs.next()){
-     	 String titre_show = rs.getString(1);
-          String image= rs.getString(2);
-          sh = new Show(titre_show,image);
-         
-      }
-  } catch (NullPointerException e ) {
-	  e.printStackTrace();
-  };
-  
- 
-
-return sh;
-	}
  
 
 //***************************retourne le nom d un show a partir de son id *************************************
@@ -466,24 +438,32 @@ public static List<Show> findAllMovie() throws SQLException{
 }
 
 //********************************************************************************
-public static List<Show> findShow( String identifiant) {
+public static List<Show> findShowParTitre( String identifiant) {
 	PreparedStatement pstmt = null;
 	Show s=new Show();
 	List<Show> Shows = new ArrayList<>();
     ResultSet rs = null;
     String id=identifiant;
     try {
-     String sql = "SELECT Image FROM Show WHERE titre_show=?";
+     String sql = "SELECT * FROM Show WHERE titre_show=?";
      pstmt = conn.prepareStatement(sql);
      pstmt.setString(1, id);
      rs = pstmt.executeQuery();
      while (rs.next()) {
      	
-    	 String image=rs.getString(1);
-    	 
-    	 s=new Show(identifiant,image);
-    	 Shows.add(s);
-     
+
+     	int id_show = rs.getInt(1);
+         String titre_show = rs.getString(2);
+         LocalDate annif_show=rs.getObject(3,LocalDate.class);
+         String Pays_show = rs.getString(4);
+         String langue_show = rs.getString(5);
+         int is_film = rs.getInt(6);
+         String genre_show= rs.getString(7);
+         String affiche_show=rs.getString(8);
+        
+
+         Show act = new Show(id_show, titre_show, annif_show, Pays_show, langue_show, genre_show, is_film,affiche_show);
+         Shows.add(act);
      }
  }catch (SQLException ex) {
      System.out.println(ex.getMessage());

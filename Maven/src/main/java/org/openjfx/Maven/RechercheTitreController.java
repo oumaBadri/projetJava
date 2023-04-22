@@ -31,7 +31,7 @@ public class RechercheTitreController {
     }
 	
     public void search() {
-    	List<Show> show1 =ShowDAO.findShow(recherche.getText());
+    	List<Show> show1 =ShowDAO.findShowParTitre(recherche.getText());
     	try {
 			for(Show show :show1){
 			FXMLLoader fxmlLoader = new FXMLLoader();

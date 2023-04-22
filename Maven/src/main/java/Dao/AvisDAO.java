@@ -374,7 +374,42 @@ public static List<String> envoyerNotif(int id_user_connecte) {
 }
 
 
+//******************************************************************************************************
+public static List<Avis> findAvis2(int idS) throws SQLException{
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    Avis avis = null;
+    List<Avis> Avis = new ArrayList<>();
+    String SQL = "SELECT * FROM Avis WHERE id_show = ?";
+    try {
+        pstmt = conn.prepareStatement(SQL);
+        pstmt.setInt(1, idS);
+        rs = pstmt.executeQuery();
 
+        if (rs.next()) {
+         
+        	int id_show = rs.getInt(1);
+            int Note = rs.getInt(2);
+            String commentaire = rs.getString(3);
+            int favoris_show = rs.getInt(4);
+            int num_ep = rs.getInt(5);
+            int num_saison = rs.getInt(6);
+            int id_user = rs.getInt(7);
+            avis = new Avis(id_user, id_show, Note, commentaire, favoris_show, num_ep, num_saison);
+           Avis.add(avis);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        if (rs != null) {
+            rs.close();
+        }
+        if (pstmt != null) {
+            pstmt.close();
+        }
+    }
+    return Avis;
+}
 
 
 

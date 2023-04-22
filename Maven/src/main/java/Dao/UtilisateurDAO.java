@@ -426,12 +426,12 @@ public class UtilisateurDAO {
 	//**********************************************************************
 
 
-	public static  List<Utilisateur> RechercherUser(String nom) {
+	public static  List<Acteur> RechercherActeur(String nom) {
 
 		//Statement stmt = null;
 	    ResultSet rs = null;
 	    PreparedStatement pstmt = null;
-	    List<Utilisateur> acteurs = new ArrayList<>();
+	    List<Acteur> acteurs = new ArrayList<>();
 
 
         String SQL = "SELECT * FROM Acteur WHERE nom_ac=? ";
@@ -448,8 +448,7 @@ public class UtilisateurDAO {
                 String mail_ac = rs.getString(5);
                 String mdp_ac = rs.getString(6);
                 LocalDate annif_ac=rs.getObject(4,LocalDate.class);
-                Utilisateur act = new Utilisateur( Nom_ac, Prenom_ac,annif_ac);
-
+                Acteur act = new Acteur(id_ac, Nom_ac, Prenom_ac, mail_ac, mdp_ac, annif_ac);
                 acteurs.add(act);
 	        }
 	    } catch (SQLException ex) {

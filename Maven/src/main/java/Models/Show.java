@@ -158,8 +158,8 @@ public int getIs_a_film() {
 				+ Date_difussion_show + ", pays=" + pays + ", langue=" + langue + ", genre_show=" + genre_show
 				+ ", is_a_film=" + is_a_film + ", affiche=" + affiche + "]";}
 
-	//@Override
-	public String toString2() {
+	@Override
+	public String toString() {
 		return "Show [id_show=" + id_show + ", titre_show=" + titre_show + ", Date_difussion_show="
 				+ Date_difussion_show + ", pays=" + pays + ", langue=" + langue + ", genre_show=" + genre_show
 				+ ", is_a_film=" + is_a_film + ", affiche=" + affiche + ", dateOb=" + dateOb + "]";
@@ -179,10 +179,7 @@ public int getIs_a_film() {
 		//return null;
 
 	}
-	@Override
-	public String toString() {
-		return "Show ["+" titre_show="+ titre_show +" affiche=" + affiche + "]";
-	}
+	
 	
 
 

@@ -65,7 +65,7 @@ public class HomePageController implements Initializable{
       App.setRoot("notification");
 
 	    }
-<<<<<<< HEAD
+
 	 @FXML
 	    void RechercheTitre() throws IOException {
             App.setRoot("RechercheTitre");

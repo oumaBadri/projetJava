@@ -14,13 +14,14 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Dao.AvisDAO;
 import Dao.SaisonDao;
 import Dao.ShowDAO;
 
 
 import Dao.UtilisateurDAO;
 import Models.Acteur;
-
+import Models.Avis;
 import Dao.UtilisateurDAO;
 
 import Models.Show;
@@ -36,13 +37,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
 
 
-    	scene = new Scene(loadFXML("RechercheActeur"),1000,790);
+    	scene = new Scene(loadFXML("Consultation"),1000,790);
 
-
-        scene = new Scene(loadFXML("AjoutShow"),1000,790);
-
-
-    	scene = new Scene(loadFXML("login"),1000,790);
 
 
         stage.setScene(scene);
@@ -68,7 +64,8 @@ public class App extends Application {
     	/*Show s=new Show(123,"13 reasons why",LocalDate.of(2022,10,20),"aze0","azerty","Dramatique",0,"url");
     	Service.ShowService.addShow(s);
     	*/
-
+    	/*List<Avis> avis=AvisDAO.findAvis2(10);
+    	System.out.println(avis);*/
     	//System.out.println(Service.ShowService.exitSerieWithId(17));
  //System.out.println(AvisDAO.ShowTitre(1));
 
