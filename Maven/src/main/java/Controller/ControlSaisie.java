@@ -92,6 +92,14 @@ public class ControlSaisie {
 	public static boolean validAncienMdpUser(int id,String mdp) {
 		return  UtilisateurService.verifAncienMDP(id,mdp);
 	}
+	
+	
+	public static boolean validNote(int number) {
+	    return number >= 0 && number <= 10 && number == (int) number;
+	}
+
+	
+	
 
 	   /*public static LocalDate convertToDateViaInstant(Date dateToConvert) {
 	        return dateToConvert.toInstant()

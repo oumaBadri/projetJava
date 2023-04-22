@@ -386,6 +386,7 @@ public static List<Avis> findAvis2(int idS) throws SQLException{
         pstmt.setInt(1, idS);
         rs = pstmt.executeQuery();
 
+
         if (rs.next()) {
          
         	int id_show = rs.getInt(1);
@@ -411,7 +412,78 @@ public static List<Avis> findAvis2(int idS) throws SQLException{
     return Avis;
 }
 
+//******ajout commentaire*************
+public static int ajouterCmn(Avis Avis) {
+	int code = 0;
+	System.out.println("-------connexion is "+conn);
+	PreparedStatement pstmt = null; 
+    ResultSet rs = null;
+    
+    try {
+    	String sql = "INSERT INTO  Avis  (id_user,id_show,commentaire,note) VALUES (?,?,?,?)";
+		pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        pstmt.setInt(1,Avis.getId_user());
+    	pstmt.setInt(2,Avis.getId_show());
+    	pstmt.setString(3,Avis.getCommantaire());
+    	pstmt.setInt(4,Avis.getNote());
+    	/*pstmt.setInt(3,Avis.getNote());
+    	pstmt.setString(4,Avis.getCommantaire());
+        
+        pstmt.setInt(5, Avis.getNum_ep());
+        pstmt.setInt(6, Avis.getNum_saison());*/
+    	
+        pstmt.executeUpdate();
+
+        rs = pstmt.getGeneratedKeys();
+
+        if (rs.next()) {
+            code = rs.getInt(1);
+        }
+
+    }catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+        
+    }
+	return code;
+}
+
+//**********************************************************************************
+public static double CalculScoreSaison(int id_show , int num_saison) {
+	PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    double noteMoyenne = 0.0;
+    int nbNotes = 0;
+
+    String SQL = "SELECT note FROM Avis WHERE id_show=? and num_saison=?";
+    try {
+        pstmt = conn.prepareStatement(SQL);
+        pstmt.setInt(1, id_show);
+        pstmt.setInt(22,num_saison);
+        rs = pstmt.executeQuery();
 
 
+        if (rs.next()) {
+        	 noteMoyenne += rs.getDouble("note");
+             nbNotes++;
+         }
+         if (nbNotes > 0) {
+             noteMoyenne /= nbNotes;
+
+           
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    
+    }
+    return noteMoyenne;
+	
+	
+	
+	
+	
+	
+	
+	
+}
 
 }

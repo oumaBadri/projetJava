@@ -78,7 +78,7 @@ public class ImageController {
    
 
    @FXML
-   void voirDetail(MouseEvent event) throws IOException {
+   void voirDetail() throws IOException {
 	   
 	   DetailShowController.s.setAffiche(affiche.getImage().getUrl());
 	   DetailShowController.s.setTitre_show(titre.getText());
@@ -92,8 +92,6 @@ public class ImageController {
 	   DetailShowController.s.setLangue(q.getLangue());
 	   DetailShowController.s.setPays(q.getPays());
 	   DetailShowController.s.setIs_a_film(q.getIs_a_film());
-
-	   
 	   App.setRoot("DetailShow");
 
    }

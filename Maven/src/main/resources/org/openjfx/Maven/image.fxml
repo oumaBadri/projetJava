@@ -39,9 +39,9 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="134.0" layoutY="1.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="33.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+            <Button layoutX="134.0" layoutY="1.0" mnemonicParsing="false" onAction="#voirDetail" prefHeight="33.0" prefWidth="33.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
-                  <ImageView fx:id="detail" fitHeight="35.0" fitWidth="50.0" onMouseClicked="#voirDetail" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="detail" fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/play2-removebg-preview.png" />
                      </image>

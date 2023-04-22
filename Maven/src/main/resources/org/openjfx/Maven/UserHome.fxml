@@ -18,9 +18,9 @@
    <top>
       <AnchorPane prefHeight="98.0" prefWidth="846.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
          <children>
-<<<<<<< HEAD
+
             <Button alignment="TOP_LEFT" layoutX="825.0" layoutY="15.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
-=======
+
             <Button fx:id="profilebtn" alignment="TOP_LEFT" layoutX="825.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#goToProfil" prefHeight="68.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
                   <ImageView fx:id="profile" fitHeight="62.0" fitWidth="65.0" onMouseClicked="#goToProfil" pickOnBounds="true" preserveRatio="true">
@@ -30,7 +30,7 @@
                   </ImageView>
                </graphic>
             </Button>
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git
+
             <Button layoutX="740.0" layoutY="15.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="66.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
             <ImageView fx:id="notificationbtn" fitHeight="36.0" fitWidth="29.0" layoutX="759.0" layoutY="35.0" onMouseClicked="#goToNotif" pickOnBounds="true" preserveRatio="true">
                <image>

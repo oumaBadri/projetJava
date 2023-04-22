@@ -111,6 +111,7 @@ public class HomePageController implements Initializable{
 	public void initialize(URL location, java.util.ResourceBundle resources){
 	  try {
 		List<Show> show1 =ShowService.Findall2();
+		System.out.println(show1);
 		for(Show show :show1){
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setLocation(getClass().getResource("image.fxml"));

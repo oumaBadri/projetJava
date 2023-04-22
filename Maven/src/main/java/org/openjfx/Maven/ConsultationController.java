@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -18,6 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -40,9 +42,7 @@ public class ConsultationController {
 	    @FXML
 	    private TextField rechercheTitre;
 
-	    @FXML
-	    private Label score;
-
+	   
 	    @FXML
 	    private Label title;
 	    @FXML
@@ -71,12 +71,17 @@ public class ConsultationController {
 
 	    @FXML
 	    private TableColumn<Avis,Integer > saisonnote;
+	    @FXML
+	    private ComboBox<Integer> Choicebox;
 
-	   public void search(MouseEvent event) throws SQLException {
+	    @FXML
+	    private Label score;
+
+	    @FXML
+	    private Label scoreSaison;
+        public void search(MouseEvent event) throws SQLException, IOException {
 	    	List<Show> show1 =ShowDAO.findShowParTitre(rechercheTitre.getText());
-	    	
-	    	try {
-				for(Show show:show1) {
+	    	for(Show show:show1) {
 				//	Hbox.clearConstraints(Hbox);
 					Hbox.getChildren().clear();
 				    tablecom.getItems().clear();
@@ -102,13 +107,28 @@ public class ConsultationController {
 				    imageController.setData2(show.getAffiche());
 				}
 				Hbox.getChildren().add(image);
-			}
-			}catch(IOException e) {
-				e.printStackTrace();
-			}
-	   }
-}
+				List<Integer> saisonliste=new ArrayList<>();
+				try {
+					saisonliste = createListe();
+				} catch (SQLException e2) {
+					e2.printStackTrace();
+				}
+			    Choicebox.getItems().addAll(saisonliste);
+				}
+				}	
+	   
 
+	   private  List<Integer> createListe() throws SQLException {
+		    List<Integer> saisons= new ArrayList<>();	
+			List<Show> show1 =ShowDAO.findShowParTitre(rechercheTitre.getText());
+			for(Show show:show1) {
+		     int nb= ShowDAO.getNombreSaisons(show.getId_show());
+		    for(int i=0;i<nb;i++) 
+		    {int f=i+1;
+		    	saisons.add(f);	l}
+			}
+		    return saisons;
+		    }
 		
 
 		
@@ -116,7 +136,7 @@ public class ConsultationController {
 	
 	
 	
-	
+}	
 	
 	
 	

@@ -6,7 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -476,8 +479,39 @@ public static List<Show> findShowParTitre( String identifiant) {
 
 
 public static String getDateOnly(Object object) {
-    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-    return formatter.format(object);
+   /* SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    return formatter.format(object);*/
+	
+	 /*   SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+	    if (object instanceof Date) {
+	        return formatter.format(object);
+	    } else {
+	        try {
+	            Date date = (Date) Date.from(Instant.parse(object.toString()));
+	            return formatter.format(date);
+	        } catch (DateTimeParseException e) {
+	            throw new IllegalArgumentException("Invalid date object: " + object, e);
+	        }
+	    }*/
+	
+	    DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	    DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	    LocalDate date;
+
+	    if (object instanceof String) {
+	        date = LocalDate.parse((String)object, inputFormatter);
+	    } else if (object instanceof LocalDate) {
+	        date = (LocalDate)object;
+	    } else {
+	        throw new IllegalArgumentException("Object must be a String or a LocalDate");
+	    }
+
+	    return outputFormatter.format(date);
+	
+
+	
+
+    
 }
 
 //*******************recupere liste d acteur**************
