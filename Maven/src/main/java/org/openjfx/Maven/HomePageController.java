@@ -30,13 +30,16 @@ public class HomePageController implements Initializable{
 	   @FXML
        private ImageView notificationbtn;
 	   @FXML
+	    private Button profilebtn;
+	   @FXML
 	    private HBox Hbox;
 	   @FXML
 	    private Button myList;
 	   @FXML
 	    private ComboBox<String> choicebox;
 	    
-	  
+	   @FXML
+	    private ImageView profile;
 	   
 	@FXML
     private void SwithtoInterfaceProfil() throws IOException {
@@ -62,6 +65,7 @@ public class HomePageController implements Initializable{
       App.setRoot("notification");
 
 	    }
+<<<<<<< HEAD
 	 @FXML
 	    void RechercheTitre() throws IOException {
             App.setRoot("RechercheTitre");
@@ -95,6 +99,15 @@ public class HomePageController implements Initializable{
    App.setRoot("RechercheActeur");
 
 	    }
+=======
+	
+	    @FXML
+	    void goToProfil(MouseEvent event) throws IOException {
+	        App.setRoot("ProfileInterfaceUser");
+
+	    }
+	 
+>>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git
 	 
 	@Override
 	public void initialize(URL location, java.util.ResourceBundle resources){

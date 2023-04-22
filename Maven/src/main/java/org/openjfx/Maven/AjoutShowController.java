@@ -4,9 +4,16 @@ package org.openjfx.Maven;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
+import Controller.ControlSaisie;
+import Models.Producteur;
 import Models.Show;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -94,17 +102,153 @@ public class AjoutShowController implements Initializable{
 	    private TextField txt_nbrSaison;
 	    
 	    @FXML
+	    private DatePicker datePIcker;
+	   
+	   
+	    @FXML
 	    private TextField txt_dateDiff;
 	    
-	    
-	    //public ObservableList<Show> data=FXCollections.observableArrayList();
 	    @FXML
 	    void addShow() {
-
+	    	Show s=null;
+	    	/*Show s=null;
+	    	Boolean ChampValid=true;
+	    	try {
+	    		Integer.parseInt(txt_searchId.getText());
+	    	}catch(NumberFormatException e) {
+	    		cincor.setText("Veuillez entrer que des chiffres");
+	    		ChampValid=false;
+	    	}*/
+	    	
+	    	
+	    	/*if (!(txt_genre.getText()).equals("")
+	    			&& !(txt_isAFilm.getText()).equals("") 
+	    			&&! txt_isAFilm.getText().equals("1") || !txt_isAFilm.getText().equals("0")
+					&&! txt_langue.getText().equals("")
+					&&! txt_payer.getText().equals("")
+					&&!(txt_titre.getText()).equals("")
+					&&!(txt_poster.getText()).equals("")
+					&&!(txt_dateDiff.getText()).equals("")){
+	    			
+	    		//----------------mochkelt datePicker----------------
+	    		LocalDateTime localDateTime = datePIcker.getValue().atStartOfDay();
+	    		ZonedDateTime zonedDateTime = ZonedDateTime.of(localDateTime, systemDefault());
+	    		java.util.Date date = java.util.Date.from(zonedDateTime.toInstant());
+	    		
+	    		//java.util.Date date=java.util.Date.from(datePIcker.getValue().atStartOfDay(ZoneId.systemDefault()));
+					s=new Show(Integer.parseInt(txt_searchId.getText()),
+							txt_titre.getText(),
+							LocalDate.parse(txt_dateDiff.getText()),
+							txt_payer.getText(),
+							txt_langue.getText(),
+							txt_genre.getText(),
+							Integer.parseInt(txt_isAFilm.getText()),
+							txt_poster.getText());	
+					Service.ShowService.addShow(s);
+					Alert alert=new Alert (AlertType.CONFIRMATION,"Show ajoutee avec succes !",javafx.scene.control.ButtonType.OK);
+		    		alert.showAndWait();
+		    		showShow();
+		    		
+	    	}else {
+	    		Alert alert=new Alert (AlertType.WARNING,"Veuillez ramplir tous les champs !",javafx.scene.control.ButtonType.OK);
+	    		alert.showAndWait();
+	    	}*/
+	    	
+	    	 int id = Integer.parseInt(txt_searchId.getText());
+	    	 try {
+	    		 Show show = Dao.ShowDAO.findShowParID(id);
+	    	     if (show != null) {
+	    	    	 Alert alert = new Alert(AlertType.ERROR);
+	    	         alert.setTitle("Erreur");
+	    	         alert.setHeaderText("Un SHOW avec cet ID existe déjà");
+	    	         alert.showAndWait();
+	    	         return;
+	    	     	}
+	    	    } catch (Exception e) {
+	    	        e.printStackTrace();
+	    	        Alert alert = new Alert(AlertType.ERROR);
+	    	        alert.setTitle("Erreur");
+	    	        alert.setHeaderText("Une erreur s'est produite lors de la recherche du SHOW");
+	    	        alert.showAndWait();
+	    	        return;
+	    	    }
+	        String titre = txt_titre.getText();
+	        String genre = txt_genre.getText();
+	        String langue = txt_langue.getText();
+	        String pays = txt_payer.getText();
+	        String affiche = txt_poster.getText();
+	        String isAFilmText = txt_isAFilm.getText();
+	        String nbrSaisonText = txt_nbrSaison.getText();
+	        LocalDate dateDiff = datePIcker.getValue();
+	        if (titre.isEmpty() || genre.isEmpty() || langue.isEmpty() || pays.isEmpty() ||
+	                affiche.isEmpty() || isAFilmText.isEmpty() || nbrSaisonText.isEmpty() || dateDiff == null) {
+	            Alert alert = new Alert(AlertType.ERROR, "Tous les champs sont obligatoires!");
+	            alert.showAndWait();
+	            return;
+	        }
+	        int isAFilm, nbrSaison;
+	        try {
+	            isAFilm = Integer.parseInt(isAFilmText);
+	            nbrSaison = Integer.parseInt(nbrSaisonText);
+	        } catch (NumberFormatException e) {
+	            Alert alert = new Alert(AlertType.ERROR, "Veuillez entrer des valeurs valides pour 'isAFilm' et 'nbrSaison'.");
+	            alert.showAndWait();
+	            return;
+	        }
+	        if (!genre.equals("Comédie") && !genre.equals("Dramatique")  && !genre.equals("Policier")&& !genre.equals("Action")&& !genre.equals("Historique")&& !genre.equals("Science-Fiction")) {
+	            Alert alert = new Alert(AlertType.ERROR, "Le genre doit être soit 'Comédie' ou 'Dramatique' ou 'Policier' ou 'Action' ou 'Historique' ou 'Science-Fiction'.");
+	            alert.showAndWait();
+	            return;
+	        }
+	        if (isAFilm != 0 && isAFilm != 1) {
+	            Alert alert = new Alert(AlertType.ERROR, "'isAFilm' doit être soit 0 ou 1.");
+	            alert.showAndWait();
+	            return;
+	        }
+	        Show show = new Show(Integer.parseInt(txt_searchId.getText()),titre , dateDiff , pays , langue, genre, isAFilm, affiche);
+	        
+	        Dao.ShowDAO.ajouterShow(show);
+	        
+	        txt_titre.clear();
+	        txt_genre.clear();
+	        txt_langue.clear();
+	        txt_payer.clear();
+	        txt_poster.clear();
+	        txt_isAFilm.clear();
+	        txt_nbrSaison.clear();
+	        datePIcker.setValue(null);
+	       
+	        Alert alert = new Alert(AlertType.INFORMATION, "Le spectacle a été ajouté avec succès!");
+	        alert.showAndWait();
+	        showShow();
 	    }
-
+	    
+	    
 	    @FXML
 	    void deleteShow() {
+	    	 try {
+	    	        int id = Integer.parseInt(txt_searchId.getText());
+	    	        if (Dao.ShowDAO.findShowParID(id) == null) {
+	    	            Alert alert = new Alert(AlertType.ERROR);
+	    	            alert.setTitle("Show introuvable");
+	    	            alert.setHeaderText("Le show avec l'identifiant " + id + " n'existe pas.");
+	    	            alert.showAndWait();
+	    	            return;
+	    	        }
+	    	        Alert alert = new Alert(AlertType.CONFIRMATION);
+	    	        alert.setTitle("Confirmation de suppression");
+	    	        alert.setHeaderText("Êtes-vous sûr de vouloir supprimer le show avec l'identifiant " + id + " ?");
+	    	        Optional<ButtonType> result = alert.showAndWait();
+	    	        if (result.get() == ButtonType.OK) {
+	    	            Dao.ShowDAO.supprimerShow(id);
+	    	            showShow();
+	    	        }
+	    	    } catch (NumberFormatException e) {
+	    	    	Alert alert = new Alert(AlertType.ERROR);
+	    	        alert.setTitle("Erreur de saisie");
+	    	        alert.setHeaderText("L'identifiant saisi doit être un entier.");
+	    	        alert.showAndWait();
+	    	    }
 
 	    }
 
@@ -152,12 +296,12 @@ public class AjoutShowController implements Initializable{
 	    	    } else {
 	    	        txt_isAFilm.setText("false");
 	    	    }
-
+	    	    
 	    	    txt_langue.setText(S.getLangue());
 	    	    txt_payer.setText(S.getPays());
 	    	    txt_poster.setText(S.getAffiche());
 	    	    txt_nbrSaison.setText(String.valueOf(Service.ShowService.getNombreSaison(Integer.parseInt(txt_searchId.getText()))));
-	    	    
+	    	    datePIcker.setValue(S.getDate_difussion_show());
 	    	    
 	    	    m = 1;
 	    	    
@@ -179,6 +323,64 @@ public class AjoutShowController implements Initializable{
 
 	    @FXML
 	    void updateShow() {
+	    	try {
+	            int id = Integer.parseInt(txt_searchId.getText());
+	            String titre = txt_titre.getText();
+	            String genre = txt_genre.getText();
+	            String langue = txt_langue.getText();
+	            String pays = txt_payer.getText();
+	            int isAFilm = Integer.parseInt(txt_isAFilm.getText());
+	            String affiche = txt_poster.getText();
+	            LocalDate dateDiff = datePIcker.getValue();
+	            int nbrSaison = Integer.parseInt(txt_nbrSaison.getText());
+	            if(titre.isEmpty() || genre.isEmpty() || langue.isEmpty() || pays.isEmpty() 
+	               || txt_isAFilm.getText().isEmpty() || affiche.isEmpty() || dateDiff == null
+	               || txt_nbrSaison.getText().isEmpty()) {
+	                Alert alert = new Alert(AlertType.ERROR);
+	                alert.setTitle("Erreur");
+	                alert.setHeaderText("Certains champs sont vides");
+	                alert.setContentText("Veuillez remplir tous les champs");
+	                alert.showAndWait();
+	                return;
+	            }
+	            if(!genre.equalsIgnoreCase("homme") && !genre.equalsIgnoreCase("femme")) {
+	                Alert alert = new Alert(AlertType.ERROR);
+	                alert.setTitle("Erreur");
+	                alert.setHeaderText("Genre invalide");
+	                alert.setContentText("Le genre doit être 'homme' ou 'femme'");
+	                alert.showAndWait();
+	                return;
+	            }
+	            if(isAFilm != 0 && isAFilm != 1) {
+	                Alert alert = new Alert(AlertType.ERROR);
+	                alert.setTitle("Erreur");
+	                alert.setHeaderText("Valeur invalide pour 'isAFilm'");
+	                alert.setContentText("La valeur doit être soit 0 ou 1");
+	                alert.showAndWait();
+	                return;
+	            }
+	            if(Service.ShowService.exitSerieWithId(id)) {
+	                Alert alert = new Alert(AlertType.ERROR);
+	                alert.setTitle("Erreur");
+	                alert.setHeaderText("ID invalide");
+	                alert.setContentText("L'ID " + id + " n'existe pas dans la table");
+	                alert.showAndWait();
+	                return;
+	            }
+	            Dao.ShowDAO.modifShow(id, titre, dateDiff, genre, langue, pays, isAFilm, affiche);
+	            
+	            Alert alert = new Alert(AlertType.CONFIRMATION);
+	            alert.setTitle("Confirmation");
+	            alert.setHeaderText("Mise à jour réussie");
+	            alert.setContentText("Le show a été mis à jour avec succès");
+	            alert.showAndWait();
+	        } catch (NumberFormatException e) {
+	            Alert alert = new Alert(AlertType.ERROR);
+	            alert.setTitle("Erreur");
+	            alert.setHeaderText("Valeur invalide");
+	            alert.setContentText("Veuillez entrer une valeur numérique valide");
+	            alert.showAndWait();
+	        }
 
 	    }
 
@@ -190,6 +392,7 @@ public class AjoutShowController implements Initializable{
 	
 	//pour voir la table de base de donnee
 	public void showShow() {
+		table.getItems().clear();
 		List<Show> shows=null;
 		try {
 			shows=Dao.ShowDAO.findAll();

@@ -92,6 +92,33 @@ public class UtilisateurDAO {
 		        }
 				return id_u;
 			}
+	
+	
+	
+	
+	
+	
+	//************************************************************
+	public static int modifAnnifUser(int id_Ac,LocalDate annif) {
+		int ActId = 0;
+		PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    try {
+            String sql = "UPDATE UTILISATEUR SET DATA_NAISSANCE_U=? WHERE ID_USER=?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setObject(1, annif);
+        	pstmt.setInt(2, id_Ac);
+        	pstmt.executeUpdate();
+            // 4- Recupérer l'Id généré par le SGBD
+        	rs = pstmt.getGeneratedKeys();
+
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+		return id_Ac;
+	    }
+	
+	
     //*********************************************************************
 	public static int modifPrenomUtilisateur(int id_u,String prenom) {
 			
@@ -117,7 +144,7 @@ public class UtilisateurDAO {
 		PreparedStatement pstmt = null;
 	    ResultSet rs = null;
 	    try {
-            String sql = "UPDATE Utilisateur SET MDP_Utilisateur=? WHERE ID_User=?";
+            String sql = "UPDATE Utilisateur SET MDP_USER=? WHERE ID_User=?";
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, mdp);
         	pstmt.setInt(2,id_u);
@@ -130,25 +157,7 @@ public class UtilisateurDAO {
         }
 		return id_u;
 	}
-	//*********************************************************************
-	public static int modifAnnifUtilisateur(int id_u,LocalDate annif) {
 	
-		PreparedStatement pstmt = null;
-	    ResultSet rs = null;
-	    try {
-            String sql = "UPDATE Utilisateur SET DATE_NAISSANCE_u=? WHERE ID_User=?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setObject(1, annif);
-        	pstmt.setInt(2, id_u);
-        	pstmt.executeUpdate();
-            // 4- Recupérer l'Id généré par le SGBD
-        	rs = pstmt.getGeneratedKeys();
-
-        }catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-		return id_u;
-	    }
 //********************************FindALL***************************************
 	public static List<Utilisateur> findAll() throws SQLException{
 		
@@ -278,7 +287,7 @@ public class UtilisateurDAO {
         }
 		return Shows;
        }
-	//**********************************************************************
+
 	public static  List<Show> RechercherPargenre( String genre) {
 		
 	    ResultSet rs = null;
@@ -415,13 +424,20 @@ public class UtilisateurDAO {
 	return Shows;
 	}
 	//**********************************************************************
-	public static  List<Acteur> RechercherActeur(String nom ) {
+
+
+	public static  List<Utilisateur> RechercherUser(String nom) {
+
 		//Statement stmt = null;
 	    ResultSet rs = null;
 	    PreparedStatement pstmt = null;
-	    List<Acteur> acteurs = new ArrayList<>();
+	    List<Utilisateur> acteurs = new ArrayList<>();
+
 
         String SQL = "SELECT * FROM Acteur WHERE nom_ac=? ";
+
+        String SQL = "SELECT * FROM UTILISATEUR WHERE nom_u=?";
+
         try {
         	pstmt = conn.prepareStatement(SQL);
 	        pstmt.setString(1,nom);
@@ -435,7 +451,10 @@ public class UtilisateurDAO {
                 LocalDate annif_ac=rs.getObject(4,LocalDate.class);
                
 
-                Acteur act = new Acteur(id_ac, Nom_ac, Prenom_ac,mail_ac,mdp_ac,annif_ac);
+
+            
+       Utilisateur act = new Utilisateur( Nom_ac, Prenom_ac,annif_ac);
+
                 acteurs.add(act);
 	        }
 	    } catch (SQLException ex) {
@@ -451,14 +470,22 @@ public class UtilisateurDAO {
 	    ResultSet rs = null;
 	    PreparedStatement pstmt = null;
 
-        String SQL = "SELECT id_user FROM utilisateur WHERE MAIL_USER=?";
+        String SQL = "SELECT * FROM utilisateur WHERE MAIL_USER=?";
         try {
         	pstmt = conn.prepareStatement(SQL);
 	        pstmt.setString(1,mail);
 	        rs = pstmt.executeQuery();
 	        while (rs.next()) {
 	        	int id = rs.getInt(1);
-                 a.setId_user(id);
+                String nom = rs.getString(2);
+                String prenom = rs.getString(3);
+                LocalDate annif=rs.getObject(4,LocalDate.class);
+
+	            //a = new Acteur(id, nom, prenom,annif);
+              a.setId_user(id);
+              a.setNom_user(nom);
+              a.setPrenom_user(prenom);
+              a.setDate_naissance_user(annif);
          }
 	        
 	      
@@ -468,6 +495,26 @@ public class UtilisateurDAO {
 		return a;
        }
 //*********************************************************************
+	
+	
+	//*************verifier id**************************
+	 public static boolean verifierId(int id) {
+	        boolean existe = false;
+	        PreparedStatement pstmt = null;
+	        ResultSet rs = null;
+	        try {
+	            String sql = "SELECT * FROM UTILISATEUR WHERE ID_USER=?";
+	            pstmt = conn.prepareStatement(sql);
+	            pstmt.setInt(1, id);
+	            rs = pstmt.executeQuery();
+	            if (rs.next()) {
+	                existe = true;
+	            }
+	        } catch (SQLException ex) {
+	            System.out.println(ex.getMessage());
+	        }
+	        return existe;
+	    }
 	
 }
 

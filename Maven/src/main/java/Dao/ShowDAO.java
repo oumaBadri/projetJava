@@ -57,15 +57,21 @@ public class ShowDAO {
 			}
 //*****************************Modification Show***********************************************
 			
-			public static int modifTitreShow(int id_show,String titre) {
+			public static int modifShow(int id_show,String titre,LocalDate date, String genre,String langue,String pays,int isAFilm,String affiche) {
 			
 				PreparedStatement pstmt = null;
 			    ResultSet rs = null;
 			    try {
-		            String sql = "UPDATE Show SET titre_show=? WHERE ID_show=?";
+		            String sql = "UPDATE Show SET titre_show=?,date_diff=? ,pays_show=? ,langue_show=? ,is_film=?,genre=?, image=? WHERE ID_show=?";
 		            pstmt = conn.prepareStatement(sql);
 		            pstmt.setString(1, titre);
-		        	pstmt.setInt(2, id_show);
+		            pstmt.setObject(2, date);
+		        	pstmt.setString(3, pays);
+		        	pstmt.setString(4, langue);
+		        	pstmt.setInt(5, isAFilm);
+		        	pstmt.setString(6, genre);
+		        	pstmt.setString(7, affiche);
+		        	pstmt.setInt(8, id_show);
 		        	pstmt.executeUpdate();
 		            // 4- Recupérer l'Id généré par le SGBD
 		        	rs = pstmt.getGeneratedKeys();
@@ -290,7 +296,9 @@ public class ShowDAO {
           sh = new Show(titre_show,image);
          
       }
-  } catch (Exception e ) {};
+  } catch (NullPointerException e ) {
+	  e.printStackTrace();
+  };
   
  
 
@@ -365,14 +373,14 @@ public static int idTitre(String titre) throws SQLException{
          rs = pstmt.executeQuery();
          while (rs.next()) {
          	 String titre_show = rs.getString(1);
-         	 Object date_diff=rs.getObject(2);
+         	 Date date_diff=rs.getDate(2);
          	 String Pays_Show=rs.getString(3);
          	 String Langue_show=rs.getString(4);
         	 int is_Film=rs.getInt(5);
         	 String genre=rs.getString(6);
         	 String image=rs.getString(7);
         	 
-        	 s=new Show(identifiant,titre_show,date_diff,Pays_Show,Langue_show,genre,is_Film,image);
+        	 s=new Show(identifiant,titre_show,date_diff.toLocalDate(),Pays_Show,Langue_show,genre,is_Film,image);
          	}
      }catch (SQLException ex) {
          System.out.println(ex.getMessage());
