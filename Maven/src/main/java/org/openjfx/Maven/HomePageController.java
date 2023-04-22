@@ -98,16 +98,14 @@ public class HomePageController implements Initializable{
 	    void RechercheActeur() throws IOException {
    App.setRoot("RechercheActeur");
 
-	    }
-=======
-	
+	    }	
 	    @FXML
 	    void goToProfil(MouseEvent event) throws IOException {
 	        App.setRoot("ProfileInterfaceUser");
 
 	    }
 	 
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git
+
 	 
 	@Override
 	public void initialize(URL location, java.util.ResourceBundle resources){

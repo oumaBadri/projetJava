@@ -436,8 +436,7 @@ public class UtilisateurDAO {
 
         String SQL = "SELECT * FROM Acteur WHERE nom_ac=? ";
 
-        String SQL = "SELECT * FROM UTILISATEUR WHERE nom_u=?";
-
+      
         try {
         	pstmt = conn.prepareStatement(SQL);
 	        pstmt.setString(1,nom);
@@ -449,11 +448,7 @@ public class UtilisateurDAO {
                 String mail_ac = rs.getString(5);
                 String mdp_ac = rs.getString(6);
                 LocalDate annif_ac=rs.getObject(4,LocalDate.class);
-               
-
-
-            
-       Utilisateur act = new Utilisateur( Nom_ac, Prenom_ac,annif_ac);
+                Utilisateur act = new Utilisateur( Nom_ac, Prenom_ac,annif_ac);
 
                 acteurs.add(act);
 	        }

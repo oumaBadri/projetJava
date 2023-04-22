@@ -16,13 +16,13 @@ import java.util.List;
 
 import Dao.SaisonDao;
 import Dao.ShowDAO;
-<<<<<<< HEAD
+
 
 import Dao.UtilisateurDAO;
 import Models.Acteur;
-=======
+
 import Dao.UtilisateurDAO;
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git
+
 import Models.Show;
 
 /**
@@ -34,18 +34,17 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-<<<<<<< HEAD
+
 
     	scene = new Scene(loadFXML("RechercheActeur"),1000,790);
 
-=======
-<<<<<<< HEAD
 
         scene = new Scene(loadFXML("AjoutShow"),1000,790);
-=======
+
+
     	scene = new Scene(loadFXML("login"),1000,790);
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git
+
+
         stage.setScene(scene);
         stage.show();
 
@@ -60,11 +59,8 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-<<<<<<< HEAD
-    public static void main(String[] args) {
-=======
+
     public static void main(String[] args) throws SQLException {
-<<<<<<< HEAD
 
     	/*Avis a= new Avis(20, 1, 0,"hello",1, 1);
     	AvisDAO.ajouterAvis(a);*/
@@ -138,25 +134,21 @@ public class App extends Application {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}*/
-=======
 //System.out.println(SaisonDao.getDescrip(1));
     //launch();
-    	UtilisateurDAO.supprimerUtilisateur(1);
+    	//UtilisateurDAO.supprimerUtilisateur(1);
     	//System.out.println(ShowDAO.getNombreSaisons(1));
     	//System.out.println(SaisonDao.getNbEp(1, 1));
     	//System.out.println(ShowDAO.findActeursByShow(1));
    
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava
     }
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git
 
-    	launch(); 
     	//List<Acteur> acteurs =UtilisateurDAO.RechercherActeur("ouma");
     	//for(Acteur acteur :acteurs){
     		//System.out.println(acteur.getNom_ac());
     		//System.out.println(acteur.getPrenom_ac());
-    	}
+}    	
     	
 
-}
+
 
