@@ -120,7 +120,7 @@ public class App extends Application {
 		}*/
 //System.out.println(SaisonDao.getDescrip(1));
     //launch();
-    	UtilisateurDAO.supprimerUtilisateur(1);
+    	//UtilisateurDAO.supprimerUtilisateur(1);
     	//System.out.println(ShowDAO.getNombreSaisons(1));
     	//System.out.println(SaisonDao.getNbEp(1, 1));
     	//System.out.println(ShowDAO.findActeursByShow(1));

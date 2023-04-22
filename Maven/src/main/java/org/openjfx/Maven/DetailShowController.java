@@ -19,10 +19,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -38,7 +40,7 @@ public class DetailShowController implements Initializable {
 	
 	static Utilisateur a= new Utilisateur();
 	@FXML
-    private ChoiceBox<String> choice;
+    private ChoiceBox<Integer> choice;
 	@FXML
     private HBox boucle;
 	@FXML
@@ -72,17 +74,18 @@ public class DetailShowController implements Initializable {
     @FXML
     private Button play;
     
-    
+    @FXML
+    private Button backbtn;
     
     
     //*********pour cree liste de choicebox*****************
-    private  List<String> createListe() throws SQLException {
-    List<String> saisons= new ArrayList<>();	
+    private  List<Integer> createListe() throws SQLException {
+    List<Integer> saisons= new ArrayList<>();	
      int nb= ShowDAO.getNombreSaisons(s.getId_show());
      System.out.println(nb+"nbeppersaison");
     for(int i=0;i<nb;i++) 
     {int f=i+1;
-    	saisons.add("saison "+f);	
+    	saisons.add(f);	
     }
     return saisons;
     }
@@ -90,37 +93,55 @@ public class DetailShowController implements Initializable {
     
     //********pour le display de hbox*************
  
-   public void displayEp(String numSaison) throws NumberFormatException, SQLException {
-       int n=0;
-    	try {  n = SaisonDao.getNbEp(s.getId_show(), Integer.parseInt(choice.getValue()));} catch (NumberFormatException e) {
-    	    // handle the exception
-       }
-        HBox hbox = boucle;
-
+    public void displayEp(int numSaison) throws NumberFormatException, SQLException {
+        int n=0;
+        try { 
+            n = SaisonDao.getNbEp(s.getId_show(), choice.getValue());
+        } catch (NumberFormatException e) {
+            // handle the exception
+        }
+        
+        VBox vbox = new VBox();
+        
         for (int i = 0; i < n; i++) {
             try {
+            	boucle.getChildren().clear();
+            	
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayEp.fxml"));
                 HBox display = fxmlLoader.load();
                 Label label = (Label) display.lookup("#numEp");
                 Button button = (Button) display.lookup("#play");
-                label.setText("Épisode " + (i + 1));
+                label.setText(String.valueOf(i+1));
                 button.setOnAction(e -> {
                     // action à effectuer lors du clic sur le bouton "Regarder"
+                	
+						//App.setRoot("Playing");
+					
                 });
-                hbox.getChildren().add(display);
+                
+                vbox.getChildren().add(display);
+                vbox.getChildren().add(new Separator(Orientation.HORIZONTAL)); // ajoute une ligne de séparation après chaque épisode
+                
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+        
+        boucle.getChildren().add(vbox);
     }
 
+   
+    @FXML
+    void back(MouseEvent event) throws IOException {
+    	App.setRoot("UserHome");
+    }
     
  
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
 //*****************pour le choiceBox*******************
-		List<String> saisonliste=new ArrayList<>();
+		List<Integer> saisonliste=new ArrayList<>();
 
 			try {
 				saisonliste = createListe();
@@ -131,10 +152,14 @@ public class DetailShowController implements Initializable {
 			}
 		
 		choice.getItems().addAll(saisonliste);
+		
 		//choice.setOnAction(this::displayEp);
 		 choice.setOnAction((event) -> {
 		        try {
-		            displayEp(choice.getValue());
+		        	System.out.println(
+		        			choice.getValue());
+		        	System.out.println(choice.getValue());
+		           displayEp(choice.getValue());
 		        } catch (NumberFormatException | SQLException e) {
 		            e.printStackTrace();
 		        }
@@ -193,8 +218,5 @@ public class DetailShowController implements Initializable {
 	}
 
 
-
-	private void displayEp(ActionEvent actionevent1) {
-	}
 
 }
