@@ -226,5 +226,25 @@ return id_Show;
 		    return descp;
 		}
 
-	
+	//***********retourne nb ep paar saisonn pour un show***********
+		public static int getNbEp(int id_show,int id_saison) throws SQLException {
+		    String SQL = "SELECT NB_EP_S FROM Saison WHERE ID_SHOW=? AND Num_SAISON=?";
+		    int nb = 0;
+		    
+		    try (PreparedStatement stmt = conn.prepareStatement(SQL)) {
+		        stmt.setInt(1, id_show);
+		        stmt.setInt(2, id_saison);
+		        ResultSet rs = stmt.executeQuery();
+
+		        if (rs.next()) {
+		            nb = rs.getInt(1);
+		        }
+		    } catch (SQLException e) {
+		        throw e;
+		    } 
+		    
+		    
+		    return nb;
+		}
+
 }

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutY="-7.0" prefHeight="406.0" prefWidth="242.0" styleClass="left-side-background" stylesheets="@css/styles.css">
+         <children>
+            <ImageView fitHeight="200.0" fitWidth="264.0" layoutX="-22.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logo2.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="258.0" prefHeight="400.0" prefWidth="343.0" styleClass="right-side-background" stylesheets="@css/styles.css">
+         <children>
+            <Text fill="#f69e7b" fontSmoothingType="LCD" layoutX="26.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connecter En Tant Que:">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="78.0" fitWidth="84.0" layoutX="15.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/producteur.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="84.0" layoutX="15.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/acteur.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="95.0" fitWidth="84.0" layoutX="14.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/user.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="17.0" layoutY="60.0" prefHeight="17.0" prefWidth="302.0" />
+            <Button layoutX="132.0" layoutY="113.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="137.0" text="Utilisateur" />
+            <Button layoutX="132.0" layoutY="214.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="137.0" text="Producteur" />
+            <Button layoutX="132.0" layoutY="295.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="137.0" text="Acteur" />
+         </children>
+      </Pane>
+      <Separator layoutX="242.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="16.0" styleClass="left-side-background" stylesheets="@css/styles.css">
+         <effect>
+            <Glow />
+         </effect>
+      </Separator>
+   </children>
+</AnchorPane>

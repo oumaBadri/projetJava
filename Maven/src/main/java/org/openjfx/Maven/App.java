@@ -30,7 +30,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
     	scene = new Scene(loadFXML("RechercheActeur"),1000,790);
+
         stage.setScene(scene);
         stage.show();
 
@@ -54,6 +56,6 @@ public class App extends Application {
     		//System.out.println(acteur.getPrenom_ac());
     	}
     	
-    }
 
+}
 
