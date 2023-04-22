@@ -72,7 +72,6 @@ public class favorisFilmController implements Initializable{
 	    	String selectedItem = filmList.getSelectionModel().getSelectedItem();
 	    	int i=ShowDAO.findIdShow(selectedItem);
 	    	Show show= ShowDAO.findShowParID(i);
-	    	System.out.println(show+"*****++++++");
 	    	
 	        if (selectedItem != null) {
 	        	DetailShowController.s.setAffiche(show.getAffiche());
