@@ -3,19 +3,20 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1000.0" style="-fx-background-color: 383E56;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.HomePageController">
    <children>
-      <Pane prefHeight="91.0" prefWidth="1000.0" stylesheets="@../../Style/MainStyle.css">
+      <Pane prefHeight="117.0" prefWidth="1000.0" stylesheets="@../../Style/MainStyle.css">
          <children>
             <Button layoutX="867.0" layoutY="28.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css">
                <graphic>
@@ -35,180 +36,69 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="36.0" layoutY="8.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="92.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
-            <ImageView fitHeight="60.0" fitWidth="81.0" layoutX="42.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="85.0" fitWidth="131.0" layoutX="18.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <Button layoutX="36.0" layoutY="8.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="92.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="93.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/336721789_916246296322521_3193178127915645001_n-removebg-preview.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+         <styleClass>
+            <String fx:value="left" />
+            <String fx:value="side_ankerpane" />
+         </styleClass>
+      </Pane>
+      <Pane layoutY="121.0" prefHeight="669.0" prefWidth="288.0" stylesheets="@../../Style/MainStyle.css">
+         <styleClass>
+            <String fx:value="side_ankerpane" />
+            <String fx:value="left" />
+         </styleClass>
+         <children>
+            <TextField layoutX="33.0" layoutY="80.0" prefHeight="29.0" prefWidth="195.0" promptText="Type Title" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+               <font>
+                  <Font name="Cooper Black" size="18.0" />
+               </font>
+            </TextField>
+            <Line endX="100.0" layoutX="144.0" layoutY="114.0" startX="-100.0" />
+            <ImageView fitHeight="34.0" fitWidth="37.0" layoutX="208.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/336721789_916246296322521_3193178127915645001_n-removebg-preview.png" />
+                  <Image url="@images/recherche-removebg-preview.png" />
                </image>
-               <viewport>
-                  <Rectangle2D />
-               </viewport>
             </ImageView>
          </children>
-         <styleClass>
-            <String fx:value="left" />
-            <String fx:value="side_ankerpane" />
-         </styleClass>
       </Pane>
-      <Pane layoutY="91.0" prefHeight="699.0" prefWidth="288.0" stylesheets="@../../Style/MainStyle.css">
-         <children>
-            <ImageView fx:id="ShowAffiche" fitHeight="238.0" fitWidth="231.0" layoutX="25.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="44.0" layoutY="284.0" prefHeight="29.0" prefWidth="183.0" text="The title" textFill="#1b5173" underline="true">
-               <font>
-                  <Font name="Cooper Black" size="33.0" />
-               </font>
-            </Label>
-            <Label layoutX="55.0" layoutY="350.0" prefHeight="29.0" prefWidth="123.0" text="Category " textFill="#1b5173">
-               <font>
-                  <Font name="Cooper Black" size="13.0" />
-               </font>
-            </Label>
-            <Label fx:id="category" layoutX="61.0" layoutY="376.0" prefHeight="17.0" prefWidth="131.0" text=".....">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="releaseDate" layoutX="61.0" layoutY="433.0" prefHeight="17.0" prefWidth="131.0" text=".....">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="category11" layoutX="61.0" layoutY="477.0" prefHeight="17.0" prefWidth="131.0" text=".....">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="56.0" layoutY="414.0" prefHeight="15.0" prefWidth="221.0" text="Date de realisation " textFill="#1b5173">
-               <font>
-                  <Font name="Cooper Black" size="13.0" />
-               </font>
-            </Label>
-            <Label layoutX="60.0" layoutY="458.0" prefHeight="15.0" prefWidth="138.0" text="Producteur " textFill="#1b5173">
-               <font>
-                  <Font name="Cooper Black" size="13.0" />
-               </font>
-            </Label>
-            <Label layoutX="47.0" layoutY="509.0" prefHeight="19.0" prefWidth="183.0" text="Consulter saison choisir " textFill="#f79d65">
-               <font>
-                  <Font name="Cooper Black" size="13.0" />
-               </font>
-            </Label>
-            <ComboBox layoutX="54.0" layoutY="536.0" prefWidth="150.0" promptText="Num Saison" stylesheets="@../../Style/MainStyle.css">
-               <styleClass>
-                  <String fx:value="transparent" />
-                  <String fx:value="side_recherche__ankerpane" />
-               </styleClass></ComboBox>
-            <Label layoutX="46.0" layoutY="575.0" prefHeight="19.0" prefWidth="210.0" text="Consulter Episode choisir  " textFill="#f79d65">
-               <font>
-                  <Font name="Cooper Black" size="13.0" />
-               </font>
-            </Label>
-            <ComboBox layoutX="14.0" layoutY="604.0" prefHeight="25.0" prefWidth="114.0" promptText="Num Saison" stylesheets="@../../Style/MainStyle.css">
-               <styleClass>
-                  <String fx:value="transparent" />
-                  <String fx:value="side_recherche__ankerpane" />
-               </styleClass></ComboBox>
-            <ComboBox layoutX="144.0" layoutY="604.0" prefHeight="25.0" prefWidth="131.0" promptText="Num Saison" stylesheets="@../../Style/MainStyle.css">
-               <styleClass>
-                  <String fx:value="transparent" />
-                  <String fx:value="transparent" />
-                  <String fx:value="side_recherche__ankerpane" />
-               </styleClass></ComboBox>
-         </children>
-         <styleClass>
-            <String fx:value="side_ankerpane" />
-            <String fx:value="left" />
-         </styleClass>
-      </Pane>
-      <Label layoutX="379.0" layoutY="136.0" prefHeight="26.0" prefWidth="106.0" text="Nombre de vues" textFill="#1b5173">
-         <font>
-            <Font name="Cooper Black" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="543.0" layoutY="136.0" prefHeight="26.0" prefWidth="126.0" text="Nombre de votants" textFill="#1b5173">
-         <font>
-            <Font name="Cooper Black" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="734.0" layoutY="136.0" prefHeight="26.0" prefWidth="75.0" text="Classement" textFill="#1b5173">
-         <font>
-            <Font name="Cooper Black" size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="nbrVue" layoutX="390.0" layoutY="174.0" text="Label">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
-      <Label fx:id="nbreVotants" layoutX="562.0" layoutY="174.0" text="Label">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
-      <Label fx:id="classement" layoutX="730.0" layoutY="174.0" text="Label">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Label>
-      <Label layoutX="489.0" layoutY="242.0" prefHeight="32.0" prefWidth="127.0" text="Nombre d'episodes " textFill="#1b5173">
-         <font>
-            <Font name="Cooper Black" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="678.0" layoutY="245.0" prefHeight="29.0" prefWidth="120.0" text="Nombre de saison " textFill="#1b5173">
-         <font>
-            <Font name="Cooper Black" size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="nbreEpisode" layoutX="500.0" layoutY="278.0" text="Label">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
-      <Label fx:id="nbreSaison" layoutX="685.0" layoutY="278.0" text="Label">
-         <font>
-            <Font size="29.0" />
-         </font>
-      </Label>
-      <Label layoutX="328.0" layoutY="365.0" prefHeight="26.0" prefWidth="131.0" text="Les acteurs " textFill="#f79d65">
+      <AnchorPane layoutX="316.0" layoutY="605.0" prefHeight="185.0" prefWidth="684.0" />
+      <Label layoutX="303.0" layoutY="354.0" prefHeight="33.0" prefWidth="103.0" text="Comments" textFill="#f79d65">
          <font>
             <Font name="Cooper Black" size="16.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="316.0" layoutY="605.0" prefHeight="185.0" prefWidth="684.0">
-         <children>
-            <TableView layoutX="35.0" layoutY="13.0" prefHeight="158.0" prefWidth="555.0">
-               <columns>
-                  <TableColumn prefWidth="75.0" text="C1" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-               </columns>
-            </TableView>
-         </children>
-      </AnchorPane>
-      <Label layoutX="326.0" layoutY="563.0" prefHeight="33.0" prefWidth="103.0" text="Les avis " textFill="#f79d65">
-         <font>
-            <Font name="Cooper Black" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="864.0" layoutY="136.0" prefHeight="26.0" prefWidth="70.0" text="Score " textFill="#1b5173">
+      <Label layoutX="556.0" layoutY="196.0" prefHeight="26.0" prefWidth="70.0" text="Note" textFill="#1b5173">
          <font>
             <Font name="Cooper Black" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="nbreSaison1" layoutX="864.0" layoutY="174.0" text="Label">
+      <Label fx:id="nbreSaison1" layoutX="556.0" layoutY="223.0" prefHeight="38.0" prefWidth="81.0" text="Label">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="327.0" layoutY="391.0" prefHeight="117.0" prefWidth="586.0">
-         <children>
-            <ImageView fitHeight="123.0" fitWidth="150.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="84.0" layoutY="144.0" text="Nom Acteur1">
-               <font>
-                  <Font name="Cooper Black" size="12.0" />
-               </font></Label>
-         </children>
-      </AnchorPane>
+      <ImageView fx:id="ShowAffiche" fitHeight="225.0" fitWidth="231.0" layoutX="303.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true" />
+      <TableView layoutX="299.0" layoutY="395.0" prefHeight="372.0" prefWidth="684.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="C1" />
+            <TableColumn prefWidth="75.0" text="C2" />
+         </columns>
+      </TableView>
+      <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="525.0" layoutY="128.0" prefHeight="29.0" prefWidth="183.0" text="The title" textFill="#1b5173" underline="true">
+         <font>
+            <Font name="Cooper Black" size="33.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
