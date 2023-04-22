@@ -375,7 +375,40 @@ public static List<String> envoyerNotif(int id_user_connecte) {
 
 
 
+//******ajout commentaire*************
+public static int ajouterCmn(Avis Avis) {
+	int code = 0;
+	System.out.println("-------connexion is "+conn);
+	PreparedStatement pstmt = null; 
+    ResultSet rs = null;
+    
+    try {
+    	String sql = "INSERT INTO  Avis  (id_user,id_show,commentaire,note) VALUES (?,?,?,?)";
+		pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        pstmt.setInt(1,Avis.getId_user());
+    	pstmt.setInt(2,Avis.getId_show());
+    	pstmt.setString(3,Avis.getCommantaire());
+    	pstmt.setInt(4,Avis.getNote());
+    	/*pstmt.setInt(3,Avis.getNote());
+    	pstmt.setString(4,Avis.getCommantaire());
+        
+        pstmt.setInt(5, Avis.getNum_ep());
+        pstmt.setInt(6, Avis.getNum_saison());*/
+    	
+        pstmt.executeUpdate();
 
+        rs = pstmt.getGeneratedKeys();
+
+        if (rs.next()) {
+            code = rs.getInt(1);
+        }
+
+    }catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+        
+    }
+	return code;
+}
 
 
 

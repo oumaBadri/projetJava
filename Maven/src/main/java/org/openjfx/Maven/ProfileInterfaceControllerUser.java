@@ -9,11 +9,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 public class ProfileInterfaceControllerUser implements Initializable {
 static Utilisateur a= new Utilisateur();
 
-	
+@FXML
+private Button backBtn;
 
     @FXML
     private TextField profileN;
@@ -29,6 +31,12 @@ static Utilisateur a= new Utilisateur();
     @FXML
     private Button suppBtn;
 	
+    
+    
+    @FXML
+    void back(MouseEvent event) throws IOException {
+    	App.setRoot("UserHome");
+    }
 	@FXML
     private void switchToProfileSettings() throws IOException {
         App.setRoot("ProfileSettingsUser");
