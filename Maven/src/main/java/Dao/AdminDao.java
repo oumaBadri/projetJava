@@ -61,9 +61,9 @@ import java.time.LocalDate;
 			        	pstmt.setInt(1, Administrateur.getId_ad());
 			        	pstmt.setString(2, Administrateur.getNom_ad());
 			        	pstmt.setString(3, Administrateur.getPrenom_ad());
-			        	pstmt.setObject(4, Administrateur.getDate_naissance_ad());
-			        	pstmt.setString(5, Administrateur.getEmail());
-			        	pstmt.setString(6, Administrateur.getMdp());
+			        	pstmt.setObject(6, Administrateur.getDate_naissance_ad());
+			        	pstmt.setString(4, Administrateur.getEmail());
+			        	pstmt.setString(5, Administrateur.getMdp());
 			        	pstmt.executeUpdate();
 			        	
 			            // 4- Recupérer l'Id généré par le SGBD
@@ -180,9 +180,9 @@ import java.time.LocalDate;
 			            	int id_ac = rs.getInt(1);
 			                String Nom_ac = rs.getString(2);
 			                String Prenom_ac = rs.getString(3);
-			                String mail_ac = rs.getString(5);
-			                String mdp_ac = rs.getString(6);
-			                LocalDate annif_ac=rs.getObject(4,LocalDate.class);
+			                String mail_ac = rs.getString(4);
+			                String mdp_ac = rs.getString(5);
+			                LocalDate annif_ac=rs.getObject(6,LocalDate.class);
 			               
 
 			                Admin act = new Admin(id_ac, Nom_ac, Prenom_ac,mail_ac,mdp_ac,annif_ac);

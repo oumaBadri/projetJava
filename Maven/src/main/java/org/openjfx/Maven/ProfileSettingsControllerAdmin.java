@@ -53,11 +53,11 @@ public class ProfileSettingsControllerAdmin implements Initializable {
     
     
     //static Utilisateur a= new Utilisateur();
-    static ProfileInterfaceControllerUser pu= new ProfileInterfaceControllerUser();
+    static ProfileInterfaceControllerAdmin pu= new ProfileInterfaceControllerAdmin();
     
     @FXML
     private void back() throws IOException {
-        App.setRoot("ProfileInterfaceUser");
+        App.setRoot("ProfileInterfaceAdmin");
     }
 
     @FXML
@@ -71,20 +71,20 @@ Boolean ChampValid=true;
 			nomcor.setText("nom invalid: champ obligatoire doit contenir que des alphabets");
 			ChampValid=false;
 	}else {
-		Service.UtilisateurService.modifNomUser(Integer.parseInt(idAc.getText()), nomAc.getText());
+		Service.AdminService.modifNomAdmin(Integer.parseInt(idAc.getText()), nomAc.getText());
 	}
 
 	if (ControlSaisie.validName(prenomAc.getText())==false) {
 			prenomcor.setText("prenom invalide: champ obligatoire doit contenir que des alphabet");
 			ChampValid=false;
 	}else {
-		Service.UtilisateurService.modifPrenomUser(Integer.parseInt(idAc.getText()), prenomAc.getText());
+		Service.AdminService.modifPrenomAdmin(Integer.parseInt(idAc.getText()), prenomAc.getText());
 	}
 	///edhii taa3 date mich mrigllla maal9itiich el conditionn
 	/*if(dateAc
 		Service.ActeurService.modifAnnifActeur(Integer.parseInt(idAc.getText()), dateAc.getValue());*/
-		if (pu.a.getDate_naissance_user().equals(dateAc.getValue())==false)
-			Service.UtilisateurService.modifAnnifUser(Integer.parseInt(idAc.getText()), dateAc.getValue());
+		if (pu.a.getDate_naissance_ad().equals(dateAc.getValue())==false)
+			Service.AdminService.modifAnnifAdmin(Integer.parseInt(idAc.getText()), dateAc.getValue());
 
 	
 	if (ChampValid==true)
@@ -118,16 +118,16 @@ Boolean ChampValid=true;
     
     @FXML
     private void switchToMdp() throws IOException {
-        App.setRoot("PasswordSettingsUser");
+        App.setRoot("PasswordSettingsAdmin");
     }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		setNom(pu.a.getNom_user());
-		setDate(pu.a.getDate_naissance_user().toString());
-		setPreom(pu.a.getPrenom_user());
-		setId(String.valueOf(pu.a.getId_user()));
-		setlog(pu.a.getNom_user()+" "+pu.a.getPrenom_user());
+		setNom(pu.a.getNom_ad());
+		setDate(pu.a.getDate_naissance_ad().toString());
+		setPreom(pu.a.getPrenom_ad());
+		setId(String.valueOf(pu.a.getId_ad()));
+		setlog(pu.a.getNom_ad()+" "+pu.a.getPrenom_ad());
 	}
 }

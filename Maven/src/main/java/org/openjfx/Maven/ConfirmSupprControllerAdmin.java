@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Controller.ControlSaisie;
+import Dao.AdminDao;
 import Dao.UtilisateurDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,11 +36,11 @@ public class ConfirmSupprControllerAdmin implements Initializable {
 	    private Text idcor;
 	    
 	    //static Utilisateur a=new Utilisateur();
-	    static ProfileInterfaceControllerUser pu= new ProfileInterfaceControllerUser();
+	    static ProfileInterfaceControllerAdmin pu= new ProfileInterfaceControllerAdmin();
 	    
 	    @FXML
 	    private void annuler() throws IOException {
-	        App.setRoot("ProfileInterfaceUser");
+	        App.setRoot("ProfileInterfaceAdmin");
 	    }
 	    
 	    
@@ -72,9 +73,9 @@ public class ConfirmSupprControllerAdmin implements Initializable {
 	    	}
 		*/
 		//if (ChampValid==true)
-			if(ControlSaisie.validAncienMdpUser(Integer.parseInt(idac.getText()),mdpac.getText())) {
-			UtilisateurDAO.supprimerUtilisateur(Integer.parseInt(idac.getText()));
-			App.setRoot("InscriptionUser");}
+			if(ControlSaisie.validAncienMdpAdmin(Integer.parseInt(idac.getText()),mdpac.getText())) {
+			AdminDao.supprimerAdministrateur(Integer.parseInt(idac.getText()));
+			App.setRoot("InscriptionAdmin");}
 			else
 				mdpcor.setText("password invalide : mdp incorrecte");
 			
@@ -89,7 +90,7 @@ public class ConfirmSupprControllerAdmin implements Initializable {
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
 			// TODO Auto-generated method stub
-			setId(String.valueOf(pu.a.getId_user()));
+			setId(String.valueOf(pu.a.getId_ad()));
 			
 		}
 }
