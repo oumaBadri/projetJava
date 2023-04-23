@@ -244,7 +244,8 @@ public class DetailShowController implements Initializable {
 		langue.setText(s.getLangue());
 		pays.setText(s.getPays());
 		genre.setText(s.getGenre_show());
-		date.setText(ShowDAO.getDateOnly(s.getDateOb()));
+		date.setText(s.getDate_difussion_show().toString());
+		//date.setText(ShowDAO.getDateOnly(s.getDateOb()));
 		try {
 			description.setText(SaisonDao.getDescrip(s.getId_show()));
 		} catch (SQLException e1) {

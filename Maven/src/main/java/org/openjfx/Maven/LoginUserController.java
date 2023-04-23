@@ -62,13 +62,18 @@ public class LoginUserController {
     		NotifController f= new NotifController();
     		DetailShowController di= new DetailShowController();
     	    Utilisateur d= UtilisateurDAO.getUser(email.getText());
+    	    ProfileInterfaceControllerUser ii = new ProfileInterfaceControllerUser();
     	    System.out.println(d);
     		//System.out.println(d);
+    	    ii.a.setDate_naissance_user(d.getDate_naissance_user());
+    	    ii.a.setId_user(d.getId_user());
+    	    ii.a.setPrenom_user(d.getPrenom_user());
+    	    ii.a.setNom_user(d.getNom_user());
     		f.a.setId_user(d.getId_user());
     		p.a.setId_user(d.getId_user());
     		i.a.setId_user(d.getId_user());
     		di.a.setId_user(d.getId_user());
-    		System.out.println("*****"+i.a.getId_user());
+    		System.out.println("*****"+ii.a.toString()+"++++++++++++");
     		UtilisateurService.login(email.getText(),mdp.getText());
     		 App.setRoot("UserHome");
     }

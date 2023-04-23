@@ -71,14 +71,14 @@ public class UserLoginController {
        	    
     		ii.a.setNom_user(d.getNom_user());
     		ii.a.setPrenom_user(d.getPrenom_user());
-    		n.a.setId_user(d.getId_user());
+    		/*n.a.setId_user(d.getId_user());
     		c.a.setId_user(d.getId_user());
     		c.a.setNom_user(d.getNom_user());
     		c.a.setPrenom_user(d.getPrenom_user());
     		pi.a.setId_user(d.getId_user());
     		pi.a.setNom_user(d.getNom_user());
     		pi.a.setDate_naissance_user(d.getDate_naissance_user());
-    		pi.a.setPrenom_user(d.getPrenom_user());
+    		pi.a.setPrenom_user(d.getPrenom_user());*/
     		
     		
     		//System.out.println(d);
@@ -95,7 +95,7 @@ public class UserLoginController {
 	
     	@FXML
         private void switchToInscription() throws IOException {
-            App.setRoot("Inscription");
+            App.setRoot("InscriptionUser");
         }
     	
     	

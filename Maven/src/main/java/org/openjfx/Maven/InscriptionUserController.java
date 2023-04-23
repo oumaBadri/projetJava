@@ -65,7 +65,7 @@ public class InscriptionUserController {
     
     @FXML
    
-    void signIN(ActionEvent event) {
+    void signIN(ActionEvent event) throws IOException {
     	Utilisateur p;
     	Boolean ChampValid=true;
    
@@ -97,7 +97,8 @@ public class InscriptionUserController {
     	}
     	if (ChampValid==true) {
     		p=new Utilisateur(Integer.parseInt(id.getText()),nom.getText(),prenom.getText(),date.getValue(),password.getText(),mail_p.getText());
-    		Service.UtilisateurService.AjoutUtilisateur(p);    		
+    		Service.UtilisateurService.AjoutUtilisateur(p); 
+    		App.setRoot("UserHome");
     	}
     }
 }
