@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -223,7 +224,7 @@ public static List<Integer> findAll2(int id_user) throws SQLException{
 	PreparedStatement pstmt = null;
     ResultSet rs = null;
 			    List<Integer> avis = new ArrayList<>();
-			    String SQL = "SELECT id_show FROM Avis where favoris_show=1 and id_user=?";
+			    String SQL = "SELECT distinct id_show FROM Avis where favoris_show=1 and id_user=?";
 		        try {
 		        	pstmt = conn.prepareStatement(SQL);
 		            pstmt.setInt(1, id_user);
@@ -319,7 +320,14 @@ public List<Integer> getUsers(int showId) throws SQLException {
     return users;
 }
 
-//*********************************************************************************
+//************date format aa/mm/dd **********
+public static LocalDate convertDate(LocalDate date) {
+    return LocalDate.of(date.getYear(), date.getMonth(), date.getDayOfMonth());
+}
+
+
+
+//**********trajaa les show favoris mta user eli date diff mtaa ep ta3hom today*****************************************
 
 public static List<String> envoyerNotif(int id_user_connecte) {
     PreparedStatement pstmt = null;
@@ -327,6 +335,7 @@ public static List<String> envoyerNotif(int id_user_connecte) {
     List<String> notifications = new ArrayList<>();
 
     LocalDate dateActuelle = LocalDate.now();
+    dateActuelle =convertDate(dateActuelle);
 
     String SQL2 = "SELECT DISTINCT s.id_show, e.nom_ep "
             + "FROM show s, saison sa, episode e, avis a "
@@ -375,7 +384,40 @@ public static List<String> envoyerNotif(int id_user_connecte) {
 
 
 
+//******ajout commentaire*************
+public static int ajouterCmn(Avis Avis) {
+	int code = 0;
+	System.out.println("-------connexion is "+conn);
+	PreparedStatement pstmt = null; 
+    ResultSet rs = null;
+    
+    try {
+    	String sql = "INSERT INTO  Avis  (id_user,id_show,commentaire,note) VALUES (?,?,?,?)";
+		pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        pstmt.setInt(1,Avis.getId_user());
+    	pstmt.setInt(2,Avis.getId_show());
+    	pstmt.setString(3,Avis.getCommantaire());
+    	pstmt.setInt(4,Avis.getNote());
+    	/*pstmt.setInt(3,Avis.getNote());
+    	pstmt.setString(4,Avis.getCommantaire());
+        
+        pstmt.setInt(5, Avis.getNum_ep());
+        pstmt.setInt(6, Avis.getNum_saison());*/
+    	
+        pstmt.executeUpdate();
 
+        rs = pstmt.getGeneratedKeys();
+
+        if (rs.next()) {
+            code = rs.getInt(1);
+        }
+
+    }catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+        
+    }
+	return code;
+}
 
 
 
