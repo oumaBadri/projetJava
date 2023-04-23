@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="930.0" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.AjoutShowController">
+   <top>
+      <AnchorPane prefHeight="69.0" prefWidth="930.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button alignment="TOP_LEFT" layoutX="768.0" layoutY="5.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="62.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/producteur.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="740.0" layoutY="15.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="66.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+            <Button layoutX="14.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="140.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="80.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/336721789_916246296322521_3193178127915645001_n-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <styleClass>
+            <String fx:value="left" />
+            <String fx:value="side_ankerpane" />
+         </styleClass>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="648.0" prefWidth="108.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="1.0" layoutY="221.0" prefHeight="35.0" prefWidth="193.0" text="Titre film/serie" textFill="#c95c3b">
+               <font>
+                  <Font name="Cooper Black" size="17.0" />
+               </font>
+            </Label>
+         </children>
+         <styleClass>
+            <String fx:value="left" />
+            <String fx:value="side_ankerpane" />
+         </styleClass>
+      </AnchorPane>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="47.0" prefWidth="252.0" text="Ajouter Episode" textFill="#1a1a81">
+               <font>
+                  <Font name="Cooper Black" size="26.0" />
+               </font>
+            </Label>
+            <AnchorPane prefHeight="202.0" prefWidth="710.0">
+               <children>
+                  <TextField fx:id="txt_searchId" layoutX="37.0" layoutY="20.0" prefHeight="26.0" prefWidth="134.0" promptText="Id_Show " styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+                  <TextField fx:id="txt_titre" layoutX="205.0" layoutY="20.0" prefHeight="26.0" prefWidth="131.0" promptText="numero saison" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+                  <TextField fx:id="txt_payer" layoutX="31.0" layoutY="62.0" prefHeight="26.0" prefWidth="130.0" promptText="nom episode" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+                  <Button fx:id="btn_add" layoutX="50.0" layoutY="152.0" mnemonicParsing="false" onAction="#addEpisode" onMouseClicked="#addShow" prefHeight="34.0" prefWidth="64.0" stylesheets="@../../Style/MainStyle.css" text="ADD" textFill="#2d1b86">
+                     <styleClass>
+                        <String fx:value="transparent" />
+                        <String fx:value="side_ankerpane" />
+                        <String fx:value="side_recherche__ankerpane" />
+                     </styleClass>
+                     <font>
+                        <Font name="Cooper Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <ImageView fx:id="imageView_search" fitHeight="35.0" fitWidth="35.0" layoutX="388.0" layoutY="17.0" onMouseClicked="#searchShow" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/recherche-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Separator layoutX="36.0" layoutY="45.0" prefHeight="7.0" prefWidth="147.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" />
+                  <Line endX="42.39996337890625" layoutX="91.0" layoutY="88.0" startX="-59.20001220703125" />
+                  <Line endX="47.999977111816406" layoutX="51.0" layoutY="138.0" startX="-29.20001220703125" />
+                  <Button fx:id="btn_update" layoutX="152.0" layoutY="152.0" mnemonicParsing="false" onMouseClicked="#updateShow" prefHeight="34.0" prefWidth="83.0" stylesheets="@../../Style/MainStyle.css" text="Update " textFill="#2d1b86" />
+                  <Line endX="42.39996337890625" layoutX="253.0" layoutY="89.0" startX="-67.800048828125" startY="-1.52587890625E-5" />
+                  <Button layoutX="152.0" layoutY="152.0" mnemonicParsing="false" onAction="#updateEpisode" prefHeight="34.0" prefWidth="83.0" stylesheets="@../../Style/MainStyle.css" text="Update " textFill="#2d1b86">
+                     <styleClass>
+                        <String fx:value="transparent" />
+                        <String fx:value="side_ankerpane" />
+                        <String fx:value="side_recherche__ankerpane" />
+                     </styleClass>
+                     <font>
+                        <Font name="Cooper Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btn_delete" layoutX="266.0" layoutY="152.0" mnemonicParsing="false" onAction="#deleteEpisode" onMouseClicked="#deleteShow" prefHeight="34.0" prefWidth="83.0" stylesheets="@../../Style/MainStyle.css" text="Delete" textFill="#2d1b86">
+                     <styleClass>
+                        <String fx:value="transparent" />
+                        <String fx:value="side_ankerpane" />
+                        <String fx:value="side_recherche__ankerpane" />
+                     </styleClass>
+                     <font>
+                        <Font name="Cooper Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="txt_nbrSaison" layoutX="185.0" layoutY="61.0" prefHeight="26.0" prefWidth="131.0" promptText="numero episode" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+                  <Separator layoutX="205.0" layoutY="45.0" prefHeight="5.0" prefWidth="156.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" />
+                  <DatePicker fx:id="datePIcker" layoutX="349.0" layoutY="62.0" prefHeight="26.0" prefWidth="135.0" />
+                  <TextField layoutX="21.0" layoutY="112.0" prefHeight="26.0" prefWidth="79.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="description" />
+                  <TextArea fx:id="txt_description" layoutX="111.0" layoutY="107.0" prefHeight="36.0" prefWidth="554.0" />
+               </children>
+            </AnchorPane>
+            <TableView fx:id="table" prefHeight="386.0" prefWidth="727.0">
+               <columns>
+                  <TableColumn fx:id="cln_id" prefWidth="75.0" text="Id_show" />
+                  <TableColumn fx:id="cln_numeroSaison" prefWidth="111.19995880126953" text="Numero Saison" />
+                  <TableColumn fx:id="cln_dateDiff" prefWidth="133.59996032714844" text="Date_diffusion " />
+                  <TableColumn fx:id="cln_nom" prefWidth="56.800048828125" text="Nom " />
+                  <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
+                  <TableColumn fx:id="cln_numero" prefWidth="75.0" text="Numero" />
+                  <TableColumn fx:id="cln_description" prefWidth="273.5999938964844" text="Description" />
+               </columns>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TableView>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>

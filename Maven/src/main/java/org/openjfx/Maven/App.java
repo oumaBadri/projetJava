@@ -29,8 +29,10 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-
         scene = new Scene(loadFXML("AjoutShow"),1000,790);
+
+    	//scene = new Scene(loadFXML("login"),1000,790);
+
 
     	//scene = new Scene(loadFXML("login"),1000,790);
 
@@ -49,11 +51,11 @@ public class App extends Application {
     }
 
     public static void main(String[] args) throws SQLException {
-
-
     	/*Avis a= new Avis(20, 1, 0,"hello",1, 1);
     	AvisDAO.ajouterAvis(a);*/
     	launch();
+    	//System.out.println(Dao.ShowDAO.findShowParID(13));
+    	
     	/*Show s=new Show(123,"13 reasons why",LocalDate.of(2022,10,20),"aze0","azerty","Dramatique",0,"url");
     	Service.ShowService.addShow(s);
     	*/
@@ -130,7 +132,6 @@ public class App extends Application {
     	//System.out.println(ShowDAO.getNombreSaisons(1));
     	//System.out.println(SaisonDao.getNbEp(1, 1));
     	//System.out.println(ShowDAO.findActeursByShow(1));
-
     }
 
 
