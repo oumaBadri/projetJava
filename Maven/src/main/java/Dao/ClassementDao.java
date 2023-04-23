@@ -15,57 +15,51 @@ public class ClassementDao {
 	
 
 private static Connection conn = conxBD.getInstance();
-	public static void save_view(int id_show ,int nb_vue,int month) {
-		
-		PreparedStatement pstmt = null; 
-	    ResultSet rs = null;
-	    int code=0;
-	    try {
-        String query = "INSERT INTO classement (id_show, m" + month + ") VALUES (?, ?) ON DUPLICATE KEY UPDATE m" + month + " = m" + month + " + ?";
+
+
+	
+public static void save_view(int id_show, int nb_vue, int month) {
+    PreparedStatement pstmt = null;
+    try {
+        String query = "MERGE INTO classement c USING (SELECT ? id_show, ? m" + month + " FROM DUAL) v " +
+                       "ON (c.id_show = v.id_show) " +
+                       "WHEN MATCHED THEN UPDATE SET c.m" + month + " = c.m" + month + " + v.m" + month + " " +
+                       "WHEN NOT MATCHED THEN INSERT (id_show, m" + month + ") VALUES (v.id_show, v.m" + month + ")";
         pstmt = conn.prepareStatement(query);
-        pstmt.setInt(1,id_show);
-        pstmt.setInt(2,nb_vue);
-        pstmt.setInt(3,nb_vue);
+        pstmt.setInt(1, id_show);
+        pstmt.setInt(2, nb_vue);
         pstmt.executeUpdate();
-     
 
-        rs = pstmt.getGeneratedKeys();
-
-        if (rs.next()) {
-            code = rs.getInt(1);
+        // Update the nb_vues column
+        query = "UPDATE classement SET nb_vues = ";
+        for (int i = 1; i <= 12; i++) {
+            if (i != month) {
+                query += "NVL(m" + i + ", 0) + ";
+            }
         }
+        query += "NVL(m" + month + ", 0) WHERE id_show = ?";
+        pstmt = conn.prepareStatement(query);
+        pstmt.setInt(1, id_show);
+        pstmt.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        if (pstmt != null) {
+            try {
+                pstmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
 
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
-	}
-	    public static void CalculView(int id_show ) {
-			
-			PreparedStatement pstmt = null; 
-		    ResultSet rs = null;
-		    int code=0;
-		    try {
-		    	String query = "SELECT SUM(m1+m2+m3+m4+m5+m6+m7+m8+m9+m10+m11+m12) AS total_views FROM classement WHERE id_show=?";
-	        pstmt = conn.prepareStatement(query);
-	        pstmt.setInt(1,id_show);
-	        rs = pstmt.getGeneratedKeys();
 
-	        int totalViews = 0;
-	        if (rs.next()) {
-	            totalViews = rs.getInt("total_views");
-	        }
-	        
-	        // Mettre à jour le nombre total de vues dans la base de données
-	        String updateQuery = "UPDATE shows SET nb_view=? WHERE id=?";
-	        pstmt.setInt(1, totalViews);
-	        pstmt.setInt(2, id_show);
-	        pstmt.executeUpdate();
 
-		    } catch (SQLException e) {
-		        e.printStackTrace();
-		    }
-	    }
-	    
+
+
+
+
  public static List<Integer> IdByVue() {
 			
 			PreparedStatement pstmt = null; 
@@ -73,12 +67,12 @@ private static Connection conn = conxBD.getInstance();
 		    int code=0;
 		    List<Integer> classement = new  ArrayList<>();
 		    try {
-		    	String query = "SELECT id_show from classement order by nb_vue";
+		    	String query = "SELECT id_show from classement order by nb_vues DESC";
 	        pstmt = conn.prepareStatement(query);
-	        rs = pstmt.getGeneratedKeys();
+	        rs = pstmt.executeQuery();
 
 	      
-	        if (rs.next()) {
+	        while (rs.next()) {
 	        	int id = rs.getInt(1);
 	        	classement.add(id);
 	            
@@ -91,6 +85,12 @@ private static Connection conn = conxBD.getInstance();
 			return classement;
 	    }   
 		  
+
+
+
+
+
+
 	    
 }
 	

@@ -38,7 +38,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
 
 
-    	scene = new Scene(loadFXML("loginUser"),1000,790);
+    	scene = new Scene(loadFXML("LoginAd"),1000,790);
 
 
 
@@ -66,7 +66,8 @@ public class App extends Application {
     	/*Avis a= new Avis(20, 1, 0,"hello",1, 1);
     	AvisDAO.ajouterAvis(a);*/
     //launch();
-    	ClassementDao.save_view(10,20,4);
+    	//ClassementDao.save_view(10,50,4);
+    	//System.out.println(ClassementController.ShowTitreByvue());
     	
     	
    /* double s=	AvisDAO.CalculScore(10);
@@ -76,7 +77,7 @@ public class App extends Application {
     	System.out.println(s);*/
     	
     	
-    	launch();
+    	//launch();
 
     	//helloooo
     	//System.out.println(Dao.ShowDAO.findShowParID(13));
