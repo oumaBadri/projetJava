@@ -10,20 +10,11 @@ import Dao.ShowDAO;
 
 public class ClassementController {
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	public static List<String> ShowTitreByvue() throws SQLException{
 	    List<String> titre = new ArrayList<>();
 		List<Integer> id= ClassementDao.IdByVue();
 		for(Integer id_show:id) {
 	    titre.add(ShowDAO.ShowTitre(id_show));
-			
 		}
 		return titre;
 	

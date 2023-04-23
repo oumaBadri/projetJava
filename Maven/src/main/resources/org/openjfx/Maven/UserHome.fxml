@@ -46,11 +46,6 @@
                   </ImageView>
                </graphic>
             </Button>
-            <ImageView fitHeight="62.0" fitWidth="65.0" layoutX="825.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/producteur.png" />
-               </image>
-            </ImageView>
          </children>
          <styleClass>
             <String fx:value="left" />

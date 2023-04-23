@@ -38,7 +38,6 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
 
 
-
     	scene = new Scene(loadFXML("loginUser"),1000,790);
 
 
@@ -58,10 +57,8 @@ public class App extends Application {
 
 
     public static void main(String[] args) throws SQLException {
-    
-    	launch();
-
-    	
+        launch();
+ 
     }
 
 }    	

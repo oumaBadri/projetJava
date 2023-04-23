@@ -54,7 +54,8 @@ public class ProfileSettingsControllerUser implements Initializable{
     private ImageView back;
     
     
-    static Utilisateur a= new Utilisateur();
+    //static Utilisateur a= new Utilisateur();
+    static ProfileInterfaceControllerUser pu= new ProfileInterfaceControllerUser();
     
     @FXML
     private void back() throws IOException {
@@ -84,7 +85,7 @@ Boolean ChampValid=true;
 	///edhii taa3 date mich mrigllla maal9itiich el conditionn
 	/*if(dateAc
 		Service.ActeurService.modifAnnifActeur(Integer.parseInt(idAc.getText()), dateAc.getValue());*/
-		if (a.getDate_naissance_user().equals(dateAc.getValue())==false)
+		if (pu.a.getDate_naissance_user().equals(dateAc.getValue())==false)
 			Service.UtilisateurService.modifAnnifUser(Integer.parseInt(idAc.getText()), dateAc.getValue());
 
 	
@@ -125,10 +126,10 @@ Boolean ChampValid=true;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		setNom(a.getNom_user());
-		setDate(a.getDate_naissance_user().toString());
-		setPreom(a.getPrenom_user());
-		setId(String.valueOf(a.getId_user()));
-		setlog(a.getNom_user()+" "+a.getPrenom_user());
+		setNom(pu.a.getNom_user());
+		setDate(pu.a.getDate_naissance_user().toString());
+		setPreom(pu.a.getPrenom_user());
+		setId(String.valueOf(pu.a.getId_user()));
+		setlog(pu.a.getNom_user()+" "+pu.a.getPrenom_user());
 	}
 }

@@ -140,7 +140,8 @@ public class ConfirmSupprControllerUser implements Initializable {
 	    @FXML
 	    private Text idcor;
 	    
-	    static Utilisateur a=new Utilisateur();
+	    //static Utilisateur a=new Utilisateur();
+	    static ProfileInterfaceControllerUser pu= new ProfileInterfaceControllerUser();
 	    
 	    @FXML
 	    private void annuler() throws IOException {
@@ -179,7 +180,7 @@ public class ConfirmSupprControllerUser implements Initializable {
 		//if (ChampValid==true)
 			if(ControlSaisie.validAncienMdpUser(Integer.parseInt(idac.getText()),mdpac.getText())) {
 			UtilisateurDAO.supprimerUtilisateur(Integer.parseInt(idac.getText()));
-			App.setRoot("Inscription");}
+			App.setRoot("InscriptionUser");}
 			else
 				mdpcor.setText("password invalide : mdp incorrecte");
 			
@@ -194,7 +195,7 @@ public class ConfirmSupprControllerUser implements Initializable {
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
 			// TODO Auto-generated method stub
-			setId(String.valueOf(a.getId_user()));
+			setId(String.valueOf(pu.a.getId_user()));
 			
 		}
 	    

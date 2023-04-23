@@ -53,7 +53,9 @@ public class ChangerMdpControllerUser implements Initializable {
  @FXML
  private ImageView back;
  
- static Utilisateur a= new Utilisateur();
+// static Utilisateur a= new Utilisateur();
+ static ProfileInterfaceControllerUser pu= new ProfileInterfaceControllerUser();
+ 
  
  @FXML
  private void back() throws IOException {
@@ -114,7 +116,7 @@ public class ChangerMdpControllerUser implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		setId(String.valueOf(a.getId_user()));
-		setlog(a.getNom_user()+" "+a.getPrenom_user());
+		setId(String.valueOf(pu.a.getId_user()));
+		setlog(pu.a.getNom_user()+" "+pu.a.getPrenom_user());
 	}
 }
