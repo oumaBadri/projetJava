@@ -125,7 +125,7 @@
          <children>
             <ScrollPane prefHeight="734.0" prefWidth="688.0">
                <content>
-                  <HBox fx:id="Hbox" prefHeight="790.0" prefWidth="876.0" />
+                  <HBox fx:id="Hbox" prefHeight="729.0" prefWidth="866.0" />
                </content>
             </ScrollPane>
          </children>

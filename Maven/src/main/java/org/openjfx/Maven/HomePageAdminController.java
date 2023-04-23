@@ -32,14 +32,10 @@ public class HomePageAdminController implements Initializable {
 	   
 	@FXML
  private void SwithtoInterfaceProfil() throws IOException {
-     App.setRoot("ProfileInterface");
+     App.setRoot("ProfileInterfaceAdmin");
  }
 	
 	
-	@FXML
- private void SwithtoMyList() throws IOException {
-     App.setRoot("favorisFilm");
- }
 	@FXML
  private void SwithtoMyShow() throws IOException {
      App.setRoot("TvShow");
@@ -49,11 +45,7 @@ public class HomePageAdminController implements Initializable {
      App.setRoot("Movie");
  }
 	
-	 @FXML
-	    void goToNotif(MouseEvent event) throws IOException {
-   App.setRoot("notification");
-
-	    }
+	
 	 @FXML
 	    void RechercheTitre() throws IOException {
          App.setRoot("RechercheTitre");
