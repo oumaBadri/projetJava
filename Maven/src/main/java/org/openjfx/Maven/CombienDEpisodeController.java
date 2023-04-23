@@ -1,6 +1,7 @@
 package org.openjfx.Maven;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Models.Show;
@@ -23,16 +24,26 @@ public class CombienDEpisodeController implements Initializable {
 	    private TextField nbrEpisode_txtField;
 
 	    @FXML
-	    private Label numeroSaison_label;
+	    private TextField nmrSaison_txtField;
 
 	    @FXML
 	    private TextField titreShow;
 
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
-			System.out.println("hellooo");
-			titreShow.setText(s.getTitre_show());
-			System.out.println(s.getTitre_show()+"---------------------");
+			
+			/*try {
+				i = Dao.ShowDAO.getNombreSaisons(s.getId_show());
+			} catch (SQLException e) {*/
+				titreShow.setText(s.getTitre_show());
+				//e.printStackTrace();
+			//}
+			
+			//titreShow.setText(s.getTitre_show());
+			
+			
+			}
+			
 		}
 
 	    

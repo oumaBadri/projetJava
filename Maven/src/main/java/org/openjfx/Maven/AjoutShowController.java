@@ -256,83 +256,100 @@ public class AjoutShowController implements Initializable{
 
 	    @FXML
 	    void next() throws IOException {
-	    
-	    	CombienDEpisodeController  c= new CombienDEpisodeController();
-	    	c.s.setTitre_show(Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText())).getTitre_show());
-	    	//System.out.println(c.s.getTitre_show() +"************************");
-	    	App.setRoot("CombienDEpisode");
+	    	if (txt_searchId.getText().equals("")) {
+	    		Alert alert = new Alert(AlertType.WARNING, "Veuillez indiquer l'ID_Show dont vous voulez l'ajouter episode ", javafx.scene.control.ButtonType.OK);
+    	        alert.showAndWait();
+	    		
+	    	}
+	    	else {
+	    		CombienDEpisodeController  c= new CombienDEpisodeController();
+		    	c.s.setTitre_show(Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText())).getTitre_show());
+		    	
+		    	//System.out.println(c.s.getTitre_show() +"************************");
+		    	App.setRoot("CombienDEpisode");
+	    	}
+	    	
 	    }
 
 	    @FXML
 	    void searchShow() {
-	    	Show S = Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText()));
-	    	System.out.println(S.getDateOb());
-	    	System.out.println(Dao.ShowDAO.getDateOnly(S.getDateOb()));
-	    	/*
-	    	int m=0;
-	    	//try {
-	    		Show S=Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText()));
-	    		txt_titre.setText(S.getTitre_show());
-	    		txt_genre.setText(S.getGenre_show());
-	    	
-	    		if (S.getIs_a_film()==0) {
-	    			txt_isAFilm.setText("True");
-	    		}
-	    		else {
-	    			txt_isAFilm.setText("false");
-	    		}
-	    		txt_langue.setText(S.getLangue());
-	    		txt_payer.setText(S.getPays());
-	    		txt_poster.setText(S.getAffiche());
-	    	
-	 	   //b9at nombre de saison bech naamelha b innerJoin
-	    		m=1;
-	    /*}catch(SQLException e) {
-	    		e.printStackTrace();
-	    	}*/
-	    	/*if (m==0) {
-	    		Alert alert=new Alert(AlertType.ERROR,"Aucun Show trouvee avec ce Id",javafx.scene.control.ButtonType.OK);
-	    		alert.showAndWait();
-	    		}*/
-	    	int m=0;
-	    	try {
-	    	    //Show S = Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText()));
-	    	    txt_titre.setText(S.getTitre_show());
-	    	    txt_genre.setText(S.getGenre_show());
-
-	    	    if (S.getIs_a_film() == 0) {
-	    	        txt_isAFilm.setText("True");
-	    	    } else {
-	    	        txt_isAFilm.setText("false");
-	    	    }
-	    	    
-	    	    txt_langue.setText(S.getLangue());
-	    	    txt_payer.setText(S.getPays());
-	    	    txt_poster.setText(S.getAffiche());
-	    	    txt_nbrSaison.setText(String.valueOf(Service.ShowService.getNombreSaison(Integer.parseInt(txt_searchId.getText()))));
-	    	    //datePocker.setPromptText(Dao.ShowDAO.getDateOnly(S.getDateOb()));
-	    	    if (datePocker == null) {
-	    	        datePocker = new DatePicker();
-	    	    }
-	    	    datePocker.setPromptText(Dao.ShowDAO.getDateOnly(S.getDateOb()));
-	    	    //setPromptText(Dao.ShowDAO.getDateOnly(S.getDateOb()));
-	    	    //
-	    	    System.out.println(datePocker.getPromptText());
-	    	    m = 1;
-	    	    
-	    	} catch (NumberFormatException e) {
-	    		e.printStackTrace();
-	    	    /*Alert alert = new Alert(AlertType.ERROR, "Le format d'entrée est incorrect. Veuillez entrer un identifiant valide.", javafx.scene.control.ButtonType.OK);
-	    	    alert.showAndWait();*/
-	    	} catch (Exception e) {
-	    		e.printStackTrace();
-	    	    /*Alert alert = new Alert(AlertType.ERROR, "Une erreur s'est produite lors de la recherche du spectacle.", javafx.scene.control.ButtonType.OK);
-	    	    alert.showAndWait();*/
-	    	}
-	    	if (m == 0) {
-    	        Alert alert = new Alert(AlertType.ERROR, "Aucun Show trouvee avec ce Id", javafx.scene.control.ButtonType.OK);
+	    	if (txt_searchId.getText().equals("")) {
+	    		Alert alert = new Alert(AlertType.WARNING, "Veuillez indiquer l'ID_Show ", javafx.scene.control.ButtonType.OK);
     	        alert.showAndWait();
-    	        }
+	    		
+	    	}else {
+	    		//Show S = Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText()));
+		    	/*System.out.println(S.getDateOb());
+		    	System.out.println(Dao.ShowDAO.getDateOnly(S.getDateOb()));*/
+		    	/*
+		    	int m=0;
+		    	//try {
+		    		Show S=Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText()));
+		    		txt_titre.setText(S.getTitre_show());
+		    		txt_genre.setText(S.getGenre_show());
+		    	
+		    		if (S.getIs_a_film()==0) {
+		    			txt_isAFilm.setText("True");
+		    		}
+		    		else {
+		    			txt_isAFilm.setText("false");
+		    		}
+		    		txt_langue.setText(S.getLangue());
+		    		txt_payer.setText(S.getPays());
+		    		txt_poster.setText(S.getAffiche());
+		    	
+		 	   //b9at nombre de saison bech naamelha b innerJoin
+		    		m=1;
+		    /*}catch(SQLException e) {
+		    		e.printStackTrace();
+		    	}*/
+		    	/*if (m==0) {
+		    		Alert alert=new Alert(AlertType.ERROR,"Aucun Show trouvee avec ce Id",javafx.scene.control.ButtonType.OK);
+		    		alert.showAndWait();
+		    		}*/
+		    	int m=0;
+		    	try {
+		    	    Show S = Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText()));
+		    	    txt_titre.setText(S.getTitre_show());
+		    	    txt_genre.setText(S.getGenre_show());
+
+		    	    if (S.getIs_a_film() == 0) {
+		    	        txt_isAFilm.setText("True");
+		    	    } else {
+		    	        txt_isAFilm.setText("false");
+		    	    }
+		    	    
+		    	    txt_langue.setText(S.getLangue());
+		    	    txt_payer.setText(S.getPays());
+		    	    txt_poster.setText(S.getAffiche());
+		    	    m = 1;
+		    	    txt_nbrSaison.setText(String.valueOf(Service.ShowService.getNombreSaison(Integer.parseInt(txt_searchId.getText()))));
+		    	    //datePocker.setPromptText(Dao.ShowDAO.getDateOnly(S.getDateOb()));
+		    	    if (datePocker == null) {
+		    	        datePocker = new DatePicker();
+		    	    }
+		    	    datePocker.setPromptText(Dao.ShowDAO.getDateOnly(S.getDateOb()));
+		    	    //setPromptText(Dao.ShowDAO.getDateOnly(S.getDateOb()));
+		    	    //
+		    	    //System.out.println(datePocker.getPromptText());
+		    	    
+		    	    
+		    	} catch (NumberFormatException e) {
+		    		e.printStackTrace();
+		    	    /*Alert alert = new Alert(AlertType.ERROR, "Le format d'entrée est incorrect. Veuillez entrer un identifiant valide.", javafx.scene.control.ButtonType.OK);
+		    	    alert.showAndWait();*/
+		    	} catch (Exception e) {
+		    		e.printStackTrace();
+		    	    /*Alert alert = new Alert(AlertType.ERROR, "Une erreur s'est produite lors de la recherche du spectacle.", javafx.scene.control.ButtonType.OK);
+		    	    alert.showAndWait();*/
+		    	}
+		    	if (m == 0) {
+	    	        Alert alert = new Alert(AlertType.ERROR, "Aucun Show trouvee avec ce Id", javafx.scene.control.ButtonType.OK);
+	    	        alert.showAndWait();
+	    	        }
+	    		
+	    	}
+	    	
 	    	
 	    }
 
@@ -415,7 +432,7 @@ public class AjoutShowController implements Initializable{
 			e1.printStackTrace();
 		}
 		ObservableList<Show> observableList = FXCollections.observableList(shows);
-		System.out.println(observableList);
+		//System.out.println(observableList);
 		/*for(Show s:shows) {
 			data.add(s.getId_show(),s.getTitre_show(),s.getDate_difussion_show(),s.getPays(),s.getGenre_show(),s.getIs_a_film(),s.getAffiche());
 		}*/

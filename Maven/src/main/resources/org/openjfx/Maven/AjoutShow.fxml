@@ -109,9 +109,8 @@
                   <Line endX="67.5999755859375" layoutX="388.0" layoutY="134.0" startX="-29.20001220703125" />
 
                   <TextField fx:id="txt_poster" layoutX="491.0" layoutY="112.0" prefHeight="26.0" prefWidth="131.0" promptText="Poster" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
-                  <Button fx:id="btn_update" layoutX="152.0" layoutY="152.0" mnemonicParsing="false" onMouseClicked="#updateShow" prefHeight="34.0" prefWidth="83.0" stylesheets="@../../Style/MainStyle.css" text="Update " textFill="#2d1b86" />
                   <Line endX="42.39996337890625" layoutX="537.0" layoutY="91.0" startX="-67.800048828125" startY="-1.52587890625E-5" />
-                  <Button layoutX="152.0" layoutY="152.0" mnemonicParsing="false" onAction="#updateShow" prefHeight="34.0" prefWidth="83.0" stylesheets="@../../Style/MainStyle.css" text="Update " textFill="#2d1b86">
+                  <Button layoutX="146.0" layoutY="152.0" mnemonicParsing="false" onAction="#updateShow" prefHeight="34.0" prefWidth="83.0" stylesheets="@../../Style/MainStyle.css" text="Update " textFill="#2d1b86">
 
                      <styleClass>
                         <String fx:value="transparent" />

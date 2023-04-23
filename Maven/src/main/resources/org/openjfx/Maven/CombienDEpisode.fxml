@@ -53,11 +53,6 @@
             <Font name="Cooper Black" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="numeroSaison_label" layoutX="521.0" layoutY="262.0" prefHeight="40.0" prefWidth="52.0" text="...." textFill="#2d1b86">
-         <font>
-            <Font name="Cooper Black" size="22.0" />
-         </font>
-      </Label>
       <TextField fx:id="nbrEpisode_txtField" layoutX="548.0" layoutY="314.0" prefHeight="26.0" prefWidth="38.0">
          <font>
             <Font name="Cooper Black" size="18.0" />
@@ -78,5 +73,10 @@
             <Font name="Cooper Black" size="26.0" />
          </font>
       </Label>
+      <TextField fx:id="nmrSaison_txtField" layoutX="529.0" layoutY="265.0" prefHeight="26.0" prefWidth="38.0">
+         <font>
+            <Font name="Cooper Black" size="18.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

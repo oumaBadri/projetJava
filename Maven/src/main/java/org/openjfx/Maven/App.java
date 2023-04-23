@@ -37,19 +37,18 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-<<<<<<< HEAD
-
-    	scene = new Scene(loadFXML("Consultation"),1000,790);
 
 
-=======
+    	//scene = new Scene(loadFXML("Consultation"),1000,790);
+
+
+
         scene = new Scene(loadFXML("AjoutShow"),1000,790);
 
     	//scene = new Scene(loadFXML("login"),1000,790);
 
 
     	//scene = new Scene(loadFXML("login"),1000,790);
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git
 
         stage.setScene(scene);
         stage.show();
@@ -69,9 +68,8 @@ public class App extends Application {
     public static void main(String[] args) throws SQLException {
     	/*Avis a= new Avis(20, 1, 0,"hello",1, 1);
     	AvisDAO.ajouterAvis(a);*/
-<<<<<<< HEAD
-    //launch();
-    	ClassementDao.save_view(10,20,4);
+  launch();
+    	
     	
     	
    /* double s=	AvisDAO.CalculScore(10);
@@ -81,13 +79,11 @@ public class App extends Application {
     	System.out.println(s);*/
     	
     	
-=======
-    	launch();
+
 
     	//helloooo
     	//System.out.println(Dao.ShowDAO.findShowParID(13));
 
->>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git
     	//System.out.println(AvisDAO.envoyerNotif(2));
     	//AvisDAO.modifCom(1, 0, 0, 2, "biiii");
 
