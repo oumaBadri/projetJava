@@ -1,6 +1,7 @@
 
 package org.openjfx.Maven;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -13,6 +14,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import Controller.ControlSaisie;
+import Dao.EpisodeDAO;
 import Models.Producteur;
 import Models.Show;
 import javafx.collections.FXCollections;
@@ -47,7 +49,7 @@ public class AjoutShowController implements Initializable{
 	    private TableColumn<Show, String> cln_affiche;
 
 	    @FXML
-	    private TableColumn<Show,Date > cln_dateDiff;
+	    private TableColumn<Show,LocalDate > cln_dateDiff;
 
 	    @FXML
 	    private TableColumn<Show, String> cln_genre;
@@ -102,7 +104,7 @@ public class AjoutShowController implements Initializable{
 	    private TextField txt_nbrSaison;
 	    
 	    @FXML
-	    private DatePicker datePIcker;
+	    private DatePicker datePocker;
 	   
 	   
 	    @FXML
@@ -179,7 +181,7 @@ public class AjoutShowController implements Initializable{
 	        String affiche = txt_poster.getText();
 	        String isAFilmText = txt_isAFilm.getText();
 	        String nbrSaisonText = txt_nbrSaison.getText();
-	        LocalDate dateDiff = datePIcker.getValue();
+	        LocalDate dateDiff = datePocker.getValue();
 	        if (titre.isEmpty() || genre.isEmpty() || langue.isEmpty() || pays.isEmpty() ||
 	                affiche.isEmpty() || isAFilmText.isEmpty() || nbrSaisonText.isEmpty() || dateDiff == null) {
 	            Alert alert = new Alert(AlertType.ERROR, "Tous les champs sont obligatoires!");
@@ -201,7 +203,7 @@ public class AjoutShowController implements Initializable{
 	            return;
 	        }
 	        if (isAFilm != 0 && isAFilm != 1) {
-	            Alert alert = new Alert(AlertType.ERROR, "'isAFilm' doit être soit 0 ou 1.");
+	            Alert alert = new Alert(AlertType.ERROR, "Mettre 1 si c'est un film ou 0 si c'est une serie");
 	            alert.showAndWait();
 	            return;
 	        }
@@ -216,9 +218,9 @@ public class AjoutShowController implements Initializable{
 	        txt_poster.clear();
 	        txt_isAFilm.clear();
 	        txt_nbrSaison.clear();
-	        datePIcker.setValue(null);
+	        datePocker.setValue(null);
 	       
-	        Alert alert = new Alert(AlertType.INFORMATION, "Le spectacle a été ajouté avec succès!");
+	        Alert alert = new Alert(AlertType.INFORMATION, "Le SHOW a été ajouté avec succès!");
 	        alert.showAndWait();
 	        showShow();
 	    }
@@ -253,12 +255,19 @@ public class AjoutShowController implements Initializable{
 	    }
 
 	    @FXML
-	    void next() {
-
+	    void next() throws IOException {
+	    
+	    	CombienDEpisodeController  c= new CombienDEpisodeController();
+	    	c.s.setTitre_show(Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText())).getTitre_show());
+	    	//System.out.println(c.s.getTitre_show() +"************************");
+	    	App.setRoot("CombienDEpisode");
 	    }
 
 	    @FXML
 	    void searchShow() {
+	    	Show S = Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText()));
+	    	System.out.println(S.getDateOb());
+	    	System.out.println(Dao.ShowDAO.getDateOnly(S.getDateOb()));
 	    	/*
 	    	int m=0;
 	    	//try {
@@ -287,7 +296,7 @@ public class AjoutShowController implements Initializable{
 	    		}*/
 	    	int m=0;
 	    	try {
-	    	    Show S = Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText()));
+	    	    //Show S = Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText()));
 	    	    txt_titre.setText(S.getTitre_show());
 	    	    txt_genre.setText(S.getGenre_show());
 
@@ -301,8 +310,14 @@ public class AjoutShowController implements Initializable{
 	    	    txt_payer.setText(S.getPays());
 	    	    txt_poster.setText(S.getAffiche());
 	    	    txt_nbrSaison.setText(String.valueOf(Service.ShowService.getNombreSaison(Integer.parseInt(txt_searchId.getText()))));
-	    	    datePIcker.setValue(S.getDate_difussion_show());
-	    	    
+	    	    //datePocker.setPromptText(Dao.ShowDAO.getDateOnly(S.getDateOb()));
+	    	    if (datePocker == null) {
+	    	        datePocker = new DatePicker();
+	    	    }
+	    	    datePocker.setPromptText(Dao.ShowDAO.getDateOnly(S.getDateOb()));
+	    	    //setPromptText(Dao.ShowDAO.getDateOnly(S.getDateOb()));
+	    	    //
+	    	    System.out.println(datePocker.getPromptText());
 	    	    m = 1;
 	    	    
 	    	} catch (NumberFormatException e) {
@@ -331,7 +346,7 @@ public class AjoutShowController implements Initializable{
 	            String pays = txt_payer.getText();
 	            int isAFilm = Integer.parseInt(txt_isAFilm.getText());
 	            String affiche = txt_poster.getText();
-	            LocalDate dateDiff = datePIcker.getValue();
+	            LocalDate dateDiff = datePocker.getValue();
 	            int nbrSaison = Integer.parseInt(txt_nbrSaison.getText());
 	            if(titre.isEmpty() || genre.isEmpty() || langue.isEmpty() || pays.isEmpty() 
 	               || txt_isAFilm.getText().isEmpty() || affiche.isEmpty() || dateDiff == null
@@ -343,11 +358,11 @@ public class AjoutShowController implements Initializable{
 	                alert.showAndWait();
 	                return;
 	            }
-	            if(!genre.equalsIgnoreCase("homme") && !genre.equalsIgnoreCase("femme")) {
+	            if(!genre.equals("Comédie") && !genre.equals("Dramatique")  && !genre.equals("Policier")&& !genre.equals("Action")&& !genre.equals("Historique")&& !genre.equals("Science-Fiction")) {
 	                Alert alert = new Alert(AlertType.ERROR);
 	                alert.setTitle("Erreur");
 	                alert.setHeaderText("Genre invalide");
-	                alert.setContentText("Le genre doit être 'homme' ou 'femme'");
+	                alert.setContentText("Le genre doit être soit 'Comédie' ou 'Dramatique' ou 'Policier' ou 'Action' ou 'Historique' ou 'Science-Fiction'.");
 	                alert.showAndWait();
 	                return;
 	            }
@@ -355,7 +370,7 @@ public class AjoutShowController implements Initializable{
 	                Alert alert = new Alert(AlertType.ERROR);
 	                alert.setTitle("Erreur");
 	                alert.setHeaderText("Valeur invalide pour 'isAFilm'");
-	                alert.setContentText("La valeur doit être soit 0 ou 1");
+	                alert.setContentText("Mettre 1 si c'est un film ou 0 si c'est une serie");
 	                alert.showAndWait();
 	                return;
 	            }
@@ -400,6 +415,7 @@ public class AjoutShowController implements Initializable{
 			e1.printStackTrace();
 		}
 		ObservableList<Show> observableList = FXCollections.observableList(shows);
+		System.out.println(observableList);
 		/*for(Show s:shows) {
 			data.add(s.getId_show(),s.getTitre_show(),s.getDate_difussion_show(),s.getPays(),s.getGenre_show(),s.getIs_a_film(),s.getAffiche());
 		}*/
@@ -409,9 +425,10 @@ public class AjoutShowController implements Initializable{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}*/
+		
 		cln_id.setCellValueFactory(new PropertyValueFactory<Show,Integer>("id_show"));
 		cln_titre.setCellValueFactory(new PropertyValueFactory<Show,String>("titre_show"));
-		cln_dateDiff.setCellValueFactory(new PropertyValueFactory<Show,Date>("Date_diffusion"));
+		cln_dateDiff.setCellValueFactory(new PropertyValueFactory<Show,LocalDate>("Date_difussion_show"));
 		cln_pays.setCellValueFactory(new PropertyValueFactory<Show,String>("pays"));
 		cln_langue.setCellValueFactory(new PropertyValueFactory<Show,String>("langue"));
 		cln_genre.setCellValueFactory(new PropertyValueFactory<Show,String>("genre_show"));
@@ -419,5 +436,31 @@ public class AjoutShowController implements Initializable{
 		cln_affiche.setCellValueFactory(new PropertyValueFactory<Show,String>("affiche"));
 		table.setItems(observableList);
 	}
+	
+	@FXML
+	void tableEvent() {
+	        Show selectedShow = table.getSelectionModel().getSelectedItem(); // récupère l'objet Show sélectionné
+	        if (selectedShow != null) { 
+	            txt_searchId.setText(String.valueOf(selectedShow.getId_show()));
+	            txt_titre.setText(selectedShow.getTitre_show());
+	            txt_payer.setText(selectedShow.getPays());
+	            txt_langue.setText(selectedShow.getLangue());
+	            txt_genre.setText(selectedShow.getGenre_show());
+	            //txt_nbrSaison.setText(String.valueOf(selectedShow.getNombre_saisons()));
+	            txt_isAFilm.setText(String.valueOf(selectedShow.getIs_a_film()));
+	            datePocker.setValue(selectedShow.getDate_difussion_show());
+	        
+	          /*  String posterUrl = selectedShow.getAffiche();
+	            if (posterUrl != null && !posterUrl.isEmpty()) {
+	                File posterFile = new File(posterUrl);
+	                Image posterImage = new Image(posterFile.toURI().toString());
+	                imageView_search.setImage(posterImage);*/
+	            }
+	        }
+	    }
+		
+		
+	
+	
 
-}
+

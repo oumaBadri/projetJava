@@ -37,10 +37,19 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
+<<<<<<< HEAD
 
     	scene = new Scene(loadFXML("Consultation"),1000,790);
 
 
+=======
+        scene = new Scene(loadFXML("AjoutShow"),1000,790);
+
+    	//scene = new Scene(loadFXML("login"),1000,790);
+
+
+    	//scene = new Scene(loadFXML("login"),1000,790);
+>>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git
 
         stage.setScene(scene);
         stage.show();
@@ -58,9 +67,9 @@ public class App extends Application {
 
 
     public static void main(String[] args) throws SQLException {
-
     	/*Avis a= new Avis(20, 1, 0,"hello",1, 1);
     	AvisDAO.ajouterAvis(a);*/
+<<<<<<< HEAD
     //launch();
     	ClassementDao.save_view(10,20,4);
     	
@@ -72,8 +81,16 @@ public class App extends Application {
     	System.out.println(s);*/
     	
     	
+=======
+    	launch();
+
+    	//helloooo
+    	//System.out.println(Dao.ShowDAO.findShowParID(13));
+
+>>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git
     	//System.out.println(AvisDAO.envoyerNotif(2));
     	//AvisDAO.modifCom(1, 0, 0, 2, "biiii");
+
     	/*Show s=new Show(123,"13 reasons why",LocalDate.of(2022,10,20),"aze0","azerty","Dramatique",0,"url");
     	Service.ShowService.addShow(s);
     	*/
@@ -144,13 +161,13 @@ public class App extends Application {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}*/
+
 //System.out.println(SaisonDao.getDescrip(1));
     //launch();
     	//UtilisateurDAO.supprimerUtilisateur(1);
     	//System.out.println(ShowDAO.getNombreSaisons(1));
     	//System.out.println(SaisonDao.getNbEp(1, 1));
     	//System.out.println(ShowDAO.findActeursByShow(1));
-   
     }
 
     	//List<Acteur> acteurs =UtilisateurDAO.RechercherActeur("ouma");
