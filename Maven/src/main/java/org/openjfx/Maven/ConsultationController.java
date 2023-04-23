@@ -19,6 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -30,6 +31,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.event.ActionEvent;
   
 public class ConsultationController {
 
@@ -72,7 +74,7 @@ public class ConsultationController {
 	    @FXML
 	    private TableColumn<Avis,Integer > saisonnote;
 	    @FXML
-	    private ComboBox<Integer> Choicebox;
+	    private ChoiceBox<Integer> Choicebox;
 
 	    @FXML
 	    private Label score;
@@ -114,6 +116,11 @@ public class ConsultationController {
 					e2.printStackTrace();
 				}
 			    Choicebox.getItems().addAll(saisonliste);
+			    Choicebox.setOnAction((e)-> {calculScoreSaison(show.getId_show(),Choicebox.getValue());
+			      });
+			    double s=AvisDAO.CalculScore(show.getId_show());
+			    score.setText(String.valueOf(s));
+		
 				}
 				}	
 	   
@@ -123,13 +130,20 @@ public class ConsultationController {
 			List<Show> show1 =ShowDAO.findShowParTitre(rechercheTitre.getText());
 			for(Show show:show1) {
 		     int nb= ShowDAO.getNombreSaisons(show.getId_show());
+		    
 		    for(int i=0;i<nb;i++) 
 		    {int f=i+1;
-		    	saisons.add(f);	l}
+		    	saisons.add(f);
+		       
+		    }
 			}
 		    return saisons;
 		    }
-		
+	private void calculScoreSaison(int id_show, int num_saison) {
+	  double score=AvisDAO.CalculScoreSaison(id_show, num_saison);
+	    scoreSaison.setText(String.valueOf(score));
+	
+	}
 
 		
 	

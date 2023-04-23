@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Dao.AvisDAO;
+import Dao.ClassementDao;
 import Dao.SaisonDao;
 import Dao.ShowDAO;
 
@@ -60,8 +61,18 @@ public class App extends Application {
 
     	/*Avis a= new Avis(20, 1, 0,"hello",1, 1);
     	AvisDAO.ajouterAvis(a);*/
-    	launch();
+    //launch();
+    	ClassementDao.save_view(10,20,4);
     	
+    	
+   /* double s=	AvisDAO.CalculScore(10);
+    	System.out.println(s);*/
+    	
+    	/*double s=AvisDAO.CalculScoreSaison(10, 1);
+    	System.out.println(s);*/
+    	
+    	
+    	//System.out.println(AvisDAO.envoyerNotif(2));
     	//AvisDAO.modifCom(1, 0, 0, 2, "biiii");
     	/*Show s=new Show(123,"13 reasons why",LocalDate.of(2022,10,20),"aze0","azerty","Dramatique",0,"url");
     	Service.ShowService.addShow(s);

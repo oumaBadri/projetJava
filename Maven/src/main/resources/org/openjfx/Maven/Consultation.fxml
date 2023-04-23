@@ -3,7 +3,7 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -72,10 +72,36 @@
             <String fx:value="side_ankerpane" />
          </styleClass>
       </TableView>
-      <ComboBox fx:id="Choisebox" layoutX="219.0" layoutY="108.0" prefWidth="150.0" promptText="Score Saison" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
-      <Line endX="111.39999389648438" endY="-0.4000091552734375" layoutX="255.0" layoutY="133.0" startX="-33.600006103515625" />
-      <Label fx:id="scoreSaison" layoutX="228.0" layoutY="154.0" prefHeight="36.0" prefWidth="182.0" text="..." />
-      <Label layoutX="225.0" layoutY="223.0" prefHeight="26.0" prefWidth="118.0" text="Score Show" />
-      <Label fx:id="score" layoutX="225.0" layoutY="249.0" prefHeight="26.0" prefWidth="118.0" text=".." />
+      <Label fx:id="scoreSaison" layoutX="268.0" layoutY="173.0" prefHeight="36.0" prefWidth="182.0">
+         <font>
+            <Font name="Cooper Black" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="266.0" layoutY="220.0" prefHeight="34.0" prefWidth="142.0" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css" text="            Show" textFill="#2c037e">
+         <font>
+            <Font name="Cooper Black" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="score" layoutX="268.0" layoutY="255.0" prefHeight="26.0" prefWidth="118.0">
+         <font>
+            <Font name="Cooper Black" size="20.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="Choicebox" layoutX="262.0" layoutY="143.0" prefWidth="150.0" stylesheets="@../../Style/MainStyle.css">
+         <styleClass>
+            <String fx:value="transparent" />
+            <String fx:value="side_ankerpane" />
+         </styleClass>
+      </ChoiceBox>
+      <Label layoutX="307.0" layoutY="145.0" prefHeight="26.0" prefWidth="59.0" text=" Saison" textFill="#2c037e">
+         <font>
+            <Font name="Cooper Black" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="266.0" layoutY="96.0" prefHeight="34.0" prefWidth="142.0" stylesheets="@../../Style/MainStyle.css" text="Score " textFill="#2c037e">
+         <font>
+            <Font name="Cooper Black" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

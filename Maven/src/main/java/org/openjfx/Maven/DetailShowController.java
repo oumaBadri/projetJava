@@ -183,11 +183,13 @@ public class DetailShowController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		
 
+//*****************pour le choiceBox*******************
+
 		List<Integer> saisonliste=new ArrayList<>();
 
 			try {
 				saisonliste = createListe();
-				System.out.println(saisonliste+"****+++");
+				
 			} catch (SQLException e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
@@ -195,12 +197,23 @@ public class DetailShowController implements Initializable {
 		
 		choice.getItems().addAll(saisonliste);
 		
+		if(!saisonliste.isEmpty()){
+		    choice.setValue(saisonliste.get(0));
+		    try {
+				displayEp(choice.getValue());
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		//choice.setValue(1);
 		//choice.setOnAction(this::displayEp);
 		 choice.setOnAction((event) -> {
 		        try {
-		        	System.out.println(
-		        			choice.getValue());
-		        	System.out.println(choice.getValue());
+		        	
 		           displayEp(choice.getValue());
 		        } catch (NumberFormatException | SQLException e) {
 		            e.printStackTrace();
@@ -210,6 +223,7 @@ public class DetailShowController implements Initializable {
 		//********display affiche*****************
 	try {
 	Show show1 =ShowDAO.findShowParID(s.getId_show());
+	System.out.println(show1);
 	FXMLLoader fxmlLoader = new FXMLLoader();
 	fxmlLoader.setLocation(getClass().getResource("affiche.fxml"));
 	VBox image  = fxmlLoader.load();

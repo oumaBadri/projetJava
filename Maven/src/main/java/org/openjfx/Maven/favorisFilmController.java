@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import Dao.ActeurDAO;
 import Dao.AvisDAO;
 import Dao.ShowDAO;
+import Models.Show;
 import Models.Utilisateur;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -66,8 +67,31 @@ public class favorisFilmController implements Initializable{
 	  
 
 	    @FXML
-	    void voirdetails(ActionEvent event) {
+	    void voirdetails(ActionEvent event) throws IOException {
+	    	
+	    	String selectedItem = filmList.getSelectionModel().getSelectedItem();
+	    	int i=ShowDAO.findIdShow(selectedItem);
+	    	Show show= ShowDAO.findShowParID(i);
+	    	System.out.println(show+"*****++++++");
+	    	
+	        if (selectedItem != null) {
+	        	DetailShowController.s.setAffiche(show.getAffiche());
+	     	   DetailShowController.s.setTitre_show(show.getTitre_show());
+	     	   DetailShowController.s.setId_show(i);
+	     	   Show q= ShowDAO.findShowParID(i);
+	     	   
+	     	   Object c=q.getDateOb();
+	     	   DetailShowController.s.setDateOb(c);
+	     	   DetailShowController.s.setGenre_show(q.getGenre_show());
+	     	   DetailShowController.s.setLangue(q.getLangue());
+	     	   DetailShowController.s.setPays(q.getPays());
+	     	   DetailShowController.s.setIs_a_film(q.getIs_a_film());
 
+	     	   App.setRoot("DetailShow");
+	        }
+	    	
+	    	
+	    	
 	    }
 	  
 	  

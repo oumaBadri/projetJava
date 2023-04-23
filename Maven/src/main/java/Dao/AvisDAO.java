@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -223,7 +224,7 @@ public static List<Integer> findAll2(int id_user) throws SQLException{
 	PreparedStatement pstmt = null;
     ResultSet rs = null;
 			    List<Integer> avis = new ArrayList<>();
-			    String SQL = "SELECT id_show FROM Avis where favoris_show=1 and id_user=?";
+			    String SQL = "SELECT distinct id_show FROM Avis where favoris_show=1 and id_user=?";
 		        try {
 		        	pstmt = conn.prepareStatement(SQL);
 		            pstmt.setInt(1, id_user);
@@ -319,7 +320,14 @@ public List<Integer> getUsers(int showId) throws SQLException {
     return users;
 }
 
-//*********************************************************************************
+//************date format aa/mm/dd **********
+public static LocalDate convertDate(LocalDate date) {
+    return LocalDate.of(date.getYear(), date.getMonth(), date.getDayOfMonth());
+}
+
+
+
+//**********trajaa les show favoris mta user eli date diff mtaa ep ta3hom today*****************************************
 
 public static List<String> envoyerNotif(int id_user_connecte) {
     PreparedStatement pstmt = null;
@@ -327,6 +335,7 @@ public static List<String> envoyerNotif(int id_user_connecte) {
     List<String> notifications = new ArrayList<>();
 
     LocalDate dateActuelle = LocalDate.now();
+    dateActuelle =convertDate(dateActuelle);
 
     String SQL2 = "SELECT DISTINCT s.id_show, e.nom_ep "
             + "FROM show s, saison sa, episode e, avis a "
@@ -458,11 +467,9 @@ public static double CalculScoreSaison(int id_show , int num_saison) {
     try {
         pstmt = conn.prepareStatement(SQL);
         pstmt.setInt(1, id_show);
-        pstmt.setInt(22,num_saison);
+        pstmt.setInt(2,num_saison);
         rs = pstmt.executeQuery();
-
-
-        if (rs.next()) {
+         if (rs.next()) {
         	 noteMoyenne += rs.getDouble("note");
              nbNotes++;
          }
@@ -476,14 +483,23 @@ public static double CalculScoreSaison(int id_show , int num_saison) {
     
     }
     return noteMoyenne;
+}
+//**********************************************************************
+    public static double CalculScore(int id_show) throws SQLException {
+    int s=	ShowDAO.getNombreSaisons(id_show);
+    System.out.println(s);
+    double somme=0;
+     for(int i=0;i<=s;i++) {
+    	somme=somme+CalculScoreSaison(id_show,i);
+    
+    }
+	return somme/s;
 	
-	
-	
-	
+    }
 	
 	
 	
 	
 }
 
-}
+
