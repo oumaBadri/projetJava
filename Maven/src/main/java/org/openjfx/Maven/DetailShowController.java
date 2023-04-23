@@ -94,7 +94,6 @@ public class DetailShowController implements Initializable {
     private  List<Integer> createListe() throws SQLException {
     List<Integer> saisons= new ArrayList<>();	
      int nb= ShowDAO.getNombreSaisons(s.getId_show());
-     System.out.println(nb+"nbeppersaison");
     for(int i=0;i<nb;i++) 
     {int f=i+1;
     	saisons.add(f);	
@@ -144,7 +143,7 @@ public class DetailShowController implements Initializable {
 
    
     
-    ///***retour home page***************
+    ///***********retour home page***************
     @FXML
     void back(MouseEvent event) throws IOException {
     	App.setRoot("UserHome");
