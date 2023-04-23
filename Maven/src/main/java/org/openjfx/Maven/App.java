@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,16 +67,12 @@ public class App extends Application {
     	/*Avis a= new Avis(20, 1, 0,"hello",1, 1);
     	AvisDAO.ajouterAvis(a);*/
     //launch();
-    	/*LocalDate date = LocalDate.of(2022,10,20);
-    	Admin a= new Admin(1,"djamel","benlehzil","d@gmail.com","123456789",date);
-    	AdminDao.ajouterAdministrateur(a);*/
-    	System.out.println(AdminDao.findAll());
     	//ClassementDao.save_view(10,50,4);
     	//System.out.println(ClassementController.ShowTitreByvue());
     	
     	
-   /* double s=	AvisDAO.CalculScore(10);
-    	System.out.println(s);*/
+    double s=	AvisDAO.CalculScore(10);
+    	System.out.println(s);
     	
     	/*double s=AvisDAO.CalculScoreSaison(10, 1);
     	System.out.println(s);*/
