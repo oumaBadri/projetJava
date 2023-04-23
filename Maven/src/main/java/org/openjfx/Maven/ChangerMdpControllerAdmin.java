@@ -53,12 +53,12 @@ private Button profileAc;
 private ImageView back;
 
 //static Utilisateur a= new Utilisateur();
-static ProfileInterfaceControllerUser pu= new ProfileInterfaceControllerUser();
+static ProfileInterfaceControllerAdmin pu= new ProfileInterfaceControllerAdmin();
 
 
 @FXML
 private void back() throws IOException {
-  App.setRoot("ProfileInterfaceUser");
+  App.setRoot("ProfileInterfaceAdmin");
 }
 
 @FXML
@@ -73,7 +73,7 @@ void enregistrer(ActionEvent event) throws NumberFormatException, SQLException {
 		ChampValid=false;
 	}
 	
-	if (ControlSaisie.validId(Integer.parseInt(idAc.getText()))==false) {
+	if (ControlSaisie.validIdAdmin(Integer.parseInt(idAc.getText()))==false) {
 		idcor.setText("Id n existe pas");
 		ChampValid=false;
 	}
@@ -83,7 +83,7 @@ void enregistrer(ActionEvent event) throws NumberFormatException, SQLException {
 		ChampValid=false;
 	}
 	
-	if (ControlSaisie.validAncienMdpUser(Integer.parseInt(idAc.getText()),AncienMdpAc.getText())==false) {
+	if (ControlSaisie.validAncienMdpAdmin(Integer.parseInt(idAc.getText()),AncienMdpAc.getText())==false) {
 		ancienMdpCor.setText("password invalide");
 		ChampValid=false;
 	}
@@ -94,7 +94,7 @@ void enregistrer(ActionEvent event) throws NumberFormatException, SQLException {
 	}
 	
 	if (ChampValid==true) {
-		Service.UtilisateurService.modifMdpUser(Integer.parseInt(idAc.getText()), nvMdpAc.getText());
+		Service.AdminService.modifMdpAdmin(Integer.parseInt(idAc.getText()), nvMdpAc.getText());
 		update.setText("modification enregistrée");
 
 	}
@@ -109,13 +109,13 @@ public void setlog(String log) {
 }
 @FXML
 private void switchToProfl() throws IOException {
-  App.setRoot("ProfileSettingsUser");
+  App.setRoot("ProfileSettingsAdmin");
 }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		setId(String.valueOf(pu.a.getId_user()));
-		setlog(pu.a.getNom_user()+" "+pu.a.getPrenom_user());
+		setId(String.valueOf(pu.a.getId_ad()));
+		setlog(pu.a.getNom_ad()+" "+pu.a.getPrenom_ad());
 	}
 }
