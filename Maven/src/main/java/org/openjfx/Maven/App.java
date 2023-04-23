@@ -14,6 +14,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Dao.AdminDao;
 import Dao.AvisDAO;
 import Dao.ClassementDao;
 import Dao.SaisonDao;
@@ -22,6 +23,7 @@ import Dao.ShowDAO;
 
 import Dao.UtilisateurDAO;
 import Models.Acteur;
+import Models.Admin;
 import Models.Avis;
 import Dao.UtilisateurDAO;
 
@@ -58,9 +60,10 @@ public class App extends Application {
 
     public static void main(String[] args) throws SQLException {
 
-        launch();
+        //launch();
  
-
+    List<Admin> a=   AdminDao.findAll();
+ System.out.println(a);
     	/*Avis a= new Avis(20, 1, 0,"hello",1, 1);
     	AvisDAO.ajouterAvis(a);*/
     //launch();
