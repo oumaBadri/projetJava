@@ -1,11 +1,12 @@
 package org.openjfx.Maven;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import Controller.ControlSaisie;
-import Dao.UtilisateurDAO;
-import Models.Utilisateur;
-import Service.UtilisateurService;
+import Dao.AdminDao;
+import Models.Admin;
+import Service.AdminService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -37,7 +38,7 @@ public class LoginAdminController {
    
 
     @FXML
-    void Login(ActionEvent event) throws IOException {
+    void Login(ActionEvent event) throws IOException, SQLException {
 
     	
     	Boolean ChampValid=true;
@@ -52,21 +53,22 @@ public class LoginAdminController {
     		ChampValid=false;
     	}
     	if (ChampValid==true) {
-    		
+    		ProfileInterfaceControllerAdmin ii= new ProfileInterfaceControllerAdmin();
     		ImageController p= new ImageController();
-    		favorisFilmController i= new favorisFilmController();
-    		NotifController f= new NotifController();
     		DetailShowController di= new DetailShowController();
-    	    Utilisateur d= UtilisateurDAO.getUser(email.getText());
+    	    Admin d= AdminDao.getAdministrateur(email.getText());
     	    System.out.println(d);
     		//System.out.println(d);
-    		f.a.setId_user(d.getId_user());
-    		p.a.setId_user(d.getId_user());
-    		i.a.setId_user(d.getId_user());
-    		di.a.setId_user(d.getId_user());
-    		System.out.println("*****"+i.a.getId_user());
-    		UtilisateurService.login(email.getText(),mdp.getText());
-    		 App.setRoot("UserHome");
+    	    
+    	    ii.a.setDate_naissance_ad(d.getDate_naissance_ad());
+    	    ii.a.setNom_ad(d.getNom_ad());
+    		ii.a.setPrenom_ad(d.getPrenom_ad());
+    		ii.a.setId_ad(d.getId_ad());
+    		p.a.setId_user(d.getId_ad());
+    		di.a.setId_user(d.getId_ad());
+    		System.out.println("*****"+ii.a.getId_ad());
+    		AdminService.login(email.getText(),mdp.getText());
+    		 App.setRoot("AdminHome");
     }
 		
     }

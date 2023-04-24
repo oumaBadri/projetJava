@@ -44,13 +44,13 @@ private Button backBtn;
 	
 	@FXML
     private void switchToInscription() throws IOException {
-        App.setRoot("Inscription");
+        App.setRoot("InscriptionUser");
     }
 	
 	
 	@FXML
     private void switchToLogin() throws IOException {
-        App.setRoot("login");
+        App.setRoot("loginUser");
     }
 	
 	@FXML
@@ -66,7 +66,7 @@ private Button backBtn;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+		System.out.println(a.getNom_user()+" "+a.getPrenom_user());
 		setlog(a.getNom_user()+" "+a.getPrenom_user());
 	}
 

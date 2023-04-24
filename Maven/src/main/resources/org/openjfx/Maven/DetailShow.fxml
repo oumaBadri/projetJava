@@ -123,7 +123,7 @@
             <Label fx:id="savemsg" layoutX="516.0" layoutY="111.0" prefHeight="18.0" prefWidth="52.0" text="...." textFill="#651666" />
          </children>
       </AnchorPane>
-      <Button fx:id="backbtn" layoutX="20.0" layoutY="11.0" mnemonicParsing="false" onAction="#back" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+      <Button fx:id="backbtn" layoutX="20.0" layoutY="11.0" mnemonicParsing="false" onAction="#back" onMouseClicked="#back" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="33.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
                <image>

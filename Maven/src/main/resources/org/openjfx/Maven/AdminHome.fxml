@@ -20,11 +20,6 @@
          <children>
             <Button alignment="TOP_LEFT" layoutX="825.0" layoutY="15.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
             <Button layoutX="740.0" layoutY="15.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="66.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
-            <ImageView fx:id="notificationbtn" fitHeight="36.0" fitWidth="29.0" layoutX="759.0" layoutY="35.0" onMouseClicked="#goToNotif" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/bell.png" />
-               </image>
-            </ImageView>
             <Button layoutX="14.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="140.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
                   <ImageView fitHeight="79.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
@@ -49,7 +44,7 @@
    <left>
       <AnchorPane prefHeight="652.0" prefWidth="242.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="myList" alignment="CENTER_RIGHT" layoutX="-14.0" layoutY="42.0" mnemonicParsing="false" onAction="#SwithtoMyList" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="My List " textFill="#c95c3b">
+            <Button fx:id="myList" alignment="CENTER_RIGHT" layoutX="20.0" layoutY="42.0" mnemonicParsing="false" onAction="#SwithtoMyList" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Consultation" textFill="#c95c3b">
                <font>
                   <Font name="Cooper Black" size="16.0" />
                </font>

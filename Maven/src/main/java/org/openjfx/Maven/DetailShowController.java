@@ -51,7 +51,7 @@ public class DetailShowController implements Initializable {
     private Label notecor;
 	
 	 @FXML
-	    private TextField note;
+	 private TextField note;
 	@FXML
 	private FlowPane acteursFlowPane;
 	@FXML
@@ -145,7 +145,7 @@ public class DetailShowController implements Initializable {
     
     ///***********retour home page***************
     @FXML
-    void back(MouseEvent event) throws IOException {
+    void back() throws IOException {
     	App.setRoot("UserHome");
     }
     
@@ -244,7 +244,10 @@ public class DetailShowController implements Initializable {
 		langue.setText(s.getLangue());
 		pays.setText(s.getPays());
 		genre.setText(s.getGenre_show());
-		date.setText(ShowDAO.getDateOnly(s.getDateOb()));
+		
+  	   s.setDate_difussion_show(ShowDAO.getDateOnly2(s.getDateOb().toString()));
+		date.setText(s.getDate_difussion_show().toString());
+		//date.setText(ShowDAO.getDateOnly(s.getDateOb()));
 		try {
 			description.setText(SaisonDao.getDescrip(s.getId_show()));
 		} catch (SQLException e1) {

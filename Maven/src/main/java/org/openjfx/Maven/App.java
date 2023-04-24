@@ -14,6 +14,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Dao.AdminDao;
 import Dao.AvisDAO;
 import Dao.ClassementDao;
 import Dao.SaisonDao;
@@ -22,6 +23,7 @@ import Dao.ShowDAO;
 
 import Dao.UtilisateurDAO;
 import Models.Acteur;
+import Models.Admin;
 import Models.Avis;
 import Dao.UtilisateurDAO;
 
@@ -37,15 +39,15 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-
+    	//scene = new Scene(loadFXML("LoginAd"),1000,790);
 
     	//scene = new Scene(loadFXML("Consultation"),1000,790);
 
 
 
-        scene = new Scene(loadFXML("AjoutShow"),1000,790);
+        //scene = new Scene(loadFXML("AjoutShow"),1000,790);
 
-    	//scene = new Scene(loadFXML("login"),1000,790);
+    	scene = new Scene(loadFXML("AjoutShow"),1000,790);
 
 
     	//scene = new Scene(loadFXML("login"),1000,790);
@@ -66,19 +68,25 @@ public class App extends Application {
 
 
     public static void main(String[] args) throws SQLException {
+
+        //launch();
+ 
+ 
     	/*Avis a= new Avis(20, 1, 0,"hello",1, 1);
     	AvisDAO.ajouterAvis(a);*/
+
   launch();
     	
-    	
-    	
-   /* double s=	AvisDAO.CalculScore(10);
-    	System.out.println(s);*/
-    	
+
+    //launch();
+    	//ClassementDao.save_view(10,50,4);
+    	//System.out.println(ClassementController.ShowTitreByvue());
+
+   
     	/*double s=AvisDAO.CalculScoreSaison(10, 1);
     	System.out.println(s);*/
-    	
-    	
+ 
+    	//launch();
 
 
     	//helloooo
@@ -163,13 +171,9 @@ public class App extends Application {
     	//UtilisateurDAO.supprimerUtilisateur(1);
     	//System.out.println(ShowDAO.getNombreSaisons(1));
     	//System.out.println(SaisonDao.getNbEp(1, 1));
-    	//System.out.println(ShowDAO.findActeursByShow(1));
+    	//System.out.println(ShowDAO.findActeursByShow(1))
     }
 
-    	//List<Acteur> acteurs =UtilisateurDAO.RechercherActeur("ouma");
-    	//for(Acteur acteur :acteurs){
-    		//System.out.println(acteur.getNom_ac());
-    		//System.out.println(acteur.getPrenom_ac());
 }    	
     	
 

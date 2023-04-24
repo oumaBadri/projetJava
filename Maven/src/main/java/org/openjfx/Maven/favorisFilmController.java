@@ -3,6 +3,7 @@ package org.openjfx.Maven;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -72,20 +73,25 @@ public class favorisFilmController implements Initializable{
 	    	String selectedItem = filmList.getSelectionModel().getSelectedItem();
 	    	int i=ShowDAO.findIdShow(selectedItem);
 	    	Show show= ShowDAO.findShowParID(i);
+	    	System.out.println(i+"*****selected********************/");
 	    	
 	        if (selectedItem != null) {
 	        	DetailShowController.s.setAffiche(show.getAffiche());
 	     	   DetailShowController.s.setTitre_show(show.getTitre_show());
 	     	   DetailShowController.s.setId_show(i);
 	     	   Show q= ShowDAO.findShowParID(i);
-	     	   
+	     	   q.setDate_difussion_show(ShowDAO.getDateOnly2(q.getDateOb().toString()));
+	     	   System.out.println(q+"*/*95");
 	     	   Object c=q.getDateOb();
 	     	   DetailShowController.s.setDateOb(c);
+	     	   //DetailShowController.s.setDate_difussion_show((LocalDate) c);
+	     	   DetailShowController.s.setDate_difussion_show(q.getDate_difussion_show());
+	     	   //DetailShowController.s.setDate_difussion_show((LocalDate) DetailShowController.s.getDateOb());
 	     	   DetailShowController.s.setGenre_show(q.getGenre_show());
 	     	   DetailShowController.s.setLangue(q.getLangue());
 	     	   DetailShowController.s.setPays(q.getPays());
 	     	   DetailShowController.s.setIs_a_film(q.getIs_a_film());
-
+System.out.println("****"+DetailShowController.s+"///////");
 	     	   App.setRoot("DetailShow");
 	        }
 	    	

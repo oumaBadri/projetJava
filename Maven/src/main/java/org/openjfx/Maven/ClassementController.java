@@ -7,8 +7,18 @@ import java.util.stream.Collectors;
 
 import Dao.ClassementDao;
 import Dao.ShowDAO;
+import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 
 public class ClassementController {
+	
+	 @FXML
+	    private Label Hbox;
+
+	    @FXML
+	    private ChoiceBox<Integer> choicebox;
+
 	
 	
 	
@@ -23,14 +33,22 @@ public class ClassementController {
 		List<Integer> id= ClassementDao.IdByVue();
 		for(Integer id_show:id) {
 	    titre.add(ShowDAO.ShowTitre(id_show));
-			
 		}
 		return titre;
 	
-		
-		
-		
-	}
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 	
 

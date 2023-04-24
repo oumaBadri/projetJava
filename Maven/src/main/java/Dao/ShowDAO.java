@@ -508,11 +508,37 @@ public static String getDateOnly(Object object) {
 
 	    return outputFormatter.format(date);
 	
+ 
+}
 
-	
+
+//******date only localdate***************
+public static LocalDate getDateOnly2(Object object) {
+  /*  DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    LocalDate date;*/
+
+    DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
+    LocalDate date = LocalDate.parse("2023-04-22 00:00:00.0", inputFormatter);
 
     
+    
+    if (object instanceof String) {
+        date = LocalDate.parse((String)object, inputFormatter);
+    } else if (object instanceof LocalDate) {
+        date = (LocalDate)object;
+    } else {
+        throw new IllegalArgumentException("Object must be a String or a LocalDate");
+    }
+
+    return date;
 }
+
+
+
+
+
+
+
 
 //*******************recupere liste d acteur**************
 

@@ -144,7 +144,7 @@
 
                   <TextField fx:id="txt_nbrSaison" layoutX="469.0" layoutY="63.0" prefHeight="26.0" prefWidth="131.0" promptText="Nombre_Saison" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
                   <Line endX="42.39996337890625" layoutX="536.0" layoutY="133.0" startX="-67.800048828125" startY="-1.52587890625E-5" />
-                  <DatePicker fx:id="datePIcker" layoutX="187.0" layoutY="63.0" prefHeight="26.0" prefWidth="119.0" />
+                  <DatePicker fx:id="datePocker" layoutX="187.0" layoutY="63.0" prefHeight="26.0" prefWidth="119.0" />
 
                </children>
             </AnchorPane>

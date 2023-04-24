@@ -99,8 +99,21 @@ public class ControlSaisie {
 	}
 
 	
-	
+	public static boolean validIdAdmin(int id) throws SQLException {
+		return (Service.AdminService.verifId(id));
+	}
 
+	
+	
+	public static boolean validAncienMdpAdmin(int id,String mdp) {
+		return  AdminService.verifAncienMDP(id,mdp);
+	}
+	
+	
+	
+	
+	
+	
 	   /*public static LocalDate convertToDateViaInstant(Date dateToConvert) {
 	        return dateToConvert.toInstant()
 	          .atZone(ZoneId.systemDefault())
