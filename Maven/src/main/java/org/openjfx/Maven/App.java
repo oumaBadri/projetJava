@@ -45,9 +45,9 @@ public class App extends Application {
 
 
 
-        //scene = new Scene(loadFXML("AjoutShow"),1000,790);
+        scene = new Scene(loadFXML("AjoutShow"),1000,790);
 
-    	scene = new Scene(loadFXML("AjoutShow"),1000,790);
+    	//scene = new Scene(loadFXML("loginUser"),1000,790);
 
 
     	//scene = new Scene(loadFXML("login"),1000,790);

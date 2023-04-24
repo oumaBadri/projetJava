@@ -277,7 +277,7 @@ public class AjoutShowController implements Initializable{
 		    	    if (datePocker == null) {
 		    	        datePocker = new DatePicker();
 		    	    }
-		    	    datePocker.setPromptText(Dao.ShowDAO.getDateOnly(S.getDateOb()));
+		    	  //  datePocker.setPromptText(Dao.ShowDAO.getDateOnly(S.getDateOb()));
 		    	    //setPromptText(Dao.ShowDAO.getDateOnly(S.getDateOb()));
 		    	    //
 		    	    //System.out.println(datePocker.getPromptText());

@@ -96,7 +96,7 @@ public class InscriptionUserController {
     		ChampValid=false;
     	}
     	if (ChampValid==true) {
-    		p=new Utilisateur(Integer.parseInt(id.getText()),nom.getText(),prenom.getText(),date.getValue(),password.getText(),mail_p.getText());
+    		p=new Utilisateur(Integer.parseInt(id.getText()),nom.getText(),prenom.getText(),date.getValue(),mail_p.getText(),password.getText());
     		Service.UtilisateurService.AjoutUtilisateur(p); 
     		App.setRoot("UserHome");
     	}
