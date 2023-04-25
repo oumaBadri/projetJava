@@ -41,7 +41,7 @@ public class LoginUserController {
    
 
     @FXML
-    void Login(ActionEvent event) throws IOException {
+    void Login() throws IOException {
 
     	
     	Boolean ChampValid=true;

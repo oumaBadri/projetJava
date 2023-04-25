@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="342.0" styleClass="right-side-background" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.ProfileInterfaceController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1050.0" styleClass="right-side-background" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.ProfileInterfaceController">
    <children>
       <Pane prefHeight="148.0" prefWidth="256.0" styleClass="right-side-background" stylesheets="@../../Style/MainStyle.css">
          <children>
@@ -28,12 +28,14 @@
                   </TextField>
                </children>
             </Pane>
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="33.0" prefWidth="38.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
-            <ImageView fitHeight="33.0" fitWidth="38.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/back.png" />
-               </image>
-            </ImageView>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="33.0" prefWidth="38.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/back.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </Pane>
       <Pane prefHeight="226.0" prefWidth="342.0" styleClass="right-side-background" stylesheets="@../../Style/MainStyle.css">

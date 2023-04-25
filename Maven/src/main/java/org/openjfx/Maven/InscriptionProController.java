@@ -1,4 +1,6 @@
 package org.openjfx.Maven;
+import java.io.IOException;
+
 import Controller.ControlSaisie;
 import Models.Producteur;
 import javafx.event.ActionEvent;
@@ -59,7 +61,7 @@ public class InscriptionProController {
     
     @FXML
    
-    void signIN(ActionEvent event) {
+    void signIN() throws IOException {
     	Producteur p;
     	Boolean ChampValid=true;
    
@@ -92,7 +94,8 @@ public class InscriptionProController {
     	if (ChampValid==true) {
     		p=new Producteur(Integer.parseInt(id.getText()),nom.getText(),prenom.getText(),mail_p.getText(),password.getText(),date.getValue());
     		Service.ProducteurService.ajouterProducteur(p);
-    		
+    		App.setRoot("ProHome");
     	}
+    	
     }
 }

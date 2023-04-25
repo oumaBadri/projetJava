@@ -69,6 +69,7 @@ public class ProfileInterfaceControllerPro implements Initializable{
 		public void initialize(URL location, ResourceBundle resources) {
 			// TODO Auto-generated method stub
 			System.out.println(a.getNom_p()+" "+a.getPrenom_p());
+		
 			setlog(a.getNom_p()+" "+a.getPrenom_p());
 		}
 

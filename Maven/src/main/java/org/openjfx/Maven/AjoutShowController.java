@@ -397,6 +397,14 @@ public class AjoutShowController implements Initializable{
 
 	    }
 
+	    
+	    
+	    @FXML
+	    void back() throws IOException {
+	    	App.setRoot("ProHome");
+	    }
+	    
+	    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		showShow();

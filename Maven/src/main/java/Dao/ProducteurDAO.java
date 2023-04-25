@@ -173,7 +173,7 @@ public class ProducteurDAO {
 					PreparedStatement pstmt = null;
 				    ResultSet rs = null;
 				    try {
-			            String sql = "UPDATE PRODUCTEUR SET DATE_NAISSANCE_P=? WHERE ID_ACTEUR=?";
+			            String sql = "UPDATE PRODUCTEUR SET DATE_NAISSANCE_P=? WHERE ID_P=?";
 			            pstmt = conn.prepareStatement(sql);
 			            pstmt.setObject(1, annif);
 			        	pstmt.setInt(2, id_P);

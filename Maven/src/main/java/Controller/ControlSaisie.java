@@ -81,7 +81,7 @@ public class ControlSaisie {
 	}
 	
 	public static boolean ExisteMdpAc(String champ) {
-		return ProducteurService.exitProWithMdp(champ);
+		return ActeurService.exitActeurWithMdp(champ);
 	}
 	public static boolean validMdp(String mdp) {
 		return !(mdp==null) && mdp.length()>=8;

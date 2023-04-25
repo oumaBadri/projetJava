@@ -25,70 +25,27 @@ public class HomePageProController implements Initializable {
 	
 	   @FXML
 	    private HBox Hbox;
-	  /* @FXML
-	    private Button myList;
-	   @FXML
-	    private ComboBox<String> choicebox;*/
-	    
+	
 	  
 	   
 	@FXML
  private void SwithtoInterfaceProfil() throws IOException {
      App.setRoot("ProfileInterfacePro");
  }
+
+	  @FXML
+	    void SwithtoCon() throws IOException {
+		  App.setRoot("Consultation");
+	    }
+	
 	
 	
 	@FXML
- private void SwithtoMyList() throws IOException {
-     App.setRoot("favorisFilm");
- }
-	@FXML
- private void SwithtoMyShow() throws IOException {
-     App.setRoot("TvShow");
- }
-	@FXML
- private void SwithtoMyMovie() throws IOException {
-     App.setRoot("Movie");
- }
-	
-	 /*@FXML
-	    void goToNotif(MouseEvent event) throws IOException {
-   App.setRoot("notification");
-
-	    }*/
-	 @FXML
-	    void RechercheTitre() throws IOException {
-         App.setRoot("RechercheTitre");
-
-	    }
-	 @FXML
-	    void RechercheAnnee() throws IOException {
-App.setRoot("RechercheAnnee");
-
-	    }
-	 @FXML
-	    void RecherchePays() throws IOException {
-App.setRoot("RecherchePays");
-
-	    }
-	 @FXML
-	    void RechercheLangue() throws IOException {
-App.setRoot("RechercheLangue");
-
-	    }
+	 private void SwithtoAjout() throws IOException {
+	     App.setRoot("AjoutShow");
+	 }
+			 
 	 
-	 @FXML
-	    void RechercheGenre() throws IOException {
-App.setRoot("RechercheGenre");
-
-	    }
-	 
-	 
-	 @FXML
-	    void RechercheActeur() throws IOException {
-App.setRoot("RechercheActeur");
-
-	    }
 	 
 	@Override
 	public void initialize(URL location, java.util.ResourceBundle resources){

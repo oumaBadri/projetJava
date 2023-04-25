@@ -73,7 +73,7 @@ public class ConfirmSupprControllerPro implements Initializable {
 	    	}
 		*/
 		//if (ChampValid==true)
-			if(ControlSaisie.validAncienMdp(Integer.parseInt(idac.getText()),mdpac.getText())) {
+			if(ControlSaisie.validAncienMdpPro(Integer.parseInt(idac.getText()),mdpac.getText())) {
 			ProducteurDAO.supprimerProducteur(Integer.parseInt(idac.getText()));
 			App.setRoot("InscriptionPro");}
 			else

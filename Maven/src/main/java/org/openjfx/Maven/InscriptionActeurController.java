@@ -1,8 +1,10 @@
 package org.openjfx.Maven;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import Controller.ControlSaisie;
+import Models.Acteur;
 import Models.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -64,8 +66,8 @@ public class InscriptionActeurController {
     
     @FXML
    
-    void signIN(ActionEvent event) throws SQLException {
-    	Admin p;
+    void signIN() throws SQLException, IOException {
+    	Acteur p;
     	Boolean ChampValid=true;
    
     	try {
@@ -95,9 +97,9 @@ public class InscriptionActeurController {
     		ChampValid=false;
     	}
     	if (ChampValid==true) {
-    		p=new Admin(Integer.parseInt(id.getText()),nom.getText(),prenom.getText(),mail_p.getText(),password.getText(),date.getValue());
-    		Service.AdminService.ajouterAdmin(p);
-    		
+    		p=new Acteur(Integer.parseInt(id.getText()),nom.getText(),prenom.getText(),mail_p.getText(),password.getText(),date.getValue());
+    		Service.ActeurService.ajouterActeur(p);
+    		App.setRoot("ActeurHome");
     	}
     }
 	

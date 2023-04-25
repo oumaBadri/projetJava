@@ -64,7 +64,7 @@ import Service.UtilisateurService;
 	    		//NotifController f= new NotifController();
 	    		//DetailShowController di= new DetailShowController();
 	    	    Producteur d= ProducteurDAO.getPro(email.getText());
-	    	    System.out.println(d);
+	    	    System.out.println(d+"222222222222222");
 	    		ProfileInterfaceControllerPro ii= new ProfileInterfaceControllerPro();
 
 	    		ii.a.setDate_naissance_ac(d.getDate_naissance_ac());

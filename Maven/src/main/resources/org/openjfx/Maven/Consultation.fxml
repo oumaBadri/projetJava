@@ -21,7 +21,7 @@
       <Pane prefHeight="88.0" prefWidth="1000.0" stylesheets="@../../Style/MainStyle.css">
          <children>
             <Button fx:id="ProfilID" layoutX="935.0" layoutY="16.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="59.0" styleClass="transparent" stylesheets="@../../../Style/MainStyle.css" />
-            <Button layoutX="-8.0" layoutY="-7.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="92.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+            <Button layoutX="-8.0" layoutY="-7.0" mnemonicParsing="false" onAction="#back" prefHeight="75.0" prefWidth="92.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
                   <ImageView fitHeight="93.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                      <image>

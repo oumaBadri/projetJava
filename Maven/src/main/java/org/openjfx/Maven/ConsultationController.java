@@ -152,7 +152,12 @@ public class ConsultationController {
 	    void goToClassement() throws IOException {
 		   App.setRoot("Classement");
 	    }
-	
+	 
+	 @FXML
+	    void back() throws IOException {
+		   App.setRoot("ProHome");
+	    }
+	 
 	
 }	
 	

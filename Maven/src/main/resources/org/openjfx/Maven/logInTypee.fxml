@@ -1,58 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1073.0" styleClass="background" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.LoginTypeController">
    <children>
-      <Pane layoutY="-7.0" prefHeight="406.0" prefWidth="242.0" styleClass="left-side-background" stylesheets="@css/styles.css">
+      <Pane layoutX="364.0" prefHeight="828.0" prefWidth="700.0" styleClass="right-side-background" stylesheets="@css/styles.css">
          <children>
-            <ImageView fitHeight="200.0" fitWidth="264.0" layoutX="-22.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@img/logo2.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-      <Pane layoutX="258.0" prefHeight="400.0" prefWidth="343.0" styleClass="right-side-background" stylesheets="@css/styles.css">
-         <children>
-            <Text fill="#f69e7b" fontSmoothingType="LCD" layoutX="26.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connecter En Tant Que:">
+            <Button layoutX="554.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchtoUser" prefHeight="39.0" prefWidth="137.0" stylesheets="@../../Style/MainStyle.css" text="Utilisateur">
+               <styleClass>
+                  <String fx:value="transparent" />
+                  <String fx:value="side_ankerpane" />
+                  <String fx:value="left" />
+                  <String fx:value="background" />
+               </styleClass>
                <font>
-                  <Font size="29.0" />
+                  <Font name="Cooper Black" size="13.0" />
+               </font></Button>
+            <Button layoutX="199.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchtoPro" prefHeight="39.0" prefWidth="137.0" stylesheets="@../../Style/MainStyle.css" text="Producteur">
+               <styleClass>
+                  <String fx:value="transparent" />
+                  <String fx:value="side_ankerpane" />
+                  <String fx:value="background" />
+               </styleClass>
+               <font>
+                  <Font name="Cooper Black" size="13.0" />
+               </font></Button>
+            <Button layoutX="382.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchtoActeur" prefHeight="39.0" prefWidth="137.0" stylesheets="@../../Style/MainStyle.css" text="Acteur">
+               <styleClass>
+                  <String fx:value="transparent" />
+                  <String fx:value="side_ankerpane" />
+                  <String fx:value="background" />
+               </styleClass>
+               <font>
+                  <Font name="Cooper Black" size="14.0" />
+               </font></Button>
+            <Button layoutX="18.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchtoAdmin" prefHeight="39.0" prefWidth="137.0" stylesheets="@../../Style/MainStyle.css" text="Administrateur">
+               <styleClass>
+                  <String fx:value="transparent" />
+                  <String fx:value="background" />
+                  <String fx:value="side_ankerpane" />
+               </styleClass>
+               <font>
+                  <Font name="Cooper Black" size="14.0" />
                </font>
-            </Text>
-            <ImageView fitHeight="78.0" fitWidth="84.0" layoutX="15.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+            </Button>
+            <ImageView fitHeight="173.0" fitWidth="144.0" layoutX="195.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/producteur.png" />
+                  <Image url="@images/lo-removebg-preview.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="78.0" fitWidth="84.0" layoutX="15.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="173.0" fitWidth="144.0" layoutX="381.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/acteur.png" />
+                  <Image url="@images/user.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="95.0" fitWidth="84.0" layoutX="14.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="173.0" fitWidth="144.0" layoutX="18.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/user.png" />
+                  <Image url="@images/face%20login.png" />
                </image>
             </ImageView>
-            <Separator layoutX="17.0" layoutY="60.0" prefHeight="17.0" prefWidth="302.0" />
-            <Button layoutX="132.0" layoutY="113.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="137.0" text="Utilisateur" />
-            <Button layoutX="132.0" layoutY="214.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="137.0" text="Producteur" />
-            <Button layoutX="132.0" layoutY="295.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="137.0" text="Acteur" />
+            <ImageView fitHeight="173.0" fitWidth="144.0" layoutX="550.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/lo-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="280.0" fitWidth="425.0" layoutX="139.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/336721789_916246296322521_3193178127915645001_n-removebg-preview.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <Separator layoutX="242.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="16.0" styleClass="left-side-background" stylesheets="@css/styles.css">
-         <effect>
-            <Glow />
-         </effect>
-      </Separator>
    </children>
 </AnchorPane>
