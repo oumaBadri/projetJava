@@ -26,9 +26,9 @@ private static Connection conn = conxBD.getInstance();
 	        try {
 	            String sql = "INSERT INTO roleSecondaire VALUES (?,?,?)";
 	            pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-	            pstmt.setInt(1, role.getId_show());
+	            pstmt.setInt(3, role.getId_show());
 	            pstmt.setInt(2, role.getId_acteur());
-	            pstmt.setInt(3, role.getNum_saison());
+	            pstmt.setInt(1, role.getNum_saison());
 	         
 	            pstmt.executeUpdate();
 

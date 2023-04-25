@@ -498,8 +498,26 @@ public static double CalculScoreSaison(int id_show , int num_saison) {
     }
 	
 	
-	
-	
+    
+    ///nbr votant 
+    public static int nbrVotant(int id_Show) {
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        int count = 0;
+        try {
+            String sql = "SELECT COUNT(*)  FROM avis WHERE id_show=? AND favoris_show=1";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id_Show);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return count;
+    }
+
+
+
 }
-
-

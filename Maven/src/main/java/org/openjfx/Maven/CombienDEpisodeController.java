@@ -60,13 +60,18 @@ public class CombienDEpisodeController implements Initializable {
 	    private TextArea Description;
 	    @FXML
 	    private DatePicker DateDiffusion;
+	   
+	    /*static int cep=0;
+	    static String isfilm="film";*/
 	    
 	    
-
-
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
 			titreShow.setText(s.getTitre_show());
+			System.out.println(s.getIs_a_film()+"*****");
+			if(s.getIs_a_film()==1) {
+				System.out.println(s.getIs_a_film()+"*****");
+	        	nbrEpisode_txtField.setText("1");}
 			AjoutEpisodeController e3 = new AjoutEpisodeController();
 			AjoutActeurController ac = new AjoutActeurController();
 			
@@ -116,10 +121,13 @@ public class CombienDEpisodeController implements Initializable {
 	    public void displayEp(int numSaison) throws NumberFormatException, SQLException {
 	        int n=0;
 	        try { 
+	        	
 	            n = Integer.parseInt(nbrEpisode_txtField.getText()) ;
+	            
 	            } catch (NumberFormatException e) {
 	            // handle the exception
 	        }
+	        
 	        
 	        VBox vbox = new VBox();
 	        

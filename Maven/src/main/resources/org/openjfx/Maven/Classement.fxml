@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1000.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1000.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.ClassementMoisController">
    <top>
       <AnchorPane prefHeight="84.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="4.0" layoutY="4.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="103.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+            <Button layoutX="4.0" layoutY="4.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="77.0" prefWidth="103.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
                   <ImageView fitHeight="79.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -34,11 +34,16 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox layoutX="14.0" layoutY="50.0" prefHeight="644.0" prefWidth="978.0" />
+            <HBox fx:id="Hbox22" layoutX="14.0" layoutY="50.0" prefHeight="644.0" prefWidth="978.0" />
             <ChoiceBox fx:id="choicebox" layoutX="176.0" layoutY="19.0" prefHeight="26.0" prefWidth="51.0" />
             <Label layoutX="30.0" layoutY="18.0" prefHeight="27.0" prefWidth="136.0" text="Choisir Mois">
                <font>
                   <Font name="Cooper Black" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="241.0" layoutY="22.0" text="Si le nombre de vue pour le show pour le mois sélectionné égale a zéro rien ne s'affiche..." textFill="#f73030">
+               <font>
+                  <Font name="Baskerville Old Face" size="16.0" />
                </font>
             </Label>
          </children>

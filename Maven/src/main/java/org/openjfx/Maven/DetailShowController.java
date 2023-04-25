@@ -22,6 +22,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -127,6 +129,8 @@ public class DetailShowController implements Initializable {
                     // action à effectuer lors du clic sur le bouton "Regarder"
                 	
 						//App.setRoot("Playing");
+                    
+
 					
                 });
                 
@@ -139,6 +143,10 @@ public class DetailShowController implements Initializable {
         }
         
         boucle.getChildren().add(vbox);
+        
+        
+        
+        
     }
 
    

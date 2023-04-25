@@ -31,7 +31,7 @@ public class ControlSaisie {
 	
 	
 	public static boolean validEmailproducteur(String email) {
-		return email.contains("@")&& !(ProducteurService.exitProducteurWithEmail(email));
+		return email.contains("@")&& !(ProducteurService.exitProWithEmail(email));
 	}
 	
 	public static boolean validEmailutilisateur(String email) {
@@ -57,7 +57,7 @@ public class ControlSaisie {
 	
 
 	public static boolean ExisteEmailPro(String champ) {
-		return ProducteurService.exitProducteurWithEmail(champ);
+		return ProducteurService.exitProWithEmail(champ);
 	}
 	
 	
@@ -73,20 +73,30 @@ public class ControlSaisie {
 		return UtilisateurService.exitUtilisateurWithMdp(champ);
 	}
 	
+	public static boolean ExisteMdpPro(String champ) {
+		return UtilisateurService.exitUtilisateurWithMdp(champ);
+	}
+	
 	public static boolean ExisteMdpAc(String champ) {
-		return ActeurService.exitActeurWithMdp(champ);
+		return ProducteurService.exitProWithMdp(champ);
 	}
 	public static boolean validMdp(String mdp) {
 		return !(mdp==null) && mdp.length()>=8;
 	}
 
-	
+	public static boolean validIdPro(int id) throws SQLException {
+		return (Service.ProducteurService.verifId(id));
+	}
 	public static boolean validId(int id) throws SQLException {
 		return (Service.ActeurService.verifId(id));
 	}
 	
 	public static boolean validAncienMdp(int id,String mdp) {
 		return  ActeurService.verifAncienMDP(id,mdp);
+	}
+	
+	public static boolean validAncienMdpPro(int id,String mdp) {
+		return  ProducteurService.verifAncienMDP(id,mdp);
 	}
 	
 	public static boolean validAncienMdpUser(int id,String mdp) {

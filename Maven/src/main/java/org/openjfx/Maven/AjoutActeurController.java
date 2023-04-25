@@ -9,6 +9,8 @@ import java.util.ResourceBundle;
 
 import Dao.SaisonDao;
 import Models.Episode;
+import Models.RolePrincipale;
+import Models.RoleSecondaire;
 import Models.Show;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,8 +26,11 @@ import javafx.scene.layout.VBox;
 
 public class AjoutActeurController implements Initializable {
 
-	static Show s=new Show();
-	static Episode ep=new Episode();
+	 static Show s=new Show();
+	 static Episode ep=new Episode();
+	 static RolePrincipale rp= new RolePrincipale();
+	 static RoleSecondaire rs = new RoleSecondaire();
+	 static String role=null;
 	@FXML
     private HBox Hbox;
 
@@ -41,7 +46,7 @@ public class AjoutActeurController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		AjoutEpisodeController e3 = new AjoutEpisodeController();
+		AjoutActeurController ac= new AjoutActeurController();
 		List<Integer> saisonliste=new ArrayList<>();
 		try {
 			saisonliste = createListe();
@@ -51,7 +56,7 @@ public class AjoutActeurController implements Initializable {
 	    choicebox.getItems().addAll(saisonliste);
 	    choicebox.setOnAction((e)-> {try {
 			displayAc(choicebox.getValue());
-			e3.ep.setNum_saison(choicebox.getValue());
+			ac.ep.setNum_saison(choicebox.getValue());
 		} catch (NumberFormatException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

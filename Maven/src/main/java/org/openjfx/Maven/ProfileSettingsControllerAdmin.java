@@ -90,6 +90,7 @@ Boolean ChampValid=true;
 	if (ChampValid==true)
 		update.setText("modifications enregistrées");
 		
+		
     }
     
     

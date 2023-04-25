@@ -3,10 +3,13 @@ package org.openjfx.Maven;
     import java.io.IOException;
     import Controller.ControlSaisie;
 	import Dao.ActeurDAO;
-	import Dao.UtilisateurDAO;
+import Dao.ProducteurDAO;
+import Dao.UtilisateurDAO;
 	import Models.Acteur;
-	import Models.Utilisateur;
-	import Service.UtilisateurService;
+import Models.Producteur;
+import Models.Utilisateur;
+import Service.ProducteurService;
+import Service.UtilisateurService;
 	import javafx.event.ActionEvent;
 	import javafx.fxml.FXML;
 	import javafx.scene.control.Button;
@@ -55,20 +58,21 @@ package org.openjfx.Maven;
 	    	}
 	    	if (ChampValid==true) {
 	    		
-	    		ImageController p= new ImageController();
-	    		favorisFilmController i= new favorisFilmController();
-	    		NotifController f= new NotifController();
-	    		DetailShowController di= new DetailShowController();
-	    	    Utilisateur d= UtilisateurDAO.getUser(email.getText());
+	    		//ImageController p= new ImageController();
+	    		//favorisFilmController i= new favorisFilmController();
+	    		//NotifController f= new NotifController();
+	    		//DetailShowController di= new DetailShowController();
+	    	    Producteur d= ProducteurDAO.getPro(email.getText());
 	    	    System.out.println(d);
-	    		//System.out.println(d);
-	    		f.a.setId_user(d.getId_user());
-	    		p.a.setId_user(d.getId_user());
-	    		i.a.setId_user(d.getId_user());
-	    		di.a.setId_user(d.getId_user());
-	    		System.out.println("*****"+i.a.getId_user());
-	    		UtilisateurService.login(email.getText(),mdp.getText());
-	    		 App.setRoot("UserHome");
+	    		ProfileInterfaceControllerPro ii= new ProfileInterfaceControllerPro();
+
+	    		ii.a.setDate_naissance_ac(d.getDate_naissance_ac());
+	    	    ii.a.setNom_p(d.getNom_p());
+	    		ii.a.setPrenom_p(d.getPrenom_p());
+	    		ii.a.setId_p(d.getId_p());
+	    		System.out.println("*****"+ii.a.getId_p());
+	    		ProducteurService.login(email.getText(),mdp.getText());
+	    		 App.setRoot("ProHome");
 	    }
 			
 	    }

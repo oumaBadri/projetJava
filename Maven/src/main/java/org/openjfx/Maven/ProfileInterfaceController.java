@@ -39,15 +39,18 @@ public class ProfileInterfaceController implements Initializable{
 	
 	@FXML
     private void switchToInscription() throws IOException {
-        App.setRoot("Inscription");
+        App.setRoot("InscriptionActeur");
     }
 	
 	
 	@FXML
     private void switchToLogin() throws IOException {
-        App.setRoot("login");
+        App.setRoot("AcLogin");
     }
-	
+	 @FXML
+	    void switchToHome() throws IOException {
+		 App.setRoot("ActeurHome");
+	    }
 	@FXML
     private void supprimer() throws IOException {
         App.setRoot("ConfirmSuppr");

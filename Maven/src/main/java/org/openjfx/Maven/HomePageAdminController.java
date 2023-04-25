@@ -7,6 +7,7 @@ import java.util.List;
 
 import Models.Show;
 import Service.ShowService;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,7 +19,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class HomePageAdminController implements Initializable {
-
+	@FXML
+    private Button consultation;
 	@FXML
     private ImageView notificationbtn;
 	   @FXML
@@ -27,15 +29,19 @@ public class HomePageAdminController implements Initializable {
 	    private Button myList;
 	   @FXML
 	    private ComboBox<String> choicebox;
-	    
-	  
+	   
+	   @FXML
+	    private Button profile;
 	   
 	@FXML
  private void SwithtoInterfaceProfil() throws IOException {
      App.setRoot("ProfileInterfaceAdmin");
  }
 	
-	
+	 @FXML
+	    void SwithtoConsultation() throws IOException {
+		 App.setRoot("ConsultationSerieAdministrateur");
+	    }
 	@FXML
  private void SwithtoMyShow() throws IOException {
      App.setRoot("TvShow");
@@ -73,7 +79,7 @@ App.setRoot("RechercheGenre");
 
 	    }
 	 
-	 
+	  
 	 @FXML
 	    void RechercheActeur() throws IOException {
 App.setRoot("RechercheActeur");
@@ -82,15 +88,17 @@ App.setRoot("RechercheActeur");
 	 
 	@Override
 	public void initialize(URL location, java.util.ResourceBundle resources){
-	  try {
+	  
+		
+		try {
 		List<Show> show1 =ShowService.Findall2();
 		for(Show show :show1){
 		FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setLocation(getClass().getResource("image.fxml"));
+		fxmlLoader.setLocation(getClass().getResource("affiche.fxml"));
 		VBox image  = fxmlLoader.load();
-		ImageController imageController = fxmlLoader.getController();
+		AfficheController imageController = fxmlLoader.getController();
 		if (imageController != null) {
-		    imageController.setData(show);
+		    imageController.setData2(show.getAffiche());
 		}
 		//imageController.setData(show);
 		Hbox.getChildren().add(image);

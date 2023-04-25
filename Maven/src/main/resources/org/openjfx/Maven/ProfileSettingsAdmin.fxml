@@ -19,7 +19,7 @@
          <children>
             <Pane layoutX="70.0" layoutY="133.0" prefHeight="105.0" prefWidth="324.0">
                <children>
-                  <TextField fx:id="profileN" layoutX="-8.0" layoutY="4.0" prefHeight="96.0" prefWidth="324.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Foulen ben foulen">
+                  <TextField fx:id="profileN" editable="false" layoutX="-8.0" layoutY="4.0" prefHeight="96.0" prefWidth="324.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Foulen ben foulen">
                      <font>
                         <Font name="Cooper Black" size="31.0" />
                      </font>
@@ -95,7 +95,7 @@
                         <Font name="Cooper Black" size="20.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="idAc" layoutX="156.0" layoutY="61.0" prefHeight="48.0" prefWidth="251.0" promptText=".." styleClass="border" stylesheets="@css/styles.css" />
+                  <TextField fx:id="idAc" editable="false" layoutX="156.0" layoutY="61.0" prefHeight="48.0" prefWidth="251.0" promptText=".." styleClass="border" stylesheets="@css/styles.css" />
                   <Label fx:id="idcor" layoutX="156.0" layoutY="109.0" prefHeight="27.0" prefWidth="217.0" text=".." textFill="#ef0606" />
                   <Label fx:id="nomcor" layoutX="160.0" layoutY="226.0" prefHeight="30.0" prefWidth="251.0" text=".." textFill="#ef0606" />
                   <Label fx:id="prenomcor" layoutX="160.0" layoutY="334.0" prefHeight="40.0" prefWidth="251.0" text=".." textFill="#ef0606" />

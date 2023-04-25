@@ -80,14 +80,14 @@ public class logInAcController {
     		p.a.setPrenom_ac(d.getPrenom_ac());
     		
     		ActeurService.login(emailAc.getText(),mdpAc.getText());
-    		App.setRoot("ProfileInterface");
+    		App.setRoot("ActeurHome");
     		}
 		
     }
 	
     	@FXML
         private void switchToInscription() throws IOException {
-            App.setRoot("Inscription");
+            App.setRoot("InscriptionActeur");
         }
 }
 

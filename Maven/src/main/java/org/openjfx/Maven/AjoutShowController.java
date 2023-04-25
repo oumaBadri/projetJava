@@ -38,7 +38,7 @@ import javafx.scene.image.ImageView;
 
 public class AjoutShowController implements Initializable{
 
-	
+	 static int  a=0;
 	    
 	 	@FXML
 	    private Button btn_add;
@@ -117,7 +117,8 @@ public class AjoutShowController implements Initializable{
 	    @FXML
 	    private TextField txt_dateDiff;
 
-		
+    	//CombienDEpisodeController cep5= new CombienDEpisodeController();
+
 	    
 	    
 	    @FXML
@@ -158,6 +159,7 @@ public class AjoutShowController implements Initializable{
 		            alert.showAndWait();
 		            return;
 		        }
+		       
 		        int isAFilm, nbrSaison;
 		        try {
 		            isAFilm = Integer.parseInt(isAFilmText);
@@ -177,6 +179,7 @@ public class AjoutShowController implements Initializable{
 		            alert.showAndWait();
 		            return;
 		        }
+		       
 		        Show show = new Show(Integer.parseInt(txt_searchId.getText()),titre , dateDiff , pays , langue, genre, isAFilm, affiche,Integer.parseInt(nbrSaisonText));
 		        ShowDAO.ajouterShow(show);
 		    
@@ -258,10 +261,20 @@ public class AjoutShowController implements Initializable{
 		     	e.ep.setId_show(Integer.parseInt(txt_searchId.getText()));
 		     	ac.s.setId_show(Integer.parseInt(txt_searchId.getText()));
 		    	ac.s.setNb_Saison(Integer.parseInt(txt_nbrSaison.getText()));
+		    	 System.out.println(txt_isAFilm.getText()+"*9999999999");
+		    	  String isAFilmText = txt_isAFilm.getText();
+	    	if(isAFilmText=="film") {
+			           // cep5.cep=1;
+			           // cep5.isfilm=txt_isAFilm.getText();
+			        	c.s.setIs_a_film(1);
+			        	System.out.println(c.s.getIs_a_film()+"74774774");
+			        	
+			        	
+			        }
 		    	App.setRoot("CombienDEpisode");
 	    	}
 	    	
-	    }
+ }
 
 	    @FXML
 	    void searchShow() {
@@ -279,8 +292,15 @@ public class AjoutShowController implements Initializable{
 		    	    if (S.getIs_a_film() == 0) {
 		    	        txt_isAFilm.setText("serie");
 		    	    } else {
+		    	    	 CombienDEpisodeController cy = new CombienDEpisodeController();
 		    	        txt_isAFilm.setText("film");
+		    	        cy.s.setIs_a_film(1);
+  			        	System.out.println(cy.s.getIs_a_film()+"74774774");
 		    	    }
+		    		 
+		  			        	
+		  			        	
+		  			       // }
 		    	    
 		    	    txt_nbrSaison.setText(String.valueOf(S.getNb_Saison()));
 		    	    txt_langue.setText(S.getLangue());

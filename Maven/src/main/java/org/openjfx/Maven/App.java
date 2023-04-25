@@ -2,21 +2,28 @@ package org.openjfx.Maven;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import Controller.ControlSaisie;
 import Dao.AdminDao;
 import Dao.AvisDAO;
 import Dao.ClassementDao;
+import Dao.ProducteurDAO;
 import Dao.SaisonDao;
 import Dao.ShowDAO;
 
@@ -28,6 +35,8 @@ import Models.Avis;
 import Dao.UtilisateurDAO;
 
 import Models.Show;
+import Service.AdminService;
+import Service.ProducteurService;
 
 /**
  * JavaFX App
@@ -39,18 +48,20 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-    
 
 
+    	scene = new Scene(loadFXML("LoginPro"),1000,790);
+    //	scene = new Scene(loadFXML("loginUser"),1000,790);
 
+    	scene = new Scene(loadFXML("LoginAd"),1000,790);
         scene = new Scene(loadFXML("AjoutShow"),1000,790);
 
     	
 
+
         stage.setScene(scene);
         stage.show();
-
-    }
+        }
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
@@ -64,25 +75,49 @@ public class App extends Application {
 
     public static void main(String[] args) throws SQLException {
 
-        //launch();
- 
- 
+//System.out.println(ClassementDao.getshowVote());
+    	//System.out.println(AdminDao.findAll().stream().filter(a->a.getEmail().equals("y@gmail.com")));
+    	/*System.out.println(AdminDao.getAdministrateur("y@gmail.com"));
+    	LocalDate date = LocalDate.of(2022,10,20);
+    	Admin a = new Admin(3, "nilsen","youssef", "n@gmail.com", "741852963", date);
+    	System.out.println(AdminDao.ajouterAdministrateur(a));*/
+    	//System.out.println(AdminDao.getAdministrateur("n@gmail.com"));
+      launch();
+    	//System.out.println(ControlSaisie.ExisteEmailAd("y@gmail.com"));
+    	//System.out.println(AdminService.login("y@gmail.com", "123456789"));
+
+	    
+    	//System.out.println(ClassementMoisController.createListe());
+    	/*System.out.println(ClassementDao.IdByVueBymois(4));
+    	List<String> classementlist=new ArrayList<>();
+    	List<Integer> a= ClassementDao.IdByVueBymois(4);
+    	for(Integer i:a) {
+    		classementlist.add(ShowDAO.ShowTitre(i));
+    	}
+    	System.out.println(classementlist.toString());*/
+    /*	List<String> classementlist=new ArrayList<>();
+    	List<Integer> a= ClassementDao.IdByVue();
+    	for(Integer i:a) {
+    		classementlist.add(ShowDAO.ShowTitre(i));
+    	}
+    	System.out.println(classementlist);*/
+    /*List<Admin> a=   AdminDao.findAll();
+ System.out.println(a);
     	/*Avis a= new Avis(20, 1, 0,"hello",1, 1);
     	AvisDAO.ajouterAvis(a);*/
-
-  launch();
-    	
-
     //launch();
     	//ClassementDao.save_view(10,50,4);
     	//System.out.println(ClassementController.ShowTitreByvue());
-
-   
+    	
+    	//System.out.println(ClassementDao.getshowVue());
+  /*  double s=	AvisDAO.CalculScore(10);
+    	System.out.println(s);
+    	
     	/*double s=AvisDAO.CalculScoreSaison(10, 1);
     	System.out.println(s);*/
- 
+    	
+    	
     	//launch();
-
 
     	//helloooo
     	//System.out.println(Dao.ShowDAO.findShowParID(13));
@@ -145,29 +180,12 @@ public class App extends Application {
         //hello world
     /*	List<Show> sh= ShowDAO.findAll2();
     	System.out.println(sh);*/
-        
-       //System.out.println(Dao.ShowDAO.findShowParID(12));
-    	
-       
-       
-    	//test
-    	/*LocalDate date=LocalDate.of(2002,06, 18);
-    	Acteur a=new Acteur(12,"malak","bendhia","bendhia@gmail.com","1236457",date);
-    	Dao.ActeurDAO.ajouterActeur(a);*/
-    	
-    	/*try {
-			int n=Dao.ShowDAO.getNombreSaisons(12);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}*/
 
-//System.out.println(SaisonDao.getDescrip(1));
-    //launch();
-    	//UtilisateurDAO.supprimerUtilisateur(1);
-    	//System.out.println(ShowDAO.getNombreSaisons(1));
-    	//System.out.println(SaisonDao.getNbEp(1, 1));
-    	//System.out.println(ShowDAO.findActeursByShow(1))
-    }
+  }
+
+    
+
+
 
 }    	
     	
