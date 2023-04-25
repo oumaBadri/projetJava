@@ -1,12 +1,13 @@
 package org.openjfx.Maven;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Controller.ControlSaisie;
-import Dao.ActeurDAO;
-import Models.Acteur;
+import Dao.AdminDao;
+import Dao.ProducteurDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,7 +16,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-public class ConfirmSupprController implements Initializable{
+public class ConfirmSupprControllerPro implements Initializable {
 	 @FXML
 	    private Button annulerBtn;
 
@@ -34,11 +35,12 @@ public class ConfirmSupprController implements Initializable{
 	    @FXML
 	    private Text idcor;
 	    
-	    static Acteur a=new Acteur();
+	    //static Utilisateur a=new Utilisateur();
+	    static ProfileInterfaceControllerPro pu= new ProfileInterfaceControllerPro();
 	    
 	    @FXML
 	    private void annuler() throws IOException {
-	        App.setRoot("ProfileInterface");
+	        App.setRoot("ProfileInterfacePro");
 	    }
 	    
 	    
@@ -72,8 +74,8 @@ public class ConfirmSupprController implements Initializable{
 		*/
 		//if (ChampValid==true)
 			if(ControlSaisie.validAncienMdp(Integer.parseInt(idac.getText()),mdpac.getText())) {
-			ActeurDAO.supprimerActeur(Integer.parseInt(idac.getText()));
-			App.setRoot("InscriptionActeur");}
+			ProducteurDAO.supprimerProducteur(Integer.parseInt(idac.getText()));
+			App.setRoot("InscriptionPro");}
 			else
 				mdpcor.setText("password invalide : mdp incorrecte");
 			
@@ -88,10 +90,7 @@ public class ConfirmSupprController implements Initializable{
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
 			// TODO Auto-generated method stub
-			setId(String.valueOf(a.getId_acteur()));
+			setId(String.valueOf(pu.a.getId_p()));
 			
 		}
-	    
-	    
-
 }

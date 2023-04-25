@@ -14,13 +14,20 @@ public class Admin {
 		super();
 	}
 	public Admin(int id_ad, String nom_ad, String prenom_ad, String email, String mdp, LocalDate date_naissance_ad) {
-		super();
+		//super();
 		this.id_ad = id_ad;
 		this.nom_ad = nom_ad;
 		this.prenom_ad = prenom_ad;
 		this.email = email;
 		this.mdp = mdp;
 		this.date_naissance_ad = date_naissance_ad;
+	}
+	public Admin(int id, String nom, String prenom, LocalDate annif) {
+		// TODO Auto-generated constructor stub
+		this.date_naissance_ad=annif;
+		this.nom_ad=nom;
+		this.prenom_ad=prenom;
+		this.id_ad=id;
 	}
 	public int getId_ad() {
 		return id_ad;
@@ -58,6 +65,7 @@ public class Admin {
 	public void setDate_naissance_ad(LocalDate date_naissance_ad) {
 		this.date_naissance_ad = date_naissance_ad;
 	}
+	
 	@Override
 	public String toString() {
 		return "Admin [id_ad=" + id_ad + ", nom_ad=" + nom_ad + ", prenom_ad=" + prenom_ad + ", email=" + email

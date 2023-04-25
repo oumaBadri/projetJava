@@ -34,7 +34,8 @@ import javafx.scene.layout.VBox;
 import javafx.event.ActionEvent;
   
 public class ConsultationController {
-
+	@FXML
+    private Button parmois;
 	  @FXML
 	    private Button ProfilID;
 
@@ -142,12 +143,15 @@ public class ConsultationController {
 	private void calculScoreSaison(int id_show, int num_saison) {
 	  double score=AvisDAO.CalculScoreSaison(id_show, num_saison);
 	    scoreSaison.setText(String.valueOf(score));
-	
 	}
 
 		
 	
 	
+	 @FXML
+	    void goToClassement() throws IOException {
+		   App.setRoot("Classement");
+	    }
 	
 	
 }	

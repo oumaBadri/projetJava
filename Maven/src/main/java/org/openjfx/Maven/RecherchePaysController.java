@@ -39,6 +39,8 @@ public class RecherchePaysController {
 				if (imageController != null) {
 				    imageController.setData(show);
 				}
+				Hbox.getChildren().clear();
+
 				Hbox.getChildren().add(image);
 				
 				}

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Models.Acteur;
+import Models.Admin;
 import Models.Producteur;
 import utile.conxBD;
 
@@ -99,6 +100,30 @@ public class ProducteurDAO {
 			        }
 					
 				}
+				
+				
+				
+				
+				//********************verifier id**************************
+				 public static boolean verifierId(int id) {
+				        boolean existe = false;
+				        PreparedStatement pstmt = null;
+				        ResultSet rs = null;
+				        try {
+				            String sql = "SELECT * FROM Producteur WHERE ID_P=?";
+				            pstmt = conn.prepareStatement(sql);
+				            pstmt.setInt(1, id);
+				            rs = pstmt.executeQuery();
+				            if (rs.next()) {
+				                existe = true;
+				            }
+				        } catch (SQLException ex) {
+				            System.out.println(ex.getMessage());
+				        }
+				        return existe;
+				    }
+				
+				
 				
 				//****************************************************************
 				public static int modifPrenomProducteur(int id_P,String prenom) {
@@ -223,6 +248,42 @@ public class ProducteurDAO {
 			        }
 					return id_p;
 				}
+
+				
+				
+				public static  Producteur getPro(String mail) {
+					//Statement stmt = null;
+					Producteur ab= new Producteur();
+					//int id=0;
+				    ResultSet rs = null;
+				    PreparedStatement pstmt = null;
+
+			        String SQL = "SELECT id_p,nom_p,prenom_p,date_naissance_p FROM Producteur WHERE EMAIL=?";
+			        try {
+			        	System.out.println("+++++++++++++");
+			        	pstmt = conn.prepareStatement(SQL);
+				        pstmt.setString(1,mail);
+				        rs = pstmt.executeQuery();
+				        
+				       while (rs.next()) {
+				        	int id = rs.getInt(1);
+			                String nom = rs.getString(2);
+			                String prenom = rs.getString(3);
+			                LocalDate annif=rs.getObject(4,LocalDate.class);
+			                System.out.println("**********");
+				          //  ab = new Admin(id, nom, prenom,annif);
+			              ab.setId_p(id);
+			              ab.setNom_p(nom);
+			              ab.setPrenom_p(prenom);
+			              ab.setDate_naissance_ac(annif);
+			             }
+				        
+				      
+				    } catch (SQLException ex) {
+				        System.out.println(ex.getMessage());
+			        }
+					return ab;
+			       }
 				
 				
 		

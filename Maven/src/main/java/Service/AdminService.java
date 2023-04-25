@@ -9,6 +9,7 @@ import java.util.List;
 
 import Controller.ActeurControl;
 import Dao.AdminDao;
+import Dao.UtilisateurDAO;
 import Models.Admin;
 import utile.conxBD;
 
@@ -16,6 +17,7 @@ public class AdminService {
 
 
 	private static Connection conn = conxBD.getInstance();
+	
 	public static void ajouterAdmin(Admin Admin) throws SQLException {
 		 String l=Admin.getEmail();
 		if( AdminDao.RechercherParEmail(l)!=0) {
@@ -34,8 +36,11 @@ public class AdminService {
 	
 	
 	//*************************loginn***********************
-	public static  boolean login(String mail, String mdp) throws SQLException {
-	    return login(mail, mdp);
+	public static boolean login(String email, String mdp) {
+		boolean iduser;
+		iduser=AdminDao.login(email, mdp);
+		return iduser;
+		
 	}
 	
 	

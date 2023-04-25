@@ -21,13 +21,19 @@
             </ImageView>
             <Pane layoutX="-1.0" layoutY="119.0" prefHeight="47.0" prefWidth="342.0">
                <children>
-                  <TextField fx:id="profileN" alignment="TOP_CENTER" layoutX="26.0" layoutY="-4.0" prefHeight="30.0" prefWidth="290.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="     foulen ben foulen">
+                  <TextField fx:id="profileN" alignment="TOP_CENTER" editable="false" layoutX="26.0" layoutY="-4.0" prefHeight="30.0" prefWidth="290.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="     foulen ben foulen">
                      <font>
                         <Font name="Cooper Black" size="20.0" />
                      </font>
                   </TextField>
                </children>
             </Pane>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="33.0" prefWidth="38.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+            <ImageView fitHeight="33.0" fitWidth="38.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/back.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Pane prefHeight="226.0" prefWidth="342.0" styleClass="right-side-background" stylesheets="@../../Style/MainStyle.css">

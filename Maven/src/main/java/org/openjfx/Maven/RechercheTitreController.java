@@ -41,6 +41,7 @@ public class RechercheTitreController {
 			if (imageController != null) {
 			    imageController.setData(show);
 			}
+			Hbox.getChildren().clear();
 			Hbox.getChildren().add(image);
 			
 			}

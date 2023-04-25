@@ -61,7 +61,7 @@ import java.time.LocalDate;
 			        	pstmt.setInt(1, Administrateur.getId_ad());
 			        	pstmt.setString(2, Administrateur.getNom_ad());
 			        	pstmt.setString(3, Administrateur.getPrenom_ad());
-			        	pstmt.setObject(6, Administrateur.getDate_naissance_ad());
+			        	pstmt.setObject(6, Administrateur.getDate_naissance_ad().toString());
 			        	pstmt.setString(4, Administrateur.getEmail());
 			        	pstmt.setString(5, Administrateur.getMdp());
 			        	pstmt.executeUpdate();
@@ -125,7 +125,7 @@ import java.time.LocalDate;
 					PreparedStatement pstmt = null;
 				    ResultSet rs = null;
 				    try {
-			            String sql = "UPDATE Administrateur SET MDP=? WHERE ID_Ad=?";
+			            String sql = "UPDATE Administrateur SET MDP_Ad=? WHERE ID_Ad=?";
 			            pstmt = conn.prepareStatement(sql);
 			            pstmt.setString(1, mdp);
 			        	pstmt.setInt(2,id_Ac);
@@ -300,34 +300,36 @@ import java.time.LocalDate;
 			//*******************************************	 
 				 public static  Admin getAdministrateur(String mail) {
 						//Statement stmt = null;
-						Admin a= new Admin();
+						Admin ab= new Admin();
 						//int id=0;
 					    ResultSet rs = null;
 					    PreparedStatement pstmt = null;
 
-				        String SQL = "SELECT * FROM Administrateur WHERE EMAIL_ad=?";
+				        String SQL = "SELECT id_ad,nom_ad,prenom_ad,date_nais FROM Administrateur WHERE EMAIL_AD=?";
 				        try {
+				        	System.out.println("+++++++++++++");
 				        	pstmt = conn.prepareStatement(SQL);
 					        pstmt.setString(1,mail);
 					        rs = pstmt.executeQuery();
-					        while (rs.next()) {
+					        
+					       while (rs.next()) {
 					        	int id = rs.getInt(1);
 				                String nom = rs.getString(2);
 				                String prenom = rs.getString(3);
 				                LocalDate annif=rs.getObject(4,LocalDate.class);
-
-					            //a = new Administrateur(id, nom, prenom,annif);
-				              a.setId_ad(id);
-				              a.setNom_ad(nom);
-				              a.setPrenom_ad(prenom);
-				              a.setDate_naissance_ad(annif);
-				                }
+				                System.out.println("**********");
+					          //  ab = new Admin(id, nom, prenom,annif);
+				              ab.setId_ad(id);
+				              ab.setNom_ad(nom);
+				              ab.setPrenom_ad(prenom);
+				              ab.setDate_naissance_ad(annif);
+				             }
 					        
 					      
 					    } catch (SQLException ex) {
 					        System.out.println(ex.getMessage());
 				        }
-						return a;
+						return ab;
 				       }
 	}
 

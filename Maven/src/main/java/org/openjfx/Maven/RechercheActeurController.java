@@ -40,6 +40,8 @@ public class RechercheActeurController {
 					String s= acteur.getNom_ac()+acteur.getPrenom_ac();
 				    affController.setData(s);
 				    }
+				Hbox.getChildren().clear();
+
 				Hbox.getChildren().add(image);
 				
 				}

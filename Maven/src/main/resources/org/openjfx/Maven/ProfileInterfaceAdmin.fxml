@@ -21,7 +21,7 @@
             </ImageView>
             <Pane layoutX="-1.0" layoutY="119.0" prefHeight="47.0" prefWidth="342.0">
                <children>
-                  <TextField fx:id="profileN" alignment="TOP_CENTER" layoutX="26.0" layoutY="-4.0" prefHeight="30.0" prefWidth="290.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="     foulen ben foulen">
+                  <TextField fx:id="profileN" alignment="TOP_CENTER" editable="false" layoutX="26.0" layoutY="-4.0" prefHeight="30.0" prefWidth="290.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="     foulen ben foulen">
                      <font>
                         <Font name="Cooper Black" size="20.0" />
                      </font>

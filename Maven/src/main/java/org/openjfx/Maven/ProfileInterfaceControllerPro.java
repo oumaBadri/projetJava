@@ -5,15 +5,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Models.Admin;
-import Models.Utilisateur;
+import Models.Producteur;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class ProfileInterfaceControllerAdmin implements Initializable {
-	static Admin a= new Admin();
+public class ProfileInterfaceControllerPro implements Initializable{
+	
+	static Producteur a= new Producteur();
 
 	@FXML
 	private Button backBtn;
@@ -36,19 +37,19 @@ public class ProfileInterfaceControllerAdmin implements Initializable {
 	    
 	    @FXML
 	    void back(MouseEvent event) throws IOException {
-	    	App.setRoot("AdminHome");
+	    	App.setRoot("ProHome");
 	    }
 		@FXML
 	    private void switchToProfileSettings() throws IOException {
-	        App.setRoot("ProfileSettingsAdmin");
+	        App.setRoot("ProfileSettingsPro");
 	    }
 		 @FXML
 		    void switchToLogin() throws IOException {
-			 App.setRoot("AcLogin");
+			 App.setRoot("LoginPro");
 		    }
 		@FXML
 	    private void switchToInscription() throws IOException {
-	        App.setRoot("InscriptionAdmin");
+	        App.setRoot("InscriptionPro");
 	    }
 		
 		
@@ -56,7 +57,7 @@ public class ProfileInterfaceControllerAdmin implements Initializable {
 		
 		@FXML
 	    private void supprimer() throws IOException {
-	        App.setRoot("ConfirmSupprAdmin");
+	        App.setRoot("ConfirmSupprPro");
 	    }
 		
 		
@@ -67,8 +68,8 @@ public class ProfileInterfaceControllerAdmin implements Initializable {
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
 			// TODO Auto-generated method stub
-			System.out.println(a.getNom_ad()+" "+a.getPrenom_ad());
-			setlog(a.getNom_ad()+" "+a.getPrenom_ad());
+			System.out.println(a.getNom_p()+" "+a.getPrenom_p());
+			setlog(a.getNom_p()+" "+a.getPrenom_p());
 		}
 
 }
