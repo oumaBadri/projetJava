@@ -150,9 +150,7 @@ public class CombienDEpisodeController implements Initializable {
 	   {
 		 Saison a = new Saison(s.getId_show(),titreSaison.getText(),Integer.parseInt(nbrEpisode_txtField.getText()),choicebox.getValue(),DateDiffusion.getValue(),Description.getText());
 		 SaisonDao.ajouterSaison(a); 
-		 
-	   
-	   }
+		}
 	   
 	   public void Acteur() throws IOException {
 		   App.setRoot("AjoutActeur");

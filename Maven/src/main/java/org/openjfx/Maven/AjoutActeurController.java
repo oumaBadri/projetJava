@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import Dao.SaisonDao;
 import Models.Episode;
 import Models.Show;
 import javafx.fxml.FXML;
@@ -68,7 +69,7 @@ public class AjoutActeurController implements Initializable {
 	private  List<Integer> createListe() throws SQLException {
 	    List<Integer> saisons= new ArrayList<>();	
 	     //int nb=ShowDAO.getNombreSaisons();
-	    int nb=Integer.parseInt(textActeur.getText());
+	    int nb=s.getNb_Saison();
 	     System.out.println(nb);
 	    for(int i=0;i<nb;i++) {
 	    	int f=i+1;
@@ -79,33 +80,32 @@ public class AjoutActeurController implements Initializable {
 	
 	
 	public void displayAc(int numActeur) throws NumberFormatException, SQLException {
-        int n=0;
-        try { 
-            n = Integer.parseInt(textActeur.getText()) ;
-            } catch (NumberFormatException e) {
-            // handle the exception
-        }
-        
-        VBox vbox = new VBox();
-        
-        for (int i = 0; i < n; i++) {
-            try {
-            	Hbox.getChildren().clear();
-            	
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DisplayActeur.fxml"));
-                HBox display = fxmlLoader.load();
-             
-                vbox.getChildren().add(display);
-                vbox.getChildren().add(new Separator(Orientation.HORIZONTAL)); // ajoute une ligne de séparation après chaque épisode
-                
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        
-        Hbox.getChildren().add(vbox);
+    int n=0;
+    try { 
+    	 n = Integer.parseInt(textActeur.getText()) ;
+    } catch (NumberFormatException e) {
+        // handle the exception
     }
-
+    
+    VBox vbox = new VBox();
+    
+    for (int i = 0; i < n; i++) {
+        try {
+        	Hbox.getChildren().clear();
+        	
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DisplayActeur.fxml"));
+            HBox display = fxmlLoader.load();
+            vbox.getChildren().add(display);
+            System.out.println(vbox+"**************");
+            vbox.getChildren().add(new Separator(Orientation.HORIZONTAL)); // ajoute une ligne de séparation après chaque épisode
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    Hbox.getChildren().add(vbox);
+}
 	
 	
 	
