@@ -40,20 +40,10 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
 
     	scene = new Scene(loadFXML("LoginAd"),1000,790);
-
-    	//scene = new Scene(loadFXML("Consultation"),1000,790);
-
-
-
         scene = new Scene(loadFXML("AjoutShow"),1000,790);
-
-
-    	//scene = new Scene(loadFXML("login"),1000,790);
-
         stage.setScene(scene);
         stage.show();
-
-    }
+        }
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
@@ -66,14 +56,8 @@ public class App extends Application {
 
 
     public static void main(String[] args) throws SQLException {
-
-        
-
-     launch();
-    	
-
-  
-    }
+        launch();
+  }
 
 }    	
     	
