@@ -76,8 +76,8 @@ public class CombienDEpisodeController implements Initializable {
 	    private  List<Integer> createListe() throws SQLException {
 	    List<Integer> saisons= new ArrayList<>();	
 	     int nb= ShowDAO.getNombreSaisons(ep.getId_show());
-	    for(int i=0;i<nb;i++) 
-	    {int f=i+1;
+	    for(int i=0;i<nb;i++) {
+	    	int f=i+1;
 	    	saisons.add(f);	
 	    }
 	    return saisons;
