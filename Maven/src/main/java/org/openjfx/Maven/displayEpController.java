@@ -2,6 +2,7 @@ package org.openjfx.Maven;
 
 import java.io.IOException;
 
+import Dao.ClassementDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -24,11 +25,22 @@ public class displayEpController {
 	    
 	    @FXML
 	    void play() throws IOException {
+	    	DetailShowController.addview();
 	    	App.setRoot("Playing");
 	    }
+	    	 @FXML
+	    	    void switchtoDetail(ActionEvent event) throws IOException {
+                    App.setRoot("DetailShow");
+	    	    }	
+	    	
+	    	
+	    
 	    
 	    @FXML
 	    void AjoutEp() throws IOException {
 	    	App.setRoot("AjoutEpisode");
 	    }
+	    
+	   
+	    
 }

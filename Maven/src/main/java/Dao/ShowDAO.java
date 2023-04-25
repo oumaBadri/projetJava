@@ -224,12 +224,16 @@ public class ShowDAO {
             String sql = "DELETE FROM Show WHERE ID_show=?";
             pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             pstmt.setInt(1,id_show );
+            rs = pstmt.getGeneratedKeys();
+            
             pstmt.executeUpdate();
-         //4- Recupérer l'Id généré par le SGBD
-        	rs = pstmt.getGeneratedKeys();
             
             if(rs.next())
             	showId = rs.getInt(1);
+            	int d=getNombreSaisons(id_show);
+            for(int i=0;i<d;i++) {
+            	SaisonDao.supprimerSaison(id_show, i);
+            }
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

@@ -103,6 +103,12 @@ public class Acteur {
 	}
 
 
+	public Acteur(int idActeur) {
+		// TODO Auto-generated constructor stub
+		this.id_acteur=idActeur;
+	}
+
+
 	public String toString2() {
 		return "Acteur ["+" nom_ac=" + nom_ac + ", prenom_ac=" + prenom_ac 
 				 + ", date_naissance_ac=" + date_naissance_ac + "]";

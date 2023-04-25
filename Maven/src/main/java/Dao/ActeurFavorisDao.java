@@ -25,7 +25,7 @@ public class ActeurFavorisDao {
 		        int code = 0;
  
 		        try {
-		            String sql = "INSERT INTO ActeurFavorisVALUES (?,?)";
+		            String sql = "INSERT INTO ActeurFavoris VALUES (?,?)";
 		            pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		            pstmt.setInt(1, role.getId_user());
 		            pstmt.setInt(2, role.getId_acteur());

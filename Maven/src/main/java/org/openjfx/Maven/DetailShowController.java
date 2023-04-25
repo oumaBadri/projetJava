@@ -3,12 +3,14 @@ package org.openjfx.Maven;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import Controller.ControlSaisie;
 import Dao.AvisDAO;
+import Dao.ClassementDao;
 import Dao.SaisonDao;
 import Dao.ShowDAO;
 import Models.Acteur;
@@ -123,16 +125,8 @@ public class DetailShowController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayEp.fxml"));
                 HBox display = fxmlLoader.load();
                 Label label = (Label) display.lookup("#numEp");
-                Button button = (Button) display.lookup("#play");
                 label.setText(String.valueOf(i+1));
-                button.setOnAction(e -> {
-                    // action à effectuer lors du clic sur le bouton "Regarder"
-                	
-						//App.setRoot("Playing");
-                    
-
-					
-                });
+               
                 
                 vbox.getChildren().add(display);
                 vbox.getChildren().add(new Separator(Orientation.HORIZONTAL)); // ajoute une ligne de séparation après chaque épisode
@@ -143,22 +137,12 @@ public class DetailShowController implements Initializable {
         }
         
         boucle.getChildren().add(vbox);
-        
-        
-        
-        
-    }
-
-   
-    
-    ///***********retour home page***************
+         }
+///***********retour home page***************
     @FXML
     void back() throws IOException {
     	App.setRoot("UserHome");
     }
-    
-    
-    
     //***********donner avis*************
     @FXML
     void saveAvis(ActionEvent event) {
@@ -273,7 +257,7 @@ public class DetailShowController implements Initializable {
 			VBox image  = fxmlLoader.load();
 			ActeurAffController affController = fxmlLoader.getController();
 			if (affController != null) {
-				String s= acteur.getNom_ac()+acteur.getPrenom_ac();
+				String s= acteur.getNom_ac()+" "+acteur.getPrenom_ac();
 			    affController.setData(s);
 			}
 			Hbox.getChildren().add(image);
@@ -283,7 +267,13 @@ public class DetailShowController implements Initializable {
 			e.printStackTrace();
 		}
 	}
+	public static void addview() {
+		LocalDate dateActuelle = LocalDate.now();
+		ClassementDao.save_view(s.getId_show(),1,dateActuelle.getMonthValue());
+		
+		
+	}
 
-
+	 
 
 }

@@ -31,7 +31,7 @@
       </AnchorPane>
       <AnchorPane id="right" fx:id="layer1" layoutX="404.0" prefHeight="790.0" prefWidth="535.0" stylesheets="@../../../Style/Style.css">
          <children>
-            <Label fx:id="label41" alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="41.0" prefHeight="72.0" prefWidth="355.0" text="Creation du Compte" textFill="#e73232">
+            <Label fx:id="label41" alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="41.0" prefHeight="72.0" prefWidth="355.0" text="Creation du Compte" textFill="#f25d1e">
                <font>
                   <Font name="Cooper Black" size="30.0" />
                </font>

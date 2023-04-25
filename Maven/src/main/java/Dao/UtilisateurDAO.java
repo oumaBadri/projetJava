@@ -205,10 +205,8 @@ public class UtilisateurDAO {
             
             if(rs.next())
             	UId = rs.getInt(1);
-            
-        	
-
-        }catch (SQLException ex) {
+    
+            }catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
 		return id_u;

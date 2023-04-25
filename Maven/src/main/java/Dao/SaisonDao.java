@@ -199,6 +199,12 @@ return id_Show;
 	            
 	            if(rs.next())
 	            	showId = rs.getInt(1);
+	           int  d=getNbEp(id_show, num_saison);
+	           for(int i=0;i<d;i++) {
+	        	   EpisodeDAO.supprimerEpisode(id_show, i, num_saison);
+	           }
+	            
+	            
 	        }catch (SQLException ex) {
 	            System.out.println(ex.getMessage());
 	        }

@@ -328,5 +328,82 @@ public class ActeurDAO {
 			        }
 					return a;
 			       }
+			 
+			 
+			 
+	//**********************************************************************
+			 public static int trouverIdActeurS(String nomActeur) {
+			        PreparedStatement pstmt = null;
+			        ResultSet rs = null;
+			        int idActeur = -1; // valeur par défaut en cas de non correspondance
+			        try {
+			            
+			            String sql = "SELECT a.id_acteur FROM acteur a "
+			                         + "JOIN role_principale rp ON a.id_acteur = rp.id_acteur "
+			                         + "JOIN role_secondaire rs ON a.id_acteur = rs.id_acteur "
+			                         + "WHERE a.nom_ac = ?";
+			            pstmt = conn.prepareStatement(sql);
+			            pstmt.setString(1, nomActeur);
+			            
+			            // Exécution de la requête SQL
+			            rs = pstmt.executeQuery();
+			            
+			            // Traitement du résultat de la requête SQL
+			            if (rs.next()) {
+			                idActeur = rs.getInt("id_acteur");
+			            }
+			        } catch (SQLException e) {
+			            e.printStackTrace();
+			        }
+					return idActeur; }
+
+			 
+			 
+			 public static void ajouterFavoriS(int idUser, String nomActeur) {
+			        // Trouver l'ID de l'acteur en fonction de son nom
+			        int idActeur = trouverIdActeurS(nomActeur);
+			        
+			        // Si l'acteur n'existe pas, sortir de la fonction
+			        if (idActeur == -1) {
+			            System.out.println("Acteur introuvable !");
+			            return;
+			        }
+			        
+			        // Connexion à la base de données Oracle
+			        Connection conn = null;
+			        PreparedStatement pstmt = null;
+			        try {
+			            
+			            // Préparation de la requête SQL pour ajouter l'entrée à la table favorisacteur
+			            String sql = "INSERT INTO acteurfavoris (id_user, id_acteur) VALUES (?, ?)";
+			            pstmt = conn.prepareStatement(sql);
+			            pstmt.setInt(1, idUser);
+			            pstmt.setInt(2, idActeur);
+			            
+			            // Exécution de la requête SQL
+			            pstmt.executeUpdate();
+			        } catch (SQLException e) {
+			            e.printStackTrace();
+			        } finally {
+			            // Fermeture des ressources
+			            if (pstmt != null) {
+			                try {
+			                    pstmt.close();
+			                } catch (SQLException e) {
+			                    e.printStackTrace();
+			                }
+			            }
+			            if (conn != null) {
+			                try {
+			                    conn.close();
+			                } catch (SQLException e) {
+			                    e.printStackTrace();
+			                }
+			            }
+			        }
+			    }
+			 
+			 
+			 
 }
 

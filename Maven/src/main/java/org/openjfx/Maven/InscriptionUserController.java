@@ -17,6 +17,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class InscriptionUserController {
+	
+	GenreController g= new GenreController();
+	
+	
+	
 	@FXML
     private TextField id;
 
@@ -97,8 +102,11 @@ public class InscriptionUserController {
     	}
     	if (ChampValid==true) {
     		p=new Utilisateur(Integer.parseInt(id.getText()),nom.getText(),prenom.getText(),date.getValue(),mail_p.getText(),password.getText());
-    		Service.UtilisateurService.AjoutUtilisateur(p); 
-    		App.setRoot("UserHome");
+    		Service.UtilisateurService.AjoutUtilisateur(p);
+    		GenreController g= new GenreController();
+    		g.u.setId_user(Integer.parseInt(id.getText()));
+    		System.out.println(g.u.getId_user()+"**************");
+    		App.setRoot("genreChoix");
     	}
     }
 }
