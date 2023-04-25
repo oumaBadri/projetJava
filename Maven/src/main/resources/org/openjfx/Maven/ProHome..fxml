@@ -18,7 +18,7 @@
    <top>
       <AnchorPane prefHeight="98.0" prefWidth="846.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="TOP_LEFT" layoutX="825.0" layoutY="15.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+            <Button alignment="TOP_LEFT" layoutX="825.0" layoutY="15.0" mnemonicParsing="false" onAction="#SwithtoInterfaceProfil" prefHeight="68.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
                   <ImageView fitHeight="62.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                      <image>

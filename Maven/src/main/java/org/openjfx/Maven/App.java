@@ -48,17 +48,26 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava
 
-    	scene = new Scene(loadFXML("LoginPro"),1000,790);
+    	scene = new Scene(loadFXML("ConsultationSerieAdministrateur"),1000,790);
     //	scene = new Scene(loadFXML("loginUser"),1000,790);
 
+<<<<<<< HEAD
     	scene = new Scene(loadFXML("LoginAd"),1000,790);
         scene = new Scene(loadFXML("AjoutShow"),1000,790);
 
     	
 
 
+=======
+
+    	//scene = new Scene(loadFXML("LoginAd"),1000,790);
+      //  scene = new Scene(loadFXML("AjoutShow"),1000,790);
+>>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava
         stage.setScene(scene);
         stage.show();
         }
@@ -74,7 +83,10 @@ public class App extends Application {
 
 
     public static void main(String[] args) throws SQLException {
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava
 //System.out.println(ClassementDao.getshowVote());
     	//System.out.println(AdminDao.findAll().stream().filter(a->a.getEmail().equals("y@gmail.com")));
     	/*System.out.println(AdminDao.getAdministrateur("y@gmail.com"));
@@ -82,7 +94,9 @@ public class App extends Application {
     	Admin a = new Admin(3, "nilsen","youssef", "n@gmail.com", "741852963", date);
     	System.out.println(AdminDao.ajouterAdministrateur(a));*/
     	//System.out.println(AdminDao.getAdministrateur("n@gmail.com"));
-      launch();
+    	//System.out.println(ProducteurDAO.findAll());
+   //  System.out.println(ProducteurService.exitProWithEmail("a@gmail.com"));
+    	 launch();
     	//System.out.println(ControlSaisie.ExisteEmailAd("y@gmail.com"));
     	//System.out.println(AdminService.login("y@gmail.com", "123456789"));
 
@@ -180,7 +194,12 @@ public class App extends Application {
         //hello world
     /*	List<Show> sh= ShowDAO.findAll2();
     	System.out.println(sh);*/
+<<<<<<< HEAD
 
+=======
+        //hello
+        
+>>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava
   }
 
     
