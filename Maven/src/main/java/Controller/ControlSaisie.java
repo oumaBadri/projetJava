@@ -73,8 +73,11 @@ public class ControlSaisie {
 		return UtilisateurService.exitUtilisateurWithMdp(champ);
 	}
 	
+	
+	
+	
 	public static boolean ExisteMdpPro(String champ) {
-		return UtilisateurService.exitUtilisateurWithMdp(champ);
+		return ProducteurService.exitProWithMdp(champ);
 	}
 	
 	public static boolean ExisteMdpAc(String champ) {

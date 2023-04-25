@@ -143,6 +143,8 @@ public class ProducteurService {
 			}
 			boolean result = User.stream()
 	                .anyMatch(str -> str.getEmail().equals(email));
+			
+			
 			return result;
 		}
 	    

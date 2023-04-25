@@ -198,7 +198,7 @@ public class ProducteurDAO {
 				    
 					List<Producteur> producteurs = new ArrayList<>();
 
-			        String SQL = "SELECT * FROM PRODUCTEUR";
+			        String SQL = "SELECT id_p,nom_p,prenom_p,date_naissance_p,email,mdp FROM PRODUCTEUR";
 			        try {
 			        	stmt = conn.createStatement();
 			            rs = stmt.executeQuery(SQL);

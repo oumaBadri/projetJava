@@ -22,20 +22,19 @@ public class HomePageProController implements Initializable {
 	
 	
 	
-	@FXML
-    private ImageView notificationbtn;
+	
 	   @FXML
 	    private HBox Hbox;
-	   @FXML
+	  /* @FXML
 	    private Button myList;
 	   @FXML
-	    private ComboBox<String> choicebox;
+	    private ComboBox<String> choicebox;*/
 	    
 	  
 	   
 	@FXML
  private void SwithtoInterfaceProfil() throws IOException {
-     App.setRoot("ProfileInterface");
+     App.setRoot("ProfileInterfacePro");
  }
 	
 	
@@ -52,11 +51,11 @@ public class HomePageProController implements Initializable {
      App.setRoot("Movie");
  }
 	
-	 @FXML
+	 /*@FXML
 	    void goToNotif(MouseEvent event) throws IOException {
    App.setRoot("notification");
 
-	    }
+	    }*/
 	 @FXML
 	    void RechercheTitre() throws IOException {
          App.setRoot("RechercheTitre");
