@@ -48,15 +48,19 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
+<<<<<<< HEAD
 
     	scene = new Scene(loadFXML("LoginPro"),1000,790);
     //	scene = new Scene(loadFXML("loginUser"),1000,790);
 
 
+=======
+    	scene = new Scene(loadFXML("LoginAd"),1000,790);
+        scene = new Scene(loadFXML("AjoutShow"),1000,790);
+>>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava
         stage.setScene(scene);
         stage.show();
-
-    }
+        }
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
@@ -69,6 +73,7 @@ public class App extends Application {
 
 
     public static void main(String[] args) throws SQLException {
+<<<<<<< HEAD
 //System.out.println(ClassementDao.getshowVote());
     	//System.out.println(AdminDao.findAll().stream().filter(a->a.getEmail().equals("y@gmail.com")));
     	/*System.out.println(AdminDao.getAdministrateur("y@gmail.com"));
@@ -174,29 +179,12 @@ public class App extends Application {
         //hello world
     /*	List<Show> sh= ShowDAO.findAll2();
     	System.out.println(sh);*/
+=======
+        launch();
+        //hello
+>>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava
         
-       //System.out.println(Dao.ShowDAO.findShowParID(12));
-    	
-       
-       
-    	//test
-    	/*LocalDate date=LocalDate.of(2002,06, 18);
-    	Acteur a=new Acteur(12,"malak","bendhia","bendhia@gmail.com","1236457",date);
-    	Dao.ActeurDAO.ajouterActeur(a);*/
-    	
-    	/*try {
-			int n=Dao.ShowDAO.getNombreSaisons(12);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}*/
-
-//System.out.println(SaisonDao.getDescrip(1));
-    //launch();
-    	//UtilisateurDAO.supprimerUtilisateur(1);
-    	//System.out.println(ShowDAO.getNombreSaisons(1));
-    	//System.out.println(SaisonDao.getNbEp(1, 1));
-    	//System.out.println(ShowDAO.findActeursByShow(1))
-    }
+  }
 
     
 

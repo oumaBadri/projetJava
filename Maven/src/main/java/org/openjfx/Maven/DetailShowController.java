@@ -53,7 +53,7 @@ public class DetailShowController implements Initializable {
     private Label notecor;
 	
 	 @FXML
-	    private TextField note;
+	 private TextField note;
 	@FXML
 	private FlowPane acteursFlowPane;
 	@FXML

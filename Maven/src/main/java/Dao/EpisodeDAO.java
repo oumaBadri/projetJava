@@ -234,13 +234,13 @@ public class EpisodeDAO {
 		      return EP;
 			}
 	
-	//-------- trouver l'episode par idShow et numero saison------------------
-public static Episode FindEpParIdShowNumSaison(int id_show,int num_saison) throws SQLException{
+	//-------- trouver  liste des episodes dont les meme idShow et numero saison------------------
+public static List <Episode> FindAllParIdShowNumSaison(int id_show,int num_saison) throws SQLException{
 				
 				Statement stmt = null;
 			    ResultSet rs = null;
-			    
-				Episode EP = new Episode();
+			    List<Episode> episodes=null;
+				
 
 		      String SQL = "SELECT Nom_Ep,Num_Ep,Desc_Ep,Date_diff FROM Episode where id_show=? ,Num_saison=?";
 		      try {
@@ -248,15 +248,40 @@ public static Episode FindEpParIdShowNumSaison(int id_show,int num_saison) throw
 		          rs = stmt.executeQuery(SQL);
 
 		          while (rs.next()) {
+		        	  Episode EP = new Episode();
 		        	  String nomEp = rs.getString(1);
 		        	  int numEp=rs.getInt(2);
 			          String descEp = rs.getString(3);
 			          LocalDate date = rs.getObject(4,LocalDate.class);
 		              EP=new Episode(id_show,num_saison,nomEp,numEp,descEp,date);
-		          }
+		              episodes.add(EP);		          }
 		      } catch (Exception e ) {};
 		      
-		      return EP;
+		      return episodes;
 			}
+
+public static Episode FindEpParIdShowNumSaison(int id_show,int num_saison, int num_ep) throws SQLException{
+	
+	Statement stmt = null;
+    ResultSet rs = null;
+    Episode EP = new Episode();
+	
+
+  String SQL = "SELECT Nom_Ep,Desc_Ep,Date_diff FROM Episode where id_show=? ,Num_saison=?,Num_Ep=?";
+  try {
+  	stmt = conn.createStatement();
+      rs = stmt.executeQuery(SQL);
+
+      while (rs.next()) {
+    	  
+    	  String nomEp = rs.getString(1);
+          String descEp = rs.getString(2);
+          LocalDate date = rs.getObject(3,LocalDate.class);
+          EP=new Episode(id_show,num_saison,nomEp,num_ep,descEp,date);
+          		          }
+  } catch (Exception e ) {};
+  
+  return EP;
+}
 	
 }
