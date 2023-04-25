@@ -17,6 +17,38 @@ public class Show {
     private int is_a_film;
     private String affiche;
 	private Object dateOb;
+    private int nb_Saison;
+    
+	public int getNb_Saison() {
+		return nb_Saison;
+	}
+
+
+
+
+	public void setNb_Saison(int nb_Saison) {
+		this.nb_Saison = nb_Saison;
+	}
+
+
+
+
+	public Show(int id_show, String titre_show, LocalDate date_difussion_show, String pays, String langue,
+			String genre_show, int is_a_film, String affiche, int nb_Saison) {
+		super();
+		this.id_show = id_show;
+		this.titre_show = titre_show;
+		Date_difussion_show = date_difussion_show;
+		this.pays = pays;
+		this.langue = langue;
+		this.genre_show = genre_show;
+		this.is_a_film = is_a_film;
+		this.affiche = affiche;
+		this.nb_Saison = nb_Saison;
+	}
+
+
+
 
 	public Show(int id_show, String titre_show, LocalDate Date_difussion_show, String pays, String langue,String genre_show,int is_a_film) {
 		
@@ -53,7 +85,20 @@ public class Show {
 		// TODO Auto-generated constructor stub
 	}
 
-	
+	public Show(Integer identifiant, String titre_show2, Object date_diff, String pays_Show, String langue_show,
+			String genre, int is_Film, String image, int nb_saison2) {
+		this.id_show=identifiant;
+		this.titre_show=titre_show2;
+		this.dateOb=date_diff;
+		this.pays=pays_Show;
+		this.langue=langue_show;
+		this.genre_show=genre;
+		this.is_a_film=is_Film;
+		this.affiche=image;
+		this.nb_Saison=nb_saison2;
+		
+	}
+
 
 	
 
@@ -152,7 +197,11 @@ public int getIs_a_film() {
 		this.affiche = affiche;
 	}
 
+
 	
+
+
+
 	public String toString1() {
 		return "Show [id_show=" + id_show + ", titre_show=" + titre_show + ", Date_difussion_show="
 				+ Date_difussion_show + ", pays=" + pays + ", langue=" + langue + ", genre_show=" + genre_show

@@ -41,7 +41,7 @@ public class App extends Application {
 
     	//scene = new Scene(loadFXML("LoginAd"),1000,790);
 
-    	//scene = new Scene(loadFXML("Consultation"),1000,790);
+    	//scene = new Scene(loadFXML("A"),1000,790);
 
 
 

@@ -24,6 +24,9 @@ public class Saison {
 		this.date_diffusion = date_diffusion;
 		this.desc_saison = desc_saison;
 	}
+	public Saison(int id, String nbrSaisonText) {
+		// TODO Auto-generated constructor stub
+	}
 	public int getId_show() {
 		return id_show;
 	}

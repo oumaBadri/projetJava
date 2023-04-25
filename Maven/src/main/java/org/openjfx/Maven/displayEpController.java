@@ -22,11 +22,13 @@ public class displayEpController {
 	    	numEp.setText(String.valueOf(n));
 	    	}
 	    
+	    @FXML
+	    void play() throws IOException {
+	    	App.setRoot("Playing");
+	    }
 	    
-	    
-	    
-	  /* @FXML
-	    void play(ActionEvent event) throws IOException {
-App.setRoot("Playing");
-	    }*/
+	    @FXML
+	    void AjoutEp() throws IOException {
+	    	App.setRoot("AjoutEpisode");
+	    }
 }

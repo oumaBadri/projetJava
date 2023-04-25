@@ -32,7 +32,7 @@ public class ShowDAO {
 			    ResultSet rs = null;
 		        
 		        try {
-		        	String sql = "INSERT INTO Show VALUES (?,?,?,?,?,?,?,?)";
+		        	String sql = "INSERT INTO Show VALUES (?,?,?,?,?,?,?,?,?)";
 	        		pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		        	System.out.println("coonexion is---------------------- "+conn);
 		        	pstmt.setInt(1, Show.getId_show());
@@ -43,7 +43,7 @@ public class ShowDAO {
 		        	pstmt.setInt(6,Show.isIs_a_film());
 		            pstmt.setString(7, Show.getGenre_show());
 		            pstmt.setString(8, Show.getAffiche());
-		        
+		            pstmt.setInt(9, Show.getNb_Saison());
 		        	pstmt.executeUpdate();
 		        	
 		            // 4- Recupérer l'Id généré par le SGBD
@@ -342,7 +342,7 @@ public static int idTitre(String titre) throws SQLException{
 	    ResultSet rs = null;
 	    int id=identifiant;
 	    try {
-         String sql = "SELECT Titre_show,Date_diff,Pays_show,langue_show,Is_film,Genre,Image FROM Show WHERE Id_show=?";
+         String sql = "SELECT Titre_show,Date_diff,Pays_show,langue_show,Is_film,Genre,Image,nb_saison FROM Show WHERE Id_show=?";
          pstmt = conn.prepareStatement(sql);
          pstmt.setInt(1, id);
          rs = pstmt.executeQuery();
@@ -354,8 +354,8 @@ public static int idTitre(String titre) throws SQLException{
         	 int is_Film=rs.getInt(5);
         	 String genre=rs.getString(6);
         	 String image=rs.getString(7);
-        	 
-        	 s=new Show(identifiant,titre_show,date_diff,Pays_Show,Langue_show,genre,is_Film,image);
+        	 int nb_saison=rs.getInt(8);
+        	 s=new Show(identifiant,titre_show,date_diff,Pays_Show,Langue_show,genre,is_Film,image,nb_saison);
          	}
      }catch (SQLException ex) {
          System.out.println(ex.getMessage());
@@ -371,7 +371,7 @@ public static int idTitre(String titre) throws SQLException{
 	    int nombreSaisons = 0;
 
 	    try {
-	        String sql = "SELECT COUNT(*) FROM Saison JOIN Show ON Saison.id_show = Show.id_show WHERE Show.id_show = ?";
+	        String sql = "SELECT nb_saison FROM  Show  WHERE Show.id_show = ?";
 	        stmt = conn.prepareStatement(sql);
 	        stmt.setInt(1, idShow);
 	        rs = stmt.executeQuery();

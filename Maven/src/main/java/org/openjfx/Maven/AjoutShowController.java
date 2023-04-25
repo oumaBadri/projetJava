@@ -15,7 +15,10 @@ import java.util.ResourceBundle;
 
 import Controller.ControlSaisie;
 import Dao.EpisodeDAO;
+import Dao.SaisonDao;
+import Dao.ShowDAO;
 import Models.Producteur;
+import Models.Saison;
 import Models.Show;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,6 +28,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -33,7 +37,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 
 public class AjoutShowController implements Initializable{
-		CombienDEpisodeController combienEp=new CombienDEpisodeController();
+
+	
+	    
 	 	@FXML
 	    private Button btn_add;
 
@@ -106,14 +112,17 @@ public class AjoutShowController implements Initializable{
 	    
 	    @FXML
 	    private DatePicker datePocker;
-	   
+	   static int ii=0;
 	   
 	    @FXML
 	    private TextField txt_dateDiff;
+
+		
+	    
 	    
 	    @FXML
 	    void addShow() {
-	    	Show s=null;
+	    	
 	    	if (!txt_searchId.getText().isEmpty()) {
 	    		int id = Integer.parseInt(txt_searchId.getText());
 		    	 try {
@@ -168,10 +177,9 @@ public class AjoutShowController implements Initializable{
 		            alert.showAndWait();
 		            return;
 		        }
-		        Show show = new Show(Integer.parseInt(txt_searchId.getText()),titre , dateDiff , pays , langue, genre, isAFilm, affiche);
-		        
-		        Dao.ShowDAO.ajouterShow(show);
-		        
+		        Show show = new Show(Integer.parseInt(txt_searchId.getText()),titre , dateDiff , pays , langue, genre, isAFilm, affiche,Integer.parseInt(nbrSaisonText));
+		        ShowDAO.ajouterShow(show);
+		    
 		        txt_titre.clear();
 		        txt_genre.clear();
 		        txt_langue.clear();
@@ -239,11 +247,17 @@ public class AjoutShowController implements Initializable{
 	    		
 	    	}
 	    	else {
-	    		CombienDEpisodeController  c= new CombienDEpisodeController();
+	    	   CombienDEpisodeController c = new CombienDEpisodeController();
+               AjoutEpisodeController e = new AjoutEpisodeController();
+               AjoutActeurController ac = new AjoutActeurController();
 		    	c.s.setTitre_show(Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText())).getTitre_show());
 		    	
 		    	//System.out.println(c.s.getTitre_show() +"************************");
-		    	c.ep.setId_show(Integer.parseInt(txt_searchId.getText()));
+		    	c.s.setId_show(Integer.parseInt(txt_searchId.getText()));
+		    	c.s.setNb_Saison(Integer.parseInt(txt_nbrSaison.getText()));
+		     	e.ep.setId_show(Integer.parseInt(txt_searchId.getText()));
+		     	ac.s.setId_show(Integer.parseInt(txt_searchId.getText()));
+		    	ac.s.setNb_Saison(Integer.parseInt(txt_nbrSaison.getText()));
 		    	App.setRoot("CombienDEpisode");
 	    	}
 	    	
@@ -261,27 +275,25 @@ public class AjoutShowController implements Initializable{
 		    	    Show S = Dao.ShowDAO.findShowParID(Integer.parseInt(txt_searchId.getText()));
 		    	    txt_titre.setText(S.getTitre_show());
 		    	    txt_genre.setText(S.getGenre_show());
-
+		    	    
 		    	    if (S.getIs_a_film() == 0) {
 		    	        txt_isAFilm.setText("serie");
 		    	    } else {
 		    	        txt_isAFilm.setText("film");
 		    	    }
 		    	    
+		    	    txt_nbrSaison.setText(String.valueOf(S.getNb_Saison()));
 		    	    txt_langue.setText(S.getLangue());
 		    	    txt_payer.setText(S.getPays());
 		    	    txt_poster.setText(S.getAffiche());
+		    	    
 		    	    m = 1;
-		    	    txt_nbrSaison.setText(String.valueOf(Service.ShowService.getNombreSaison(Integer.parseInt(txt_searchId.getText()))));
+		    	
 		    	    //datePocker.setPromptText(Dao.ShowDAO.getDateOnly(S.getDateOb()));
 		    	    if (datePocker == null) {
 		    	        datePocker = new DatePicker();
 		    	    }
-		    	  //  datePocker.setPromptText(Dao.ShowDAO.getDateOnly(S.getDateOb()));
-		    	    //setPromptText(Dao.ShowDAO.getDateOnly(S.getDateOb()));
-		    	    //
-		    	    //System.out.println(datePocker.getPromptText());
-		    	    
+		    	
 		    	    
 		    	} catch (NumberFormatException e) {
 		    		e.printStackTrace();
@@ -349,7 +361,7 @@ public class AjoutShowController implements Initializable{
 	                return;
 	            }
 	            Dao.ShowDAO.modifShow(id, titre, dateDiff, genre, langue, pays, isAFilm, affiche);
-	            
+	            ii=Integer.parseInt(txt_NombreSaison.getText());
 	            Alert alert = new Alert(AlertType.CONFIRMATION);
 	            alert.setTitle("Confirmation");
 	            alert.setHeaderText("Mise à jour réussie");

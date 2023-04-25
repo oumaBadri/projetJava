@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="186.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="186.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.displayEpController">
    <children>
       <Label prefHeight="35.0" prefWidth="114.0" text="Episode:">
          <font>
@@ -19,7 +19,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="play" mnemonicParsing="false" prefHeight="37.0" prefWidth="38.0">
+      <Button fx:id="play" mnemonicParsing="false" onAction="#play" prefHeight="37.0" prefWidth="38.0">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                <image>
