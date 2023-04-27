@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.favorisActeurContoller">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="162.0" layoutY="63.0" prefHeight="750.0" prefWidth="1000.0" styleClass="right-side-background" stylesheets="@../../Style/MainStyle.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mes Acteurs Favoris" textAlignment="CENTER">
+               <font>
+                  <Font name="Cooper Black" size="67.0" />
+               </font>
+            </Text>
+            <Pane prefHeight="58.0" prefWidth="1000.0">
+               <children>
+                  <ImageView fx:id="retour" fitHeight="43.0" fitWidth="145.0" layoutX="3.0" onMouseClicked="#retour" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/back.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <ListView fx:id="acteurList" prefHeight="566.0" prefWidth="1000.0" styleClass="listview" stylesheets="@../../Style/MainStyle.css" />
+            <Pane prefHeight="92.0" prefWidth="895.0" styleClass="right-side-background" stylesheets="@../../Style/MainStyle.css" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

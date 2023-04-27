@@ -46,6 +46,7 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Button fx:id="favAc" layoutX="548.0" layoutY="39.0" mnemonicParsing="false" onAction="#switchToAcFav" text="Button" />
          </children>
          <styleClass>
             <String fx:value="left" />
