@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -15,7 +14,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="930.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.RechercheTitreController">
    <top>
-      <AnchorPane prefHeight="98.0" prefWidth="846.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="98.0" prefWidth="846.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
          <children>
             <Button alignment="TOP_LEFT" layoutX="825.0" layoutY="15.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
@@ -26,7 +25,6 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="740.0" layoutY="15.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="66.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
             <Button layoutX="14.0" mnemonicParsing="false" onAction="#retour" prefHeight="98.0" prefWidth="140.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
                   <ImageView fitHeight="104.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true">
@@ -48,10 +46,6 @@
                </image>
             </ImageView>
          </children>
-         <styleClass>
-            <String fx:value="left" />
-            <String fx:value="side_ankerpane" />
-         </styleClass>
       </AnchorPane>
    </top>
    <center>

@@ -5,77 +5,75 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1073.0" styleClass="background" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.LoginTypeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1073.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.LoginTypeController">
    <children>
-      <Pane layoutX="364.0" prefHeight="828.0" prefWidth="700.0" styleClass="right-side-background" stylesheets="@css/styles.css">
-         <children>
-            <Button layoutX="554.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchtoUser" prefHeight="39.0" prefWidth="137.0" stylesheets="@../../Style/MainStyle.css" text="Utilisateur">
-               <styleClass>
-                  <String fx:value="transparent" />
-                  <String fx:value="side_ankerpane" />
-                  <String fx:value="left" />
-                  <String fx:value="background" />
-               </styleClass>
-               <font>
-                  <Font name="Cooper Black" size="13.0" />
-               </font></Button>
-            <Button layoutX="199.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchtoPro" prefHeight="39.0" prefWidth="137.0" stylesheets="@../../Style/MainStyle.css" text="Producteur">
-               <styleClass>
-                  <String fx:value="transparent" />
-                  <String fx:value="side_ankerpane" />
-                  <String fx:value="background" />
-               </styleClass>
-               <font>
-                  <Font name="Cooper Black" size="13.0" />
-               </font></Button>
-            <Button layoutX="382.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchtoActeur" prefHeight="39.0" prefWidth="137.0" stylesheets="@../../Style/MainStyle.css" text="Acteur">
-               <styleClass>
-                  <String fx:value="transparent" />
-                  <String fx:value="side_ankerpane" />
-                  <String fx:value="background" />
-               </styleClass>
-               <font>
-                  <Font name="Cooper Black" size="14.0" />
-               </font></Button>
-            <Button layoutX="18.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchtoAdmin" prefHeight="39.0" prefWidth="153.0" stylesheets="@../../Style/MainStyle.css" text="Administrateur">
-               <styleClass>
-                  <String fx:value="transparent" />
-                  <String fx:value="background" />
-                  <String fx:value="side_ankerpane" />
-               </styleClass>
-               <font>
-                  <Font name="Cooper Black" size="14.0" />
-               </font>
-            </Button>
-            <ImageView fitHeight="173.0" fitWidth="144.0" layoutX="195.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/lo-removebg-preview.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="173.0" fitWidth="144.0" layoutX="381.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/user.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="173.0" fitWidth="144.0" layoutX="18.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/face%20login.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="173.0" fitWidth="144.0" layoutX="550.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/lo-removebg-preview.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="280.0" fitWidth="425.0" layoutX="139.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/336721789_916246296322521_3193178127915645001_n-removebg-preview.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
+      <ImageView fitHeight="115.0" fitWidth="183.0" layoutX="568.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/l1-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="115.0" fitWidth="126.0" layoutX="399.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/l2-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="720.0" layoutY="573.0" mnemonicParsing="false" onAction="#switchtoAdmin" prefHeight="39.0" prefWidth="153.0" stylesheets="@../../Style/MainStyle.css" text="Administrateur">
+         <styleClass>
+            <String fx:value="transparent" />
+            <String fx:value="background" />
+            <String fx:value="side_ankerpane" />
+         </styleClass>
+         <font>
+            <Font name="Cooper Black" size="14.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="115.0" fitWidth="109.0" layoutX="743.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/l2-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="115.0" fitWidth="122.0" layoutX="224.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/l1.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="218.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchtoUser" prefHeight="39.0" prefWidth="137.0" stylesheets="@../../Style/MainStyle.css" text="Utilisateur">
+         <styleClass>
+            <String fx:value="transparent" />
+            <String fx:value="side_ankerpane" />
+            <String fx:value="left" />
+            <String fx:value="background" />
+         </styleClass>
+         <font>
+            <Font name="Cooper Black" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="399.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchtoActeur" prefHeight="39.0" prefWidth="137.0" stylesheets="@../../Style/MainStyle.css" text="Acteur">
+         <styleClass>
+            <String fx:value="transparent" />
+            <String fx:value="side_ankerpane" />
+            <String fx:value="background" />
+         </styleClass>
+         <font>
+            <Font name="Cooper Black" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="553.0" layoutY="573.0" mnemonicParsing="false" onAction="#switchtoPro" prefHeight="39.0" prefWidth="137.0" stylesheets="@../../Style/MainStyle.css" text="Producteur">
+         <styleClass>
+            <String fx:value="transparent" />
+            <String fx:value="side_ankerpane" />
+            <String fx:value="background" />
+         </styleClass>
+         <font>
+            <Font name="Cooper Black" size="13.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="294.0" fitWidth="412.0" layoutX="317.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
