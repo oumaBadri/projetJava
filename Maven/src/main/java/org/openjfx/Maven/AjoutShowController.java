@@ -223,6 +223,7 @@ public class AjoutShowController implements Initializable{
 	    	        Optional<ButtonType> result = alert.showAndWait();
 	    	        if (result.get() == ButtonType.OK) {
 	    	            Dao.ShowDAO.supprimerShow(id);
+	    	            System.out.println("SUPPPPRimeeee**** "+id);
 	    	            showShow();
 	    	            txt_titre.clear();
 	    		        txt_genre.clear();

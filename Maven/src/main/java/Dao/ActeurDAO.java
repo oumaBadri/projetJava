@@ -410,9 +410,10 @@ public class ActeurDAO {
 			        PreparedStatement pstmt = null;
 			        try {
 			            
-			            // Préparation de la requête SQL pour ajouter l'entrée à la table favorisacteur
-			            String sql = "INSERT INTO acteurfavoris (id_user, id_acteur) VALUES (?, ?)";
-			            pstmt = conn.prepareStatement(sql);
+			           String sql = "INSERT INTO acteurfavoris (id_user, id_acteur) VALUES (?, ?)";
+			         
+			       
+			        	pstmt = conn.prepareStatement(sql);
 			            pstmt.setInt(1, idUser);
 			            pstmt.setInt(2, idActeur);
 			            
