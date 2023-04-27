@@ -50,7 +50,7 @@ private Button backBtn;
 	
 	@FXML
     private void switchToLogin() throws IOException {
-        App.setRoot("loginUser");
+        App.setRoot("logInTypee");
     }
 	
 	@FXML

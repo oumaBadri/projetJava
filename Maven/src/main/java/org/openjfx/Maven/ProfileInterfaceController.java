@@ -45,7 +45,7 @@ public class ProfileInterfaceController implements Initializable{
 	
 	@FXML
     private void switchToLogin() throws IOException {
-        App.setRoot("AcLogin");
+        App.setRoot("logInTypee");
     }
 	 @FXML
 	    void switchToHome() throws IOException {

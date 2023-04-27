@@ -155,7 +155,14 @@ public class ConsultationController {
 	 
 	 @FXML
 	    void back() throws IOException {
-		   App.setRoot("ProHome");
+		 LoginTypeController t= new LoginTypeController();
+		 if(t.logType=="Producteur") {
+			 System.out.println(t.logType);
+		   App.setRoot("ProHome");}
+		 else { if(t.logType=="Acteur")
+			 System.out.println(t.logType);
+			   App.setRoot("ActeurHome");}
+
 	    }
 	 
 	

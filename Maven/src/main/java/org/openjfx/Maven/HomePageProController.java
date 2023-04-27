@@ -53,11 +53,11 @@ public class HomePageProController implements Initializable {
 		List<Show> show1 =ShowService.Findall2();
 		for(Show show :show1){
 		FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setLocation(getClass().getResource("image.fxml"));
+		fxmlLoader.setLocation(getClass().getResource("affiche.fxml"));
 		VBox image  = fxmlLoader.load();
-		ImageController imageController = fxmlLoader.getController();
+		AfficheController imageController = fxmlLoader.getController();
 		if (imageController != null) {
-		    imageController.setData(show);
+		    imageController.setData2(show.getAffiche());
 		}
 		//imageController.setData(show);
 		Hbox.getChildren().add(image);
