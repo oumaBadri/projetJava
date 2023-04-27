@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -15,67 +14,48 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="930.0" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.AjoutActeurController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="930.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.AjoutActeurController">
    <top>
-      <AnchorPane prefHeight="69.0" prefWidth="930.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="69.0" prefWidth="930.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="740.0" layoutY="15.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="66.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
             <Button layoutX="14.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="140.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
-                  <ImageView fitHeight="80.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="146.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/336721789_916246296322521_3193178127915645001_n-removebg-preview.png" />
+                        <Image url="@images/logo.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Label alignment="CENTER" layoutX="339.0" layoutY="13.0" prefHeight="47.0" prefWidth="252.0" text="Ajout Acteur" textFill="#1a1a81">
-               <font>
-                  <Font name="Cooper Black" size="26.0" />
-               </font>
-            </Label>
          </children>
-         <styleClass>
-            <String fx:value="left" />
-            <String fx:value="side_ankerpane" />
-         </styleClass>
       </AnchorPane>
    </top>
    <left>
-      <AnchorPane prefHeight="648.0" prefWidth="108.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
-         <styleClass>
-            <String fx:value="left" />
-            <String fx:value="side_ankerpane" />
-         </styleClass>
-      </AnchorPane>
+      <AnchorPane prefHeight="648.0" prefWidth="108.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane prefHeight="659.0" prefWidth="818.0">
                <children>
-                  <ChoiceBox fx:id="choicebox" layoutX="225.0" layoutY="88.0" prefWidth="150.0" stylesheets="@../../Style/MainStyle.css">
-                     <styleClass>
-                        <String fx:value="transparent" />
-                        <String fx:value="side_ankerpane" />
-                     </styleClass>
-                  </ChoiceBox>
-                  <Label layoutX="24.0" layoutY="43.0" prefHeight="30.0" prefWidth="194.0" text="Donner Nombre Acteurs">
+                  <ChoiceBox fx:id="choicebox" layoutX="425.0" layoutY="57.0" prefWidth="150.0" style="-fx-background-color: #ffff;" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css" />
+                  <Label layoutX="218.0" layoutY="11.0" prefHeight="30.0" prefWidth="194.0" text="Donner Nombre Acteurs" textFill="WHITE">
                      <font>
                         <Font name="Cooper Black" size="15.0" />
                      </font>
                   </Label>
-                  <ScrollPane layoutX="24.0" layoutY="144.0" prefHeight="470.0" prefWidth="715.0">
+                  <ScrollPane layoutX="218.0" layoutY="131.0" prefHeight="470.0" prefWidth="357.0">
                      <content>
-                        <HBox fx:id="Hbox" prefHeight="604.0" prefWidth="938.0" />
+                        <HBox fx:id="Hbox" prefHeight="826.0" prefWidth="414.0" />
                      </content>
                   </ScrollPane>
-                  <Label layoutX="24.0" layoutY="88.0" prefHeight="30.0" prefWidth="194.0" text="Choisir Num Saison">
+                  <Label layoutX="218.0" layoutY="57.0" prefHeight="30.0" prefWidth="194.0" text="Choisir Num Saison" textFill="WHITE">
                      <font>
                         <Font name="Cooper Black" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textActeur" layoutX="226.0" layoutY="46.0" />
+                  <TextField fx:id="textActeur" layoutX="426.0" layoutY="14.0" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css" />
                </children>
             </AnchorPane>
          </children>

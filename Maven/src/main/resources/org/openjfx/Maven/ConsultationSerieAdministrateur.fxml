@@ -12,7 +12,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1000.0" style="-fx-background-color: 383E56;" styleClass="left" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.ClassementController">
@@ -22,75 +21,56 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="316.0" layoutY="605.0" prefHeight="185.0" prefWidth="684.0">
-         <children>
-            <ImageView fitHeight="103.0" fitWidth="119.0" layoutX="419.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="103.0" fitWidth="119.0" layoutX="205.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="parmois" layoutX="413.0" layoutY="51.0" mnemonicParsing="false" onAction="#goToClassement" prefHeight="47.0" prefWidth="206.0" stylesheets="@../../Style/MainStyle.css" text="Voir Classement par mois">
-               <font>
-                  <Font name="Cooper Black" size="14.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="transparent" />
-                  <String fx:value="side_ankerpane" />
-               </styleClass>
-            </Button>
-         </children>
-      </AnchorPane>
-      <TableView fx:id="tablenote" layoutX="14.0" layoutY="126.0" prefHeight="648.0" prefWidth="266.0">
+      <TableView fx:id="tablenote" layoutX="21.0" layoutY="239.0" prefHeight="256.0" prefWidth="266.0">
         <columns>
           <TableColumn fx:id="saisonnote" prefWidth="91.19997882843018" text="Num Saison" />
           <TableColumn fx:id="episodenote" prefWidth="90.4000244140625" text="Num Episode" />
             <TableColumn fx:id="note" prefWidth="84.00004577636719" text="Note " />
         </columns>
       </TableView>
-      <Label layoutX="14.0" layoutY="91.0" prefHeight="34.0" prefWidth="162.0" text="Score Chaqur Episode">
+      <Label layoutX="73.0" layoutY="180.0" prefHeight="34.0" prefWidth="162.0" text="Score Chaqur Episode" textFill="#ff1818">
          <font>
             <Font name="Cooper Black" size="14.0" />
          </font>
       </Label>
-      <TableView fx:id="tablevue" layoutX="286.0" layoutY="126.0" prefHeight="648.0" prefWidth="214.0">
+      <TableView fx:id="tablevue" layoutX="341.0" layoutY="235.0" prefHeight="263.0" prefWidth="214.0">
         <columns>
           <TableColumn fx:id="titre" prefWidth="144.800048828125" text="Titre " />
           <TableColumn fx:id="nbvues" prefWidth="69.5999755859375" text="Nbr vues" />
         </columns>
       </TableView>
-      <Label layoutX="292.0" layoutY="91.0" prefHeight="34.0" prefWidth="119.0" text="Nombre de vues">
+      <Label layoutX="388.0" layoutY="180.0" prefHeight="34.0" prefWidth="119.0" text="Nombre de vues" textFill="#ff1818">
          <font>
             <Font name="Cooper Black" size="14.0" />
          </font>
       </Label>
-      <TableView fx:id="tablevote" layoutX="511.0" layoutY="126.0" prefHeight="648.0" prefWidth="206.0">
+      <TableView fx:id="tablevote" layoutX="597.0" layoutY="235.0" prefHeight="263.0" prefWidth="206.0">
         <columns>
-          <TableColumn fx:id="titrev" prefWidth="129.5999755859375" text="Titre" />
-          <TableColumn fx:id="nbvotant" prefWidth="76.800048828125" text="Nbr Votant" />
+          <TableColumn fx:id="titrev" prefWidth="107.2000732421875" text="Titre" />
+          <TableColumn fx:id="nbvotant" prefWidth="99.99993896484375" text="Nbr Votant" />
         </columns>
       </TableView>
-      <Label layoutX="511.0" layoutY="91.0" prefHeight="34.0" prefWidth="138.0" text="Nombre de votant">
+      <Label layoutX="631.0" layoutY="180.0" prefHeight="34.0" prefWidth="138.0" text="Nombre de votant" textFill="#ff1818">
          <font>
             <Font name="Cooper Black" size="14.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="Choicebox" layoutX="738.0" layoutY="249.0" prefWidth="150.0" stylesheets="@../../Style/MainStyle.css">
-         <styleClass>
-            <String fx:value="side_ankerpane" />
-            <String fx:value="transparent" />
-         </styleClass></ChoiceBox>
-      <Label layoutX="738.0" layoutY="204.0" prefHeight="34.0" prefWidth="138.0" text="Choisir Saison">
+      <ChoiceBox fx:id="Choicebox" layoutX="27.0" layoutY="587.0" opacity="0.95" prefWidth="150.0" style="-fx-background-color: #FFFF;" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css" />
+      <Label layoutX="33.0" layoutY="544.0" prefHeight="34.0" prefWidth="138.0" text="Choisir Saison" textFill="#ff1818">
          <font>
             <Font name="Cooper Black" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="738.0" layoutY="275.0" prefHeight="34.0" prefWidth="138.0" text="Nombre Episode">
+      <Label layoutX="203.0" layoutY="544.0" prefHeight="34.0" prefWidth="138.0" text="Nombre Episode" textFill="#ff1818">
          <font>
             <Font name="Cooper Black" size="14.0" />
          </font>
       </Label>
       <Button fx:id="homelogo" mnemonicParsing="false" onAction="#switchToHome" prefHeight="77.0" prefWidth="132.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
          <graphic>
-            <ImageView fitHeight="83.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="88.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/336721789_916246296322521_3193178127915645001_n-removebg-preview.png" />
+                  <Image url="@images/logo.png" />
                </image>
                <viewport>
                   <Rectangle2D />
@@ -98,23 +78,32 @@
             </ImageView>
          </graphic>
       </Button>
-      <TextField fx:id="rechercheTitre" layoutX="304.0" layoutY="46.0" prefHeight="30.0" prefWidth="132.0" promptText="titre..." styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+      <TextField fx:id="rechercheTitre" layoutX="373.0" layoutY="107.0" opacity="0.75" prefHeight="34.0" prefWidth="182.0" promptText="Titre" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css">
          <font>
             <Font name="Cooper Black" size="16.0" />
          </font>
       </TextField>
-      <Line endX="28.20001220703125" endY="7.62939453125E-6" layoutX="411.0" layoutY="76.0" startX="-100.0" />
-      <ImageView fx:id="search" fitHeight="34.0" fitWidth="50.0" layoutX="421.0" layoutY="44.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="search" fitHeight="34.0" fitWidth="50.0" layoutX="516.0" layoutY="107.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/recherche-removebg-preview.png" />
          </image>
       </ImageView>
-      <TextField fx:id="nb" layoutX="738.0" layoutY="309.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
-      <Label layoutX="726.0" layoutY="379.0" prefHeight="30.0" prefWidth="206.0" text="Classement par nombre de vues ">
+      <TextField fx:id="nb" layoutX="190.0" layoutY="589.0" prefHeight="14.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+      <Label layoutX="493.0" layoutY="529.0" prefHeight="47.0" prefWidth="206.0" text="Classement par nombre de vues " textFill="#ff1818">
          <font>
             <Font name="Cooper Black" size="12.0" />
          </font>
       </Label>
-      <TextArea fx:id="classementarea" layoutX="722.0" layoutY="409.0" prefHeight="200.0" prefWidth="214.0" promptText=".." styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+      <ImageView fitHeight="103.0" fitWidth="119.0" layoutX="803.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="parmois" layoutX="779.0" layoutY="728.0" mnemonicParsing="false" onAction="#goToClassement" prefHeight="34.0" prefWidth="206.0" style="-fx-background-color: #FFFF;" stylesheets="@../../Style/MainStyle.css" text="Voir Classement par mois" textFill="#ff1818">
+         <font>
+            <Font name="Cooper Black" size="14.0" />
+         </font>
+         <styleClass>
+            <String fx:value="transparent" />
+            <String fx:value="side_ankerpane" />
+         </styleClass>
+      </Button>
+      <TextArea fx:id="classementarea" layoutX="489.0" layoutY="574.0" prefHeight="200.0" prefWidth="214.0" promptText=".." styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
    </children>
 </AnchorPane>

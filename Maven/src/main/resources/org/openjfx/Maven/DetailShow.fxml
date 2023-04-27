@@ -12,17 +12,16 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1000.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.DetailShowController">
    <children>
-      <AnchorPane layoutX="628.0" layoutY="11.0" prefHeight="765.0" prefWidth="360.0" style="-fx-border-color: D4B5B0;" stylesheets="@../../../Style/MainStyle.css">
+      <AnchorPane layoutX="628.0" layoutY="16.0" prefHeight="761.0" prefWidth="360.0" style="-fx-border-color: D4B5B0;" stylesheets="@../../../Style/MainStyle.css">
          <children>
             <HBox fx:id="boucle" layoutX="37.0" layoutY="98.0" prefHeight="66.0" prefWidth="250.0" />
-            <ChoiceBox fx:id="choice" layoutX="14.0" layoutY="44.0" prefHeight="0.0" prefWidth="150.0" />
-            <Label layoutX="37.0" layoutY="14.0" text="Saison:">
+            <ChoiceBox fx:id="choice" layoutX="14.0" layoutY="44.0" prefHeight="0.0" prefWidth="150.0" style="-fx-background-color: #FFFF;" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css" />
+            <Label layoutX="37.0" layoutY="14.0" text="Saison:" textFill="WHITE">
                <font>
                   <Font name="Cooper Black" size="19.0" />
                </font>
@@ -44,22 +43,22 @@
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label layoutX="7.0" layoutY="33.0" text="Langue">
+                  <Label layoutX="7.0" layoutY="33.0" text="Langue" textFill="WHITE">
                      <font>
                         <Font name="Cooper Black" size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="4.0" layoutY="63.0" prefHeight="18.0" prefWidth="74.0" text="Pays">
+                  <Label layoutX="4.0" layoutY="63.0" prefHeight="18.0" prefWidth="74.0" text="Pays" textFill="WHITE">
                      <font>
                         <Font name="Cooper Black" size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="7.0" layoutY="95.0" prefHeight="18.0" prefWidth="52.0" text="Genre">
+                  <Label layoutX="7.0" layoutY="95.0" prefHeight="18.0" prefWidth="52.0" text="Genre" textFill="WHITE">
                      <font>
                         <Font name="Cooper Black" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="4.0" layoutY="124.0" text="Date Diffusion">
+                  <Label layoutX="4.0" layoutY="124.0" text="Date Diffusion" textFill="WHITE">
                      <font>
                         <Font name="Cooper Black" size="12.0" />
                      </font>
@@ -74,8 +73,8 @@
                      </font></Label>
                </children>
             </AnchorPane>
-            <TextArea fx:id="description" editable="false" layoutX="241.0" layoutY="201.0" prefHeight="178.0" prefWidth="307.0" style="-fx-border-color: D4B5B0;" stylesheets="@../../../Style/MainStyle.css" />
-            <Label fx:id="tit" layoutX="250.0" layoutY="14.0" prefHeight="30.0" prefWidth="228.0" textFill="#1572a1">
+            <TextArea fx:id="description" editable="false" layoutX="241.0" layoutY="201.0" opacity="0.29" prefHeight="178.0" prefWidth="307.0" style="-fx-border-color: D4B5B0;" stylesheets="@../../../Style/MainStyle.css" />
+            <Label fx:id="tit" layoutX="250.0" layoutY="14.0" prefHeight="30.0" prefWidth="228.0" textFill="#ff1818">
                <font>
                   <Font name="Cooper Black" size="26.0" />
                </font>
@@ -85,26 +84,17 @@
       </AnchorPane>
       <AnchorPane layoutX="10.0" layoutY="623.0" prefHeight="158.0" prefWidth="594.0" style="-fx-border-color: #D4B5B0;" stylesheets="@../../../Style/MainStyle.css">
          <children>
-            <Label layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="124.0" text="Comments">
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="124.0" text="Commentaire" textFill="WHITE">
                <font>
                   <Font name="Cooper Black" size="15.0" />
                </font>
             </Label>
-            <Pane layoutX="9.0" layoutY="45.0" prefHeight="66.0" prefWidth="69.0">
-               <children>
-                  <ImageView fitHeight="73.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/user.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <TextArea fx:id="avis" layoutX="79.0" layoutY="43.0" prefHeight="104.0" prefWidth="282.0" promptText="your comment..">
+            <TextArea fx:id="avis" layoutX="87.0" layoutY="43.0" prefHeight="104.0" prefWidth="274.0" promptText="Ecrire Commentaire">
                <font>
-                  <Font size="13.0" />
+                  <Font size="22.0" />
                </font>
             </TextArea>
-            <Button fx:id="avisbtn" layoutX="505.0" layoutY="53.0" mnemonicParsing="false" onAction="#saveAvis" prefHeight="27.0" prefWidth="74.0" stylesheets="@../../Style/MainStyle.css" text="Save">
+            <Button fx:id="avisbtn" layoutX="505.0" layoutY="53.0" mnemonicParsing="false" onAction="#saveAvis" prefHeight="27.0" prefWidth="74.0" style="-fx-background-color: #ff1818;" stylesheets="@../../Style/MainStyle.css" text="Save" textFill="WHITE">
                <styleClass>
                   <String fx:value="side_ankerpane" />
                   <String fx:value="right-side-background" />
@@ -113,14 +103,22 @@
                   <Font name="Cooper Black" size="17.0" />
                </font>
             </Button>
-            <Label layoutX="388.0" layoutY="40.0" prefHeight="26.0" prefWidth="90.0" text="Note ">
+            <Label layoutX="388.0" layoutY="40.0" prefHeight="26.0" prefWidth="90.0" text="Note " textFill="WHITE">
                <font>
                   <Font name="Cooper Black" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="note" alignment="TOP_LEFT" layoutX="388.0" layoutY="71.0" prefHeight="28.0" prefWidth="90.0" promptText="note..(/10)" />
-            <Label fx:id="notecor" layoutX="388.0" layoutY="102.0" prefHeight="18.0" prefWidth="90.0" text="..." textFill="#f40707" />
+            <TextField fx:id="note" alignment="TOP_LEFT" layoutX="388.0" layoutY="71.0" opacity="0.99" prefHeight="28.0" prefWidth="90.0" promptText="Note (/10)">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <Label fx:id="notecor" layoutX="388.0" layoutY="102.0" prefHeight="18.0" prefWidth="90.0" textFill="#f40707" />
             <Label fx:id="savemsg" layoutX="516.0" layoutY="111.0" prefHeight="18.0" prefWidth="52.0" text="...." textFill="#651666" />
+            <ImageView fitHeight="104.0" fitWidth="73.0" layoutX="14.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/l1.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <Button fx:id="backbtn" layoutX="20.0" layoutY="11.0" mnemonicParsing="false" onAction="#back" onMouseClicked="#back" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
@@ -133,14 +131,14 @@
          </graphic></Button>
       <VBox layoutX="15.0" layoutY="433.0" prefHeight="187.0" prefWidth="594.0">
          <children>
-            <ScrollPane prefHeight="178.0" prefWidth="594.0">
+            <ScrollPane opacity="0.22" prefHeight="178.0" prefWidth="594.0">
                <content>
-                  <HBox fx:id="Hbox" prefHeight="178.0" prefWidth="920.0" />
+                  <HBox fx:id="Hbox" opacity="0.04" prefHeight="178.0" prefWidth="920.0" />
                </content>
             </ScrollPane>
          </children>
       </VBox>
-      <Label layoutX="17.0" layoutY="404.0" prefHeight="28.0" prefWidth="90.0" text="Acteurs">
+      <Label layoutX="17.0" layoutY="404.0" prefHeight="28.0" prefWidth="90.0" text="Acteurs" textFill="WHITE">
          <font>
             <Font name="Cooper Black" size="16.0" />
          </font>
