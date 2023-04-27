@@ -11,102 +11,96 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="930.0" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.HomePageAdminController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="930.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.HomePageAdminController">
    <top>
-      <AnchorPane prefHeight="98.0" prefWidth="846.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="98.0" prefWidth="846.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="profile" alignment="TOP_LEFT" layoutX="825.0" layoutY="15.0" mnemonicParsing="false" onAction="#SwithtoInterfaceProfil" prefHeight="68.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
-                  <ImageView fitHeight="62.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="66.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/producteur.png" />
+                        <Image url="@images/l1.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
             <Button layoutX="14.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="140.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
-                  <ImageView fx:id="homelogo" fitHeight="79.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="homelogo" fitHeight="121.0" fitWidth="145.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/336721789_916246296322521_3193178127915645001_n-removebg-preview.png" />
+                        <Image url="@images/logo.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-         </children>
-         <styleClass>
-            <String fx:value="left" />
-            <String fx:value="side_ankerpane" />
-         </styleClass>
-      </AnchorPane>
-   </top>
-   <left>
-      <AnchorPane prefHeight="652.0" prefWidth="242.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="consultation" alignment="CENTER_RIGHT" layoutX="20.0" layoutY="42.0" mnemonicParsing="false" onAction="#SwithtoConsultation" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Consultation" textFill="#c95c3b">
-               <font>
-                  <Font name="Cooper Black" size="16.0" />
-               </font>
-            </Button>
-            <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="21.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/Capture_d_écran_2023-04-13_164858-removebg-preview.png" />
-               </image>
-            </ImageView>
-            <Separator layoutX="20.0" layoutY="99.0" prefHeight="38.0" prefWidth="200.0" />
-            <Label layoutX="62.0" layoutY="175.0" prefHeight="34.0" prefWidth="106.0" text="Search " textFill="#c95c3b">
-               <font>
-                  <Font name="Cooper Black" size="18.0" />
-               </font>
-            </Label>
-            <Button layoutX="41.0" layoutY="249.0" mnemonicParsing="false" onAction="#RechercheTitre" prefHeight="34.0" prefWidth="159.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="By Title" textFill="#0b0071">
+            <Button layoutX="537.0" layoutY="39.0" mnemonicParsing="false" onAction="#RechercheTitre" prefHeight="34.0" prefWidth="250.0" style="-fx-border-color: #FFFF;" stylesheets="@../../Style/MainStyle.css" textFill="#0b0071">
                <font>
                   <Font name="Cooper Black" size="15.0" />
                </font>
+               <styleClass>
+                  <String fx:value="transparent" />
+                  <String fx:value="side_ankerpane" />
+               </styleClass>
             </Button>
-            <Button layoutX="37.0" layoutY="284.0" mnemonicParsing="false" onAction="#RechercheAnnee" prefHeight="34.0" prefWidth="159.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="By Year" textFill="#0b0071">
-               <font>
-                  <Font name="Cooper Black" size="15.0" />
-               </font>
-            </Button>
-            <Button layoutX="41.0" layoutY="318.0" mnemonicParsing="false" onAction="#RechercheLangue" prefHeight="34.0" prefWidth="159.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="By Language" textFill="#0b0071">
-               <font>
-                  <Font name="Cooper Black" size="15.0" />
-               </font>
-            </Button>
-            <Button layoutX="36.0" layoutY="351.0" mnemonicParsing="false" onAction="#RecherchePays" prefHeight="34.0" prefWidth="159.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="By Country" textFill="#0b0071">
-               <font>
-                  <Font name="Cooper Black" size="15.0" />
-               </font>
-            </Button>
-            <Button layoutX="44.0" layoutY="385.0" mnemonicParsing="false" onAction="#RechercheGenre" prefHeight="34.0" prefWidth="159.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="By Type" textFill="#0b0071">
-               <font>
-                  <Font name="Cooper Black" size="15.0" />
-               </font>
-            </Button>
-            <Line endX="45.19999694824219" endY="0.399993896484375" layoutX="143.0" layoutY="283.0" startX="-100.0" />
-            <Line endX="47.19996643066406" layoutX="146.0" layoutY="318.0" startX="-100.0" />
-            <Line endX="49.19999694824219" layoutX="146.0" layoutY="352.0" startX="-100.0" />
-            <Line endX="46.19999694824219" endY="0.399993896484375" layoutX="149.0" layoutY="385.0" startX="-100.0" />
-            <Line endX="49.19999694824219" layoutX="145.0" layoutY="419.0" startX="-100.0" />
-            <Button layoutX="44.0" layoutY="418.0" mnemonicParsing="false" onAction="#RechercheActeur" prefHeight="34.0" prefWidth="159.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Actor" textFill="#0b0071">
-               <font>
-                  <Font name="Cooper Black" size="15.0" />
-               </font>
-            </Button>
-            <Line endX="46.19999694824219" endY="0.399993896484375" layoutX="150.0" layoutY="450.0" startX="-100.0" />
-            <ImageView fitHeight="31.0" fitWidth="32.0" layoutX="25.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="31.0" fitWidth="32.0" layoutX="743.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/recherche-removebg-preview.png" />
                </image>
             </ImageView>
          </children>
-         <styleClass>
-            <String fx:value="left" />
-            <String fx:value="side_ankerpane" />
-         </styleClass>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="652.0" prefWidth="242.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="consultation" alignment="CENTER_RIGHT" layoutX="28.0" layoutY="25.0" mnemonicParsing="false" onAction="#SwithtoConsultation" prefHeight="46.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Consultation" textFill="#ff1818">
+               <font>
+                  <Font name="Cooper Black" size="16.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="23.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Capture_d_écran_2023-04-13_164858-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="20.0" layoutY="99.0" prefHeight="6.0" prefWidth="200.0" style="-fx-background-color: #FFFF;" />
+            <Label layoutX="62.0" layoutY="137.0" prefHeight="34.0" prefWidth="106.0" text="Search " textFill="#ff1818">
+               <font>
+                  <Font name="Cooper Black" size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="45.0" layoutY="169.0" mnemonicParsing="false" onAction="#RechercheAnnee" prefHeight="34.0" prefWidth="166.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Par Annee" textFill="WHITE">
+               <font>
+                  <Font name="Cooper Black" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="52.0" layoutY="196.0" mnemonicParsing="false" onAction="#RechercheLangue" prefHeight="34.0" prefWidth="159.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Par Langue" textFill="WHITE">
+               <font>
+                  <Font name="Cooper Black" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="35.0" layoutY="230.0" mnemonicParsing="false" onAction="#RecherchePays" prefHeight="34.0" prefWidth="176.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Par Pays" textFill="WHITE">
+               <font>
+                  <Font name="Cooper Black" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="39.0" layoutY="265.0" mnemonicParsing="false" onAction="#RechercheGenre" prefHeight="34.0" prefWidth="172.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Par Genre" textFill="WHITE">
+               <font>
+                  <Font name="Cooper Black" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="2.0" layoutY="293.0" mnemonicParsing="false" onAction="#RechercheActeur" prefHeight="34.0" prefWidth="236.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" text="Actor" textFill="WHITE">
+               <font>
+                  <Font name="Cooper Black" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="31.0" fitWidth="32.0" layoutX="28.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/recherche-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
       </AnchorPane>
    </left>
    <center>
@@ -114,7 +108,7 @@
          <children>
             <ScrollPane prefHeight="734.0" prefWidth="688.0">
                <content>
-                  <HBox fx:id="Hbox" prefHeight="790.0" prefWidth="876.0" />
+                  <HBox fx:id="Hbox" prefHeight="930.0" prefWidth="1552.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" />
                </content>
             </ScrollPane>
          </children>

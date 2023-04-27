@@ -15,7 +15,7 @@
       </ImageView>
    </center>
    <bottom>
-      <Button mnemonicParsing="false" onAction="#switchtoDetail" styleClass="side_recherche__ankerpane" stylesheets="@../../Style/MainStyle.css" text="Retour" BorderPane.alignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#switchtoDetail" style="-fx-background-color: #ff1818;" styleClass="side_recherche__ankerpane" stylesheets="@../../Style/MainStyle.css" text="Retour" textFill="WHITE" BorderPane.alignment="CENTER">
          <font>
             <Font size="15.0" />
          </font>

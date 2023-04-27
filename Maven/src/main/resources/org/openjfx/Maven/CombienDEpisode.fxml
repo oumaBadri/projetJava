@@ -6,69 +6,45 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.CombienDEpisodeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1000.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.CombienDEpisodeController">
    <children>
-      <AnchorPane layoutX="14.0" layoutY="1.0" prefHeight="92.0" prefWidth="982.0" stylesheets="@../../Style/MainStyle.css">
+      <AnchorPane layoutX="14.0" layoutY="1.0" prefHeight="92.0" prefWidth="982.0" styleClass="left" stylesheets="@../../Style/MainStyle.css">
          <children>
             <Button fx:id="btnPageAcceuil" layoutX="14.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="140.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
-                  <ImageView fitHeight="75.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="89.0" fitWidth="122.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/336721789_916246296322521_3193178127915645001_n-removebg-preview.png" />
+                        <Image url="@images/logo.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Label alignment="CENTER" layoutX="328.0" layoutY="20.0" prefHeight="47.0" prefWidth="350.0" text="Ajout Saison" textFill="#1a1a81">
-               <font>
-                  <Font name="Cooper Black" size="26.0" />
-               </font>
-            </Label>
-            <Label layoutX="290.0" layoutY="48.0" prefHeight="38.0" prefWidth="664.0" text=" ! ! Pour Ajouter une episode il faut la validation des informations du saison" textFill="#ff0101">
+            <Label layoutX="268.0" layoutY="48.0" prefHeight="38.0" prefWidth="664.0" text=" ! ! Pour Ajouter une episode il faut la validation des informations du saison" textFill="WHITE">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
          </children>
-         <styleClass>
-            <String fx:value="left" />
-            <String fx:value="side_ankerpane" />
-         </styleClass>
       </AnchorPane>
-      <AnchorPane layoutX="14.0" layoutY="92.0" prefHeight="682.0" prefWidth="266.0" stylesheets="@../../Style/MainStyle.css">
-         <children>
-            <TextField fx:id="titreShow" layoutX="18.0" layoutY="301.0" promptText="Titre Show" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
-               <font>
-                  <Font name="Cooper Black" size="17.0" />
-               </font></TextField>
-            <Line endX="114.99998474121094" layoutX="127.0" layoutY="332.0" startX="-100.0" />
-         </children>
-         <styleClass>
-            <String fx:value="left" />
-            <String fx:value="side_ankerpane" />
-         </styleClass>
-      </AnchorPane>
-      <Label layoutX="327.0" layoutY="184.0" prefHeight="40.0" prefWidth="165.0" text="Numero Saison ">
+      <Label layoutX="37.0" layoutY="189.0" prefHeight="40.0" prefWidth="180.0" text="Numero Saison " textFill="#ff1818">
          <font>
             <Font name="Cooper Black" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="319.0" layoutY="128.0" prefHeight="40.0" prefWidth="214.0" text="Nombre d'episode ">
+      <Label layoutX="37.0" layoutY="147.0" prefHeight="40.0" prefWidth="214.0" text="Nombre d'episode " textFill="#ff1818">
          <font>
             <Font name="Cooper Black" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="nbrEpisode_txtField" layoutX="533.0" layoutY="129.0" prefHeight="38.0" prefWidth="126.0" stylesheets="@../../Style/MainStyle.css">
+      <TextField fx:id="nbrEpisode_txtField" layoutX="259.0" layoutY="148.0" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #FFFF;" stylesheets="@../../Style/MainStyle.css">
          <font>
             <Font name="Cooper Black" size="18.0" />
          </font>
@@ -77,42 +53,38 @@
             <String fx:value="side_ankerpane" />
          </styleClass>
       </TextField>
-      <Separator layoutX="724.0" layoutY="127.0" orientation="VERTICAL" prefHeight="648.0" prefWidth="20.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" />
-      <ChoiceBox fx:id="choicebox" layoutX="521.0" layoutY="189.0" prefWidth="150.0" stylesheets="@../../Style/MainStyle.css">
+      <ChoiceBox fx:id="choicebox" layoutX="259.0" layoutY="194.0" prefWidth="150.0" style="-fx-background-color: #FFFF;" stylesheets="@../../Style/MainStyle.css">
          <styleClass>
             <String fx:value="transparent" />
             <String fx:value="side_ankerpane" />
          </styleClass></ChoiceBox>
-      <ScrollPane layoutX="308.0" layoutY="235.0" prefHeight="528.0" prefWidth="391.0">
+      <ScrollPane layoutX="37.0" layoutY="235.0" prefHeight="528.0" prefWidth="391.0">
          <content>
-            <HBox fx:id="boucle" prefHeight="638.0" prefWidth="384.0" />
+            <HBox fx:id="boucle" prefHeight="679.0" prefWidth="390.0" />
          </content>
       </ScrollPane>
-      <Label layoutX="755.0" layoutY="136.0" prefHeight="24.0" prefWidth="232.0" text="Ajout Information Saison">
+      <Label layoutX="544.0" layoutY="235.0" prefHeight="24.0" prefWidth="232.0" text="Ajout Information Saison" textFill="#ff1818">
          <font>
             <Font name="Cooper Black" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="titreSaison" layoutX="771.0" layoutY="176.0" promptText="Titre Saison">
+      <TextField fx:id="titreSaison" layoutX="560.0" layoutY="285.0" prefHeight="38.0" prefWidth="196.0" promptText="Titre Saison" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css">
          <font>
             <Font name="Cooper Black" size="14.0" />
          </font>
       </TextField>
-      <TextArea fx:id="Description" layoutX="767.0" layoutY="281.0" prefHeight="200.0" prefWidth="200.0" promptText="Description Saison" />
-      <DatePicker fx:id="DateDiffusion" layoutX="767.0" layoutY="222.0" prefHeight="26.0" prefWidth="191.0" promptText="Date Diffusion" />
-      <Button layoutX="778.0" layoutY="670.0" mnemonicParsing="false" onAction="#AjoutDetailSaison" stylesheets="@../../Style/MainStyle.css" text="Valider Informations">
+      <TextArea fx:id="Description" layoutX="560.0" layoutY="399.0" prefHeight="200.0" prefWidth="200.0" promptText="Description Saison" />
+      <DatePicker fx:id="DateDiffusion" layoutX="564.0" layoutY="356.0" prefHeight="26.0" prefWidth="191.0" promptText="Date Diffusion" />
+      <Button layoutX="567.0" layoutY="625.0" mnemonicParsing="false" onAction="#AjoutDetailSaison" style="-fx-background-color: #ff1818;" stylesheets="@../../Style/MainStyle.css" text="Valider Informations" textFill="WHITE">
          <styleClass>
-            <String fx:value="transparent" />
             <String fx:value="side_ankerpane" />
             <String fx:value="left" />
-            <String fx:value="background" />
          </styleClass>
          <font>
             <Font name="Cooper Black" size="15.0" />
          </font>
       </Button>
-      <Label text="Label" />
-      <Button layoutX="764.0" layoutY="540.0" mnemonicParsing="false" onAction="#Acteur" prefHeight="36.0" prefWidth="214.0" stylesheets="@../../Style/MainStyle.css" text="Ajout Acteur Par Saison">
+      <Button layoutX="738.0" layoutY="713.0" mnemonicParsing="false" onAction="#Acteur" prefHeight="36.0" prefWidth="214.0" style="-fx-background-color: #FFFF;" stylesheets="@../../Style/MainStyle.css" text="Ajout Acteur Par Saison" textFill="#ff1818">
          <font>
             <Font name="Cooper Black" size="15.0" />
          </font>
@@ -121,5 +93,10 @@
             <String fx:value="transparent" />
          </styleClass>
       </Button>
+      <TextField fx:id="titreShow" layoutX="361.0" layoutY="92.0" prefHeight="40.0" prefWidth="237.0" promptText="Titre Show" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css">
+         <font>
+            <Font name="Cooper Black" size="17.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="158.0" prefWidth="131.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.ActeurAffController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="158.0" prefWidth="117.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.ActeurAffController">
    <children>
-      <ImageView fx:id="affiche" fitHeight="107.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="affiche" fitHeight="107.0" fitWidth="201.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/acteur.png" />
          </image>
