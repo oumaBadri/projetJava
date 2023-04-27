@@ -45,7 +45,7 @@ public class ProfileInterfaceControllerPro implements Initializable{
 	    }
 		 @FXML
 		    void switchToLogin() throws IOException {
-			 App.setRoot("LoginPro");
+		        App.setRoot("logInTypee");
 		    }
 		@FXML
 	    private void switchToInscription() throws IOException {

@@ -357,7 +357,7 @@ public class ActeurDAO {
 			        }
 					return idActeur; }
 
-			 
+		//*************************	 
 			 
 			 public static void ajouterFavoriS(int idUser, String nomActeur) {
 			        // Trouver l'ID de l'acteur en fonction de son nom
@@ -403,6 +403,63 @@ public class ActeurDAO {
 			        }
 			    }
 			 
+			 
+			 
+			 //**********Acteur favoris par user**********************
+			 
+			 public static List<Integer> findAllfavAc(int idUser) throws SQLException{
+					
+				 PreparedStatement stmt = null;
+				    ResultSet rs = null;
+				    
+					List<Integer> acteurs = new ArrayList<>();
+
+			        String SQL = "SELECT id_Acteur FROM ACTEURFAVORIS where id_user=?";
+			        try {
+			            stmt = conn.prepareStatement(SQL);
+			            stmt.setInt(1, idUser);
+			            rs = stmt.executeQuery(); 
+			            while (rs.next()) {
+
+			            	int id_ac = rs.getInt(1);
+			 
+			                acteurs.add(id_ac);
+			            }
+			        } catch (Exception e ) {};
+			        
+			        return acteurs;
+				}
+			 
+			 
+			 //******************************
+			 public static String trouverNomActeurbyId(int id) {
+			        PreparedStatement pstmt = null;
+			        ResultSet rs = null;
+			        String nom;
+			        String prenom;
+			        String listeActeur=""; // valeur par défaut en cas de non correspondance
+			        try {
+			            
+			            String sql = "SELECT nom_ac,prenom_ac FROM acteur "
+			                         + "WHERE id_acteur = ?";
+			            pstmt = conn.prepareStatement(sql);
+			            pstmt.setInt(1, id);
+			            
+			            // Exécution de la requête SQL
+			            rs = pstmt.executeQuery();
+			            
+			            // Traitement du résultat de la requête SQL
+			            if (rs.next()) {
+			                nom = rs.getString(1);
+			                prenom=rs.getString(2);
+			                listeActeur=nom+" "+prenom;
+			            }
+			        } catch (SQLException e) {
+			            e.printStackTrace();
+			        }
+					return listeActeur; }
+ 
+		
 			 
 			 
 }

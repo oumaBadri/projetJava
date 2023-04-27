@@ -5,15 +5,18 @@ import java.io.IOException;
 import Controller.ControlSaisie;
 import Dao.UtilisateurDAO;
 import Models.Producteur;
+import Models.Show;
 import Models.Utilisateur;
 import Service.UtilisateurService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 
 public class InscriptionUserController {
@@ -76,6 +79,17 @@ public class InscriptionUserController {
    
     	try {
     		Integer.parseInt(id.getText());
+    		///**************
+    		
+    		boolean existe = Dao.UtilisateurDAO.verifierId(Integer.parseInt(id.getText()));
+   	     if (existe == true) {
+   	    	 Alert alert = new Alert(AlertType.ERROR);
+   	         alert.setTitle("Erreur");
+   	         alert.setHeaderText("Un utilisateur avec cet ID existe déjà");
+   	         alert.showAndWait();
+   	         return;}
+    		
+    		//*********************
     	}catch(NumberFormatException e) {
     		cincor.setText("Veuillez entrer que des chiffres");
     		ChampValid=false;

@@ -27,6 +27,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class HomePageController implements Initializable{
+	 @FXML
+	    private Button favAc;
 	   @FXML
        private ImageView notificationbtn;
 	   @FXML
@@ -45,6 +47,11 @@ public class HomePageController implements Initializable{
     private void SwithtoInterfaceProfil() throws IOException {
         App.setRoot("ProfileInterfaceUser");  //edhi zedet kilmit user
     }
+	@FXML
+    private void switchToAcFav() throws IOException {
+        App.setRoot("favorisActeur");
+    }
+	
 	
 	
 	@FXML

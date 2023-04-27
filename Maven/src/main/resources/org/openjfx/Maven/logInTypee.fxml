@@ -40,7 +40,7 @@
                <font>
                   <Font name="Cooper Black" size="14.0" />
                </font></Button>
-            <Button layoutX="18.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchtoAdmin" prefHeight="39.0" prefWidth="137.0" stylesheets="@../../Style/MainStyle.css" text="Administrateur">
+            <Button layoutX="18.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchtoAdmin" prefHeight="39.0" prefWidth="153.0" stylesheets="@../../Style/MainStyle.css" text="Administrateur">
                <styleClass>
                   <String fx:value="transparent" />
                   <String fx:value="background" />

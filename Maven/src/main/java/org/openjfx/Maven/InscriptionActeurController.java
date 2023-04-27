@@ -8,11 +8,13 @@ import Models.Acteur;
 import Models.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 
 public class InscriptionActeurController {
@@ -72,6 +74,19 @@ public class InscriptionActeurController {
    
     	try {
     		Integer.parseInt(id.getText());
+    		
+    		
+    		boolean existe = Dao.ActeurDAO.verifierId(Integer.parseInt(id.getText()));
+      	     if (existe == true) {
+      	    	 Alert alert = new Alert(AlertType.ERROR);
+      	         alert.setTitle("Erreur");
+      	         alert.setHeaderText("Un acteur avec cet ID existe déjà");
+      	         alert.showAndWait();
+      	         return;}
+    		
+    		
+    		
+    		
     	}catch(NumberFormatException e) {
     		cincor.setText("Veuillez entrer que des chiffres");
     		ChampValid=false;

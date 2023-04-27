@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import Dao.ActeurDAO;
@@ -168,7 +169,15 @@ public class ActeurService {
 			return result;
 		}
 	
-	
+	//*************return nom acteur from id acteur **************
+		public static List<String> nomById(int idUser) throws SQLException {
+			List<String> s= new ArrayList<>();
+	    	List<Integer> a=ActeurDAO.findAllfavAc(idUser);
+	    	for (int id:a) {
+	    		s.add(ActeurDAO.trouverNomActeurbyId(id));
+	    	}
+	    	return s;
+		}
 	
 	
 	
