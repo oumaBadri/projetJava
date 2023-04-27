@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -13,89 +12,57 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1000.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.InscriptionAdminController">
    <children>
-      <AnchorPane fx:id="layer2" layoutY="-7.0" prefHeight="798.0" prefWidth="404.0" styleClass="right1" stylesheets="@../../../Style/Style.css">
+      <AnchorPane fx:id="layer2" layoutY="-7.0" prefHeight="798.0" prefWidth="404.0" styleClass="left" stylesheets="@../../../Style/Style.css">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="84.0" layoutY="294.0" prefHeight="40.0" prefWidth="234.0" text="Marhaba" textAlignment="CENTER">
-               <font>
-                  <Font name="Cooper Black" size="36.0" />
-               </font>
-            </Label>
             <Label layoutX="64.0" layoutY="372.0" textFill="#1572a1" />
             <Label layoutX="136.0" layoutY="390.0" textFill="#1572a1" />
-            <ImageView fitHeight="258.0" fitWidth="355.0" layoutX="14.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" styleClass="left">
+            <ImageView fitHeight="549.0" fitWidth="404.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true" styleClass="left">
                <image>
-                  <Image url="@images/336721789_916246296322521_3193178127915645001_n-removebg-preview.png" />
+                  <Image url="@images/logo.png" />
                </image>
             </ImageView>
-         </children>
-      </AnchorPane>
-      <AnchorPane id="right" fx:id="layer1" layoutX="404.0" prefHeight="790.0" prefWidth="535.0" stylesheets="@../../../Style/Style.css">
-         <children>
-            <Label fx:id="label41" alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="41.0" prefHeight="72.0" prefWidth="355.0" text="Creation du Compte" textFill="#f25d1e">
+            <Label layoutX="32.0" layoutY="394.0" prefHeight="22.0" prefWidth="424.0" text="Get the popcorn ready, it's movie time " textFill="WHITE">
                <font>
-                  <Font name="Cooper Black" size="30.0" />
+                  <Font name="Verdana Pro Cond Italic" size="21.0" />
                </font>
             </Label>
-            <TextField fx:id="prenom" layoutX="146.0" layoutY="347.0" prefHeight="40.0" prefWidth="284.0" promptText="Surname" stylesheets="@../../Style/MainStyle.css">
-               <styleClass>
-                  <String fx:value="transparent" />
-                  <String fx:value="side_ankerpane" />
-               </styleClass>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="right" fx:id="layer1" layoutX="404.0" prefHeight="790.0" prefWidth="706.0" style="-fx-background-color: #0b93b1;" stylesheets="@../../../Style/Style.css">
+         <children>
+            <TextField fx:id="prenom" layoutX="144.0" layoutY="229.0" prefHeight="40.0" prefWidth="284.0" promptText="Surname" stylesheets="@../../Style/MainStyle.css">
                <font>
                   <Font size="15.0" />
                </font></TextField>
-            <DatePicker fx:id="date" layoutX="147.0" layoutY="413.0" prefHeight="40.0" prefWidth="284.0" promptText="Date Naissance" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
-            <TextField fx:id="mail_p" layoutX="147.0" layoutY="476.0" prefHeight="40.0" prefWidth="284.0" promptText="email" stylesheets="@../../Style/MainStyle.css">
-               <styleClass>
-                  <String fx:value="side_ankerpane" />
-                  <String fx:value="transparent" />
-               </styleClass>
+            <DatePicker fx:id="date" layoutX="145.0" layoutY="302.0" prefHeight="40.0" prefWidth="284.0" promptText="Date Naissance" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
+            <TextField fx:id="mail_p" layoutX="145.0" layoutY="362.0" prefHeight="40.0" prefWidth="284.0" promptText="email" stylesheets="@../../Style/MainStyle.css">
                <font>
                   <Font size="17.0" />
                </font></TextField>
-            <Button fx:id="signInBTN" layoutX="198.0" layoutY="645.0" mnemonicParsing="false" onAction="#signIN" prefHeight="52.0" prefWidth="185.0" stylesheets="@../../Style/MainStyle.css" text="SIGN IN" textFill="#383e56">
+            <Button fx:id="signInBTN" layoutX="193.0" layoutY="539.0" mnemonicParsing="false" onAction="#signIN" prefHeight="52.0" prefWidth="185.0" style="-fx-background-color: ff1818;" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css" text="SIGN IN" textFill="WHITE">
                <font>
                   <Font name="Cooper Black" size="15.0" />
                </font>
-               <styleClass>
-                  <String fx:value="btnColor" />
-                  <String fx:value="left" />
-                  <String fx:value="background" />
-                  <String fx:value="transparent" />
-                  <String fx:value="side_ankerpane" />
-               </styleClass>
             </Button>
-            <PasswordField fx:id="password" layoutX="144.0" layoutY="555.0" prefHeight="40.0" prefWidth="284.0" promptText="password" stylesheets="@../../Style/MainStyle.css">
-               <styleClass>
-                  <String fx:value="side_ankerpane" />
-                  <String fx:value="transparent" />
-               </styleClass>
+            <PasswordField fx:id="password" layoutX="144.0" layoutY="434.0" prefHeight="40.0" prefWidth="284.0" promptText="password" stylesheets="@../../Style/MainStyle.css">
                <font>
                   <Font size="16.0" />
                </font></PasswordField>
-            <Label fx:id="nomcor" layoutX="149.0" layoutY="313.0" prefHeight="18.0" prefWidth="284.0" text="...." />
+            <Label fx:id="nomcor" layoutX="147.0" layoutY="211.0" prefHeight="18.0" prefWidth="284.0" />
             <ImageView fitHeight="72.0" fitWidth="70.0" layoutX="252.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/lo-removebg-preview.png" />
                </image>
             </ImageView>
-            <TextField fx:id="nom" layoutX="149.0" layoutY="273.0" prefHeight="40.0" prefWidth="284.0" promptText="Name" stylesheets="@../../Style/MainStyle.css">
-               <styleClass>
-                  <String fx:value="transparent" />
-                  <String fx:value="side_ankerpane" />
-               </styleClass>
+            <TextField fx:id="nom" layoutX="147.0" layoutY="171.0" prefHeight="40.0" prefWidth="284.0" promptText="Name" stylesheets="@../../Style/MainStyle.css">
                <font>
                   <Font size="15.0" />
                </font></TextField>
-            <Label fx:id="prenomcor" layoutX="149.0" layoutY="387.0" prefHeight="18.0" prefWidth="284.0" text="...." />
-            <Label fx:id="emailcor" layoutX="149.0" layoutY="516.0" prefHeight="18.0" prefWidth="284.0" text="...." />
-            <Label fx:id="passwordcor" layoutX="144.0" layoutY="595.0" prefHeight="18.0" prefWidth="284.0" text="...." />
-            <Label fx:id="cincor" layoutX="149.0" layoutY="237.0" prefHeight="18.0" prefWidth="284.0" text="...." />
-            <TextField fx:id="id" layoutX="149.0" layoutY="197.0" prefHeight="40.0" prefWidth="284.0" promptText="id" stylesheets="@../../Style/MainStyle.css">
-               <styleClass>
-                  <String fx:value="side_ankerpane" />
-                  <String fx:value="transparent" />
-               </styleClass>
+            <Label fx:id="prenomcor" layoutX="144.0" layoutY="269.0" prefHeight="18.0" prefWidth="284.0" />
+            <Label fx:id="emailcor" layoutX="144.0" layoutY="402.0" prefHeight="18.0" prefWidth="284.0" />
+            <Label fx:id="passwordcor" layoutX="144.0" layoutY="474.0" prefHeight="18.0" prefWidth="284.0" />
+            <Label fx:id="cincor" layoutX="149.0" layoutY="155.0" prefHeight="18.0" prefWidth="284.0" />
+            <TextField fx:id="id" layoutX="144.0" layoutY="115.0" prefHeight="40.0" prefWidth="284.0" promptText="id" stylesheets="@../../Style/MainStyle.css">
                <font>
                   <Font size="16.0" />
                </font></TextField>

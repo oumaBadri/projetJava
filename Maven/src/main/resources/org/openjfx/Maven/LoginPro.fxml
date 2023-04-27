@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -8,60 +7,23 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.LoginProController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1000.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.LoginProController">
    <children>
-      <AnchorPane layoutX="-25.0" prefHeight="790.0" prefWidth="422.0" styleClass="left" stylesheets="@../../Style/MainStyle.css">
+      <AnchorPane layoutX="233.0" layoutY="314.0" prefHeight="323.0" prefWidth="438.0">
          <children>
-            <ImageView fitHeight="257.0" fitWidth="380.0" layoutX="21.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/336721789_916246296322521_3193178127915645001_n-removebg-preview.png" />
-               </image>
-            </ImageView>
-         </children></AnchorPane>
-      <AnchorPane layoutX="394.0" prefHeight="230.0" prefWidth="605.0">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="160.0" layoutX="229.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/lo-removebg-preview.png" />
-               </image>
-            </ImageView>
-         </children></AnchorPane>
-      <AnchorPane layoutX="466.0" layoutY="298.0" prefHeight="323.0" prefWidth="438.0">
-         <children>
-            <TextField fx:id="email" alignment="CENTER" layoutX="82.0" layoutY="20.0" prefHeight="30.0" prefWidth="294.0" promptText="Email" stylesheets="@../../Style/MainStyle.css">
-               <styleClass>
-                  <String fx:value="transparent" />
-                  <String fx:value="border" />
-               </styleClass>
-            </TextField>
-            <TextField fx:id="mdp" alignment="CENTER" layoutX="82.0" layoutY="81.0" prefHeight="30.0" prefWidth="294.0" promptText="Password" stylesheets="@../../Style/MainStyle.css">
-               <styleClass>
-                  <String fx:value="transparent" />
-                  <String fx:value="border" />
-               </styleClass>
-            </TextField>
+            <TextField fx:id="email" alignment="CENTER" layoutX="82.0" layoutY="7.0" prefHeight="37.0" prefWidth="294.0" promptText="Email" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css" />
+            <TextField fx:id="mdp" alignment="CENTER" layoutX="82.0" layoutY="73.0" prefHeight="38.0" prefWidth="294.0" promptText="Password" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css" />
             <Label fx:id="emailcor" layoutX="84.0" layoutY="50.0" prefHeight="18.0" prefWidth="294.0" textFill="#cc2a12" />
             <Label fx:id="mdpcor" layoutX="82.0" layoutY="111.0" prefHeight="18.0" prefWidth="294.0" textFill="#cc2a12" />
-            <ImageView fitHeight="26.0" fitWidth="31.0" layoutX="85.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/login1.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="26.0" fitWidth="32.0" layoutX="83.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/key.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="346.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/eye.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="172.0" layoutY="205.0" text="Forget your password ?" />
-            <Button fx:id="login" layoutX="89.0" layoutY="148.0" mnemonicParsing="false" onAction="#Login" prefHeight="26.0" prefWidth="283.0" style="-fx-background-color: #F69E7B;" styleClass="right1" stylesheets="@../../Style/MainStyle.css" text="Log in" />
-            <Label layoutX="188.0" layoutY="255.0" prefHeight="18.0" prefWidth="94.0" text="Create Account ?" />
-            <Button fx:id="CreateAcount" layoutX="192.0" layoutY="282.0" mnemonicParsing="false" onAction="#switchToInscription" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #EEDAD1;" styleClass="right1" stylesheets="@../../Style/MainStyle.css" text="Sign in" />
+            <Button fx:id="login" layoutX="157.0" layoutY="148.0" mnemonicParsing="false" onAction="#Login" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #FF1818;" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css" text="Log in" />
+            <Label layoutX="155.0" layoutY="217.0" prefHeight="18.0" prefWidth="105.0" text="Haven't Account ?" textFill="WHITE" />
+            <Button fx:id="CreateAcount" layoutX="261.0" layoutY="211.0" mnemonicParsing="false" onAction="#switchToInscription" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #ffff;" styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css" text="Sign in" />
          </children>
       </AnchorPane>
+      <ImageView fitHeight="257.0" fitWidth="380.0" layoutX="266.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
