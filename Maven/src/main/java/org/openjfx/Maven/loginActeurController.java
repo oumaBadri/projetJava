@@ -17,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class loginActeurController {
@@ -35,7 +36,7 @@ public class loginActeurController {
 
 
     @FXML
-    private TextField mdpAc;
+    private PasswordField mdpAc;
 
     @FXML
     private Label mdpcorAc;
