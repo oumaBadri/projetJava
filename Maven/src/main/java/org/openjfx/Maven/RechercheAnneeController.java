@@ -8,7 +8,9 @@ import Dao.UtilisateurDAO;
 import Models.Show;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -32,6 +34,16 @@ public class RechercheAnneeController {
 		
 	    public void search() {
 	    	List<Show> show1 = UtilisateurDAO.RechercherParAnnee(Integer.parseInt(recherche.getText()));
+	    	
+	    	if(show1.isEmpty()) {
+	    		Alert alert = new Alert(AlertType.ERROR);
+     	         alert.setTitle("Erreur");
+     	         alert.setHeaderText("Pas de show Avec cette année");
+     	         alert.showAndWait();
+     	         return;
+	    	}
+	    	else {
+	    	
 	    	try {
 				for(Show show :show1){
 				FXMLLoader fxmlLoader = new FXMLLoader();
@@ -50,7 +62,8 @@ public class RechercheAnneeController {
 				e.printStackTrace();
 			}
 			
-			}
+	    	}
+	    	}
 	
 	
 }

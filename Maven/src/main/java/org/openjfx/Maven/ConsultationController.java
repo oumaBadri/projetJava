@@ -83,7 +83,21 @@ public class ConsultationController {
 	    @FXML
 	    private Label scoreSaison;
         public void search(MouseEvent event) throws SQLException, IOException {
+        	
 	    	List<Show> show1 =ShowDAO.findShowParTitre(rechercheTitre.getText());
+	    	if(show1.isEmpty())
+	    	{
+	    		 Alert alert = new Alert(AlertType.ERROR);
+      	         alert.setTitle("Erreur");
+      	         alert.setHeaderText("Pas de show Avec ce titre");
+      	         alert.showAndWait();
+      	         return;
+	    	}
+	    		
+	    	else {	
+	    		
+	    		
+	    		
 	    	for(Show show:show1) {
 				//	Hbox.clearConstraints(Hbox);
 					Hbox.getChildren().clear();
@@ -124,7 +138,7 @@ public class ConsultationController {
 		
 				}
 				}	
-	   
+        }
 
 	   private  List<Integer> createListe() throws SQLException {
 		    List<Integer> saisons= new ArrayList<>();	

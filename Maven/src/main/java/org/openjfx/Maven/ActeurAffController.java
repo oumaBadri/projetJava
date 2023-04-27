@@ -31,11 +31,20 @@ public class ActeurAffController {
     	String nomComplet = titre.getText();
     	String[] parties = nomComplet.split(" ");
     	String nom = parties[0];
-    	System.out.println(nom);
-    	ActeurFavoris a = new ActeurFavoris(u.a.getId_user(),ActeurDAO.trouverIdActeurS(nom));
-    	System.out.println(a);
+    	String prenom=parties[1];
+    	System.out.println(nom+"++++++++++++");
+    	System.out.println(prenom+"++++++++++++");
+    	ActeurFavoris a= new ActeurFavoris();
+if(ActeurDAO.trouverIdActeurSPrincipal(nom,prenom)==-1) {
+    	 a = new ActeurFavoris(u.a.getId_user(),ActeurDAO.trouverIdActeurSSecondaire(nom,prenom));
+    	System.out.println("id est "+ActeurDAO.trouverIdActeurSSecondaire(nom,prenom)+"************");
+    	System.out.println(a);}
+else {
+	 a = new ActeurFavoris(u.a.getId_user(),ActeurDAO.trouverIdActeurSPrincipal(nom,prenom));
+
+}
     	ActeurFavorisDao.ajouterActeurFavoris(a);
-    	
+
     }
     
     

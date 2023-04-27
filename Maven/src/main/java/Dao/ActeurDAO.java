@@ -332,36 +332,72 @@ public class ActeurDAO {
 			 
 			 
 	//**********************************************************************
-			 public static int trouverIdActeurS(String nomActeur) {
+			 public static int trouverIdActeurSSecondaire(String nomActeur,String prenomActeur) {
 			        PreparedStatement pstmt = null;
 			        ResultSet rs = null;
-			        int idActeur = -1; // valeur par défaut en cas de non correspondance
+			        int idActeur=-1; // valeur par défaut en cas de non correspondance
 			        try {
 			            
 			            String sql = "SELECT a.id_acteur FROM acteur a "
-			                         + "JOIN role_principale rp ON a.id_acteur = rp.id_acteur "
-			                         + "JOIN role_secondaire rs ON a.id_acteur = rs.id_acteur "
-			                         + "WHERE a.nom_ac = ?";
+			                       //  + "JOIN ROLEPRINCIPAL rp ON a.id_acteur = rp.id_acteur "
+			                         + "JOIN ROLESECONDAIRE rs ON a.id_acteur = rs.id_acteur "
+			                         + "WHERE a.nom_ac = ? and a.prenom_ac=?";
 			            pstmt = conn.prepareStatement(sql);
 			            pstmt.setString(1, nomActeur);
+			            pstmt.setString(2, prenomActeur);
 			            
 			            // Exécution de la requête SQL
 			            rs = pstmt.executeQuery();
 			            
 			            // Traitement du résultat de la requête SQL
 			            if (rs.next()) {
-			                idActeur = rs.getInt("id_acteur");
+			                idActeur = rs.getInt(1);
 			            }
 			        } catch (SQLException e) {
 			            e.printStackTrace();
 			        }
-					return idActeur; }
+					return idActeur; 
+					}
 
 		//*************************	 
 			 
-			 public static void ajouterFavoriS(int idUser, String nomActeur) {
+			 public static int trouverIdActeurSPrincipal(String nomActeur,String prenomActeur) {
+			        PreparedStatement pstmt = null;
+			        ResultSet rs = null;
+			        int idActeur=-1; // valeur par défaut en cas de non correspondance
+			        try {
+			            
+			            String sql = "SELECT a.id_acteur FROM acteur a "
+			                        + "JOIN ROLEPRINCIPAL rp ON a.id_acteur = rp.id_acteur "
+			                        // + "JOIN ROLESECONDAIRE rs ON a.id_acteur = rs.id_acteur "
+			                         + "WHERE a.nom_ac = ? and a.prenom_ac=?";
+			            pstmt = conn.prepareStatement(sql);
+			            pstmt.setString(1, nomActeur);
+			            pstmt.setString(2, prenomActeur);
+			            
+			            // Exécution de la requête SQL
+			            rs = pstmt.executeQuery();
+			            
+			            // Traitement du résultat de la requête SQL
+			            if (rs.next()) {
+			                idActeur = rs.getInt(1);
+			            }
+			        } catch (SQLException e) {
+			            e.printStackTrace();
+			        }
+					return idActeur; 
+					}
+			 
+			 
+			 
+			 //***************
+			 
+			 
+			 public static void ajouterFavoriS(int idUser, String nomActeur,String prenomActeur) {
 			        // Trouver l'ID de l'acteur en fonction de son nom
-			        int idActeur = trouverIdActeurS(nomActeur);
+			        int idActeur = trouverIdActeurSPrincipal(nomActeur,prenomActeur);
+			        if (idActeur==-1)
+			        	idActeur=trouverIdActeurSSecondaire(nomActeur,prenomActeur);
 			        
 			        // Si l'acteur n'existe pas, sortir de la fonction
 			        if (idActeur == -1) {
