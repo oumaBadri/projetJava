@@ -51,7 +51,8 @@ public class App extends Application {
     	scene = new Scene(loadFXML("logInTypee"),1000,790);
         stage.setScene(scene);
         stage.show();
-        }
+        }  
+    
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
@@ -65,6 +66,7 @@ public class App extends Application {
 
     public static void main(String[] args) throws SQLException {
 
+<<<<<<< HEAD
     	launch();
     //	System.out.println(ShowDAO.supprimerShow(3));
 /*List<String> s= new ArrayList<>();
@@ -74,6 +76,11 @@ public class App extends Application {
     	}
     	System.out.println(s);*/
   }
+=======
+    	 launch();
+//hello
+    }
+>>>>>>> branch 'master' of https://github.com/oumaBadri/projetJava.git
 
     
 

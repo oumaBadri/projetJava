@@ -10,18 +10,17 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="930.0" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.RechercheActeurController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="930.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Maven.RechercheActeurController">
    <top>
       <AnchorPane prefHeight="98.0" prefWidth="846.0" stylesheets="@../../Style/MainStyle.css" BorderPane.alignment="CENTER">
          <children>
             <Button alignment="TOP_LEFT" layoutX="825.0" layoutY="15.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
-                  <ImageView fitHeight="62.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="70.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/producteur.png" />
+                        <Image url="@images/l1.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -29,20 +28,19 @@
             <Button layoutX="740.0" layoutY="15.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="66.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css" />
             <Button layoutX="14.0" mnemonicParsing="false" onAction="#retour" prefHeight="98.0" prefWidth="140.0" styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="113.0" fitWidth="151.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/336721789_916246296322521_3193178127915645001_n-removebg-preview.png" />
+                        <Image url="@images/logo.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <TextField fx:id="recherche" layoutX="331.0" layoutY="21.0" onAction="#search" prefHeight="40.0" prefWidth="213.0" promptText="Type " styleClass="transparent" stylesheets="@../../Style/MainStyle.css">
+            <TextField fx:id="recherche" layoutX="331.0" layoutY="42.0" onAction="#search" prefHeight="40.0" prefWidth="213.0" promptText="Type " styleClass="side_ankerpane" stylesheets="@../../Style/MainStyle.css">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <Line endX="100.0" layoutX="438.0" layoutY="63.0" startX="-100.0" />
-            <ImageView fitHeight="34.0" fitWidth="48.0" layoutX="507.0" layoutY="24.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="34.0" fitWidth="48.0" layoutX="498.0" layoutY="43.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/recherche-removebg-preview.png" />
                </image>
@@ -59,7 +57,7 @@
          <children>
             <ScrollPane prefHeight="730.0" prefWidth="760.0">
                <content>
-                  <HBox fx:id="Hbox" prefHeight="790.0" prefWidth="1026.0" />
+                  <HBox fx:id="Hbox" prefHeight="790.0" prefWidth="1026.0" styleClass="left" stylesheets="@../../Style/MainStyle.css" />
                </content>
             </ScrollPane>
          </children>
