@@ -215,7 +215,7 @@ public class ShowDAO {
         return Shows;
 	}
 //************************************Suppression Show*************************************
-	public static int supprimerShow(int id_show) {
+	/*public static int supprimerShow(int id_show) {
 		int showId = 0;
 		PreparedStatement pstmt = null;
 	    ResultSet rs = null;
@@ -238,7 +238,35 @@ public class ShowDAO {
             System.out.println(ex.getMessage());
         }
 		return id_show;
+	}*/
+	
+	
+	
+	public static int supprimerShow(int id_show) {
+	    int showId = 0;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+
+	    try {
+	        String sql = "DELETE FROM Show WHERE ID_show=?";
+	        pstmt = conn.prepareStatement(sql);
+	        pstmt.setInt(1, id_show);
+	        pstmt.executeUpdate();
+
+	        int d = getNombreSaisons(id_show);
+	        for (int i = 0; i < d; i++) {
+	            SaisonDao.supprimerSaison(id_show, i);
+	        }
+
+	    } catch (SQLException ex) {
+	        System.out.println(ex.getMessage());
+	    } 
+
+	    return id_show;
 	}
+
+	
+	
 	//***********************************************
 		public static int findIdShow(String titre) {
 			PreparedStatement pstmt = null;

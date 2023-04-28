@@ -65,7 +65,8 @@ public class App extends Application {
 
     public static void main(String[] args) throws SQLException {
 
-    	 launch();
+    	launch();
+    //	System.out.println(ShowDAO.supprimerShow(3));
 /*List<String> s= new ArrayList<>();
     	List<Integer> a=ActeurDAO.findAllfavAc(1);
     	for (int id:a) {

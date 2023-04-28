@@ -268,7 +268,6 @@ public class AjoutShowController implements Initializable{
 			           // cep5.cep=1;
 			           // cep5.isfilm=txt_isAFilm.getText();
 			        	c.s.setIs_a_film(1);
-			        	System.out.println(c.s.getIs_a_film()+"74774774");
 			        	
 			        	
 			        }
