@@ -9,7 +9,9 @@ import Models.Acteur;
 import Models.Show;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -31,6 +33,16 @@ public class RechercheActeurController {
 	    	try {
 	    		
 				List<Acteur> acteurs =UtilisateurDAO.RechercherActeur(recherche.getText());
+				
+				if(acteurs.isEmpty()) {
+		    		Alert alert = new Alert(AlertType.ERROR);
+	     	         alert.setTitle("Erreur");
+	     	         alert.setHeaderText("Pas de show Avec cet acteurs");
+	     	         alert.showAndWait();
+	     	         return;
+		    	}
+		    	else {
+				
 				for(Acteur acteur :acteurs){
 				FXMLLoader fxmlLoader = new FXMLLoader();
 				fxmlLoader.setLocation(getClass().getResource("Acteuraff.fxml"));
@@ -45,10 +57,10 @@ public class RechercheActeurController {
 				Hbox.getChildren().add(image);
 				
 				}
-			}catch(IOException e) {
+			}}catch(IOException e) {
 				e.printStackTrace();
 			}
-			
+	    	
 			}
 	
 	

@@ -19,12 +19,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -77,23 +79,28 @@ public class ClassementController {
 	    public void search() throws SQLException, IOException {
 	    	//List<Show> show1 =ShowDAO.findShowParTitre(rechercheTitre.getText());
 	    	
-	    	//*********classement**********
-	    	List<String> classementlist=new ArrayList<>();
-	    	List<Integer> a= ClassementDao.IdByVue();
-	    	for(Integer i:a) {
-	    		classementlist.add(ShowDAO.ShowTitre(i));
-	    	}
-	    	classementarea.setText(classementlist.toString());
-	    	
-	    	
-	    	
 	    	
 	    	List<Show> show22 = ShowDAO.findShowParTitre(rechercheTitre.getText());
 	    	List<Show> show1 = show22.stream()
 	    	                         .filter(e -> e.getTitre_show().equals(rechercheTitre.getText()))
 	    	                         .collect(Collectors.toList());
-
+	    	if(show1.isEmpty()) {
+	    		Alert alert = new Alert(AlertType.ERROR);
+     	         alert.setTitle("Erreur");
+     	         alert.setHeaderText("Pas de show avec ce titre");
+     	         alert.showAndWait();
+     	         return;
+	    	}
+	    	else {
 	    	for(Show show:show1) {
+	    		
+	    		//*********classement**********
+		    	List<String> classementlist=new ArrayList<>();
+		    	List<Integer> a= ClassementDao.IdByVue();
+		    	for(Integer i:a) {
+		    		classementlist.add(ShowDAO.ShowTitre(i));
+		    	}
+		    	classementarea.setText(classementlist.toString());
 				
 				//*************table note
 					tablenote.getItems().clear();
@@ -171,7 +178,7 @@ public class ClassementController {
 				});
 	    	}
 
-
+	    	}
 	    	}
 	    	
 	    
