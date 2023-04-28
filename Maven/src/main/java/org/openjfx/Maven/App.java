@@ -67,12 +67,7 @@ public class App extends Application {
     public static void main(String[] args) throws SQLException {
 
     	 launch();
-/*List<String> s= new ArrayList<>();
-    	List<Integer> a=ActeurDAO.findAllfavAc(1);
-    	for (int id:a) {
-    		s.add(ActeurDAO.trouverNomActeurbyId(id));
-    	}
-    	System.out.println(s);*/
+
   }
 
     
